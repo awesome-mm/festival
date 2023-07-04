@@ -308,13 +308,15 @@
                                     <button type="button" class="btn phone_btn" onclick="email_ok2()">인증확인</button>
                                 </div>
                             </div>
+
+<!--
                             <div class="hp_box"  id="email33" style="display:none">
                                 <div class="hp input_st">
                                     휴대폰 <b>인증완료</b>: <span id="ee"></span>
                                     <button type="button" class="btn phone_btn"  onclick="email_ok3()">다시인증하기</button>
                                 </div>
                             </div>
-
+-->
 
 
                             <div class="input_name_box">
@@ -417,17 +419,6 @@
             document.kdb.submit()
         }
     }
-    function email1(){
-        //alert("11")
-        document.getElementById("email22").style.display = "block"
-    }
-    function email2(){
-        document.getElementById("email11").style.display = "none"
-        document.getElementById("email22").style.display = "none"
-        document.getElementById("email33").style.display = "block"
-        document.getElementById("ee").innerHTML = document.kdb.c_email.value 
-        document.kdb.email_ok.value = "1"
-    }
     function email_ok3(){
         if(confirm("인증을 다시할 경우 기존 인증 상태는 지워집니다.\n다시 인증 하시겠습니까?")){
             document.getElementById("email11").style.display = "block"
@@ -446,6 +437,18 @@
             document.kdb.c_email_licente.value = ""
             document.kdb.email_ok.value = "0"
     }
+    function email1(){
+        //alert("11")
+        document.getElementById("email22").style.display = "block"
+    }
+    function email2(){
+        document.getElementById("email11").style.display = "none"
+        document.getElementById("email22").style.display = "none"
+        document.getElementById("email33").style.display = "block"
+        document.getElementById("ee").innerHTML = document.kdb.c_email.value 
+        document.kdb.email_ok.value = "1"
+    }
+
 </script>
 <!-- #include virtual="/cms/sub_bottom.asp" -->
 <%else
