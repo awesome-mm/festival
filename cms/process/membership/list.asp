@@ -10,14 +10,9 @@
                 <div class="mem_wrapper2">
                         <!-- <div class="inner"> -->
 
-                        <div class="title3">
-                            <div>
-                                <div class="diagonal"></div>
-                            </div>
-                            <div>
-                                <h2 class="co666">회원가입 약관</h2>
-                            </div>
-                        </div>
+                    <div class="login_title">
+                        <h2>회원가입 약관</h2>
+                    </div>
                         <div class="terms_box">
                             <div class="use_terms">
                                 <p>서비스 이용약관<span>(필수사항)</span></p>
@@ -260,7 +255,9 @@
                         </div>
 
                         <div class="member_box">
-                            <h2>회원가입 정보</h2>
+                            <div class="login_title">
+                                <h2>회원가입정보</h2>
+                            </div>
                             <div class="id_info">
                                 <div class="input_st" style="float:none;text-align:left">
                                     <label for="c_id">아이디</label>
@@ -406,6 +403,7 @@
             document.kdb.c_email.focus()
         }else{
             document.getElementById("email11").style.display = "none"
+            document.getElementById("email22").style.display = "block"
             document.getElementById("rr").innerHTML = document.kdb.c_email.value 
             document.kdb.method = "post"
             document.kdb.target = "exec"
@@ -453,6 +451,7 @@
         document.getElementById("ee").innerHTML = document.kdb.c_email.value 
         document.kdb.email_ok.value = "1"
     }
+
 
     function validEmailCheck(obj){
         var pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;

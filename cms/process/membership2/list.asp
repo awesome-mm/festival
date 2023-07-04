@@ -61,6 +61,7 @@
             document.kdb.c_email.focus()
         }else{
             document.getElementById("email11").style.display = "none"
+            document.getElementById("email22").style.display = "block"
             document.getElementById("rr").innerHTML = document.kdb.c_email.value 
             document.kdb.method = "post"
             document.kdb.target = "exec"
@@ -94,7 +95,6 @@
         return (email_obj.value.match(pattern)!=null)
     }
 </script>
-  
  	<form name="kdb">
 	  <section>
             <div class="mem_wrapper2">
@@ -130,17 +130,18 @@
                             </div>
                         </div>
 
-                        <div class="use_term mgt53">
-                            <!--<img src="/images/v.png"-->
-                            
+                       <!--  
+                       <div class="use_term mgt53">
+                           <img src="/images/v.png"
                         </div>
-                        
+                        -->
 
+                            <input name="email_ok" value="0" type="hidden">
 
                             <div class="hp_box"  id="email11">
                                 <div class="hp input_st">
                                     <label for="c_email">휴대전화</label>
-                                    <input type="number" id="c_email" name="c_email" placeholder="휴대폰 번호를 '-'없이 입력하세요." onfocus="" value="<%=tbl_board2("c_email")%>"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+                                    <input type="number" id="c_email" name="c_email" value="<%=tbl_board2("c_email")%>" dsiabled>
                                     <button type="button" class="btn phone_btn" onclick="email_ok1()">인증번호 발급하기</button>
                                 </div>
                             </div>
@@ -180,14 +181,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mgt20 join_btn_box">
+                        <a href="/" class="btn join_btn join_btn_gray" >취소</a>
+                        <button type="button" class="btn join_btn" onclick="go()">정보변경</button>
+                    </div>
                 </div>
-
             </section>
 
-            <div class="mgt20 join_btn_box">
-                <a href="/" class="btn join_btn join_btn_gray" >취소</a>
-                <button type="button" class="btn join_btn" onclick="go()">정보변경</button>
-            </div>
+
 
 	</form>            
 <iframe name="exec" id="exec" src="" width=0 height=0></iframe>            

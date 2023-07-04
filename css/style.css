@@ -3021,6 +3021,9 @@ footer .footer__wrap .orz_img img {
     height: 12px;
     border-radius: 6px;
 }
+.mem_wrapper2 .login_title{
+    border-bottom: none;
+}
 
 .login_title{
     padding-top: 80px;
@@ -3199,12 +3202,7 @@ footer .footer__wrap .orz_img img {
 .member_box{
     margin-top: 100px;
 }
-.member_box h2{
-    text-align: center;
-    font-size: 26px;
-    font-weight: 400;
-    margin-bottom: 20px ;
-}
+
 .member_box label{
     display: block;
     font-weight: 500;
