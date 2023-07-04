@@ -326,7 +326,7 @@
                                 </div>
                                 <div class="input_emal input_st" style="float:none;text-align:left">
                                     <label for="c_phone2">이메일</label>
-                                    <input type="email" id="c_phone2" name="c_phone2" placeholder="이메일 주소를 입력하세요." onfocus="" >
+                                    <input type="email" id="c_phone2" name="c_phone2" placeholder="이메일 주소를 입력하세요." onfocus="" oninput="">
                                 </div>
                             </div>
 
@@ -340,7 +340,7 @@
 
                             <div class="mgt20 join_btn_box">
                                 <a href="/" class="btn join_btn join_btn_gray" >취소</a>
-                                <button type="button" class="btn join_btn" onclick="go()">회원가입</button>
+                                <button type="button" class="btn join_btn" onclick="go(); ">회원가입</button>
                             </div>
                         </div>
                 </div>
@@ -388,7 +388,12 @@
 		}else if(document.kdb.c_phone2.value == ""){
 			alert("이메일 주소를 입력해 주세요.")
 			document.kdb.c_phone2.focus()
-		}else{
+        }else if(validEmailCheck(document.kdb.c_phone2) === false){
+            alert('올바른 이메일 주소를 입력해주세요.')
+            obj.value='';
+            obj.focus();
+            return false;
+        }else{
 			document.kdb.method = "post"
 			document.kdb.target = "exec"
 			document.kdb.action = "insert_member_ok.asp"
@@ -447,6 +452,11 @@
         document.getElementById("email33").style.display = "block"
         document.getElementById("ee").innerHTML = document.kdb.c_email.value 
         document.kdb.email_ok.value = "1"
+    }
+
+    function validEmailCheck(obj){
+        var pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        return (obj.value.match(pattern)!=null)
     }
 
 </script>

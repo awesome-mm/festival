@@ -43,13 +43,31 @@
 		}else if(document.kdb.c_phone2.value == ""){
 			alert("이메일 주소를 입력해 주세요.")
 			document.kdb.c_phone2.focus()
-		}else{
+        }else if(validEmailCheck(document.kdb.c_phone2) === false){
+            alert('올바른 이메일 주소를 입력해주세요.')
+            obj.value='';
+            obj.focus();
+            return false;
+        }else{
 			document.kdb.method = "post"
 			document.kdb.target = "exec"
 			document.kdb.action = "insert_member_ok.asp"
 			 document.kdb.submit()
 		}
-	}
+	}    
+    function email_ok1(){
+        if(document.kdb.c_email.value == ""){
+            alert("휴대폰 번호를 입력해 주세요.")
+            document.kdb.c_email.focus()
+        }else{
+            document.getElementById("email11").style.display = "none"
+            document.getElementById("rr").innerHTML = document.kdb.c_email.value 
+            document.kdb.method = "post"
+            document.kdb.target = "exec"
+            document.kdb.action = "email_ok1.asp"
+            document.kdb.submit()
+        }
+    }
     function email_ok2(){
         if(document.kdb.c_email_licente.value == ""){
             alert("인증번호를 입력해 주세요.")
@@ -70,6 +88,10 @@
             document.kdb.c_email_licente.value = ""
             document.kdb.email_ok.value = "0"
         }
+    }
+    function validEmailCheck(email_obj){
+        var pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        return (email_obj.value.match(pattern)!=null)
     }
 </script>
   
@@ -112,29 +134,31 @@
                             <!--<img src="/images/v.png"-->
                             
                         </div>
+                        
 
 
-                        <div class="hp_box"  id="email11" ">
-                            <div class="hp input_st">
-                                <label for="c_email">휴대전화</label>
-                                <input type="text" id="c_email" name="c_email" value="" disabled>
-                            </div>
-                        </div>
-
-                        <div class="hp_box"  id="email22" style="">
-                            <div class="hp hp_verify">
-                                <p>휴대전화</p>
-                                <div class="phone_number_box">
-                                    <b id="rr"><%=tbl_board2("c_email")%></b>
+                            <div class="hp_box"  id="email11">
+                                <div class="hp input_st">
+                                    <label for="c_email">휴대전화</label>
+                                    <input type="number" id="c_email" name="c_email" placeholder="휴대폰 번호를 '-'없이 입력하세요." onfocus="" value="<%=tbl_board2("c_email")%>"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+                                    <button type="button" class="btn phone_btn" onclick="email_ok1()">인증번호 발급하기</button>
                                 </div>
-                                <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
                             </div>
-                            <div class="hp input_st" >
-                                <label for="c_email_licente">인증번호</label>
-                                <input type="number" id="c_email_licente" name="c_email_licente" placeholder="인증번호를 입력하세요." onfocus=""  >
-                                <button type="button" class="btn phone_btn" onclick="email_ok2()">인증확인</button>
+                            
+                            <div class="hp_box"  id="email22" style="display:none">
+                                <div class="hp hp_verify">
+                                    <p>휴대전화</p>
+                                    <div class="phone_number_box">
+                                        <b id="rr"></b>
+                                    </div>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
+                                </div>
+                                <div class="hp input_st" >
+                                    <label for="c_email_licente">인증번호</label>
+                                    <input type="number" id="c_email_licente" name="c_email_licente" placeholder="인증번호를 입력하세요." onfocus=""  >
+                                    <button type="button" class="btn phone_btn" onclick="email_ok2()">인증확인</button>
+                                </div>
                             </div>
-                        </div>
 
 
                         <div class="input_name_box">
