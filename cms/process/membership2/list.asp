@@ -102,7 +102,6 @@
                         <h2>회원정보수정</h2>
                     </div>
                     <div class="member_box">
-
                         <div class="id_info">
                             <div class="input_st" style="float:none;text-align:left">
                                  <label for="c_id">아이디</label>
@@ -110,7 +109,7 @@
                             </div>
                         </div>
 
-
+  
                         <div class="id_info">
                             <div class="input_st" style="float:none;text-align:left">
                                 <label for="c_pass">비밀번호</label>

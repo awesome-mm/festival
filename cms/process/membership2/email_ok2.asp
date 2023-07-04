@@ -9,8 +9,8 @@
      
   </head>
   <body>
-  <%
-  	 
+
+<%
 	c_email = r_call("c_email")
 	c_email_licente = r_call("c_email_licente")
 	 
@@ -19,8 +19,8 @@
 	tbl_board.Open sql, dbCon, 1
 'response.write sql
 	If tbl_board.EOF Then
- 
 %>
+
  	<script>
 		alert("인증번호가 맞지 않습니다.\n인증번호를 확인해 주세요")
 	</script>
