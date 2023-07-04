@@ -12,6 +12,8 @@
   <a id="kakao-login-btn"></a>
   <div id="result"></div>
  
+
+ 
 <script type="text/javascript">
 Kakao.init('eb04491fab3a13ae1e74344e1441958c');
 console.log(Kakao.isInitialized());
