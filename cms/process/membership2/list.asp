@@ -113,14 +113,14 @@
                             
                         </div>
 
-<!--
-                        <div class="hp_box"  id="email11">
+
+                        <div class="hp_box"  id="email11" ">
                             <div class="hp input_st">
                                 <label for="c_email">휴대전화</label>
                                 <input type="text" id="c_email" name="c_email" value="" disabled>
                             </div>
                         </div>
--->
+
                         <div class="hp_box"  id="email22" style="">
                             <div class="hp hp_verify">
                                 <p>휴대전화</p>
