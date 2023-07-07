@@ -7,7 +7,8 @@
   </head>
   <body>
   <%
-  	 
+	c_email = r_call("c_email")
+
 	c_pass = r_call("c_pass")
 	c_name = r_call("c_name")
 	 
@@ -19,7 +20,7 @@
 			if c_pass <> "" then
 				strSQL= strSQL & " ,c_pass=UPPER(SUBSTRING(master.dbo.fn_varbintohexstr(HashBytes('md5' , HashBytes('sha1' , '"& c_pass &"'))), 3 , 32)) "
 			end if
-			strSQL= strSQL & "  ,c_phone2='"& c_phone2&"',c_recommend='"& c_recommend &"' ,c_pass2 = 0 where c_no = " & session("session_no")
+			strSQL= strSQL & " ,c_email='"& c_email &"'   ,c_phone2='"& c_phone2&"',c_recommend='"& c_recommend &"' ,c_pass2 = 0 where c_no = " & session("session_no")
 			'response.write strSQL
 			dbCon.Execute strSQL
 			 

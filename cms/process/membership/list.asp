@@ -306,14 +306,16 @@
                                 </div>
                             </div>
 
-<!--
                             <div class="hp_box"  id="email33" style="display:none">
-                                <div class="hp input_st">
-                                    휴대폰 <b>인증완료</b>: <span id="ee"></span>
-                                    <button type="button" class="btn phone_btn"  onclick="email_ok3()">다시인증하기</button>
+                                <div class="hp hp_verify">
+                                    <p>휴대전화</p>
+                                    <div class="phone_number_box">
+                                        <b id="ee"></b>
+                                    </div>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
                                 </div>
                             </div>
--->
+
 
 
                             <div class="input_name_box">
@@ -397,11 +399,12 @@
 			 document.kdb.submit()
 		}
 	}
+    
     function email_ok1(){
         if(document.kdb.c_email.value == ""){
             alert("휴대폰 번호를 입력해 주세요.")
             document.kdb.c_email.focus()
-        }else{
+        }else if(confirm("휴대폰번호로 인증번호가 발송됩니다.")){
             document.getElementById("email11").style.display = "none"
             document.getElementById("email22").style.display = "block"
             document.getElementById("rr").innerHTML = document.kdb.c_email.value 

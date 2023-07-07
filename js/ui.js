@@ -128,7 +128,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#heart").click(function () {
     if ($("#heart").hasClass("liked")) {
-      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
       $("#heart").removeClass("liked");
     } else {
       $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
@@ -199,19 +199,19 @@ $(document).on("click", ".fa-caret-square-o", function () {
 
 $('.top_move').hide();
 
- $(window).on('scroll',function(e){ //스크롤 값의 변화가 생기면
+ $(window).on('scroll',function(e){ 
     e.preventDefault();    
-      let pcscroll = $(window).scrollTop(); //스크롤의 거리
+      let pcscroll = $(window).scrollTop(); 
       if (pcscroll > 100) {
-        $(".top_move").fadeIn("slow"); //top버튼 보이게
+        $(".top_move").fadeIn("slow");
       } else {
-        $(".top_move").fadeOut("fast"); //top버튼 안보이게
+        $(".top_move").fadeOut("fast"); 
       }
  });
 
 $('.top_move').click(function(e){
      e.preventDefault();
-     $("html,body").stop().animate({"scrollTop":0},1000); //스크롤을 움직이는 코드
+     $("html,body").stop().animate({"scrollTop":0},1000); 
   });
 
 
