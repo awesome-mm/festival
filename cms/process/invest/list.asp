@@ -25,7 +25,7 @@ s_text = r_call("s_text")
                     <div class="tab_menu" >
                         <ul>
 
-                        <!--
+                        
                             <li style="width:11%;" <%if c_festival_tpye = "" then%>class="on"<%else%>class="off"<%end if%>>
                                <a href="list.asp?<%=t_para%>"> 전체</a>
                             </li>
@@ -61,8 +61,8 @@ s_text = r_call("s_text")
                             <li style="width:11%;" <%if c_festival_tpye = "8" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="list.asp?<%=t_para%>&c_festival_type=8">교육</a>
                             </li>
-                            -->
-
+                            
+<!--
                             <li <%if c_festival_tpye = "" then%>class="on"<%else%>class="off"<%end if%>>
                                <a href="list.asp?<%=t_para%>"> 전체</a>
                             </li>
@@ -86,7 +86,7 @@ s_text = r_call("s_text")
                             <li <%if c_festival_tpye = "5" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="list.asp?<%=t_para%>&c_festival_type=5">교육</a>
                             </li>
-
+-->
                         </ul>
 
                     </div>

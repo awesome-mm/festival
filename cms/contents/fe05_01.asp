@@ -1,13 +1,8 @@
- 	 <div class="mem_wrapper">
+ 	 <div class="terms_wrapper">
                     <!-- <div class="inner"> -->
-			 <div class="title3">
-                            <div>
-                                <div class="diagonal"></div>
-                            </div>
-                            <div>
-                                <span class="co666">개인정보처리방침</span>
-                            </div>
-                        </div>
+                    <div class="sub_title">
+                        <h2>개인정보 처리방침</h2>
+                    </div>
                      
 
                     <div class="pv_term">

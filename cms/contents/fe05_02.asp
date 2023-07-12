@@ -1,14 +1,9 @@
- 	   <div class="mem_wrapper">
+ 	   <div class="terms_wrapper">
                     <!-- <div class="inner"> -->
 
-                     <div class="title3">
-                            <div>
-                                <div class="diagonal"></div>
-                            </div>
-                            <div>
-                                <span class="co666">이용약관</span>
-                            </div>
-                        </div>
+                    <div class="sub_title">
+                        <h2>이용약관</h2>
+                    </div>
 
                     <div class="pv_term">
                         <a class="pv1">
