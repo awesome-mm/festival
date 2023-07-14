@@ -84,9 +84,9 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 </script> 
 <form name="kdb">
 	  <div >
-								<div class="sub_title">
-										<h2>투자하기</h2>
-								</div>
+							<div class="sub_title">
+									<h2>투자하기</h2>
+							</div>
                 <!--
 								<section class="sub_title2" >
                     <div class="title_wrap"  >
@@ -101,7 +101,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 								-->
 
 
-                <section class="sub_intro">
+							<section class="sub_intro">
                     <div class="ytp_wrap2">
                     		<%if rs("c_main_type") = 0 then%>
                             		<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">
@@ -164,8 +164,6 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 																	<%end if%>
 																<%end if%>
 														</div>
-
-                            
                         </div>
 
 											<!--
@@ -198,7 +196,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 															</div>
 															
 															<div class="share_bt" >
-																		 <span >
+																<span >
 																	<a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
 																	 <!-- <img src="/images/sns1.gif" title="facebook" class="sharebtn_custom" > -->
 																		<img src="/images/sns1_2.png" title="facebook" class="sharebtn_custom" >
@@ -222,26 +220,15 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 																</span>
 															</div>
 														</div>
-
 													</div>
-
-
-
-                        </div>
-                    </div>
-										
-                    <!-- </div> -->
-
-                    <!-- </div> -->
-
                 </section>
 
 <!--
 				<div class="login_bn">
-                   <div class="login_bn_txt">
-						<font color=red>모의 투자 기간이 아닙니다.</font>
-                   </div>
-                </div>
+						<div class="login_bn_txt">
+							<span style="color:red;">모의 투자 기간이 아닙니다.</span>
+						</div>
+				</div>
 -->
 
 
@@ -288,13 +275,11 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 </script>
 
 <%
-
 	'check_ok 정의 1=방명록 작성, 2=팀원은 모의 투자에 참여할 수 없습니다.., 3=투자하기, 4=투자금액을 소진하여 , 5=회원님은 이 팀에 원을 이미 투자하였습니다.., 6=회원님은 참가팀의 팀장이기 떄문에 평가 대상 팀만 모의투자가 가능합니다.
-
 	
 	'check_ok 3일 경우 테스트 하기
 
-	check_ok = 5
+	check_ok = 3
 
 	p1_money = 10000
 
@@ -304,9 +289,9 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 	' response.write check_ok
 
 
-	response.write session("session_jang")
+	' response.write session("session_jang")
 
-	response.write session("session_team_type")
+	' response.write session("session_team_type")
 
 
 
@@ -314,14 +299,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 %>
 
 
-                <section>
-
-
-
-
-
-
-
+				<section>
 					<%if isnull(session("session_no")) or  session("session_no") = "" then
 						url = replace(replace("/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=" & c_team_no,"&","creesy"),"?","resoft")
 					%>
@@ -381,49 +359,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 									</div>
 								</div>
 						<%end if%>
-
-
-
-
-
 						<%if check_ok = 3 then%>
-
-							<div class="my_invest">
-
-									<div class="my_invest_wrap">
-			
-										<div class="my_invest2">
-											<div class="my_invest1">
-												<img src="/images/icon_my_invest1.png">
-											</div>
-											<div class="mi_1">
-												<span>나의 <%=money_info%> 투자 가능 금액</span><br>
-												<span class="sp1"><%=formatnumber(p_money,0)%></span>
-												<span class="sp2">원</span>
-											</div>
-										</div>
-			
-										<div class="my_invest4">
-											<div class="my_invest3">
-												<img src="/images/icon_my_invest2.png">
-											</div>
-											<div>
-												<span><%=rs("c_team_name")%> 팀에 투자 가능 금액</span><br>
-												<span class="sp1"><%=formatnumber(p2_money,0)%></span>
-												<span class="sp2">원</span>
-											</div>
-			
-										</div>
-			
-									</div>
-
-								<input name="c_team_no" value="<%=c_team_no%>" type="hidden">
-								<input name="c_festival_no" value="<%=rs("c_festival_no")%>" type="hidden">
-								<input name="c_year" value="2022" type="hidden">
-								<input name="c_team_type" value="<%=rs("c_festival_type")%>" type="hidden">
-
-
-
 						<script>
 							function fund1(){
 								if(document.kdb.c_exp.value == ""){
@@ -440,45 +376,63 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 									}
 								}
 							}
-
-
-						
 						</script>
-									<div class="invest_selector">
-										<span class="sp0">투자희망금액</span>
 
-										<select class="is_select" name="c_fund">
-											<%for i = p1_money to p2_money step p1_money%>
+							<div>
+								<input name="c_team_no" value="<%=c_team_no%>" type="hidden">
+								<input name="c_festival_no" value="<%=rs("c_festival_no")%>" type="hidden">
+								<input name="c_year" value="2022" type="hidden">
+								<input name="c_team_type" value="<%=rs("c_festival_type")%>" type="hidden">
+							</div>
 
-												<option value="<%=i%>" <%if i = p1_money then%>selected <%end if%>>
-													<%=formatnumber(i,0)%>원
-												</option>
-
-											<%next%>
-
-										</select>
-
-									</div>
-			
-			
-									<div class="invest_go">
-										<div class="cheering">
-											<span>응원하기</span>
-			
+						<div class="invest_area">
+							<p style="text-align : center;"><%=rs("c_team_name")%> </p>
+								<div class="my_invest">
+										<div class="my_invest_wrap">
+											<div class="my_invest2">
+												<div class="my_invest1">
+													<img src="/images/icon_my_invest1.png">
+												</div>
+												<div class="mi_1">
+													<span>나의 <%=money_info%> 투자 가능 금액</span><br>
+													<span class="sp1"><%=formatnumber(p_money,0)%></span>
+													<span class="sp2">원</span>
+												</div>
+											</div>
+											<div class="my_invest4">
+												<div class="my_invest3">
+													<img src="/images/icon_my_invest2.png">
+												</div>
+												<div class="team_investable">
+													<span>팀에 투자 가능 금액</span><br>
+													<span class="sp1"><%=formatnumber(p2_money,0)%></span>
+													<span class="sp2">원</span>
+												</div>
+											</div>
 										</div>
-										<input hidden="hidden" />
-										<input type="text" name="c_exp" >
-										<input href="#none" type="button" value="투자 하기" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>fund1()<%else%>alert('투자가능 기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>" >
-										<!--<a href="#none" onclick="fund1()">.</a>-->
+										<div class="fund_formbox">
+											<div class="invest_selector">
+												<label for="c_fund" class="sp0">투자 희망금액</label>
+												<select id="c_fund" class="is_select" name="c_fund">
+													<%for i = p1_money to p2_money step p1_money%>
+														<option value="<%=i%>" <%if i = p1_money then%>selected <%end if%>>
+															<%=formatnumber(i,0)%>원
+														</option>
+													<%next%>
+												</select>
+											</div>
+					
+											<div class="invest_go">
+												<label class="cheering" for="c_exp">응원하기</label>
+												<textarea name="c_exp" id="c_exp" cols="30" rows="10" placeholder="응원글을 작성해주세요"></textarea>
+												<input href="#none" type="button" value="투자 하기" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>fund1()<%else%>alert('투자가능 기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>" >
+												<!--<a href="#none" onclick="fund1()">.</a>-->
+											</div>
+										</div>
 									</div>
-			
 								</div>
-
 								<iframe name="exec" id="exec" src="" width="600px" height="600px" style="display:none"></iframe>
-
 						<%end if%>
-
-
 
 						<%if check_ok = 4 then%>
 							<div class="login_bn">
@@ -535,12 +489,19 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 			
 										회원님의 모의 투자 가능한 그룹은 "<span style="color:red"> <%=gog_text%> </span>" 입니다
 									</div>
+									<!--
 									<div class="login_box">
 										<div class="login_bt">
 											<a href="/cms/process/invest/list.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903" >
 											   팀 목록 가기
 											</a>
 										</div>
+									</div>
+									-->
+									<div class="more_sch_box" style="">
+											<div class="more_sch_txt">
+													<a href="/cms/process/invest/list.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903" title="팀 목록 가기">팀 목록 가기</a>
+											</div>
 									</div>
 							 </div>
 
@@ -575,7 +536,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 
                         <div id="con1" class="conBox1 on">
                           
-                            <div   style="text-align:left;width:100%;line-height:130%;padding-top:50px;padding-bottom:50px;">
+                            <div style="text-align:left;width:100%;line-height:130%;padding-top:50px;padding-bottom:50px;">
 
                             	 <div style="text-align:center;">
 
@@ -583,11 +544,11 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 
 								<%If InStr(sUsrAgent, "ANDROID") > 0 Or InStr(sUsrAgent, "IPAD") Or InStr(sUsrAgent, "IPHONE") Then%>
 
-									<div style="text-align:left;width:90%;max-width:90%;height:auto;background:#ffffff">
+									<div style="text-align:left;width:90%;max-width:90%;height:auto;background:#ffffff; margin: 0 auto;">
 
 								<%Else%>
 
-									<div style="text-align:left;width:90%;max-width:1100px;line-height:130%;padding:30px;background:#ffffff">
+									<div style="text-align:left;width:90%;max-width:1100px;line-height:130%;padding:30px;background:#ffffff; margin: 0 auto;">
 
 								<%end if%>
 
@@ -652,13 +613,11 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 을 투자하였습니다.
 -->
 								
-								현재
-								<span class="con2_no">
+																현재
+																<span class="con2_no">
                                     <%=formatnumber(fund_number,0)%>
                                     <span class="con2_act">명이</span>
                                 </span>
-                                
-                               
                                 투자하였습니다.
 
 
@@ -745,9 +704,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 상호평가의견이
                                 <span class="con2_no">
                                    <%=formatnumber(fund_number,0)%>
-                                    <span class="con2_act">개</span>
                                 </span>
-                                가 있습니다.
+                                개가 있습니다.
                             </div>
                             <div class="con2_reply">
                                	 
@@ -814,11 +772,11 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <table class="repl">
                                     <tbody>
 
-                                        <tr class="reply_row">
-                                            <td class="reply_icon" rowspan="2">
-                                                <img src="/images/reply_icon.png">
-                                            </td>
-                                            <td class="txt_al">
+                                        <tr class="reply_row txt_username">
+																						<td class="reply_icon" rowspan="2">
+																								<img src="/images/profile.png">
+																						</td>
+                                            <td class="txt_al ">
                                                 <span class="reply_name">최**</span>
                                                 <span class="reply_date2">2021-08-01
                                                 </span>
@@ -829,7 +787,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                          <!--
                                         </tr>
                                         <tr>
-                                            <td class="txt_al">
+                                            <td class="txt_al txt_review">
                                                 열심히 해서 좋은 결과 가져오길 바랍니다.
                                             </td>
                                         </tr>
@@ -894,7 +852,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 	                                               <!-- <img src="/images/reply_icon_pro.png">-->
 																									<img src="/images/profile.png">
 	                                            </td>
-	                                            <td class="txt_al">
+	                                            <td class="txt_al txt_username">
 	                                                <span class="reply_id">
 	                                                	<%
 	                                                	'tr = left(rs_d("c_name"),2)
@@ -914,7 +872,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 	                                            </td>
 	                                        </tr>
 	                                        <tr>
-	                                            <td class="txt_al">
+	                                            <td class="txt_al txt_review">
 	                                                <%=rs_d("c_exp")%>
 	                                            </td>
 	                                        </tr>
@@ -940,10 +898,10 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                     <tbody>
 
                                         <tr class="reply_row">
-                                            <td class="reply_icon" rowspan="2">
-                                                <img src="/images/reply_icon.png">
-                                            </td>
-                                            <td class="txt_al">
+	                                            <td class="reply_icon" rowspan="2">
+																									<img src="/images/profile.png">
+	                                            </td>
+                                            <td class="txt_al txt_username">
                                                 <span class="reply_name">최**</span>
                                                 <span class="reply_date2">2021-08-01
                                                 </span>
@@ -954,7 +912,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                         <!--
                                         </tr>
                                         <tr>
-                                            <td class="txt_al">
+                                            <td class="txt_al txt_review">
                                                 감사합니다. 실전창업6팀도 열심히 해서 좋은 결과 가져오길 바랍니다.
                                             </td>
                                         </tr>
@@ -966,18 +924,24 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                         </div>
 
 
-
+			<!--
 				<div class="btn_box mgt70">
 					<div class="btn_box_txt">
 						<a href="list.asp?<%=t_para%>&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">
 							팀 목록 가기
 						</a>
 					</div>
+			 </div>
+			-->
 				
+				</div>
+				<div class="more_sch_box" style="">
+						<div class="more_sch_txt">
+								<a href="list.asp?<%=t_para%>&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>" title="팀 목록 가기">팀 목록 가기</a>
+						</div>
 				</div>
 
 
-			</div>
 
                 </section>
 

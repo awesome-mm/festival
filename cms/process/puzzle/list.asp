@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
 	s_date = "2022-08-16 00:00"
-	e_date = "2022-08-25 23:59"
+	e_date = "2023-08-25 23:59"
 
 	now_p=r_call("now_p")
 	if now_p = "" then
@@ -61,7 +61,7 @@
 	'Response.write "세션장은:" & session("session_jang")
 %>
 
-		<div class="sub_title">
+		<div class="sub_title guest_book_title">
 				<h2>퍼즐 방명록</h2>
 		</div>
 
@@ -290,32 +290,32 @@
 						first_no = rs("c_no")
 					end if
 				%>
-							<div class="news_ticker_content" style=""> 
-										<div  style="float:left;" >
-											<font color="#FB914B" size="1">●</font>&nbsp;
-												<font color="#fff">
-													<%=replace(replace(rs("c_content"),"'",""""),chr(13)& chr(10)," ")%>
-												</font>
-												<%
-											c_member_id = left(rs("c_member_id"),3)
-						t_s_no = len(rs("c_member_id")) - 3
-						for i = 1 to t_s_no
-							c_member_id = c_member_id & "*"
-						next
-						%>	
-						<nobr>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						<font color="#FF9017"> / </font>
-												<font color="#898989">
-													<%=c_member_id%>
-												</font>
-												<font color="#FF9017"> / </font>
-												<font color="#898989">
-													<%=left(rs("c_date"),10)%>
-												</font>
-							</nobr>
+									<div class="comment_area" style=" color: #fff;">
+										<div class="user_profile">
+											<img src="./images/profile_2.png" alt="">
 										</div>
-							</div>  
+												<%
+c_member_id = rs("c_member_id")
+t_s_no = len(c_member_id)
+c_member_id = left(c_member_id, t_s_no - 3)
+for i = 1 to 3
+  c_member_id = c_member_id & "*"
+next
+						%>	
+											<dl class="book_comment">
+												<dt>
+													<%=c_member_id%> 
+													<span class="formDate" data-date="<%=left(rs("c_date"),10)%>">
+													<%=left(rs("c_date"),10)%>
+													</span>
+												</dt>
+												<dd>
+													<p>
+														<%=replace(replace(rs("c_content"),"'",""""),chr(13)& chr(10)," ")%>
+													</p>
+												</dd>
+											</dl>
+										</div>
 	                	<%
 	                		 rs.MoveNext
 	                	Loop
@@ -330,10 +330,62 @@
 			function add_value(){
 				document.getElementById("exec").src = "add_value.asp?first_no="+ document.getElementById("first_no").value +"&s_no="+ document.getElementById("s_no").value +"&s_period="+ document.getElementById("s_period").value
 			}
+			  // 1년 전 , 11개월 전, 29일 전 까지 표시하기
+
+
+	// const moreDateChage = (delay) => setTimeout(() => {
+	// 	console.log('출력하기');
+	// }, delay);
+
+	// moreDateChage(3000)
+
+	
+	function dateChange(){
+  var formDates = document.querySelectorAll(".formDate");
+
+
+	for (let i = 0; i < formDates.length; i++) {
+			var formDate = formDates[i];
+			var DBDay = formDate.getAttribute("data-date"); // Get the original date value
+			var todayObj = new Date(DBDay); // Current date and time
+			var currentDate = new Date(); // Convert the original date value to a Date object
+
+			var timeDifference = currentDate.getTime() - todayObj.getTime();
+			var nBetweenCntDay = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+			if (nBetweenCntDay < 0) {
+				formDate.innerHTML = -nBetweenCntDay + "일 뒤 미래입니다.";
+			} else if (nBetweenCntDay === 0) {
+				formDate.innerHTML = "오늘";
+			} else {
+				var years = currentDate.getFullYear() - todayObj.getFullYear();
+				var months = currentDate.getMonth() - todayObj.getMonth();
+				var days = currentDate.getDate() - todayObj.getDate();
+
+				if (days < 0) {
+					months--;
+					var daysInLastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+					days = daysInLastMonth + days;
+				}
+				if (months < 0) {
+					years--;
+					months = months + 12;
+				}
+				if (years > 0) {
+					formDate.innerHTML = years + "년 전";
+				} else if (months > 0) {
+					formDate.innerHTML = months + "개월 전";
+				} else {
+					formDate.innerHTML = days + "일 전";
+				}
+			}
+		}
+}
+dateChange();
 		</script>    
 		<div class="btn_box_wrap">
 				<div class="more_sch_txt">
-						<a href="#none" onclick="add_value()">
+						<a href="#none" onclick="add_value(); setTimeout(() => {dateChange(); console.log(1)}, 300);">
 								댓글 더보기
 						</a>
 						<!-- <div class="triangle"></div> -->
@@ -406,32 +458,28 @@
                 
 				<section>
 						<form name="kdb">
-							  <div class="mem_wrapper" >
-									<div class="use_term">
-											<img src="/images/v.png">
-											<span style="font-weight:600">방명록 작성하고 국민평가단 참여하기</span>
-									</div>
-									<div class="comment_write">
-											<input class="pz_ip"  type="text" name="c_recommend" placeholder="     추천인 아이디를 입력하세요." >
-														
-											<div class="input-div">
-													<div>
-													<textarea id="input-letter" maxlength="500" rows="1"  style="margin:0;padding:0; resize: none;" name="c_content" 
-													placeholder="<%=place_t%>" onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%>gogo()<%end if%>" ></textarea>
-													</div>
+							  <div class="guest_book" >
+										<h2  style="text-align:center;">방명록 작성</h2>
+											<div style="padding:20px 0; marin:0 auto; line-height:1.5">
+												<ul class="guest_book_guide">
+													<!--*<li>방명록 작성 기간이 아닙니다.</li>.-->
+													<li>- 추천인 및 방명록 작성 기회는 회원에게 한번만 주어집니다.</li>
+													<li>- 부적절한 방명록 작성 시 국민평가단 참여에 제한이 있을 수 있습니다.</li>
+													<li>- 추천인 작성 시 추천인 아이디 정확히 작성 (오탈자 발생 시 추천 불인정)</li>
+													<li>- 추천인이 없을 경우 공란으로 제출 (추후 추가 작성 불가)</li>
+												</ul>
 											</div>
-											
-											<button type="button" class="btn gray small" onclick="gogo()" style="height:62px;margin-top:10px;">등록하기</button>
-											<div style="text-align:left;padding:20px;line-height:150%">
-												<font color=red>
-													<!--* 방명록 작성 기간이 아닙니다.-->
-													* 추천인 및 방명록 작성 기회는 회원에게 한번만 주어집니다. <br />
-													* 추천인이 없을 경우 공란으로 제출(추후 추가 작성 불가) <br />
-													* 추천인 작성 시 추천인 아이디 정확히 작성(오탈자 발생 시 추천 불인정) <br />
-													* 부적절한 방명록 작성 시 국민평가단 참여에 제한이 있을 수 있습니다. <br />
-												</font>
+
+											<div class="comment_write">
+													<label for="c_recommend">추천인</label>
+													<input class="pz_ip" id="c_recommend"  type="text" name="c_recommend" placeholder="추천인 아이디를 입력하세요." >
+																<!-- input-div -->
+													<label for="input-letter">방명록</label>
+													<textarea id="input-letter" maxlength="500" cols="30" rows="10"  name="c_content" 
+													placeholder="<%=place_t%>" onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%><%end if%>" ></textarea>
+													<!--onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%>gogo()<%end if%>"-->
+													<button type="button" class="btn_guest" onclick="gogo()">등록하기</button>
 											</div>
-									</div>
 								</div>
 						 </form>
 				 </section>
@@ -447,12 +495,12 @@
 
 <script>
 $("#input-letter").on("propertychange change keyup paste input",function(){
-       $(this)[0].style.height='auto';
-       $(this).height( $(this).prop('scrollHeight'));     
+      //  $(this)[0].style.height='auto';
+      //  $(this).height( $(this).prop('scrollHeight'));     
     });
 
 $(".input-div").on("propertychange change keyup paste input",function(){
-       $(this)[0].style.height='auto';
-       $(this).height( $(this).prop('scrollHeight'));     
+      //  $(this)[0].style.height='auto';
+      //  $(this).height( $(this).prop('scrollHeight'));     
     });
 </script>

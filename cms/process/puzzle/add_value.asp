@@ -1,5 +1,7 @@
 ﻿<!-- #include virtual="/include/db/db_connect.asp" --> 
  				<script>
+
+
  				 parent.document.getElementById("add_value_div").innerHTML = parent.document.getElementById("add_value_div").innerHTML  +  ''<%
                         	first_no = r_call("first_no")
                         	a1=cint(r_call("s_no"))
@@ -19,30 +21,34 @@
 					if klp = 1 then
 						first_no = rs("c_no")
 					end if
-				%>+ '         <div  class="news_ticker_content" style="" > '
-	                          + '                   <div  style="float:left;padding-right:20px;line-height:150%" > '
-	                          + '                  	<font color="#FB914B" size="1">●</font>&nbsp; '
-	                          + '                      <font color="#fff"> '
-	                          + '                        <%=replace(replace(rs("c_content"),"'",""""),chr(13)& chr(10)," ")%> '
-	                          + '                       </font> '<%
-                                            	c_member_id = left(rs("c_member_id"),3)
-						t_s_no = len(rs("c_member_id")) - 3
-						for i = 1 to t_s_no
-							c_member_id = c_member_id & "*"
-						next
-				%>+'		<nobr> '
-				  +'		&nbsp;&nbsp;&nbsp;&nbsp;'
-				  +'  		<font color="#FF9017"> / </font>'
-                                  +'               <font color="#898989">'
-                                  +'                	<%=c_member_id%>'
-                                  +'                </font>'
-                                  +'                <font color="#FF9017"> / </font>'
-                                  +'                <font color="#898989">'
-                                  +'                	<%=left(rs("c_date"),10)%>'
-                                  +'                </font>'
-				  +'		</nobr>'
-	                          + '                   </div> '
-	                          + '           </div>  '<%
+				%>
++'  <div class="comment_area" style=" color: #fff;">'
++'    <div class="user_profile">'
++'      <img src="./images/profile_2.png" alt="">'
++'    </div>'
+				<%
+				c_member_id = rs("c_member_id")
+				t_s_no = len(c_member_id)
+				c_member_id = left(c_member_id, t_s_no - 3)
+				for i = 1 to 3
+					c_member_id = c_member_id & "*"
+				next
+				%>
++'    <dl class="book_comment">'
++'      <dt>'
++'        <%=c_member_id%> '
++'        <span class="formDate" data-date="<%=left(rs("c_date"),10)%>">'
++'         <%=left(rs("c_date"),10)%>'
++'        </span>'
++'      </dt>'
++'      <dd>'
++'        <p>'
++'          <%=replace(replace(rs("c_content"),"'",""""),chr(13)& chr(10)," ")%>'
++'        </p>'
++'      </dd>'
++'    </dl>'
++'  </div>'
+														<%
 	                		 rs.MoveNext
 	                	Loop
 	                	end if

@@ -48,16 +48,11 @@
 <form name="kdb"  onsubmit="return false;">
 	<input name="url" type="hidden" value="<%=url%>">
 		 
-	   <div class="mem_wrapper">
+	   <div class="mem_wrapper ">
                    
-                        <div class="title3">
-                        <div>
-                            <div class="diagonal"></div>
-                        </div>
-                        <div>
-                            <span class="co666">로그인</span>
-                        </div>
-                    	</div>
+												<div class="login_title main_login_title">
+													<h2>로그인</h2>
+												</div>
                         <div class="idpw">
                             <div class="input_st2">
                                 <input type="text" name="c_id" placeholder="아이디를 입력하세요." onfocus="">

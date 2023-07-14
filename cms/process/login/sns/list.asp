@@ -13,17 +13,12 @@
  <form name="kdb"  onsubmit="return false;">
  	<div class="mem_wrapper">
                    
-                        <div class="title3">
-                        <div>
-                            <div class="diagonal"></div>
-                        </div>
-                        <div>
-                            <span class="co666">로그인 SNS 연결</span>
-                        </div>
-                    	</div>
+												<div class="login_title">
+													<h2>로그인 SNS 연결</h2>
+												</div>
                         <div class="idpw">
-                            <div class="input_st2" style="line-height:150%;font-size:24px">
-                                <font color="#E7590C">SNS 연결 아이디</font>  
+                            <div class="input_st2" style="line-height:150%; font-size:24px; margin:30px 0;">
+                                <span style="color:#E7590C;">SNS 연결 아이디</span>  
                                 <%=session("session_id")%>
                              	<!--
                              	<br />
@@ -33,7 +28,7 @@
                             </div>
                         </div>
 			 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-                        <div class="ka_na">
+                        <div class="ka_na sns_linkbox">
                             <div  >
                                     <a id="kakao-login-btn"></a>
   				    <div id="result"></div>

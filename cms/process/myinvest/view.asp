@@ -51,31 +51,21 @@
 				end if
 			end if
 %>
-
+<script>
+	var setCookie = function(name, value, exp) {
+		var date = new Date();
+		date.setTime(date.getTime() + exp*24*60*60*1000);
+		document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+	};
+	var getCookie = function(name) {
+		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+		return value? value[2] : null;
+	};
+</script> 
 <form name="kdb">
-	  <div class="wrapper">
-	  	 <section style="">
-                    <div class="title3">
-                        <div>
-                            <div class="diagonal"></div>
-                        </div>
-                        <div>
-                            <span class="co666">나의</span>
-                            <span class="co590">투자내역</span>
-                        </div>
-                    </div>
-                </section>
-                <section class="sub_title" >
-                    <div class="title_wrap"  >
-                        <div class="title1"  style="margin: 5rem auto 0rem;max-width:60%;line-height:150%;word-break:keep-all">
-                           <font color=#FF9017>"</font> <%=rs("c_item_name")%> <font color=#FF9017>"</font>			
-                            
-                        </div>
-                        <div class="title2">
-                            <%=rs("c_team_name")%>
-                        </div>
-                    </div>
-                </section>
+								<div class="sub_title">
+										<h2>나의 투자내역</h2>
+								</div>
 
                 <section class="sub_intro">
                     <div class="ytp_wrap2">
@@ -101,86 +91,99 @@
 
                     <div class="intro_txt">
                         <div class="team_info">
-                            참가팀 정보
+														<h3><%=rs("c_item_name")%></h3>
+														<b>참가팀 정보</b>
                             <span class="team_name">
                                 <%=rs("c_team_name")%>
                             </span>
                         </div>
-
-                        <div class="amt_txt">
-                            모집금액
-                        </div >
-                        <div class="amt1">
-                            <%=c_sum%>
-                            <span>원</span>
-                        </div>
                         <div class="achiev_txt">
-                            달성률
-                        </div>
-                        <div class="achiev">
-                            <span class="achiev_no"><%=c_sum_rate%></span>
+                            <p>달성률</p>
+														<span class="achiev_no"><%=c_sum_rate%></span>
                             <span class="achive_pro">%</span>
                         </div>
-                        <div class="line2">
+
+                        <div class="amt_txt">
+                            <p>모집금액</p>
+														<span class="amt_price"><%=c_sum%></span>
+                            <span class="amt_won">원</span>
+                        </div >
+                        <div class="range_bar">
                             <span class="gh_2" style="width:<%=c_sum_rate_bar%>%"></span>
                         </div>
                         <div class="goal_amt">
                             <span>목표금액 50,000,000원</span>
                         </div>
-                        <div class="end">
+                        <div class="funding_state_box">
                             <p>마감일</p>
-                        </div>
-                        <div class="end1">
-                            <%if now() < cdate(s_date) then%>
-                            	<span class="sp1">대기중</span>
-                            <%else%>
-	                            <%if now() > cdate(e_date) then%>
-	                            	<span class="sp1">투자 종료</span>
-	                            <%else%>
-	                            	<span class="sp1">투자 진행중</span>
-	                            <%end if%>
-                            <%end if%>
-                            <span class="sp2">
-                                2022-08-15 24:00 까지
+														<span class="date">
+                                2022-08-25 24:00 까지
                             </span>
-                        </div>
-                        <div class="tag">
-                            <span>
-                                
-                            </span>
+														<div class="funding_state">
+																<%if now() < cdate(s_date) then%>
+																	<span class="state_pending">대기중</span>
+																<%else%>
+																	<%if now() > cdate(e_date) then%>
+																		<span class="state_end">투자 종료</span>
+																	<%else%>
+																		<span class="state_ongoing">투자 진행중</span>
+																	<%end if%>
+																<%end if%>
+														</div>
                         </div>
                         <div class="fd_end">
                             <a href="#">
-                                <div class="fd_end_bt" style="width:160px">
+                                <div class="fd_end_bt" >
                             <%if now() < cdate(s_date) then%>
-                            	<span>펀딩대기</span>
+                            	<span class="state_pending">펀딩대기</span>
                             <%else%>
 	                            <%if now() > cdate(e_date) then%>
-	                            	<span>펀딩마감</span>
+	                            	<span class="state_end">펀딩마감</span>
 	                            <%else%>
-	                            	<span>펀딩진행</span>
+	                            	<span class="state_ongoing" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>fund1()<%else%>alert('투자가능 기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>">펀딩진행</span>
 	                            <%end if%>
                             <%end if%>
                                     
                                 </div>
                             </a>
-<script>
-	var setCookie = function(name, value, exp) {
-		var date = new Date();
-		date.setTime(date.getTime() + exp*24*60*60*1000);
-		document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-	};
-	var getCookie = function(name) {
-		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-		return value? value[2] : null;
-	};
-</script> 
+														<div class="icon_gruop">
+															<div class="like_bt">
+																	<span id="heart">
+																			<a onclick='setCookie("like_<%=c_team_no%>","ok", 30);'><i id="c_heart" class="fa fa-heart"></i></a>
+																	</span>
+															</div>
+															
+															<div class="share_bt" >
+																		 <span >
+																	<a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
+																	 <!-- <img src="/images/sns1.gif" title="facebook" class="sharebtn_custom" > -->
+																		<img src="/images/sns1_2.png" title="facebook" class="sharebtn_custom" >
+																	</a>
+																	<a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
+																	<!-- <img src="/images/sns2.gif" title="twitter" class="sharebtn_custom" >-->
+																	 <img src="/images/sns2_2.png" title="twitter" class="sharebtn_custom" >
+																	</a> 
+																	<a href="" onclick="window.open(url_combine_ks, '', 'scrollbars=no, width=600, height=600'); return false;">
+																	<!-- <img src="/images/sns3.gif" title="kakao" class="sharebtn_custom" >-->
+																	 <img src="/images/sns3_2.png" title="kakao" class="sharebtn_custom" >
+																	</a> 
+																	<a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
+																	<!-- <img src="/images/sns4.gif" title="Naver" class="sharebtn_custom" >-->
+																	 <img src="/images/sns4_2.png" title="Naver" class="sharebtn_custom" >
+																	</a>
+																	<a href="" onclick="window.open(url_combine_band, '', 'scrollbars=no, width=584, height=635'); return false;">
+																	<!-- <img src="/images/sns5.gif" title="Naver_band" class="sharebtn_custom" >-->
+																	 <img src="/images/sns5_2.png" title="Naver_band" class="sharebtn_custom" >
+																	</a>
+																</span>
+															</div>
+														</div>
 
-                            <div class="like_bt">
-                                <span id="heart">
-                                    <a onclick='setCookie("like_<%=c_team_no%>","ok", 30);'><i id="c_heart" class="fa fa-heart-o"></i></a>
-                                </span>
-                            </div>
+													</div>
+
+
+
+                </section>
 <script>
 	 
 	if(getCookie("like_<%=c_team_no%>") == "ok"){
@@ -224,33 +227,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 </script>
   
 
-                            <div class="share_bt" style="width:280px;vertical-align:middle">
-                                  <span >
-                                <a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
-                                <img src="/images/sns1.gif" title="facebook" class="sharebtn_custom" style="width: 32px;">
-                                </a>
-                                <a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
-                                <img src="/images/sns2.gif" title="twitter" class="sharebtn_custom" style="width: 32px;">
-                                </a> 
-                                <a href="" onclick="window.open(url_combine_ks, '', 'scrollbars=no, width=600, height=600'); return false;">
-                                <img src="/images/sns3.gif" title="KAKAO" class="sharebtn_custom" style="width: 32px;">
-                                </a> 
-                                <a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
-                                <img src="/images/sns4.gif" title="Naver" class="sharebtn_custom" style="width: 32px;">
-                                </a>
-                                <a href="" onclick="window.open(url_combine_band, '', 'scrollbars=no, width=584, height=635'); return false;">
-                                <img src="/images/sns5.gif" title="band" class="sharebtn_custom" style="width: 32px;">
-                                </a>
-                              </span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- </div> -->
-
-                    <!-- </div> -->
-
-                </section>
 
                 <section>
                 <%if isnull(session("session_no")) or  session("session_no") = "" then
@@ -289,8 +266,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		<div class="login_bn">
 		                        <div class="login_bn_txt">
 		
-		                            <font color=red>방명록 작성</font>을 해야만 <font color=red>투자 포인트</font>를 받을 수 있습니다.<br>
-		                            방명록 작성하여 모의 투자에 참여해 주세요.!
+										<span style="color:red">방명록 작성</span>을 해야만 <span style="color:red">투자 포인트</span>를 받을 수 있습니다.<br>
+										방명록 작성하여 모의 투자에 참여해 주세요.!
 		                        </div>
 		                        <div class="login_box">
 		                            <div class="login_bt">
@@ -381,7 +358,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		<div class="login_bn">
 		                        <div class="login_bn_txt">
 		
-		                            회원님은 이미 <font color=red>투자금액을 소진</font>하여 더 이상 투자가 불가능 합니다.<br>
+		                            회원님은 이미 <span style="color:red;">투자금액을 소진</span>하여 더 이상 투자가 불가능 합니다.<br>
 		                            그동안 투자에 참여해 주셔서 감사합니다.
 		                        </div>
 		                        <div class="login_box">
@@ -396,9 +373,9 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  	<%if check_ok = 5 then%>
                  		 <div class="login_bn">
 		                        <div class="login_bn_txt" style="padding:30px">
-		
-		                            회원님은 이 팀에 <font color=red> <%=past_fund%></font>원을 이미 투자하였습니다..<br>
-		                            응원글<br />
+
+																회원님은 이 팀에 <span style="color:red;"> <%=past_fund%></span>원을 이미 투자하였습니다..<br>
+																응원글<br />
 		                            <span style="font-size:16px">
 		                            "<%=past_exp%>"
 		                            </span>
@@ -416,8 +393,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		 <div class="login_bn">
 		                        <div class="login_bn_txt" style="padding:30px">
 		
-		                            회원님은 참가팀의 팀장이기 떄문에 <font color=red>평가 대상 팀만 모의투자</font>가 가능합니다.<br>
-		                            모의 투자 가능한 그룹은 "<font color=red> <%=gog_text%> </font>" 입니다
+		                            회원님은 참가팀의 팀장이기 떄문에 <span style="color:red;">평가 대상 팀만 모의투자</span>가 가능합니다.<br>
+		                            모의 투자 가능한 그룹은 "<span style="color:red;"> <%=gog_text%> </span>" 입니다
 		                        </div>
 		                        <div class="login_box">
 		                            <div class="login_bt">
@@ -530,9 +507,10 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 				 %>
                                         <tr class="reply_row">
                                             <td class="reply_icon" rowspan="2">
-                                                <img src="/images/reply_icon_pro.png">
+                                                <!-- <img src="/images/reply_icon_pro.png"> 	-->
+																								<img src="/images/profile.png">
                                             </td>
-                                            <td class="txt_al">
+                                            <td class="txt_al txt_username">
                                                 <span class="reply_id">
                                                 	<%
                                                 	tr = left(rs_d("c_id"),3)
@@ -552,7 +530,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="txt_al">
+                                            <td class="txt_al txt_review">
                                                 <%=rs_d("c_exp")%>
                                             </td>
                                         </tr>
@@ -616,9 +594,10 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 					 %>
 	                                        <tr class="reply_row">
 	                                            <td class="reply_icon" rowspan="2">
-	                                                <img src="/images/reply_icon_pro.png">
+	                                                <!-- <img src="/images/reply_icon_pro.png"> 	-->
+																								<img src="/images/profile.png">
 	                                            </td>
-	                                            <td class="txt_al">
+	                                            <td class="txt_al txt_username">
 	                                                <span class="reply_id">
 	                                                	<%
 	                                                	tr = left(rs_d("c_id"),3)
@@ -638,7 +617,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 	                                            </td>
 	                                        </tr>
 	                                        <tr>
-	                                            <td class="txt_al">
+	                                            <td class="txt_al txt_review">
 	                                                <%=rs_d("c_exp")%>
 	                                            </td>
 	                                        </tr>
@@ -808,21 +787,31 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 				-->
                             </div>
                         </div>
-			<div class="btn_box mgt70">
+
+													<!--
+													<div class="btn_box mgt70">
                                     <div class="btn_box_txt">
                                         <a href="list.asp?<%=t_para%>">
                                            나의 투자내역 가기
                                         </a>
                                     </div>
+													</div>
+													-->
+																		
+
+										<div class="more_sch_box" style="">
+												<div class="more_sch_txt">
+														<a href="list.asp?<%=t_para%>" title="나의 투자내역 가기">나의 투자내역 가기</a>
+												</div>
+										</div>
+
                                 
-                                </div>
                     </div>
 
                 </section>
 
                 <!-- <section class="tab2"> <div class="a"> </div> </section> -->
 
-            </div>
 </form>
 <%
 	end if

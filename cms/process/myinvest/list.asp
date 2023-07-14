@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="my_invest_information">
-                        <div class="my_invest_wrap">
+                        <div class="my_invest_wrap my_investment_details" style="width:100%">
                             <div class="my_invest2">
                                 <div class="my_invest1">
                                     <img src="/images/icon_my_invest1.png">
@@ -124,7 +124,7 @@
 		                                        <div class="subject">
 		                                            <%=rs_m("c_team_name")%>
 		                                        </div>
-		                                        <div class="content" style="height:60px;overflow: hidden;">
+		                                        <div class="content" >
 		                                             <%=rs_m("c_item_name")%>
 		                                        </div>
 		
@@ -141,7 +141,7 @@
 		                                            <span class="gh_1" style="width:<%=rate_t2%>%"></span>
 		
 		                                        </div>
-		
+																						<!--
 		                                        <div class="dal">
 		                                            <div class="dal1">
 		                                                달성률
@@ -165,9 +165,26 @@
 		                                                <span>
 		                                                    원
 		                                                </span>
-		
 		                                            </div>
 		                                        </div>
+																						-->
+
+																						<div class="funding_price"> 
+																							<div class="dal"> 
+																								<span><%=formatnumber(rate_t,2)%>% 달성</span>
+																							</div> 
+																							<div class="mogip"> 
+																								<div class="mogip1"> 
+																									모집금액 
+																								</div> 
+																								<div class="mogip2"> 
+																									<%=formatnumber(hkk,0)%> 
+																									<span> 
+																										원 
+																										</span> 
+																								</div> 
+																							</div> 
+																						</div>
 		
 		                                    </div>
 		                                    <div class="my_invest_amt">

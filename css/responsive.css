@@ -194,10 +194,7 @@
  line-height: 50px; 
  } 
 
- .invest_go input[type=button] { 
- font-size: 18px; 
- width: 10%; 
- } 
+
 
  .invest_go input[type="text"] { 
  width: 50%; 
@@ -278,27 +275,14 @@
  line-height: 100%; 
  } 
 
- 
 
- .login_bn { 
- flex-wrap: wrap; 
-
- } 
-
- .my_invest_wrap { 
- padding-top: 20px; 
- padding-bottom: 20px; 
- } 
 
  .my_invest2 { 
  font-size: 20px; 
  margin-right: 0; 
- margin-bottom: 20px; 
+ /* margin-bottom: 20px;  */
  } 
 
- .invest_go input[type=button] { 
- width: 30%; 
- } 
 
 
 
@@ -320,10 +304,7 @@
 
  } 
 
- .comment_write .pz_ip { 
- width: 100%; 
 
- } 
 
  .input-div { 
 max-width: 100%; 
@@ -391,10 +372,7 @@ max-width: 100%;
  margin-left: 50px; 
  } 
 
- .invest_go input[type=button] { 
- font-size: 18px; 
- width: 30%; 
- } 
+
 
  .invest_go input[type="text"] { 
  width: 50%; 
@@ -437,10 +415,7 @@ max-width: 100%;
  margin-left: 10px; 
  } 
 
- .invest_go input[type=button] { 
- font-size: 18px; 
- width: 30%; 
- } 
+ 
 
  .invest_go input[type="text"] { 
  width: 50%; 
@@ -745,7 +720,6 @@ max-width: 100%;
 
  .invest_go input[type=button] { 
  font-size: 16px; 
- margin-left: 75px; 
  } 
 
  .invest_go input[type="text"] { 
@@ -1106,9 +1080,7 @@ footer .footer__wrap .footer__menu ul li a {
   .visual .more{
     margin-top: 10px;
   }
-  section.main__page__visual .swiper-container .swiper_box{
-    padding-top: 0;
-  }
+  
 
   /* section mid_box */
   .u300_bn img{
@@ -1178,6 +1150,15 @@ footer .footer__wrap .footer__menu ul li a {
     width: 15px;
     height: 15px;
   }
+  .guest_book .guest_book_guide li{
+    font-size: 14px;
+    line-height: 2;
+  }
+  .comment_write .pz_ip , .comment_write .pz_ip::placeholder,
+  .comment_write textarea , .comment_write textarea::placeholder{ 
+    font-size: 14px; 
+  } 
+
 
   /* 행사개요 페이지 */
   .fes_wrap{
@@ -1192,6 +1173,17 @@ footer .footer__wrap .footer__menu ul li a {
   .sub_title h2{
     font-size: 24px;
   }
-  
+  /* 투자하기 view */
+  .div.con2_reply{
+    font-size: 16px;
+  }
+
+  .div.con2_reply .reply_date{
+    font-size: 14px;
+    width: 100px;
+  }
+  .con2_bn{
+    font-size: 20px;
+  }
 
 }

@@ -98,7 +98,7 @@
 		                      +'               </div>	'
 												  +'						   <div class="funding_price"> '
 													+'                  <div class="dal">	'
-													+'                        <sapn>'+ c_sum_rate[i] +'% 달성</span>'
+													+'                        <span>'+ c_sum_rate[i] +'% 달성</span>'
 													+'                  </div>	'
 													+'                 <div class="mogip">	'
 													+'                    <div class="mogip1">	'

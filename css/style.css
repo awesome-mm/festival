@@ -718,8 +718,7 @@ section.news_ticker:before{
 
 .news_ticker_content{
     overflow: hidden;	
-    padding:15px; 
-    padding-left:200px;
+    padding:15px 200px; 
 }
 .puzzle_pagenum{
     position:relative;
@@ -898,6 +897,48 @@ section.main__page__visual .swiper-container2 {
     color: #b9b9b9;
 
 }
+/* 방명록 댓글 */
+  .comment_area{
+    display: flex;
+    max-width: 1200px;
+    padding: 15px 5%;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  .user_profile{
+    width: 60px;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  .user_profile img{
+    width: 100%;
+  }
+  .book_comment dd, dl{
+    margin: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+  .book_comment dl{
+    width: 1100px;
+  }
+  .book_comment dt{
+    font-size: 14px;
+    color: #fff;
+  }
+  .book_comment dt span{
+    color: #999;
+    margin-left: 10px;
+  }
+  .book_comment dd{
+    font-size: 14;
+  }
+  .book_comment dd p {
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
 
 /* ================= popup 팝업설정 시작====================== */
 
@@ -1486,16 +1527,35 @@ section.startup_list {
     background-color: #666666;
     color: #fff;
 }
-
+.btn_guest{
+    display: block;
+    width: 280px;
+    height: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #333333;
+    color: #fff;
+    border-radius: 6px;
+    height: 52px;
+    transition: all 0.2s ease-out;
+    margin: 0 auto;
+}
+.btn_guest:hover{
+    background-color: #555;
+    color: #fff;
+}
 .btn.small {
     font-size: 2.1rem;
     width: auto;
     height: 4.6rem;
     vertical-align: middle;
-    position: absolute;
-    right: 50px;
-    top: 0;
-    background: none;
+    /* position: absolute; */
+    /* right: 50%; */
+    /* bottom: 0; */
+    text-align: center;
+    transform: translateX(-50%);
+    display: inline-block;
+    margin-left: 50%;
 }
 
 .btn.small img{
@@ -1567,6 +1627,7 @@ button.btn:focus{
     color: #999999;
     text-align: left;
     font-size: 16px;
+    color: #e5590c;
 
 }
 
@@ -1579,6 +1640,7 @@ button.btn:focus{
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
+    height: 40px;
 }
 
 .info-box .dal {
@@ -1672,6 +1734,8 @@ button.btn:focus{
     width: 380px;
     /* height: 474px; */
     height: auto;
+    border-radius: 10px;
+    overflow: hidden;
 
 }
 .startup_info .img-box{
@@ -2414,7 +2478,7 @@ section.tab2 {
 .tab_menu2 ul li a {
     padding: 2rem 1rem;
     display: block;
-    font-size: 16px;
+    font-size: 18px;
     box-sizing: border-box;
 
     /* border-radius: 50px; */
@@ -2478,7 +2542,7 @@ section.tab2 {
 } */
 
 .con2_bn {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     color: #666666;
     margin: 0 5rem;
     margin-top: 6rem;
@@ -2559,85 +2623,76 @@ div.con2_reply .reply_date {
     /* float:left; */
 
 }
+.guest_book_title{
+    border-bottom: none;
+}
+.guest_book{
+    margin-top: 40px;
+}
+.guest_book h2{
+    font-size: 30px;
+    font-weight: 500;
+}
+.guest_book  .guest_book_guide{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+}
+.guest_book  .guest_book_guide li{
+    font-size: 16px;
+}
 
 .comment_write {
     margin-top: 1rem;
     /* display: inline-block; */
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .comment_write .pz_ip {
-
-    text-align: center;
-    width: 80%;
-    height: 6rem;
+    font-size: 18px;
+    width: 100%;
+    height: 4rem;
     color: #666666;
-   
+    border-radius: 6px;
+    text-indent: 10px;
+    margin-bottom: 20px;
 
 }
 
 .comment_write .pz_ip::placeholder {
-    line-height: 6rem;
-    color: #999999;
-    font-size: 16px;
-    text-align: left;
+    font-size: 18px;
+    color: #999;
 }
 
 .comment_write textarea {
-    display: inline-block;
-    width: 100%;
-    /* height: 6rem; */
-    font-size: 2rem;
-    text-align: center;
+    /* display: inline-block;
+    width: 80%;
+    height: 4rem;
     color: #666666;
     resize: none;
-    margin-top:10px;
-    
+    font-size: 18px; */
 
-    /* padding-left:5;
-    padding-right:50;
-    padding-bottom:50;
-    padding-top:50;
-    word-break:break-all;
-    width:100%; */
-    
-}
-
-.input-div {
-    max-width:80%;
-    height:6rem;
-    border: 1px solid #e5590c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top:10px;
-
- }
-
- .input-div div {
+    height: 100px;
+    border-radius: 5px;
+    padding: 10px;
     box-sizing: border-box;
-    width:100%;
-    height:auto;
-    
- }
-
- #input-letter{
-    text-align: center;
-    width:100%;
-    resize: none;
-    height:auto;
-    border:0;
-   
-
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
+
+.comment_write label{
+    display: block;
+    margin-bottom: 10px;
+}
 
 .comment_write textarea::placeholder {
-    /* line-height: 6rem; */
-    color: #999999;
-    text-align: left;
-    padding-left:25px;
-    
-
+    font-size: 18px;
+    color: #999;
 }
 
 
@@ -2657,7 +2712,6 @@ div.con2_reply .reply_date {
     font-size: 6rem;
     font-family: "Pretendard", Helvetica, sans-serif;
     font-weight: 600;
-
     color:#ff9000;
 }
 
@@ -2727,12 +2781,23 @@ div.con2_reply .reply_date {
     margin-left: 60px;
     padding: 10px;
 }
-
-.my_invest {
+.invest_area{
     margin-top: 55px;
+    background: #f18a2e;
+    padding-top: 30px;
+    border-radius: 20px;
+}
+.invest_area p{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+.my_invest {
     max-width: 100%;
     height: 370px;
-    background: #f18a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .my_invest_information {
@@ -2746,14 +2811,26 @@ div.con2_reply .reply_date {
 .my_invest_info {
     padding-top: 65px;
 }
+.fund_formbox{
+    width: 40%;
+    margin-right: 10%;
+}
+
 
 .my_invest_wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding-top: 4rem;
+    width: 45%;
     padding-bottom: 4rem;
     position: relative;
+    margin-right: 5%;
+}
+.my_investment_details{
+    display: flex;
+    align-items: center;
+    padding-top: 4rem;
+    justify-content: space-evenly;
+}
+.my_investment_details .my_invest2{
+    margin-bottom: 0;
 }
 
 .my_invest1 {
@@ -2768,16 +2845,17 @@ div.con2_reply .reply_date {
     color: #fff;
     font-size: 2.5rem;
     display: flex;
-    /* border:1px solid red; */
-    /* margin-right: 207px; */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
 }
 
 .my_invest2 .sp1 {
-    font-size: 45px;
+    font-size: 30px;
 }
 
 .my_invest2 .sp2 {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .my_invest3 {
@@ -2790,49 +2868,41 @@ div.con2_reply .reply_date {
 
 .my_invest4 {
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .my_invest4 .sp1 {
-    font-size: 45px;
+    font-size: 30px;
 }
 
 .my_invest4 .sp2 {
-    font-size: 35px;
+    font-size: 30px;
 }
-
+.team_investable{
+    margin-right: 20px;
+}
 .invest_selector {
     position: relative;
-    width: 520px;
-    height: 65px;
-    background: #fff;
-    margin-left: 200px;
-    /* margin-right: 20px; */
-    color: #ff9000;
-    font-size: 30px;
-    /* vertical-align: middle; */
-    top: -5%;
-
+    color: #fff;
+    font-size : 20px;
+    margin-bottom: 20px;
 }
 
 .invest_selector .sp0 {
-    display: inline-block;
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-
+    display: block;
+    margin-bottom: 10px;
 }
 
 .invest_selector .is_select {
-    position: absolute;
-    width: 250px;
-    height: 65px;
+    height: 40px;
     border: none;
-    right: 5px;
-    font-size: 30px;
+    outline: none;
+    font-size: 22px;
     color: #ff9000;
+    padding: 0 10px;
 }
 
 .is_seclect .sp1 {
@@ -2849,69 +2919,69 @@ div.con2_reply .reply_date {
     padding-top: 165px;
     width:650px;
     margin:0 auto;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .font_style1 {
     font-family: "Pretendard", Helvetica, sans-serif;
-    font-size: 40px;
-}
-
-.invest_go_bn span {
-
+    font-size: 20px;
 }
 
 
+#c_exp{
+    height: 100px;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+#c_exp::placeholder{
+    color: #999;
+}
 .invest_go {
     max-width: 100%;
-    height: 65px;
-    margin-left: 82px;
-
+    margin-right: 100px;
 }
 
 .cheering {
     display: inline-block;
     color: #fff;
-    font-size: 30px;
-    height: 65px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .cheering span {
-    line-height: 65px;
     vertical-align: middle;
-    margin-right: 10px;
 
 }
 
 .invest_go input[type="text"] {
     width: 70%;
-    height: 100%;
+    height: 50px;
     border: none;
     font-size: 1em;
-    padding-left: 5px;
     display: inline;
     outline: none;
     box-sizing: border-box;
     background: #fff;
+    text-indent: 10px;
+    border-radius: 5px;
 }
 
 .invest_go input[type=button] {
-    /* all:unset; */
-    width: 15%;
+    width: 280px;
     height: 100%;
-    background-color: lightgray;
-    border: none;
-    background-color: white;
-    font-size: 30px;
-    /* color:#042AaC; */
-    outline: none;
+    font-size: 16px;
     display: inline;
-    margin-left: 5px;
     box-sizing: border-box;
-
-    /* border: 1px solid #333333; */
     background-color: #333333;
-    color: #eeeeee;
+    color: #fff;
+    border-radius: 6px;
+    height: 52px;
+    transition: all 0.2s ease-out;
 }
 
 .team_ir {
@@ -2919,12 +2989,10 @@ div.con2_reply .reply_date {
 }
 
 .invest_go input[type=button]:hover {
-    background-color: #e5590c;
+    background-color: #555;
+    color: #fff;
 }
 
-.my_invest {
-    /* margin-top: 170px; */
-}
 
 .my_invest_amt {
     /* border:1px solid #e4e4e4; */
@@ -2935,6 +3003,9 @@ div.con2_reply .reply_date {
     justify-content: space-between;
     font-family: "Pretendard", Helvetica, sans-serif;
     padding: 0 20px;
+    background: #ea2027;
+    background: linear-gradient(326deg, #ea2027 0%, #ee5a24 74%);
+
 }
 
 /* .my_invest span {
@@ -3201,7 +3272,9 @@ footer .footer__wrap .orz_img img {
     height: 12px;
     border-radius: 6px;
 }
-
+.main_login_title{
+    border: none;
+}
 
 .use_terms {
     margin-bottom: 20px;
@@ -3370,6 +3443,9 @@ footer .footer__wrap .orz_img img {
 }
 .member_modify label::after{
     content: none;
+}
+.member_modify #c_id{
+    font-size: 18px;
 }
 
 .member_box input{
@@ -3559,6 +3635,10 @@ footer .footer__wrap .orz_img img {
     display: flex;
     justify-content: center;
     max-width: 100%;
+}
+.sns_linkbox{
+    padding-top: 30px;
+    border-top: 1px solid #ccc;
 }
 
 .ka {
