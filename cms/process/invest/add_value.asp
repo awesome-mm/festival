@@ -84,7 +84,7 @@
 					let_go = let_go +'<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
 		                      +'       <div class="startup_info">	'
 		                      +'           <div class="img-box" style="height:220px">	'
-		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" style="max-width: 380px;">	'
+		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" >	'
 		                      +'           </div>	'
 		                      +'           <div class="info-box">	'
 		                      +'               <div class="subject">	'

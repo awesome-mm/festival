@@ -296,9 +296,11 @@
                     </ul>
 
                     <div class="mobile__menu__info">
+										<!--
                         <div class="menu-box">
                             <a href="/default_sub.asp">홈</a>
                         </div>
+										-->
                         <%if session("session_no") = "" then%>
                         <div class="menu-box">
                             <a href="/cms/process/login/list.asp?c_show_no=76&c_check_no=67&c_relation=734&c_relation2=748">로그인</a>

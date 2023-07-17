@@ -32,16 +32,11 @@
 
  .ytp_wrap2 { 
  margin-right: 0; 
+ margin-bottom: 20px;
  } 
 
  } 
 
-@media (max-width: 1295px) { 
-
- .input_st input { 
- margin-left: 1rem; 
- } 
- } 
 
 @media (max-width: 1275px) { 
 
@@ -235,19 +230,6 @@
 
 @media (max-width: 768px) { 
 
- .invest_selector { 
- height: 40px; 
- top: -2%; 
- margin-left: 50px; 
- } 
-
- .invest_selector .is_select { 
- height: 40px; 
- } 
-
- .invest_go { 
- height: 40px; 
- } 
 
  .cheering { 
  font-size: 18px; 
@@ -269,20 +251,6 @@
  width: 25rem; 
  }  */
 
- input::-webkit-input-placeholder { 
- color: #b5b5b5; 
- font-size: 16px; 
- line-height: 100%; 
- } 
-
-
-
- .my_invest2 { 
- font-size: 20px; 
- margin-right: 0; 
- /* margin-bottom: 20px;  */
- } 
-
 
 
 
@@ -295,15 +263,6 @@
  .more { 
  font-size: 14px; 
  } 
-
-
-
- .mem_wrapper { 
- padding: 30px; 
-
-
- } 
-
 
 
  .input-div { 
@@ -368,10 +327,6 @@ max-width: 100%;
  padding-top: 20px; 
  } 
 
- .invest_selector { 
- margin-left: 50px; 
- } 
-
 
 
  .invest_go input[type="text"] { 
@@ -406,20 +361,9 @@ max-width: 100%;
 
 @media (max-width: 571px) { 
 
- .invest_selector { 
- margin-left: 20px; 
- width: 400px; 
- } 
 
- .invest_go { 
- margin-left: 10px; 
- } 
 
- 
 
- .invest_go input[type="text"] { 
- width: 50%; 
- } 
 
  span.sp0 { 
  font-size: 20px; 
@@ -495,9 +439,6 @@ max-width: 100%;
 
 
 
- .intro_txt { 
- max-width: 360px; 
- } 
 
  .news_button .up { 
  top: -5px; 
@@ -517,19 +458,6 @@ max-width: 100%;
  .news_button .down2 { 
  top: 273px; 
  right: 49.5%; 
- } 
-
-
-
- .my_invest_wrap { 
- padding-top: 20px; 
- padding-bottom: 20px; 
- } 
-
- .my_invest1 { 
- width: 40px; 
- height: 45px; 
-
  } 
 
  .my_invest2 { 
@@ -621,9 +549,7 @@ max-width: 100%;
  } 
 
 
- .startup_info { 
- margin: 15px 1px; 
- } 
+
 
  
 
@@ -631,28 +557,6 @@ max-width: 100%;
  padding-top: 20px; 
  color: #969595; 
  font-size: 18px; 
-
- } 
-
- .intro_txt { 
- max-width: 300px; 
-
- } 
-
- .fd_end { 
- margin-left: 0; 
- } 
-
- .fd_end_bt { 
- width: 11rem; 
- height: 7rem; 
- border: 1px solid #ccc; 
- font-size: 2.5rem; 
- color: #666666; 
- } 
-
- .tab_menu2 ul li { 
-
  padding: 0; 
  } 
 
@@ -715,23 +619,7 @@ max-width: 100%;
 
  .reply_icon img { 
  width: 45px; 
- height: 45px; 
- } 
-
- .invest_go input[type=button] { 
- font-size: 16px; 
- } 
-
- .invest_go input[type="text"] { 
- width: 75%; 
- } 
-
- .invest_selector { 
- width: 325px; 
- } 
- .invest_selector .is_select { 
- width: 200px; 
- } 
+ }
 
  span.sp0 { 
  font-size: 18px; 
@@ -769,9 +657,6 @@ max-width: 100%;
  padding-right: 14px; 
  } 
 
- .input_st input { 
-  margin-left: 5px; 
- } 
 
  .line4_txt { 
  font-size: 15px; 
@@ -828,11 +713,6 @@ max-width: 100%;
  height: 40px; 
  
  } 
-
- .share_bt img { 
- width: 16px; 
- } 
-
 
  
  } 
@@ -961,6 +841,10 @@ footer .footer__wrap .footer__menu ul li a {
     padding-bottom: 100px;
   }
 
+  /* 참여방법 */
+  .pati_con_wrap{
+    grid-template-columns: repeat(1,1fr);
+  }
 }  
 
 @media screen and (max-width:1024px) {
@@ -972,8 +856,6 @@ footer .footer__wrap .footer__menu ul li a {
   .visual{
     padding-top: 30px;
   }
-  
-
 
   .visual #multilines{
     margin-top: 0;
@@ -1011,7 +893,7 @@ footer .footer__wrap .footer__menu ul li a {
   }
 
 
-  
+
    /* section .ytp_wrap */
   .ytp_wrap .video1{
     display: block;
@@ -1045,7 +927,20 @@ footer .footer__wrap .footer__menu ul li a {
     margin: 0;
   }
 
+  /* 참여방법 */
+  .pati_wrap{
+    justify-content: center;
 
+  }
+  .btn_home{
+    display: none;
+  }
+  .pati_period{
+    text-align: center;
+  }
+  .pati_term{
+    margin-left: 0;
+  }
 
 }
 
@@ -1061,8 +956,7 @@ footer .footer__wrap .footer__menu ul li a {
   
 
   .ytp{
-    padding: 100px 0 0;
-    padding-top: 100px;
+    padding-top: 50px;
   }
 
   section .ytp_wrap {
@@ -1128,6 +1022,31 @@ footer .footer__wrap .footer__menu ul li a {
     display: block;
     margin: 5px 0;
   }
+  .idpw .input_st2 input{
+    font-size: 18px;
+  }
+  .idpw .input_st2 input::placeholder{
+    font-size: 14px;
+  }
+
+  /* 로그인 회원정보 페이지 */
+  .mem_wrapper{
+    padding: 0;
+  }
+  .login_btn_group a{
+    padding: 10px;
+    font-size: 14px;
+  }
+  .phone_number_box{
+    margin-bottom: 0;
+  }
+  .join_btn_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+  }
 
   /* 회원가입 페이지 */
   .mem_wrapper2{
@@ -1136,6 +1055,9 @@ footer .footer__wrap .footer__menu ul li a {
   .join_btn{
     width: 150px;
   }
+  .use_terms p{
+    font-size: 18px;
+  }
 
   /* 아이디 찾기 페이지 */
   .btn.id_find{
@@ -1143,6 +1065,12 @@ footer .footer__wrap .footer__menu ul li a {
   }
   .btn.pw_find{
     font-size: 16px;
+  }
+  .idpw_sch_tb input{
+    font-size: 18px;
+  }
+  .idpw_sch_tb input::placeholder{
+    font-size: 14px;
   }
 
   /* 방명록 페이지  */
@@ -1173,6 +1101,25 @@ footer .footer__wrap .footer__menu ul li a {
   .sub_title h2{
     font-size: 24px;
   }
+  /* 투자하기 */
+  section.startup_list{
+    margin-top: 20px;
+  }
+  .info-box{
+    width: 300px;
+    padding: 0 5%;
+  }
+   .startup_info { 
+      margin: 15px 1px; 
+      width: 100%;
+  } 
+  .startup_info .img-box img{
+    width: 300px;
+  }
+
+
+
+
   /* 투자하기 view */
   .div.con2_reply{
     font-size: 16px;
@@ -1185,5 +1132,102 @@ footer .footer__wrap .footer__menu ul li a {
   .con2_bn{
     font-size: 20px;
   }
+  .intro_txt{
+    width: 100%;
+  }
+  .funding_state_box p{
+    margin-right: 10px;
+  }
+  .funding_state_box{
+    margin-top: 10px;
+  }
+  .fd_end{
+    justify-content: center;
+  }
+  .fd_btn_group{
+    display: block;
+  }
+  .sns_gruop{
+    display: block;
+    margin-top: 10px;
+  }
+  .team_info{
+    margin: 0;
+  }
+  .achiev_txt{
+    padding-top: 2rem;
+  }
+  .my_invest{
+    display: block;
+  }
+  .my_invest_wrap{
+    width: 100%;
+    margin: 0;
+  }
+  .my_invest2{
+    font-size: 16px;
+  }
+  .my_invest4{
+    font-size: 16px;
+  }
+  .my_invest2 .sp1{
+    font-size: 20px;
+  }
+  .my_invest2 .sp2{
+    font-size: 20px;
+  }
+  .my_invest4 .sp1{
+    font-size: 20px;
+  }
+  .my_invest4 .sp2{
+    font-size: 20px;
+  }
+  .my_invest1{
+    margin-right: 20px;
+  }
+  .my_invest3{
+    margin-right: 20px;
+  }
+  .team_investable{
+    margin-right: 0;
+  }
+  .fund_formbox{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .invest_go input[type=button]{
+    width: 100%;
+  }
 
+  .login_bn{
+    display: block;
+    text-align: center;
+    height: auto;
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+  .login_bn_txt{
+    font-size: 18px;
+  }
+  .login_box{
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+
+  /* 참여방법 */
+  .pati_wrap{
+    margin-top: 20px;
+  }
+  .pati_wrap .pati_txt span{
+    font-size: 18px;
+  }
+
+  .pati_how{
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  .sub_title .sm_space{
+    display: block;
+  }
 }

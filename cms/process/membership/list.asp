@@ -297,7 +297,7 @@
                                     <div class="phone_number_box">
                                         <b id="rr"></b>
                                     </div>
-                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >휴대전화번호 변경하기</button>
                                 </div>
                                 <div class="hp input_st" >
                                     <label for="c_email_licente">인증번호</label>
@@ -312,7 +312,7 @@
                                     <div class="phone_number_box">
                                         <b id="ee"></b>
                                     </div>
-                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >휴대전화번호 변경하기</button>
                                 </div>
                             </div>
 

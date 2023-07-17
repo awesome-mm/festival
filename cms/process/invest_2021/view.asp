@@ -140,28 +140,32 @@
                             </span>
                         </div>
 											-->
-                        <div class="fd_end">
-                            <a href="#">
-                                <div class="fd_end_bt" >
-                            <%if now() < cdate(s_date) then%>
-                            	<span class="state_pending">펀딩대기</span>
-                            <%else%>
-	                            <%if now() > cdate(e_date) then%>
-	                            	<span class="state_end">펀딩마감</span>
-	                            <%else%>
-	                            	<span class="state_ongoing" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>fund1()<%else%>alert('투자가능 기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>">펀딩진행</span>
-	                            <%end if%>
-                            <%end if%>
-                                    
-                                </div>
-                            </a>
-														<div class="icon_gruop">
+													<div class="fd_btn_group">
+															<div class="fd_end">
+																<div class="fd_top">
+																	<a href="#">
+																			<div class="fd_end_bt" >
+																	<%if now() < cdate(s_date) then%>
+																		<span class="state_pending">펀딩대기</span>
+																	<%else%>
+																		<%if now() > cdate(e_date) then%>
+																			<span class="state_end">펀딩마감</span>
+																		<%else%>
+																			<span class="state_ongoing" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>fund1()<%else%>alert('투자가능 기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>">펀딩진행</span>
+																		<%end if%>
+																	<%end if%>
+																	</a>
+																</div>
+															</div>
+																				
 															<div class="like_bt">
 																	<span id="heart">
 																			<a onclick='setCookie("like_<%=c_team_no%>","ok", 30);'><i id="c_heart" class="fa fa-heart"></i></a>
 																	</span>
 															</div>
-															
+														</div>
+														
+														<div class="sns_gruop">
 															<div class="share_bt" >
 																<span >
 																	<a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
@@ -187,7 +191,8 @@
 																</span>
 															</div>
 														</div>
-													</div>
+												</div>	
+										</div>
                 </section>
 										<div class="login_bn">
                         <div class="login_bn_txt">

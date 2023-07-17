@@ -186,7 +186,7 @@
                                     <div class="phone_number_box">
                                         <b id="rr"><%=tbl_board2("c_email")%></b>
                                     </div>
-                                    <button type="button" class="btn phone_btn" onclick="emailModify()">다른 휴대폰 번호로 인증하기1</button>
+                                    <button type="button" class="btn phone_btn" onclick="emailModify()">휴대전화번호 변경하기</button>
                                 </div>
                             </div>
                             
@@ -210,7 +210,7 @@
                                     <div class="phone_number_box">
                                         <b id="ee"></b>
                                     </div>
-                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >휴대전화번호 변경하기</button>
                                 </div>
                             </div>
 

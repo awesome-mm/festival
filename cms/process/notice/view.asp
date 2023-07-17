@@ -38,7 +38,7 @@
       Else
      
 %>
-	       <div>
+	       <div class="notice_area">
                     <div class="sub_title">
                         <h2>공지사항</h2>
                     </div>
@@ -55,7 +55,7 @@
 													<span ><%=tbl_board("c_date")%></span>
 												</div>
 
-                        <div class="notice_cont mgt30 pdt40 col666" style="max-width: 1000px;">
+                        <div class="notice_cont mgt30 pdt40 col666" style="max-width: 1200px;">
                             <div style="min-height:200px">
                                     <%=tbl_board("c_contents")%>
                             </div>

@@ -22,7 +22,7 @@
 				end if	
 			end if
 		%>
-	     <div>
+	     <div class="notice_area">
                     <div class="sub_title">
                         <h2>공지사항</h2>
                     </div>

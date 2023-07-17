@@ -1,6 +1,6 @@
 
                 <div class="sub_title">
-                    <h2>2023 학생 창업유망팀 300 페스티벌 <span>참여방법</span></h2>
+                    <h2>2023 학생 창업유망팀 <span class="sm_space">300 페스티벌 <span style="color:#ff9000">참여방법</span></span></h2>
                 </div>
 
                 <section>
