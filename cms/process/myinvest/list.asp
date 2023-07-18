@@ -58,7 +58,7 @@
  	 	%>
  
 	   <section>
-                    <div class="sub_title">
+                    <div class="sub_title my_invest_title">
                         <h2>투자내역</h2>
                     </div>
 
@@ -79,7 +79,7 @@
                                 <div class="my_invest3">
                                     <img src="/images/icon_tot_invest.png">
                                 </div>
-                                <div>
+                                <div class="mi_2">
                                     <span>나의 현재 총 투자 금액</span><br>
                                     <span class="sp1"><%=formatnumber(c_sum,0)%></span>
                                     <span class="sp2">원</span>

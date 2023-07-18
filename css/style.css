@@ -1740,12 +1740,12 @@ button.btn:focus{
 
 }
 .startup_info .img-box{
-    height: 220px;
+    height: 290px;
     overflow: hidden;
 }
 .startup_info .img-box img{
-    max-width: 340px;
-    max-height: 220px;
+    max-width: 380px;
+    max-height: 100%;
 }
 .startup_info .subject{
     margin: 0;
@@ -2822,11 +2822,9 @@ div.con2_reply .reply_date {
 }
 
 .my_invest_information {
-    /* margin-top: 170px; */
     max-width: 100%;
-    /* height: 200px; */
     background: #f18a2e;
-    /* visibility: hidden; */
+    border-radius: 10px;
 }
 
 .my_invest_info {
@@ -3842,10 +3840,8 @@ table.idpw_sch_tb {
     padding: 4rem 5rem 6rem;
     line-height: 2;
     color: #666666;
-    background: #f7f7f7;
     border-top: 1px solid #f08536;
     margin: 0 auto;
-    border-bottom: 1px solid #f08536;
 }
 
 .pv_term h3 {

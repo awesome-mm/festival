@@ -74,7 +74,7 @@
 				location.href="<%=url%>"
 			}
 			<%else%>
-				alert("로그인 되었습니다.")
+				//alert("로그인 되었습니다.")
 				location.href="<%=url%>"
 			<%end if%>
 		</script>

@@ -177,12 +177,6 @@
  /*all: unset; */
  } 
 
- .login_bt { 
- width: 120px; 
- height: 50px; 
- line-height: 50px; 
- } 
-
  .mem_bt { 
  width: 120px; 
  height: 50px; 
@@ -460,11 +454,7 @@ max-width: 100%;
  right: 49.5%; 
  } 
 
- .my_invest2 { 
- font-size: 20px; 
- margin-right: 0; 
- margin-bottom: 20px; 
- } 
+
 
  .my_invest2 .sp1 { 
 
@@ -1139,7 +1129,10 @@ footer .footer__wrap .footer__menu ul li a {
     margin-right: 10px;
   }
   .funding_state_box{
-    margin-top: 10px;
+    margin-top: 20px;
+  }
+  .range_bar{
+    margin-bottom: 20px;
   }
   .fd_end{
     justify-content: center;
@@ -1149,7 +1142,7 @@ footer .footer__wrap .footer__menu ul li a {
   }
   .sns_gruop{
     display: block;
-    margin-top: 10px;
+    margin-top: 20px;
   }
   .team_info{
     margin: 0;
@@ -1166,6 +1159,8 @@ footer .footer__wrap .footer__menu ul li a {
   }
   .my_invest2{
     font-size: 16px;
+    margin-right: 0; 
+    margin-bottom: 20px; 
   }
   .my_invest4{
     font-size: 16px;
@@ -1213,7 +1208,23 @@ footer .footer__wrap .footer__menu ul li a {
     justify-content: center;
     margin-top: 10px;
   }
+  .login_bt{
+    margin-right: 0;
+  }
 
+  /* 나의 투자내역 */
+  .my_investment_details{
+    display: block;
+  }
+  .my_investment_details .my_invest2{
+    margin-bottom: 20px;
+  }
+  .my_invest_title{
+    border-bottom: none;
+  }
+  .mi_2{
+    margin-right: 13px;
+  }
 
   /* 참여방법 */
   .pati_wrap{

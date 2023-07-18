@@ -166,13 +166,14 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 														</div>
                         </div>
 
-											<!--
-                        <div class="tag">
-                            <span>
-                                
-                            </span>
-                        </div>
-											-->
+												<!--
+													<div class="tag">
+															<span>
+																	
+															</span>
+													</div>
+												-->
+
 														<div class="fd_btn_group">
 															<div class="fd_end">
 																<div class="fd_top">
