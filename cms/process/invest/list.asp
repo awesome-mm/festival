@@ -9,7 +9,7 @@ s_text = r_call("s_text")
 %>
 <form name="kdb">
                     <div class="sub_title">
-                        <h2>투자하기</h2>
+                        <h2>투자하기.</h2>
                     </div>
                     <div class="title_bn fs35" style="display:none;">
 						<span class="font_style1">"</span>
