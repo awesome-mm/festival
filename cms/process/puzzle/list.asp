@@ -67,7 +67,7 @@
 
 
 
-<!--
+
 <div class="tab_menu2" >
 	<ul>
 		<li data-id="con1" <%if now_p = 1 then%>class="on"<%end if%>>
@@ -154,7 +154,7 @@
 	</ul>
 </div>
 
--->
+
 
 			<%
 				ok_p = t_count
