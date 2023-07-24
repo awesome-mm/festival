@@ -297,7 +297,7 @@
                                     <div class="phone_number_box">
                                         <b id="rr"></b>
                                     </div>
-                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >휴대전화번호 변경하기</button>
                                 </div>
                                 <div class="hp input_st" >
                                     <label for="c_email_licente">인증번호</label>
@@ -312,7 +312,7 @@
                                     <div class="phone_number_box">
                                         <b id="ee"></b>
                                     </div>
-                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >다른 휴대폰 번호로 인증하기</button>
+                                    <button type="button" class="btn phone_btn" onclick="email_ok3()" >휴대전화번호 변경하기</button>
                                 </div>
                             </div>
 
@@ -329,13 +329,14 @@
                                 </div>
                             </div>
 
+                            <!--
                             <div class="recomm_id_box" style="">
                                 <div class="recomm_id input_st">
                                     <label for="c_recommend">추천인 아이디</label>
                                     <input type="text" id="c_recommend" name="c_recommend" placeholder="추천인 아이디를 입력하세요." onfocus="">
                                 </div>
                             </div>
-
+                            -->
 
                             <div class="mgt20 join_btn_box">
                                 <a href="/" class="btn join_btn join_btn_gray" >취소</a>
