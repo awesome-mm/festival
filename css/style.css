@@ -1027,6 +1027,18 @@ section.main__page__visual .swiper-container2 {
     border-right:1px solid #3b5fbf; 
   }
 
+  /* text 롤링 */
+  .investment_area{
+    display: flex;
+    padding-top: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+  }
+  .investment_area p{
+    display: inline-block;
+  }
+
   /* ================= popup 팝업설정 끝 ====================== */
 
 section .ytp_wrap {

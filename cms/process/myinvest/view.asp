@@ -421,7 +421,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <a href="#none">국민평가의견</a>
 
                             </li>
-                            <li data-id="con3">
+                            <li data-id="con3" style="display:none;">
                                 <a href="#none">상호평가의견</a>
 
                             </li>

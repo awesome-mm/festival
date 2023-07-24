@@ -329,13 +329,14 @@
                                 </div>
                             </div>
 
+                            <!--
                             <div class="recomm_id_box" style="">
                                 <div class="recomm_id input_st">
                                     <label for="c_recommend">추천인 아이디</label>
                                     <input type="text" id="c_recommend" name="c_recommend" placeholder="추천인 아이디를 입력하세요." onfocus="">
                                 </div>
                             </div>
-
+                            -->
 
                             <div class="mgt20 join_btn_box">
                                 <a href="/" class="btn join_btn join_btn_gray" >취소</a>

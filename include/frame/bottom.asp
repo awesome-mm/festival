@@ -53,18 +53,17 @@
     </script>
     <!-- container -->
 
-    <script src="/js/jquery-3.1.1.min.js"></script>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
     <script src="/js/jquery-ui-1.12.1.js"></script>
     <script src="/js/ui.js"></script>
-    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
-
     <script src="/js/newsTicker.js"></script>
     <script>
         $('.newsticker').newsTicker();
     </script>
 
     <script src="/js/swiper.js"></script>
-    <script>
+    <!--<script>
         var mainVisual = new Swiper('.main__page__visual .swiper-container', {
 
             lazy: true,
@@ -89,7 +88,7 @@
             // breakpoints: {     500: {         slidesPerView: 2,         spaceBetween: 10
             // } }
         });
-    </script>
+    </script> -->
     <script src="https://kit.fontawesome.com/e67abfe1c6.js" crossorigin="anonymous"></script>
     <script src="/js/jquery.magnific-popup.js"></script>
 
@@ -108,23 +107,23 @@
     });
 
     // 로컬 스토리지를 이용한 height 저장 후 특정 위치로 이동
-    function saveScrollPosition() {
-    let go_tab= document.querySelector('#go_tab');
-    let tabHeight = go_tab.offsetTop;
-    var scrollPosition = tabHeight;
-    localStorage.setItem('scrollPosition', scrollPosition);
+//     function saveScrollPosition() {
+//     let go_tab= document.querySelector('#go_tab');
+//     let tabHeight = go_tab.offsetTop;
+//     var scrollPosition = tabHeight;
+//     localStorage.setItem('scrollPosition', scrollPosition);
     
-}
+// }
 
-window.onload = function() {
-    var scrollPosition = localStorage.getItem('scrollPosition');
-    if (scrollPosition) {
-        setTimeout(() => {
-            window.scrollTo(0, scrollPosition);
-        }, 0);
-      localStorage.removeItem('scrollPosition'); // 사용한 scrollPosition는 삭제 
-    }
-  }
+// window.onload = function() {
+//     var scrollPosition = localStorage.getItem('scrollPosition');
+//     if (scrollPosition) {
+//         setTimeout(() => {
+//             window.scrollTo(0, scrollPosition);
+//         }, 0);
+//       localStorage.removeItem('scrollPosition'); // 사용한 scrollPosition는 삭제 
+//     }
+//   }
     </script>
 
 </body>

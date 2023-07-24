@@ -1,0 +1,1244 @@
+@charset "UTF-8"; 
+
+@media (min-width:1600px) { } 
+
+@media (max-width:1550px) { 
+
+ .login_bn_txt { 
+ font-size: 25px; 
+ } 
+ } 
+
+@media (max-width:1450px) { 
+
+ .login_bn_txt { 
+ font-size: 20px; 
+ } 
+
+ .menu-item > a { 
+
+ font-size: 22px; 
+ padding: 5px 0 28px; 
+ margin-bottom: 7px; 
+ } 
+
+ a.on~ .menu-sub { 
+ font-size: 18px; 
+ } 
+
+ .summary_poster { 
+ margin-right: 0; 
+ } 
+
+ .ytp_wrap2 { 
+ margin-right: 0; 
+ margin-bottom: 20px;
+ } 
+
+ } 
+
+
+@media (max-width: 1275px) { 
+
+ .news_button .up { 
+ /* top: -5px; */
+ right: 49.5%; 
+ } 
+
+ .news_button .down { 
+ top: 330px; 
+ right: 49.5%; 
+ } 
+
+ } 
+
+@media (max-width: 1250px) { 
+
+
+ #multilines { 
+ flex-wrap: wrap; 
+ } 
+ } 
+
+@media screen and (min-width: 1100px) { 
+
+ .u300_bn #over_768 { 
+ display: block; 
+ } 
+ .u300_bn #under_768 { 
+ display: none; 
+ } 
+
+ .fes_info { 
+ display: block; 
+ } 
+
+ } 
+
+
+@media (max-width: 1100px) { 
+
+ .mobile { 
+ display: block; 
+ } 
+
+
+.guide_btn_mobile{
+  display: block;
+}
+ /* header .header__wrap h1.logo { 
+ top: 50%; 
+ transform: translateY(-50%); 
+ left: 20px; 
+ } */
+
+ /* header .header__wrap h1.logo a { 
+
+ width: 7.26rem; 
+ height: 1.325rem; 
+
+ background: url("../images/logo@2x.png") no-repeat center/cover; 
+ } */
+
+ header .header__wrap h1.logo .logo-txt { 
+ font-size: 18px; 
+ top: 10px; 
+ left: 10px; 
+ } 
+
+ header .header__wrap h1.logo .logo-txt2 { 
+ font-size: 14px; 
+ left: 10px; 
+ top:32px
+ } 
+
+ header .header__wrap .header__menu { 
+ display: none; 
+ } 
+
+ header .header__wrap .mobile-btn { 
+ position: absolute; 
+ background: url("../images/ic_drawer2.png") no-repeat center/cover; 
+ width: 24px; 
+ height: 24px; 
+ right: 5px; 
+ top: 50%; 
+ transform: translateY(-50%); 
+ z-index: 100; 
+ } 
+
+ header .header__wrap { 
+ height: 50px; 
+ } 
+ header .header__wrap nav.gnb { 
+ padding-left: 0; 
+ display: none; 
+ } 
+ header .header__wrap .spot { 
+ display: none; 
+ } 
+
+ section.main__page__visual .swiper-container .swiper-pagination { 
+ bottom: 10px; 
+ } 
+
+ section.main__page__visual .swiper-container .swiper-pagination-bullet { 
+ width: 10px; 
+ height: 10px; 
+ border: 2px solid #fff; 
+ background-color: transparent; 
+ opacity: 1; 
+ } 
+
+ section.main__page__visual .swiper-container .swiper-pagination-bullet-active { 
+ background-color: #fff; 
+ } 
+
+ .u300_bn #over_768 { 
+ display: none; 
+ } 
+
+ .u300_bn #under_768 { 
+ display: block; 
+ } 
+
+ .fes_info { 
+ display: none; 
+ } 
+ } 
+
+@media (max-width: 950px) { 
+ .video-wrap { 
+ padding-bottom:20px; 
+ } 
+ .video3 { 
+ max-height:280px; 
+ max-width:360px; 
+ /*all: unset; */
+ } 
+
+ .mem_bt { 
+ width: 120px; 
+ height: 50px; 
+ line-height: 50px; 
+ } 
+
+
+
+ .invest_go input[type="text"] { 
+ width: 50%; 
+ } 
+
+ } 
+
+
+
+@media (max-width: 826px) { 
+
+ html { 
+ font-size: 60%; 
+ } 
+
+ .dot li { 
+ padding: 0.5rem 0; 
+ } 
+
+ /* .news_button .down { 
+ top: 350px; 
+ right: 49.5%; 
+ } */
+
+
+
+ } 
+
+@media screen and (min-width: 768px) { 
+ .tab_menu { 
+ display: block; 
+ } 
+ .tab-select-outer { 
+ display: none; 
+ } 
+
+ } 
+
+@media (max-width: 768px) { 
+
+
+ .cheering { 
+ font-size: 18px; 
+ } 
+
+ } 
+
+
+
+ /* .sort_box { 
+ float: right; 
+ margin: 40px 10px 30px; 
+ text-align: right; 
+ position: relative; 
+
+ } 
+
+ .sort_box input.input_wrap { 
+ width: 25rem; 
+ }  */
+
+
+
+
+@media (max-width: 700px) { 
+
+ .visual_subject { 
+ font-size: 23px; 
+ } 
+
+ .more { 
+ font-size: 14px; 
+ } 
+
+
+ .input-div { 
+max-width: 100%; 
+ } 
+
+ .comment_write textarea { 
+ width: 100%; 
+ } 
+
+ } 
+
+@media (max-width: 650px) { 
+ html { 
+ font-size: 60%; 
+ } 
+ /* .gb_subject { 
+ width: 40rem; 
+ }  */
+
+ /* .dot { 
+ padding-left: 3.5rem; 
+ }  */
+
+ .news_button .down { 
+ top: 325px; 
+ right: 49.5%; 
+ } 
+
+ .guest_book3 .gb_subject { 
+ width: 40rem; 
+ } 
+
+ .arrow_box { 
+ font-size: 1.8rem; 
+ } 
+
+ .arrow_box2 { 
+ font-size: 1.8rem; 
+ } 
+
+ .nor_box { 
+ font-size: 1.8rem; 
+ } 
+ 
+ } 
+
+@media (max-width: 600px) { 
+
+ html { 
+ font-size: 60%; 
+ } 
+
+ section .ytp_wrap { 
+ flex-wrap: wrap; 
+ } 
+ .login_bn_txt { 
+ padding-top: 0; 
+ } 
+
+ .tab_menu2 .conBox { 
+ padding-top: 20px; 
+ } 
+
+
+
+ .invest_go input[type="text"] { 
+ width: 50%; 
+ } 
+
+/* 
+ .gb_subject { 
+ width: 40rem; 
+ }  */
+
+ /* .dot { 
+ padding-left: 4rem; 
+ }  */
+
+ .guest_book3 { 
+ /* padding-left: 4rem; */
+ } 
+
+ .guest_book3 .gb_subject { 
+ width: 35rem; 
+ } 
+
+
+
+ .btn.small { 
+ width: 15rem; 
+ margin-left: 1rem; 
+ } 
+
+ } 
+
+@media (max-width: 571px) { 
+
+
+
+
+
+ span.sp0 { 
+ font-size: 20px; 
+ } 
+
+ span.sp1 { 
+ font-size: 20px; 
+ } 
+
+ html { 
+ font-size: 60%; 
+ } 
+
+ /* .gb_subject { 
+ width: 35rem; 
+ }  */
+/* 
+ .dot { 
+ padding-left: 6rem; 
+ }  */
+
+
+ /* .guest_book3 .gb_subject { 
+ width: 30rem; 
+ }  */
+
+ } 
+
+@media (max-width: 530px) { 
+
+ html { 
+ font-size: 60%; 
+ } 
+ /* .gb_subject { 
+ width: 30rem; 
+ }  */
+
+ /* .dot { 
+ padding-left: 8rem; 
+ }  */
+
+ .more_sch { 
+ background-size: 65% 65%; 
+ 
+ } 
+
+ .more_sch a { 
+ font-size: 2.2rem; 
+ margin-top: 10px; 
+ } 
+
+ .more_sch:hover { 
+ background-size: 65% 65%; 
+ } 
+
+ .more_sch:hover a { 
+ font-size: 2.2rem; 
+ margin-top: 10px; 
+ } 
+
+ .guest_book3 li { 
+ font-size: 1.5rem; 
+
+ } 
+
+ .guest_book3 { 
+ /* padding-left: 5rem; */
+ } 
+
+ } 
+
+@media (max-width: 500px) { 
+
+
+
+
+ .news_button .up { 
+ top: -5px; 
+ right: 49.5%; 
+ } 
+
+ .news_button .down { 
+ top: 273px; 
+ right: 49.5%; 
+ } 
+
+ .news_button .up2 { 
+ top: 0; 
+ right: 49.5%; 
+ } 
+
+ .news_button .down2 { 
+ top: 273px; 
+ right: 49.5%; 
+ } 
+
+
+
+ .my_invest2 .sp1 { 
+
+ font-size: 40px; 
+ } 
+
+ .my_invest2 .sp2 { 
+ font-size: 25px; 
+ } 
+
+ .my_invest3 { 
+ margin-right: 20px; 
+
+ } 
+
+ .my_invest4 { 
+ font-size: 20px; 
+ display: flex; 
+ } 
+
+ .my_invest4 .sp1 { 
+ white-space: nowrap; 
+
+ font-size: 40px; 
+ } 
+
+ .my_invest4 .sp2 { 
+ font-size: 25px; 
+ } 
+
+ .idpw_serch { 
+ margin-left: 40px; 
+
+ } 
+
+ html { 
+ font-size: 60%; 
+ } 
+ /* .gb_subject { 
+ width: 25rem; 
+ }   */
+
+ /* .dot { 
+ padding-left: 11rem; 
+ }  */
+
+ .news_button .down { 
+ top: 325px; 
+ right: 49.5%; 
+ } 
+
+ .guest_book3 { 
+ /* padding-left: 1rem; */
+ } 
+
+ .guest_book3 li { 
+ font-size: 1.5rem; 
+
+ } 
+
+ .guest_book3 .gb_subject { 
+ width: 25rem; 
+ } 
+
+ .arrow_box { 
+ font-size: 1.6rem; 
+ } 
+
+ .arrow_box2 { 
+ font-size: 1.6rem; 
+ } 
+
+ .nor_box { 
+ font-size: 1.6rem; 
+ } 
+ } 
+
+@media (max-width: 450px) { 
+
+ html { 
+ font-size: 55%; 
+ } 
+
+
+
+
+ 
+
+ .title_wrap .title2 { 
+ padding-top: 20px; 
+ color: #969595; 
+ font-size: 18px; 
+ padding: 0; 
+ } 
+
+ .tab_menu2 ul li:first-child { 
+ display: block; 
+ width: 160px; 
+ text-align: center; 
+ } 
+
+ .con2_bn { 
+ margin-top: 40px; 
+ font-size: 20px; 
+ color: #666666; 
+ } 
+
+ div.con2_reply { 
+ font-size: 15px; 
+ } 
+
+ div.con2_reply .reply_date { 
+ width: 68px; 
+ font-size: 12px; 
+ } 
+
+ div.con2_reply { 
+ margin: 20px 10px; 
+
+ } 
+
+ .u300_summary { 
+ margin-top: 100px; 
+ font-size: 28px; 
+
+ } 
+ .fes_subject { 
+ margin: 60px 0 20px; 
+ font-size: 25px; 
+ text-align: center; 
+ color: #303030; 
+ } 
+
+ .fes_title { 
+ padding: 20px 0 5px; 
+ color: #e5590c; 
+ font-size: 22px; 
+ } 
+
+ .fes_txt { 
+ font-size: 18px; 
+ } 
+
+ .down_arrow { 
+ margin-left: 60px; 
+ padding: 10px; 
+ } 
+
+ .inner_page { 
+ margin-left: 15px; 
+ } 
+
+ .reply_icon img { 
+ width: 45px; 
+ }
+
+ span.sp0 { 
+ font-size: 18px; 
+ } 
+
+ span.sp1 { 
+ font-size: 20px; 
+ } 
+
+ footer .footer__wrap .footer__logo { 
+ padding-left: 20px; 
+ } 
+
+ footer .footer__wrap .footer__logo img { 
+ padding-left: 20px; 
+ width: 200px; 
+ } 
+
+ footer .footer__wrap .footer__menu { 
+ padding: 0 20px; 
+ font-size: 12px; 
+ top: 30px; 
+ } 
+
+ footer .footer__wrap .footer__menu ul li a { 
+ font-size: 1.8rem; 
+ top: 10px; 
+ } 
+
+ footer .footer__wrap .footer__menu ul li+li { 
+ margin-left: 5px; 
+ } 
+
+ footer .footer__wrap .footer__menu ul li { 
+ padding-right: 14px; 
+ } 
+
+
+ .line4_txt { 
+ font-size: 15px; 
+ } 
+
+ .ka { 
+ margin: 0 5px; 
+ } 
+
+ .na { 
+ margin: 0 5px; 
+ } 
+
+ .no_mem span { 
+ font-size: 14px; 
+ } 
+
+ .no_mem { 
+ /* margin-bottom: 380px; */
+ } 
+
+ 
+ /* .gb_subject { 
+ width: 25rem; 
+ }  */
+
+ /* .dot { 
+ padding-left: 14rem; 
+ }  */
+
+ /* .dot li { 
+ padding: 6px 0; 
+ }  */
+
+ .news_button .down { 
+ top: 300px; 
+ right: 49.5%; 
+ } 
+
+ footer .footer_box { 
+ margin-left:0; 
+ } 
+
+ .btn_box_txt { 
+ text-align: center; 
+ line-height: 45px; 
+ color: #999999; 
+ font-size: 12px; 
+ } 
+
+ .btn_box { 
+ /* display: block; */
+ width: 100px; 
+ height: 40px; 
+ 
+ } 
+
+ 
+ } 
+
+@media (max-width: 410px) { 
+ html { 
+ font-size: 50%; 
+ } 
+
+footer .footer__wrap .footer__menu ul li a { 
+ font-size: 1.6rem; 
+ } 
+
+ footer .footer__wrap .orz_img { 
+ display: inline-block; 
+ width:700px; 
+ padding-left: 20px; 
+ } 
+
+
+ footer .footer__wrap .orz_img img { 
+ padding-top:0; 
+ width: 100%; 
+ height: auto; 
+
+ } 
+
+ .title_wrap .title1 { 
+ margin-top: 13rem; 
+ } 
+
+
+ /* .gb_subject { 
+ width: 22rem; 
+ }  */
+
+ /* .dot { 
+ padding-left: 20rem; 
+ }  */
+
+ .news_button .down { 
+ top: 295px; 
+ right: 49.5%; 
+ } 
+
+ .guest_book2 { 
+ margin-bottom: 3rem; 
+ } 
+
+ .dot li::before { 
+ line-height: 1.1; 
+ } 
+
+ .guest_book3 { 
+ padding-right:1rem; 
+
+ } 
+
+ .guest_book3 li { 
+ font-size: 1.8rem; 
+ } 
+
+ .guest_book3 .gb_subject { 
+ width: 22rem; 
+ } 
+ .arrow_box { 
+ font-size: 1.5rem; 
+ } 
+
+ .arrow_box2 { 
+ font-size: 1.5rem; 
+ } 
+
+ .nor_box { 
+ font-size: 1.5rem; 
+ } 
+
+ .pati_term2 { 
+ font-size: 2.5rem; 
+ } 
+} 
+
+@media screen and (max-width : 1280px){
+
+  .visual #img_t{
+    display: none; 
+  }
+  /* section .ytp_wrap */
+  section .ytp_wrap {
+    width: 90%;
+  }
+
+  .ytp_wrap .video1{
+    display: flex;
+  }
+  .ytp_wrap .video2{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .ytp_wrap .video_box1 {
+    height: auto;
+  }
+  .ytp_wrap .video_text1{
+    height: auto;
+  }
+  .ytp_wrap .video_box2{
+    height: auto;
+  }
+  .ytp_wrap .video_text2{
+    height: auto;
+  }
+  /* sub  title */
+  .sub_title{
+    text-align: center;
+  }
+  .sub_title::before{
+    content: none;
+  }
+    .visual .news_ticker{
+    margin-top: 0;
+    padding: 20px 0;
+  }
+  .visual .sub_news_ticker{
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  /* 참여방법 */
+  .pati_con_wrap{
+    grid-template-columns: repeat(1,1fr);
+  }
+}  
+
+@media screen and (max-width:1024px) {
+  .container .wrapper{
+    width: 90%;
+    margin: 0 5%;
+  }
+ /* .visual */
+  .visual{
+    padding-top: 30px;
+  }
+
+  .visual #multilines{
+    margin-top: 0;
+    border: none;
+  } 
+
+  .visual .guest_book1{
+    height: 9rem;
+    overflow: hidden;
+  }
+  .visual .more{
+    position: static;
+    margin-top: 20px;
+  }
+  .visual .more a{
+    width: 90px;
+  }
+  section.main__page__visual .swiper-container .swiper_box{
+    padding-top: 20px;
+  }
+  .visual .swiper-container .swiper-control{
+    display: none;
+  }
+  .visual section.news_ticker .inner{
+    margin-top: 0;
+  }
+  .visual .guest_book2{
+    display: none;
+  }
+  #multilines{
+    padding: 0;
+  }
+  section.news_ticker:before{
+    content: none;
+  }
+
+
+
+   /* section .ytp_wrap */
+  .ytp_wrap .video1{
+    display: block;
+  }
+  .ytp_wrap .video2{
+    display: block;
+  }
+  .ytp_wrap .video_box1 {
+    float: none;
+    width: 100%;
+  }
+  .ytp_wrap .video_text1{
+    width: 100%;
+    padding: 50px 10px;
+  }
+  .ytp_wrap .video_box2{
+    float: none;
+    width: 100%;
+  }
+  .ytp_wrap .video_text2{
+    width: 100%;
+    padding: 50px 10px;
+
+  }
+
+  /*  방명록 서브 페이지 */
+  .news_ticker_content{
+    padding-left: 20px;
+  }
+  section.visual_box{
+    margin: 0;
+  }
+
+  /* 참여방법 */
+  .pati_wrap{
+    justify-content: center;
+
+  }
+  .btn_home{
+    display: none;
+  }
+  .pati_period{
+    text-align: center;
+  }
+  .pati_term{
+    margin-left: 0;
+  }
+
+}
+
+@media screen and (max-width:640px) {
+  /* 메인 페이지 */
+  .gb_subject{
+    width: 12rem;
+  }
+  .visual{
+    border-radius: 20px;
+    padding-top: 20px;
+  }
+  
+
+  .ytp{
+    padding-top: 50px;
+  }
+
+  section .ytp_wrap {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .video_text h4{
+    font-size: 18px;
+  }
+  .video_text p{
+    font-size: 16px;
+  }
+
+  .visual .more{
+    margin-top: 10px;
+  }
+  
+
+  /* section mid_box */
+  .u300_bn img{
+    border-radius: 20px;
+  }
+
+  /* KDB search area */
+
+  .sort_box{
+    width: 330px;
+    margin-top: 30px;
+  }
+  .search_btn{
+    right: 30px;
+  }
+  .sort_box input.input_wrap:focus + label::after{
+    width: 100%;
+  }
+
+  .site_inner{
+    width: auto;
+  }
+  .site_map .site_map_title{
+    width: 140px;
+    font-size: 16px;
+  }
+  .site_map .site_map_item a{
+    width: 140px;
+    font-size: 16px;
+  }
+
+  /* 로그인 페이지 */
+  .ka_na{
+    display: block;
+    text-align: center;
+  }
+  .naver_box{
+    padding-left: 0;
+    margin-top: 20px;
+  }
+  .join_and_find{
+    padding-top: 10px;
+  }
+  span.no_mem2{
+    display: block;
+    margin: 5px 0;
+  }
+  .idpw .input_st2 input{
+    font-size: 18px;
+  }
+  .idpw .input_st2 input::placeholder{
+    font-size: 14px;
+  }
+
+  /* 로그인 회원정보 페이지 */
+  .mem_wrapper{
+    padding: 0;
+  }
+  .login_btn_group a{
+    padding: 10px;
+    font-size: 14px;
+  }
+  .phone_number_box{
+    margin-bottom: 0;
+  }
+  .join_btn_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+  }
+
+  /* 회원가입 페이지 */
+  .mem_wrapper2{
+    padding: 0;
+  }
+  .join_btn{
+    width: 150px;
+  }
+  .use_terms p{
+    font-size: 18px;
+  }
+
+  /* 아이디 찾기 페이지 */
+  .btn.id_find{
+    font-size: 16px;
+  }
+  .btn.pw_find{
+    font-size: 16px;
+  }
+  .idpw_sch_tb input{
+    font-size: 18px;
+  }
+  .idpw_sch_tb input::placeholder{
+    font-size: 14px;
+  }
+
+  /* 방명록 페이지  */
+  .circle1{
+    width: 15px;
+    height: 15px;
+  }
+  .guest_book .guest_book_guide li{
+    font-size: 14px;
+    line-height: 2;
+  }
+  .comment_write .pz_ip , .comment_write .pz_ip::placeholder,
+  .comment_write textarea , .comment_write textarea::placeholder{ 
+    font-size: 14px; 
+  } 
+
+
+  /* 행사개요 페이지 */
+  .fes_wrap{
+    margin-top: 0;
+  }
+
+  /* sub title */
+  .sub_title{
+    margin: 0 10%;
+    padding-top: 0;
+  }
+  .sub_title h2{
+    font-size: 24px;
+  }
+  /* 투자하기 */
+  section.startup_list{
+    margin-top: 20px;
+  }
+  .info-box{
+    width: 300px;
+    padding: 0 5%;
+  }
+   .startup_info { 
+      margin: 15px 1px; 
+      width: 100%;
+  } 
+  .startup_info .img-box img{
+    width: 300px;
+  }
+
+
+
+
+  /* 투자하기 view */
+  .div.con2_reply{
+    font-size: 16px;
+  }
+
+  .div.con2_reply .reply_date{
+    font-size: 14px;
+    width: 100px;
+  }
+  .con2_bn{
+    font-size: 20px;
+  }
+  .intro_txt{
+    width: 100%;
+  }
+  .funding_state_box p{
+    margin-right: 10px;
+  }
+  .funding_state_box{
+    margin-top: 20px;
+  }
+  .range_bar{
+    margin-bottom: 20px;
+  }
+  .fd_end{
+    justify-content: center;
+  }
+  .fd_btn_group{
+    display: block;
+  }
+  .sns_gruop{
+    display: block;
+    margin-top: 20px;
+  }
+  .team_info{
+    margin: 0;
+  }
+  .achiev_txt{
+    padding-top: 2rem;
+  }
+  .my_invest{
+    display: block;
+  }
+  .my_invest_wrap{
+    width: 100%;
+    margin: 0;
+  }
+  .my_invest2{
+    font-size: 16px;
+    margin-right: 0; 
+    margin-bottom: 20px; 
+  }
+  .my_invest4{
+    font-size: 16px;
+  }
+  .my_invest2 .sp1{
+    font-size: 20px;
+  }
+  .my_invest2 .sp2{
+    font-size: 20px;
+  }
+  .my_invest4 .sp1{
+    font-size: 20px;
+  }
+  .my_invest4 .sp2{
+    font-size: 20px;
+  }
+  .my_invest1{
+    margin-right: 20px;
+  }
+  .my_invest3{
+    margin-right: 20px;
+  }
+  .team_investable{
+    margin-right: 0;
+  }
+  .fund_formbox{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .invest_go input[type=button]{
+    width: 100%;
+  }
+
+  .login_bn{
+    display: block;
+    text-align: center;
+    height: auto;
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+  .login_bn_txt{
+    font-size: 18px;
+  }
+  .login_box{
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .login_bt{
+    margin-right: 0;
+  }
+
+  /* 나의 투자내역 */
+  .my_investment_details{
+    display: block;
+  }
+  .my_investment_details .my_invest2{
+    margin-bottom: 20px;
+  }
+  .my_invest_title{
+    border-bottom: none;
+  }
+  .mi_2{
+    margin-right: 13px;
+  }
+
+  /* 참여방법 */
+  .pati_wrap{
+    margin-top: 20px;
+  }
+  .pati_wrap .pati_txt span{
+    font-size: 18px;
+  }
+
+  .pati_how{
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  .sub_title .sm_space{
+    display: block;
+  }
+}

@@ -33,10 +33,12 @@
 
 
 	sql_d = sql_d & " order by newid() "
+	
+	// 'response.write sql_d
 
-	// 'response.write sql_d'
 
 	Set rs=CreateObject("ADODB.RecordSet")
+ 
 
 	rs.Open sql_d, dbCon, 1
 	ai = 0 
@@ -58,6 +60,7 @@
 				end if
 			end if
 			%>
+			
 				c_no[<%=ai%>] = '<%=rs("c_no")%>'
 				c_item_name[<%=ai%>] = '<%=replace(rs("c_item_name"),"'","""")%>'
 				c_team_name[<%=ai%>] = '<%=replace(rs("c_team_name"),"'","""")%>'
@@ -180,6 +183,7 @@
 	}
 	go_next()
 </script>
+
 <!-- #include virtual="/include/db/db_close.asp" --> 
 
 	 

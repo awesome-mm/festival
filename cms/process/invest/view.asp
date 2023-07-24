@@ -23,7 +23,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 	if c_team_no = "" then
 %>
 	<script>
-		alert("잘못 된 접1속입니다")
+		alert("잘못 된 접속입니다")
 		location.href= "/"
 	</script>
 <%	
@@ -364,13 +364,41 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 									</div>
 								</div>
 						<%end if%>
+
+							<%
+							sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no")  
+
+								Set abcde=CreateObject("ADODB.RecordSet")
+								abcde.Open sql_check_reader, dbCon, 1
+
+								
+											If abcde.EOF Then  
+													my_team_no = 0000
+													else
+													my_team_no = abcde("c_team_no")
+											end if
+											' response.write my_team_no
+											abcde.Close
+											Set abcde=Nothing				
+							%>
+							<input id="my_team_no" name="my_team_no" type="hidden" value="<%=my_team_no%>">
+
+							<input id="c_team_no" name="c_team_no" type="hidden" value="<%= c_team_no  %>">
 						<%if check_ok = 3 then%>
+
 						<script>
+							let my_team_no = document.querySelector('#my_team_no')
+							let c_team_no = document.querySelector('#c_team_no')
+
 							function fund1(){
 								if(document.kdb.c_exp.value == ""){
 									alert("이 팀을 위해서 응원글을 꼭 써 주세요.")
 									document.kdb.c_exp.focus()
+								}else if(my_team_no.value === c_team_no.value ){
+									alert("본인 팀에는 투자를 진행할 수 없습니다.")
+									document.kdb.c_exp.focus()
 								}else{
+
 									if(confirm("투자하시면 삭제가 불가능 합니다.\n이 팀에 모의투자를 하시겠습니까?")){
 										document.kdb.action = "fund_ok.asp"
 										document.kdb.method = "post"
@@ -530,7 +558,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <a href="#none">국민평가의견</a>
 
                             </li>
-                            <li data-id="con3">
+                            <li data-id="con3"style="display:none;" >
                                 <a href="#none">상호평가의견</a>
 
                             </li>
@@ -583,7 +611,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                         	<%
                         	fund_number = 0
                         	fund_price = 0
-                        	sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2022 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 1"
+                        	'sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2022 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 1"
+                        	sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2022 and c_team_no = "& c_team_no &" and c_use = 0 "
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -599,6 +628,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 	                        		fund_price = 0
 	                        	end if
 				end if
+				response.write c_team_no
 				rs_d.Close
 				Set rs_d=Nothing
                         	%>
@@ -632,13 +662,15 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <table>
                                     <tbody>
 				 <%
-                        	sql_d = "select   a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
+                        	'sql_d = "select   a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
+													sql_d = "select   a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 order by newid()"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
 				else
 				 Do Until rs_d.EOF
 				 %>
+				 
                                         <tr class="reply_row">
                                             <td class="reply_icon" rowspan="2">
                                                 <!-- <img src="/images/reply_icon_pro.png"> 	-->
