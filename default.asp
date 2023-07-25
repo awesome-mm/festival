@@ -588,43 +588,47 @@ s_text = r_call("s_text")
 
 
                             <li <%if c_festival_type = "" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?#go_tab">전 체</a>
+                                <a href="default.asp?">전 체</a>
                             </li>
 
 							<li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=1#go_tab">도약</a>
+                                <a href="default.asp?c_festival_type=1">도약(일반)</a>
                             </li>
 
-                            <li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=2#go_tab">성장1</a>
+							<li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=2">도약(유학생)</a>
                             </li>
 
                             <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3#go_tab">성장2</a>
+                                <a href="default.asp?c_festival_type=3">성장1</a>
                             </li>
 
                             <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4#go_tab">성장3</a>
+                                <a href="default.asp?c_festival_type=4">성장2</a>
                             </li>
 
                             <li <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5#go_tab">성장4</a>
+                                <a href="default.asp?c_festival_type=5">성장3</a>
                             </li>
 
                             <li <%if c_festival_type = "6" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=6#go_tab">성장5</a>
+                                <a href="default.asp?c_festival_type=6">성장4</a>
                             </li>
 
-							<li <%if c_festival_type = "7" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=7#go_tab">성장6</a>
+                            <li <%if c_festival_type = "7" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=7">성장5</a>
                             </li>
 
 							<li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=8#go_tab">성장(전문)</a>
+                                <a href="default.asp?c_festival_type=8">성장6</a>
                             </li>
 
-                            <li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=9#go_tab">교육</a>
+							<li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=9">성장(전문대)</a>
+                            </li>
+
+                            <li <%if c_festival_type = "10" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=10">교육</a>
                             </li>
                             
 
@@ -671,16 +675,17 @@ s_text = r_call("s_text")
                             <option value="4"  <%if c_festival_type = "4" then%>selected<%end if%>>성장(전문대)</option>
                             <option value="4"  <%if c_festival_type = "5" then%>selected<%end if%>>교육</option>
 -->
-                            <option value="1" <%if c_festival_type = "1" then%>selected<%end if%>>도약</option>
-                            <option value="2" <%if c_festival_type = "2" then%>selected<%end if%>>성장1</option>
-                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장2</option>
-                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장3</option>
-                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장4</option>
-                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장5</option>
-							<option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장6</option>
-                            <option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>교육</option> 
 
-
+                            <option value="1" <%if c_festival_type = "1" then%>selected<%end if%>>도약(일반)</option>
+                            <option value="2" <%if c_festival_type = "2" then%>selected<%end if%>>도약(유학생)</option>
+                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장1</option>
+                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장2</option>
+                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장3</option>
+                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장4</option>
+                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장5</option>
+							<option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장6</option>
+							<option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문)</option>
+                            <option value="10" <%if c_festival_type = "10" then%>selected<%end if%>>교육</option> 
 
                         </select>
                     </div>
