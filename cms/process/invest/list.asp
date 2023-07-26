@@ -205,7 +205,7 @@ s_text = r_call("s_text")
 
 
  <iframe id="exec" name="exec" src="" style="display:none;height:600px;width:600px" ></iframe>
->>>>>>>>> Temporary merge branch 2
+
 
  <script>
 

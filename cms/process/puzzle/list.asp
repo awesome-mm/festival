@@ -232,9 +232,11 @@
 						a_period = 4
 						
 						a2 = a1 + a_period
+
 						'sql_p = "select top 4 c_content,  t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2023 and c_use = 0  ) t order by c_no desc" 
 		sql_p = "select t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2023 and c_use = 0   and c_no > "& first_no &" )t where  rnum > "& a1 &" and rnum <= "& a2				
 		Set rs=CreateObject("ADODB.RecordSet")
+
 				rs.Open sql_p, dbCon, 1
 				If rs.EOF Then 
 				else
