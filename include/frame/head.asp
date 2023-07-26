@@ -105,7 +105,7 @@
                     <h1 class="logo">
                         <a href="/">
                             <div class="logo-txt">
-                                 학생 창업유망팀 300
+                                학생 창업유망팀 300
                             </div>
                             <div class="logo-txt2">
                                 페스티벌

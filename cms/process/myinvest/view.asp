@@ -36,7 +36,6 @@
 %>
 ﻿<!-- #include virtual="/cms/process/invest/value.asp" -->
 <%
-
 			if isnull(rs("c_sum")) then
 				c_sum = 0
 				c_sum_rate = 0
@@ -44,12 +43,31 @@
 			else			
 				c_sum = formatnumber(rs("c_sum"),0)
 				hkk = cdbl(rs("c_sum"))
-				c_sum_rate = formatnumber(hkk / 50000000 * 100)
-				c_sum_rate_bar = fix(hkk / 50000000 * 100)
+				c_sum_rate = formatnumber(hkk / 1000000000 * 100)
+				c_sum_rate_bar = fix(hkk / 1000000000 * 100)
 				if c_sum_rate_bar > 100 then
 					c_sum_rate_bar = 100
 				end if
+
+				if c_sum_rate_bar >= 0 AND c_sum_rate_bar < 25 then
+					invest_grade = "iron"
+
+				elseif c_sum_rate_bar >= 25 AND c_sum_rate_bar < 50 then
+					invest_grade = "bronze"
+
+				elseif c_sum_rate_bar >= 50 AND c_sum_rate_bar < 75 then
+					invest_grade = "silver"
+
+				elseif c_sum_rate_bar >= 75 AND c_sum_rate_bar < 100 then
+					invest_grade = "gold"
+
+				elseif c_sum_rate_bar = 100 then
+					invest_grade = "platinum"
+
+				end if
+
 			end if
+
 %>
 <script>
 	var setCookie = function(name, value, exp) {
@@ -95,11 +113,35 @@
 														<b>참가팀 정보</b>
                             <span class="team_name">
                                 <%=rs("c_team_name")%>
-                            </span>
+								
+								<!--------------------------뱃지-------------------------------->
+								<%if invest_grade <> "iron" then%>
+									<%if invest_grade ="bronze" then%>
+										<img src="/images/bronze.png" style="width:30px; height:40px;">
+
+									<%elseif invest_grade ="silver" then%>
+										<img src="/images/bronze.png" style="width:30px; height:40px;">
+										<img src="/images/silver.png" style="width:30px; height:40px;">
+
+									<%elseif invest_grade ="gold"   then%>
+										<img src="/images/bronze.png" style="width:30px; height:40px;">
+										<img src="/images/silver.png" style="width:30px; height:40px;">
+										<img src="/images/gold.png" style="width:30px; height:40px;">
+
+									<%elseif invest_grade ="platinum" then%>
+										<img src="/images/bronze.png" style="width:30px; height:40px;">
+										<img src="/images/silver.png" style="width:30px; height:40px;">
+										<img src="/images/gold.png" style="width:30px; height:40px;">
+										<img src="/images/platinum.png" style="width:30px; height:40px;">
+									<%end if%>
+								<%end if%>
+								<!--------------------------뱃지-------------------------------->
+                            
+							</span>
                         </div>
                         <div class="achiev_txt">
                             <p>달성률</p>
-														<span class="achiev_no"><%=c_sum_rate%></span>
+														<span class="achiev_no"><%=c_sum_rate*4%></span>
                             <span class="achive_pro">%</span>
                         </div>
 
@@ -108,13 +150,81 @@
 														<span class="amt_price"><%=c_sum%></span>
                             <span class="amt_won">원</span>
                         </div >
-                        <div class="range_bar">
-                            <span class="gh_2" style="width:<%=c_sum_rate_bar%>%"></span>
+
+						<!---------게이지----------->
+						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
+
+                        <div class="range_bar" style="width:90%; padding-left: 3%;">
+							<div class="gh_2" id ="gauge_bar" style=" width:<%=c_sum_rate_bar%>%;"></div>
+							<div style="width:25%; border-right:1px dotted #000;"></div>
+							<div style="width:50%; border-right:1px dotted #000;"></div>
+							<div style="width:75%; border-right:1px dotted #000;"></div>
+							<div style="width:100%; border:1px solid #000;"></div>
                         </div>
+
+						<div style="height:10px;"></div>
+
+						<div class="range_bar_bottom " style="width:90%; position:relative; margin-top:5px;">
+							<img src="/images/up.png" style="padding-left:2%; position:absolute;">
+							<img src="/images/up.png" style="padding-left:27.7%; position:absolute;">
+							<img src="/images/up.png" style="padding-left:53.6%; position:absolute;">
+							<img src="/images/up.png" style="padding-left:79.4%; position:absolute;">
+							<img src="/images/up.png" style="padding-left:105.1%; position:absolute;">
+						</div>
+
+						<div class="range_bar_bottom2 " style="width:110%; position:relative; margin-top:20px;">
+
+							<div style="padding-left:0%; position:absolute;">
+								<div style="border-radius: 10px; width:40px; text-align:center; background: radial-gradient(circle, rgba(240,251,242,1) 0%, rgba(132,238,175,1) 34%, rgba(63,217,125,1) 70%);">
+									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Seed<span>
+								</div>
+							</div>
+							<div style="padding-left:20%; position:absolute;">
+								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(251,240,240,1) 0%, rgba(224,193,159,1) 34%, rgba(207,136,58,1) 70%);">
+									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series A<span>
+								</div>
+							</div>
+							<div style="padding-left:41%; position:absolute;">
+								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(226,226,226,1) 34%, rgba(189,189,189,1) 70%);">
+									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series B<span>
+								</div>
+							</div>
+							<div style="padding-left:62%; position:absolute;">
+								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(247,228,173,1) 36%, rgba(240,202,95,1) 70%);">
+									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series C<span>
+								</div>
+							</div>
+							<div style="padding-left:81%; position:absolute;">
+								<div style="border-radius: 10px; width:75px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(95,214,240,1) 100%);">
+									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Pre-Unicorn<span>
+								</div>
+							</div>
+
+						</div>
+						
+						<script>
+						let invest_grade = document.querySelector("#invest_grade").value;
+						
+						if (invest_grade =="iron"){
+							document.getElementById('gauge_bar').style.backgroundColor = "#615866";
+						}else if (invest_grade =="bronze"){
+							document.getElementById('gauge_bar').style.backgroundColor = "#B97A57";
+						}else if (invest_grade =="silver"){
+							document.getElementById('gauge_bar').style.backgroundColor = "#C3C3C3";
+						}else if (invest_grade =="gold"){
+							document.getElementById('gauge_bar').style.backgroundColor = "#FFC90E";
+						}else if (invest_grade =="platinum"){
+							document.getElementById('gauge_bar').style.backgroundColor = "#4DFEFF";
+						}
+
+						</script>
+						<!---------게이지----------->
+						<!--
                         <div class="goal_amt">
-                            <span>목표금액 50,000,000원</span>
+                            <span>목표금액 10억 원</span>
                         </div>
-                        <div class="funding_state_box">
+						-->
+                        <div class="funding_state_box" style="margin-top:50px;">
                             <p>마감일</p>
 														<span class="date">
                                 2022-08-25 24:00 까지
@@ -800,14 +910,65 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 													-->
 																		
 
-										<div class="more_sch_box" style="">
-												<div class="more_sch_txt">
-														<a href="list.asp?<%=t_para%>" title="나의 투자내역 가기">나의 투자내역 가기</a>
-												</div>
-										</div>
-
-                                
+						<div class="more_sch_box" style="">
+								<div class="more_sch_txt">
+										<a href="list.asp?<%=t_para%>" title="나의 투자내역 가기">나의 투자내역 가기</a>
+								</div>
+						</div>
                     </div>
+
+				<!-----------------랜덤팀 10개 이동S---------------->
+				<br><br><br><br><br>
+
+				<div>
+					<div style="width:100%">
+						<span style="padding-left:12.5%;">다른 인기 아이템들도 살펴보세요!</span>
+					</div>
+					<br>
+					<div style="  display:flex; justify-content:center;">
+					
+						<%
+							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
+							strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (7,8,9) and c_use = 0 and c_festival =1 ORDER BY newid()" 
+							'response.write strSQL
+							Set tbl_board=CreateObject("ADODB.RecordSet")
+							tbl_board.Open strSQL, dbCon, 1
+							If tbl_board.EOF Then
+							else
+								Do Until tbl_board.EOF
+						%>
+								<div style="  float:left; margin-left :10px;">
+									<div style="text-align:center; border:1px solid #000; width:100px; height:130px;">
+										<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=<%=tbl_board("c_no")%>&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">
+											<!--운영에반영후 팀로고가없는애들은 팀명도 같이출력되도록-->
+											<%if tbl_board("c_logo") = "" then%>
+												<span style="font-size:10px;"><%=tbl_board("c_team_name")%></span><br>
+												<img src="/images/logo3.png" style="width:80px;height:80px;">
+												<!--<img src="/images/seoul/logo3.png" style="width:80px;height:80px;">-->
+
+											<%else%>
+												<span style="font-size:10px;"><%=tbl_board("c_team_name")%></span><br>
+												<!--<img src="/images/logo3.png" style="width:80px;height:80px;">-->
+												<img src="/upload/<%=tbl_board("c_logo")%>" style="width:80px;height:80px;">
+
+											<%end if%>
+										</a>
+									</div>
+								</div>
+						<%		
+								tbl_board.MoveNext
+								Loop
+							End If
+							tbl_board.Close
+							Set tbl_board=Nothing
+						%>
+					</div>
+				</div>
+				<br>
+				<br>
+				<!-----------------랜덤팀 10개 이동E---------------->
+
+
 
                 </section>
 
