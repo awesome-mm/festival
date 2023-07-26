@@ -6,7 +6,7 @@
 </head>
 <body>
 <script type="text/javascript">
-  var naver_id_login = new naver_id_login("bPpAWcop7K8qGtN3g0ue", "http://festival.u300.or.kr/naver2.asp");
+  var naver_id_login = new naver_id_login("VPp7EwcJ_iOx110hG4kD", "http://festival.u300.kr/naver2.asp");
   // 접근 토큰 값 출력
   //alert(naver_id_login.oauthParams.access_token);
   // 네이버 사용자 프로필 조회

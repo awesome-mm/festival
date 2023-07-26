@@ -24,7 +24,7 @@
                                     <!-- <a rel='nofollow' href='https://ko.qr-code-generator.com/' border='0'
                                     style='cursor:default'></a> -->
                                   <!--  <img
-                                        src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Ffestival.u300.or.kr&chs=180x180&choe=UTF-8&chld=L|2'
+                                        src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2Ffestival.u300.kr&chs=180x180&choe=UTF-8&chld=L|2'
                                         alt=''> -->
                                 </div>
                             </div>

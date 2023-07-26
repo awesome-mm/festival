@@ -9,7 +9,7 @@
 <%else%>
  	 	<%
  	 	my_invest = 0
- 	 	sql_m = "select sum(c_fund) as c_sum from tbl_fund where c_year = 2022 and c_member_no = "& session("session_no") &" and c_use = 0 "
+ 	 	sql_m = "select sum(c_fund) as c_sum from tbl_fund where c_year = 2023 and c_member_no = "& session("session_no") &" and c_use = 0 "
  	 	Set rs_m=CreateObject("ADODB.RecordSet")
 		rs_m.Open sql_m, dbCon, 1
 		If rs_m.EOF Then 
@@ -101,11 +101,11 @@
                         	<%
                         	
                         	sql_m = "select a.c_fund, b.c_thumbnail, c.c_team_name, b.c_item_name,a.c_team_no "
-                        	sql_m = sql_m & ", (select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum from tbl_fund where c_year = 2022 and c_use = 0 and c_team_no = a.c_team_no ) as sumsum  "
+                        	sql_m = sql_m & ", (select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum from tbl_fund where c_year = 2023 and c_use = 0 and c_team_no = a.c_team_no ) as sumsum  "
                         	sql_m = sql_m & " from tbl_fund a "
                         	sql_m = sql_m & " inner join tbl_festival_data b on b.c_no = a.c_festival_no "
                         	sql_m = sql_m & " inner join tbl_team c on c.c_no = a.c_team_no "
-                        	sql_m = sql_m & " where a.c_year = 2022 and a.c_member_no = "& session("session_no") &" and a.c_use = 0 "
+                        	sql_m = sql_m & " where a.c_year = 2023 and a.c_member_no = "& session("session_no") &" and a.c_use = 0 "
 				Set rs_m=CreateObject("ADODB.RecordSet")
 				rs_m.Open sql_m, dbCon, 1
 				If rs_m.EOF Then 

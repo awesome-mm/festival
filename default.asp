@@ -89,7 +89,7 @@
 <!-- db연결하고 데이터 뽑아서 사용하는 로직-->
         <div class=" movingElement_box postit_box">
 <%
-            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2022 and c_use = 0 order by c_no desc) as aa order by newid()"
+            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2023 and c_use = 0 order by c_no desc) as aa order by newid()"
             Set tbl_board=CreateObject("ADODB.RecordSet")
             tbl_board.Open strSQL, dbCon, 1
             If tbl_board.EOF Then

@@ -99,7 +99,7 @@
                                     <a id="kakao-login-btn"></a>
   				    <div id="result"></div>
 					<script type="text/javascript">
-					Kakao.init('eb04491fab3a13ae1e74344e1441958c');
+					Kakao.init('f806ade37dcf63bd988072416fd02c05');
 					console.log(Kakao.isInitialized());
 					
 					  Kakao.Auth.createLoginButton({
@@ -134,7 +134,7 @@
 		<div class="naver_box" >
 		<div id="naver_id_login" width="220px"></div>
 		<script type="text/javascript">
-			var naver_id_login = new naver_id_login("bPpAWcop7K8qGtN3g0ue", "http://festival.u300.or.kr/cms/process/login/naver.asp");
+			var naver_id_login = new naver_id_login("VPp7EwcJ_iOx110hG4kD", "http://festival.u300.kr/cms/process/login/naver.asp");
 			var state = naver_id_login.getUniqState();
 			naver_id_login.setButton("green", 4,50);
 			naver_id_login.setDomain("YOUR_SERVICE_URL");

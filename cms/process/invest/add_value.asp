@@ -19,8 +19,8 @@
  	sql_d = "select b.c_item_name, a.c_team_name, b.c_thumbnail, a.c_no "
  	sql_d = sql_d & " ,(select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum from tbl_fund where c_team_no = a.c_no and c_festival_no = b.c_no and c_use = 0 ) as c_sum "
  	sql_d = sql_d & " from tbl_team a "
-	sql_d = sql_d & " inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_year = 2022 and b.c_use = 0 "
- 	sql_d = sql_d & " where a.c_project_no in (7,8,9) and a.c_use = 0 and a.c_festival = 1 and b.c_item_name <> '' "
+	sql_d = sql_d & " inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_year = 2023 and b.c_use = 0 "
+ 	sql_d = sql_d & " where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_item_name <> '' "
 
  	if c_festival_type <> "" then
 	 	sql_d = sql_d & " and a.c_festival_type = "& c_festival_type & " " 
