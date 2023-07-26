@@ -115,6 +115,37 @@
 				 	Do Until rs_m.EOF
 						iso = iso + 1
                         	%>
+							<%
+							hkk = cdbl(rs_m("sumsum"))
+								rate_t = ( hkk / 1000000000 ) * 100
+								if rate_t > 100 then
+									rate_t2 = 100
+								else
+									rate_t2 = rate_t
+								end if
+
+								if rate_t >= 0 AND rate_t < 25 then
+									invest_grade = "iron"
+									color_by_grade = "#615866"
+
+								elseif rate_t >= 25 AND rate_t < 50 then
+									invest_grade = "bronze"
+									color_by_grade = "#B97A57"
+
+								elseif rate_t >= 50 AND rate_t < 75 then
+									invest_grade = "silver"
+									color_by_grade = "#C3C3C3"
+
+								elseif rate_t >= 75 AND rate_t < 100 then
+									invest_grade = "gold"
+									color_by_grade = "#FFC90E"
+
+								elseif rate_t >= 100 then
+									invest_grade = "platinum"
+									color_by_grade = "#4DFEFF"
+
+								end if
+								%>
 		                            <a href="view.asp?c_show_no=72&c_check_no=64&c_relation=253&c_relation2=126&c_team_no=<%=rs_m("c_team_no")%>">
 		                                <div class="startup_info">
 		                                    <div class="img-box" style="height:290px">
@@ -122,24 +153,38 @@
 		                                    </div>
 		                                    <div class="info-box">
 		                                        <div class="subject">
+
 		                                            <%=rs_m("c_team_name")%>
+
+													<!--------------------------뱃지-------------------------------->
+													<%if invest_grade <> "iron" then%>
+														<%if invest_grade ="bronze" then%>
+															<img src="/images/bronze.png" style="width:12px;height:19px;">
+
+														<%elseif invest_grade ="silver" then%>
+															<img src="/images/bronze.png" style="width:12px;height:19px;">
+															<img src="/images/silver.png" style="width:12px;height:19px;">
+
+														<%elseif invest_grade ="gold"   then%>
+															<img src="/images/bronze.png" style="width:12px;height:19px;">
+															<img src="/images/silver.png" style="width:12px;height:19px;">
+															<img src="/images/gold.png" style="width:12px;height:19px;">
+
+														<%elseif invest_grade ="platinum" then%>
+															<img src="/images/bronze.png" style="width:12px;height:19px;">
+															<img src="/images/silver.png" style="width:12px;height:19px;">
+															<img src="/images/gold.png" style="width:12px;height:19px;">
+															<img src="/images/platinum.png" style="width:12px;height:19px;">
+														<%end if%>
+													<%end if%>
+													<!--------------------------뱃지-------------------------------->
 		                                        </div>
 		                                        <div class="content" >
 		                                             <%=rs_m("c_item_name")%>
 		                                        </div>
 		
 		                                        <div class="line">
-		                                        	<%
-		                                        	hkk = cdbl(rs_m("sumsum"))
-		                                            	rate_t = ( hkk / 50000000 ) * 100
-		                                            	if rate_t > 100 then
-		                                            		rate_t2 = 100
-		                                            	else
-		                                            		rate_t2 = rate_t
-		                                            	end if
-		                                            	%>
-		                                            <span class="gh_1" style="width:<%=rate_t2%>%"></span>
-		
+		                                            <span class="gh_1" style="width:<%=rate_t2%>%; background:<%=color_by_grade%>"></span>
 		                                        </div>
 																						<!--
 		                                        <div class="dal">
@@ -171,7 +216,7 @@
 
 																						<div class="funding_price"> 
 																							<div class="dal"> 
-																								<span><%=formatnumber(rate_t,2)%>% 달성</span>
+																								<span><%=formatnumber(rate_t,2)*4%>% 달성</span>
 																							</div> 
 																							<div class="mogip"> 
 																								<div class="mogip1"> 

@@ -13,7 +13,15 @@
 	var c_sum = new Array(); 
 	var c_sum_rate = new Array(); 
 	var c_sum_rate2 = new Array(); 
-	 
+
+	/*뱃지배열 추가*/
+	var invest_badge = new Array();
+
+	/*팀별등급배열 추가*/
+	var invest_grade = new Array();
+
+	/*그래프바 속성배열*/
+	var color_by_grade = new Array();
 <%	
 
  	sql_d = "select b.c_item_name, a.c_team_name, b.c_thumbnail, a.c_no "
@@ -51,7 +59,7 @@
 			else			
 				c_sum = formatnumber(rs("c_sum"),0)
 				hkk = cdbl(rs("c_sum"))
-				c_sum_rate = formatnumber(hkk / 50000000 * 100 , 0)
+				c_sum_rate = formatnumber(hkk / 1000000000 * 100 , 0)
 				if c_sum_rate > 100 then
 					c_sum_rate2 = 100
 				else
@@ -67,13 +75,62 @@
 				c_sum[<%=ai%>] = '<%=c_sum%>' 
 				c_sum_rate[<%=ai%>] = '<%=c_sum_rate%>'
 				c_sum_rate2[<%=ai%>] = '<%=c_sum_rate2%>'
+
+				/*--------------뱃지-----------*/
+				if (c_sum_rate[<%=ai%>] >= 25 && c_sum_rate[<%=ai%>] < 50){
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"> '
+				}else if (c_sum_rate[<%=ai%>] >= 50 && c_sum_rate[<%=ai%>] < 75){
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"><img src="/images/silver.png" style="width:12px;height:19px;"> '
+				}else if (c_sum_rate[<%=ai%>] >= 75 && c_sum_rate[<%=ai%>] < 100){
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"><img src="/images/silver.png" style="width:12px;height:19px;"><img src="/images/gold.png" style="width:12px;height:19px;"> '
+				}else if  (c_sum_rate[<%=ai%>] >= 100){
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"><img src="/images/silver.png" style="width:12px;height:19px;"><img src="/images/gold.png" style="width:12px;height:19px;"><img src="/images/platinum.png" style="width:12px;height:19px;">'
+				}else{
+					invest_badge[<%=ai%>] =''
+				}
+				/*--------------뱃지-----------*/
+
+				
+				/*----------등급-----------*/
+				if (c_sum_rate[<%=ai%>] <25){
+					invest_grade[<%=ai%>] = 'iron'
+				}else if (c_sum_rate[<%=ai%>] >= 25 && c_sum_rate[<%=ai%>] < 50){
+					invest_grade[<%=ai%>] = 'bronze'
+				}else if (c_sum_rate[<%=ai%>] >= 50 && c_sum_rate[<%=ai%>] < 75){
+					invest_grade[<%=ai%>] = 'silver'
+				}else if (c_sum_rate[<%=ai%>] >= 75 && c_sum_rate[<%=ai%>] < 100){
+					invest_grade[<%=ai%>] = 'gold'
+				}else if (c_sum_rate[<%=ai%>] >= 100){
+					invest_grade[<%=ai%>] = 'patinum'
+				}else{
+					invest_grade[<%=ai%>] = 'abcd'
+				}
+				/*----------등급-----------*/
+
+				/*---------게이지바 컬러-------*/
+				if (c_sum_rate[<%=ai%>] <25){
+					color_by_grade[<%=ai%>] = '#615866'
+				}else if (c_sum_rate[<%=ai%>] >= 25 && c_sum_rate[<%=ai%>] < 50){
+					color_by_grade[<%=ai%>] = '#B97A57'
+				}else if (c_sum_rate[<%=ai%>] >= 50 && c_sum_rate[<%=ai%>] < 75){
+					color_by_grade[<%=ai%>] = '#C3C3C3'
+				}else if (c_sum_rate[<%=ai%>] >= 75 && c_sum_rate[<%=ai%>] < 100){
+					color_by_grade[<%=ai%>] = '#FFC90E'
+				}else if (c_sum_rate[<%=ai%>] >= 100){
+					color_by_grade[<%=ai%>] = '#4DFEFF'
+				}
+
+
+
 			<% 
 		        rs.MoveNext
 	        Loop
       	End If
 	rs.Close
 	Set rs=Nothing
-%>
+%>	
+
+
 	function go_next(){
 		if(now_value + 1 > <%=ai%>){
 			'alert("자료가 없습니다.")'
@@ -85,22 +142,24 @@
 					t1 = t1 + 1
 					let_go = let_go +'<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
 		                      +'       <div class="startup_info">	'
+							  
 		                      +'           <div class="img-box" style="height:290px">	'
-		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" >	'
+		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" >	 '
 		                      +'           </div>	'
 		                      +'           <div class="info-box">	'
 		                      +'               <div class="subject">	'
 		                      +'                   '+ c_team_name[i] +' '
+							  +'				'+ invest_badge[i] +' '
 		                      +'               </div>	'
 		                      +'               <div class="content" style="height:40px;overflow: hidden;">	'
 		                      +'                   '+ c_item_name[i] +'	'
 		                      +'               </div>	'
 		                      +'               <div class="line">	'
-		                      +'                   <span class="gh_1" style="width:'+ c_sum_rate2[i] +'%"></span>	'
+		                      +'                   <span class="gh_1" id="abbb" style="width:'+ c_sum_rate2[i] +'%; background:'+color_by_grade[i]+';"></span>	'
 		                      +'               </div>	'
 												  +'						   <div class="funding_price"> '
 													+'                  <div class="dal">	'
-													+'                        <span>'+ c_sum_rate[i] +'% 달성</span>'
+													+'                        <span>'+ (c_sum_rate[i]*4) +'% 달성</span>'
 													+'                  </div>	'
 													+'                 <div class="mogip">	'
 													+'                    <div class="mogip1">	'
