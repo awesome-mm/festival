@@ -1,4 +1,5 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
+
 <%
 
 
@@ -7,6 +8,7 @@ c_festival_tpye = r_call("c_festival_type")
 s_text = r_call("s_text")
 
 %>
+
 <form name="kdb">
                     <div class="sub_title">
                         <h2>투자하기</h2>
@@ -115,6 +117,7 @@ s_text = r_call("s_text")
                         </select>
                     </div>
 			<script>
+
 				function s_search(){
 					if(document.kdb.s_text.value == ""){
 						alert("키워드를 입력해 주세요.")
@@ -126,6 +129,9 @@ s_text = r_call("s_text")
 						document.kdb.submit()
 					}
 				}
+
+
+
 			</script>
                     <div class="sort_box">
                         <input 
@@ -153,17 +159,24 @@ s_text = r_call("s_text")
                     <div id="tab01" class="conBox on">
                         <div class="startup_box" id="data_insert">
                             
-                       
+                    
                         </div>
                     </div>
 
-                     
 
                     <!-- </div> -->
 		   
-		    
-                        <div class="more_sch_txt">
-                            <a href="#none" onclick="exec.go_next()">
+                        <!--asp if문으로 세션아이디가 벌레1이미지 찾은경우-->
+                        <!--
+                        <div class="more_sch_txt" id="test_div1">
+                            <a href="#none" onclick="exec.go_next(); ">
+                                프로젝트 더보기
+                            </a>
+                        </div>
+                        -->
+                        <!--asp if문으로 세션아이디가 벌레1이미지 찾지않은경우-->
+                        <div class="more_sch_txt" id="test_div1">
+                            <a href="#none" onclick="bug1_plus(); exec.go_next(); ">
                                 프로젝트 더보기
                             </a>
                         </div>
@@ -171,15 +184,38 @@ s_text = r_call("s_text")
 
 
                 </section>
- </form>  
- 
- <iframe id="exec" name="exec" src="" style="display:none;height:600px;width:600px"></iframe>
+ </form>
 
+ <div id ="bug_section">벌레</div>
+ <input id ="bug1_input" type="text" value="0">
+<script>
+	function bug1_plus(){
+        let bug1 = document.getElementById('bug1_input');
+        let bug_section = document.getElementById('bug_section');
+        let bug1_click = parseInt(bug1.value);
+        bug1_click += 1
+        bug1.value = String(bug1_click);
+        if (bug1_input.value == "3"){
+                bug_section.innerHTML += '<img src="/images/icon_fest1.png">';
+        }
+	}
+
+</script>
+
+
+ <iframe id="exec" name="exec" src="" style="display:none;height:600px;width:600px" ></iframe>
+
+ 
  <script>
+
+
  	document.kdb.action = "add_value.asp"
 	document.kdb.method = "post"
 	document.kdb.target = "exec"
-	document.kdb.submit()
+	document.kdb.submit();
+
+
  </script>
+
 
 <!-- #include virtual="/cms/sub_bottom.asp" -->
