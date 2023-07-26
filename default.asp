@@ -207,6 +207,7 @@
                 c_member_id = c_member_id & "**"
                 
 
+
                 %>
                 <div id="draggable<%=i%>" class="movingElement postit_content">
                     <div hrdf="#" class="deleteButton"><i class="fa-solid fa-xmark"></i></div>
