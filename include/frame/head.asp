@@ -107,10 +107,10 @@
                     <h1 class="logo">
                         <a href="/">
                             <div class="logo-txt">
-                                 학생 창업유망팀 300
+                                 2023 학생 창업유망팀 300
                             </div>
                             <div class="logo-txt2">
-                                페스티벌
+                                네트워킹 데이
                             </div>
                         </a>
                     </h1>
@@ -221,7 +221,7 @@
 						
 					%>
 	                                    <li>
-	                                        <a href="<%=go_link%>" target="<%=go_target%>" <%if c_show_no = rs_mwnu2("c_no") then%>style="color:#FF9000"<%end if%>><%=replace(rs_mwnu2("c_name"),"<br>","")%></a>
+	                                        <a href="<%=go_link%>" target="<%=go_target%>" <%if c_show_no = rs_mwnu2("c_no") then%>style="color:#2D41BA"<%end if%>><%=replace(rs_mwnu2("c_name"),"<br>","")%></a>
 	                                    </li>
 	                                <%
 	                        		rs_mwnu2.MoveNext

@@ -835,6 +835,25 @@ footer .footer__wrap .footer__menu ul li a {
   .pati_con_wrap{
     grid-template-columns: repeat(1,1fr);
   }
+
+  /* 방명록 페이지 */
+  .guest_book_bottom{
+    display: block;
+  }
+  .guest_book{
+    width: auto;
+    max-width: 830px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+  .allWrap{
+    width: auto;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+
+
 }  
 
 @media screen and (max-width:1024px) {
