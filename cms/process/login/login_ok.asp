@@ -39,7 +39,7 @@
 		session("session_name") = tbl_board("c_name")
 	
 		sql_t = "select a.c_jang, b.c_festival_type from tbl_team_member a "
-		sql_t = sql_t & " inner join tbl_team b on b.c_no = a.c_team_no and b.c_festival = 1 and b.c_project_no in (7,8,9) and b.c_use = 0 "
+		sql_t = sql_t & " inner join tbl_team b on b.c_no = a.c_team_no and b.c_festival = 1 and b.c_project_no in (10,11,12,13,14) and b.c_use = 0 "
 		sql_t = sql_t & " where a.c_member_no = "& tbl_board("c_no") &" and a.c_use = 0 and a.c_jang in (1,2) "
 		Set rs_t=CreateObject("ADODB.RecordSet")
 		rs_t.Open sql_t, dbCon, 1

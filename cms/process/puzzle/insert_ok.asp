@@ -24,7 +24,7 @@
 </script> 
 <%	 
   	 else
-  	 	sql_m = "select c_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_member_no = "& session("session_no")
+  	 	sql_m = "select c_no from tbl_puzzle where c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
 
   	 	Set rs_m=CreateObject("ADODB.RecordSet")
 
@@ -36,7 +36,7 @@
 
 
 			'현대 퍼즐 c_puzzle_no 구함
-			sql=" select max(c_puzzle_no) as c_puzzle_no from tbl_puzzle where c_year = 2022 and c_use = 0 "
+			sql=" select max(c_puzzle_no) as c_puzzle_no from tbl_puzzle where c_year = 2023 and c_use = 0 "
 			set rs1=dbCon.execute(sql)
 
 
@@ -46,8 +46,8 @@
 		 
 
 		 	sql_p = "select t.* from (select distinct a.c_puzzle_no "
-			sql_p = sql_p & " ,(select max(c_order) as my_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
-			sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2022 and a.c_use = 0 and a.c_puzzle_no='"&now_c_puzzle_no&"' ) t where t.my_no < 626 order by t.c_puzzle_no"
+			sql_p = sql_p & " ,(select max(c_order) as my_no from tbl_puzzle where c_year = 2023 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
+			sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2023 and a.c_use = 0 and a.c_puzzle_no='"&now_c_puzzle_no&"' ) t where t.my_no < 626 order by t.c_puzzle_no"
 
 
 			'Response.write sql_p
@@ -96,23 +96,23 @@
 			'팀장 session_jang=2
 			if session("session_jang") = "2" Then
 
-				if cint(session("session_team_type")) = 1 then
-					my_point = 50000000
-					point_info = "참여 포인트 5천만원을 받았습니다."
+			'	if cint(session("session_team_type")) = 1 then
+			'		my_point = 20000000
+			'		point_info = "참여 포인트 2천만원을 받았습니다."
+			'	end If
+
+				if   cint(session("session_team_type")) = 1 or cint(session("session_team_type")) = 2 Or cint(session("session_team_type")) = 3 Or cint(session("session_team_type")) = 4 or cint(session("session_team_type")) = 5 Or cint(session("session_team_type")) = 6 Or cint(session("session_team_type")) = 7 Or cint(session("session_team_type")) = 8 Or cint(session("session_team_type")) = 9 Or cint(session("session_team_type")) = 10 Then
+
+					my_point = 20000000
+					point_info = "참여 포인트 2천만원을 받았습니다."
+
 				end If
 
-				if cint(session("session_team_type")) = 2 Or cint(session("session_team_type")) = 3 Or cint(session("session_team_type")) = 4 or cint(session("session_team_type")) = 5 Or cint(session("session_team_type")) = 6 Or cint(session("session_team_type")) = 7  Then
 
-					my_point = 100000000
-					point_info = "참여 포인트 1억원을 받았습니다."
-
-				end If
-
-
-				if cint(session("session_team_type")) = 8 then
-					my_point = 300000000
-					point_info = "참여 포인트 3억원을 받았습니다."
-				end If
+	'			if cint(session("session_team_type")) = 8 then
+	'				my_point = 300000000
+	'				point_info = "참여 포인트 3억원을 받았습니다."
+	'			end If
 
 
 			end If
@@ -137,7 +137,7 @@
 
 			
 			in_sql = "insert into tbl_puzzle (c_year,c_puzzle_no,c_order,c_garo,c_sero,c_member_no,c_member_id,c_content,c_point,c_use,c_date) values ("
-			in_sql = in_sql & "2022" &","& now_p &","& my_order &","& my_garo &","& my_sero  &","& session("session_no") &",'"& session("session_id")  &"','"& c_content &"',"
+			in_sql = in_sql & "2023" &","& now_p &","& my_order &","& my_garo &","& my_sero  &","& session("session_no") &",'"& session("session_id")  &"','"& c_content &"',"
 			in_sql = in_sql & my_point &",0,getdate())"
 
 			'response.write in_sql
@@ -153,7 +153,7 @@
 
 			If c_recommend <> "" And session("session_id") <> c_recommend  then
 
-				strSQL="update tbl_member set c_recommend = '"& c_recommend &"', festival_recommend_date = getdate(), recommend_year='2022' where c_no = " & session("session_no")
+				strSQL="update tbl_member set c_recommend = '"& c_recommend &"', festival_recommend_date = getdate(), recommend_year='2023' where c_no = " & session("session_no")
 				
 				'response.write strSQL
 

@@ -1,13 +1,13 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
-	s_date = "2022-08-16 00:00"
-	e_date = "2023-08-25 23:59"
+	s_date = "2023-07-16 00:00"
+	e_date = "2023-08-19 23:59"
 
 	now_p=r_call("now_p")
 	if now_p = "" then
 		sql_p = "select distinct a.c_puzzle_no "
-		sql_p = sql_p & " ,(select count(c_no) as my_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
-		sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2022 and a.c_use = 0 order by a.c_puzzle_no"
+		sql_p = sql_p & " ,(select count(c_no) as my_no from tbl_puzzle where c_year = 2023 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
+		sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2023 and a.c_use = 0 order by a.c_puzzle_no"
 		Set rs=CreateObject("ADODB.RecordSet")
 		rs.Open sql_p, dbCon, 1
 		If rs.EOF Then 
@@ -32,7 +32,7 @@
 	
 	t_count = 0
 	
-	sql_p = "select max(c_order) as p_count from tbl_puzzle where c_year = 2022 and  c_use = 0 and c_puzzle_no = "& now_p
+	sql_p = "select max(c_order) as p_count from tbl_puzzle where c_year = 2023 and  c_use = 0 and c_puzzle_no = "& now_p
 	Set rs=CreateObject("ADODB.RecordSet")
 	rs.Open sql_p, dbCon, 1
 
@@ -106,7 +106,7 @@
 <!-- db연결하고 데이터 뽑아서 사용하는 로직-->
         <div class=" movingElement_box postit_box">
 <%
-            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2022 and c_use = 0 order by c_no desc) as aa order by newid()"
+            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2023 and c_use = 0 order by c_no desc) as aa order by newid()"
             Set tbl_board=CreateObject("ADODB.RecordSet")
             tbl_board.Open strSQL, dbCon, 1
             If tbl_board.EOF Then
@@ -116,7 +116,7 @@
                 
                 c_member_id = tbl_board("c_member_id")
                 t_s_no = len(c_member_id)
-                c_member_id = left(c_member_id, t_s_no - 3)
+                c_member_id = left(c_member_id, t_s_no - 2)
                 
                 c_member_id = c_member_id & "**"
                 
@@ -232,9 +232,11 @@
 						a_period = 4
 						
 						a2 = a1 + a_period
-						sql_p = "select t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_order > 2  and c_no > "& first_no &" )t where  rnum > "& a1 &" and rnum <= "& a2
-				'response.write sql_p
-				Set rs=CreateObject("ADODB.RecordSet")
+
+						'sql_p = "select top 4 c_content,  t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2023 and c_use = 0  ) t order by c_no desc" 
+		sql_p = "select t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2023 and c_use = 0   and c_no > "& first_no &" )t where  rnum > "& a1 &" and rnum <= "& a2				
+		Set rs=CreateObject("ADODB.RecordSet")
+
 				rs.Open sql_p, dbCon, 1
 				If rs.EOF Then 
 				else
@@ -252,10 +254,8 @@
 												<%
 c_member_id = rs("c_member_id")
 t_s_no = len(c_member_id)
-c_member_id = left(c_member_id, t_s_no - 3)
-for i = 1 to 3
-  c_member_id = c_member_id & "*"
-next
+c_member_id = left(c_member_id, t_s_no - 2)
+c_member_id = c_member_id & "**"
 						%>	
 											<dl class="book_comment">
 												<dt>
@@ -361,7 +361,7 @@ dateChange();
 		place_t = "로그인을 먼저 해 주세요."
 	else
 	
-		sql_m = "select c_no from tbl_puzzle where c_use = 0 and c_year = 2022 and c_member_no = " & session("session_no")
+		sql_m = "select c_no from tbl_puzzle where c_use = 0 and c_year = 2023 and c_member_no = " & session("session_no")
 		Set rs_m=CreateObject("ADODB.RecordSet")
 		rs_m.Open sql_m, dbCon, 1
 		If rs_m.EOF Then 
@@ -451,120 +451,103 @@ dateChange();
 											<p>추천 수</p>
 										</div>
 										<ul class="ranking_list">
-											<li class="ranking_item">
-												<span>
-													<span class="rank">1</span>
-												</span>
-												<span class="ranking_id">asd@@</span>
-												<p>
-													<span class="like_icon"></span>
-													1231
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">2</span>
-												</span>
-												<span class="ranking_id">s@@</span>
-												<p>
-													<span class="like_icon"></span>
-													123
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">3</span>
-												</span>
-												<span class="ranking_id">zbvzcbzcvbzz@@</span>
-												<p>
-													<span class="like_icon"></span>
-													141
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">4</span>
-												</span>
-												<span class="ranking_id">adbadfgqqwe@@</span>
-												<p>
-													<span class="like_icon"></span>
-													11
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">5</span>
-												</span>
-												<span class="ranking_id">wqtqwtag@@</span>
-												<p>
-													<span class="like_icon"></span>
-													12
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">6</span>
-												</span>
-												<span class="ranking_id">dafbdafb@@</span>
-												<p>
-													<span class="like_icon"></span>
-													12
-												</p>
-											</li>
+
+										
+<%
+	  strSQL = "select top 10 recom, c_id , * from ( SELECT a.* "
+	  strSQL = strSQL & " ,(select count(c_no) as recom from tbl_member where c_recommend = a.c_id and festival_recommend_date > '2022-07-05' and recommend_year='2022') as recom "
+	  strSQL = strSQL & " FROM tbl_member a WHERE a.c_no= c_no  ) t where t.recom > 0   order by t.recom desc  "
+
+	 'response.write strSQL
+
+	  Set tbl_board=CreateObject("ADODB.RecordSet")
+	tbl_board.Open strSQL, dbCon, 1
+
+%>  
+<%    If tbl_board.EOF Then  %>
+<!--
+          <tr height=40>
+            <td colspan=15 align=center> 등록된 회원 없습니다.</td>
+          </tr>
+-->
+<%
+      Else
+
+			ipok = 0
+        Do Until tbl_board.EOF  
+		
+
+					c_member_id = tbl_board("c_id")
+					t_s_no = len(c_member_id)
+					c_member_id = left(c_member_id, t_s_no - 2)
+					
+					c_member_id = c_member_id & "**"
+
+%>
 
 											<li class="ranking_item">
 												<span>
-													<span class="rank">7</span>
+													<span class="rank"><%=ipok%></span>
 												</span>
-												<span class="ranking_id">vxzbabd@@</span>
+												<span class="ranking_id"><%=c_member_id %></span>
 												<p>
 													<span class="like_icon"></span>
-													12
+													<%=tbl_board("recom")%>
 												</p>
 											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">8</span>
-												</span>
-												<span class="ranking_id">opokon@@</span>
-												<p>
-													<span class="like_icon"></span>
-													10
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">9</span>
-												</span>
-												<span class="ranking_id">12314aas@@</span>
-												<p>
-													<span class="like_icon"></span>
-													8
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">10</span>
-												</span>
-												<span class="ranking_id">sdqw@@</span>
-												<p>
-													<span class="like_icon"></span>
-													4
-												</p>
-											</li>
+											
+<%
+					ipok = ipok + 1
+          tbl_board.MoveNext
+           
+        Loop
+
+      End If
+		tbl_board.Close
+	      Set tbl_board=Nothing
+%>
 										</ul>
 									</div>
 								</div>
+
+<%
+						dim post_content
+						post_id = ""
+						post_date = ""
+						
+						if isnull(session("session_no")) or session("session_no") = "" then
+								
+								post_content = "로그인을 먼저 해 주세요."
+								else
+								sql_check_reader =  "select * from tbl_puzzle where c_member_no =" &session("session_no")  
+								Set abcde=CreateObject("ADODB.RecordSet")
+								abcde.Open sql_check_reader, dbCon, 1
+
+											If abcde.EOF Then  
+												post_content = "아직 작성하신 방명록이 없습니다."
+												else
+												post_content = abcde("c_content")
+												post_id = abcde("c_member_id")
+												post_date = abcde("c_date") 
+											' response.write my_team_no
+											end if
+											abcde.Close
+											Set abcde=Nothing	
+						end if
+%>
 								<div  id="tab-2" class="tab-content">
 									<div class="my_movingElement postit_content">
-											<p>내가 쓴 방명록 컨텐츠 :</p>
+											<p><%=post_content%></p>
 											<div class="postit_bt">
-													<p>내가 쓴 방명록 아이디 : </p>
-													<p>내가 쓴 방명록 날짜 :</p>
+													<p><%=post_id%></p>
+													<p><%=left(post_date,10)%></p>
 											</div>
 									</div>
 								</div>
 						</div>
+<%
+												
+%>
 
 				 </section>
 

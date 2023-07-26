@@ -15,7 +15,7 @@
 
  
 <script type="text/javascript">
-Kakao.init('eb04491fab3a13ae1e74344e1441958c');
+Kakao.init('f806ade37dcf63bd988072416fd02c05');
 console.log(Kakao.isInitialized());
 
   Kakao.Auth.createLoginButton({

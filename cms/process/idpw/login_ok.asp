@@ -45,7 +45,7 @@
 				<input type="text" name="receive_number" value="<%=c_email%>">
 				<input type="text" name="biz_id" value="creesy">
 				<input type="text" name="smskey" value="XONDA_MNW52AY6EV">						
-				<input type="text" name="return_url" value="http://festival.u300.or.kr/mail/ok_id.asp">
+				<input type="text" name="return_url" value="http://festival.u300.kr/mail/ok_id.asp">
 				<textarea name="sms_contents" cols="16" rows="5">요청하신 아이디는 <%=c_id%> 입니다. - 온라인창업교육플랫폼</textarea>	
 				<input type="text" name="reserved_flag" value="false">		
 				<input type="text" name="reserved_year" value="">		
