@@ -421,7 +421,8 @@ section.main__page__visual {
 }
 
 .visual_subject .vs2 {
-    color: #FFF;
+    color: #3a3a3a;
+    font-weight: 700;
 
 }
 
@@ -2674,6 +2675,118 @@ div.con2_reply .reply_date {
 .guest_book  .guest_book_guide li{
     font-size: 16px;
 }
+
+
+/* 메인 포스트잇 */
+
+p{
+  margin-top: 12px;
+}
+
+.movingElement {
+  position: absolute;
+  cursor: pointer;
+  width: 150px;
+  min-height: 150px;
+  padding: 0.5em;
+  background: #fffc7f;
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+  display: block;
+  opacity: 0;
+  transition:  opacity 0.2s ease-out;
+   transition-property:  border-bottom-right-radius, opacity;
+}
+
+.movingElement_box {
+  position: relative;
+  width: 1600px;
+  height: 700px;
+  margin: 200px auto;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.movingElement:hover .deleteButton {
+  display: block;
+}
+
+
+/*
+    친효애드온 : 포스트잇 모듈 (마크1) 시작
+    https://rgy0409.tistory.com
+    e-mail : rgy0409@gmail.com
+*/
+
+
+div.postit_content {
+    margin: 5px 0;
+    border-bottom-right-radius: 60px 10px;
+    color: #555;
+    background: #ffff88; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(81%, #ffff88), color-stop(82%, #ffff88), color-stop(82%, #ffff88), color-stop(100%, #ffffc6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* IE10+ */
+    background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff88', endColorstr='#ffffc6', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+div.postit_content .pin_image{
+    width: 50px;
+    height: 39px;
+    position: absolute;
+    width: 50px;
+    top: 3px;
+    left: 47%;
+    transform: translateX(-50%);
+    /* background: url('../pin2.png') center no-repeat;
+    background-size: cover; */
+}
+div.postit_content:nth-of-type(1n){
+    background: #f8f861;
+
+}
+
+div.postit_content:nth-of-type(2n){
+    background: #8ad9e4;
+
+}
+
+div.postit_content:nth-of-type(3n){
+    background: #d595e0;
+
+
+}
+div.postit_content:nth-of-type(4n){
+    background: #f36599;
+
+}
+div.postit_content:nth-of-type(5n){
+    background: #ffab91;
+}
+div.postit_content:nth-of-type(6n){
+    background: #c5e1a5;
+}
+div.postit_content:nth-of-type(7n){
+    background: #4db6ac;
+}
+
+
+div.postit_content:hover {
+    border-bottom-right-radius: 75px 30px;
+}
+
+div.postit_content > p > a {
+    color: #555;
+}
+
 
 .comment_write {
     margin-top: 1rem;
