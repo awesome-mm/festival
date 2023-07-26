@@ -5,14 +5,16 @@
 'p2_money : 현재팀에 대한 최대가능 금액
 
 dim type_name(10)
-type_name(1) = "도약"
-type_name(2) = "성장1"
-type_name(3) = "성장2"
-type_name(4) = "성장3"
-type_name(5) = "성장4"
-type_name(6) = "성장5"
-type_name(7) = "성장6"
-type_name(8) = "교육"
+type_name(1) = "도약(일반)"
+type_name(2) = "도약(글로벌)"
+type_name(3) = "성장1"
+type_name(4) = "성장2"
+type_name(5) = "성장3"
+type_name(6) = "성장4"
+type_name(7) = "성장5"
+type_name(8) = "성장6"
+type_name(9) = "성장(전문대)"
+type_name(10) = "교육"
 
 
 
@@ -22,7 +24,7 @@ if session("session_no") <> "" Then
 
 	if session("session_jang") = "" Then
 
-		sql_s1 = "select c_no from tbl_puzzle where c_use = 0 and c_year = 2022 and c_member_no = "& session("session_no")
+		sql_s1 = "select c_no from tbl_puzzle where c_use = 0 and c_year = 2023 and c_member_no = "& session("session_no")
 		'response.write sql_s1
 		Set rs1=CreateObject("ADODB.RecordSet")
 		rs1.Open sql_s1, dbCon, 1
@@ -30,15 +32,15 @@ if session("session_no") <> "" Then
 		If rs1.EOF Then  
 			check_ok = 1
 		else
-			sql_ss2 = "select c_fund,c_exp from tbl_fund where c_member_type = 1 and c_team_no = "&c_team_no&" and c_year = 2022 and c_use = 0 and c_member_no = "& session("session_no")
+			sql_ss2 = "select c_fund,c_exp from tbl_fund where c_member_type = 1 and c_team_no = "&c_team_no&" and c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
 			Set rss2=CreateObject("ADODB.RecordSet")
 			rss2.Open sql_ss2, dbCon, 1
 
 			If rss2.EOF Then  
 				check_ok = 3
 				t_money = 20000000 '국민평가단
-				
-				sql_ss1 = "select sum(c_fund) as c_sum from tbl_fund where c_year = 2022 and c_use = 0 and c_member_no = "& session("session_no")
+			
+				sql_ss1 = "select sum(c_fund) as c_sum from tbl_fund where c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
 				Set rss1=CreateObject("ADODB.RecordSet")
 				rss1.Open sql_ss1, dbCon, 1
 
@@ -195,7 +197,7 @@ if session("session_no") <> "" Then
 
 		if gogo = 1 Then
 
-			sql_s1 = "select c_no from tbl_puzzle where c_use = 0 and c_year = 2022 and c_member_no = "& session("session_no")
+			sql_s1 = "select c_no from tbl_puzzle where c_use = 0 and c_year = 2023 and c_member_no = "& session("session_no")
 			'response.write sql_s1
 			Set rs2=CreateObject("ADODB.RecordSet")
 			rs2.Open sql_s1, dbCon, 1
@@ -203,7 +205,7 @@ if session("session_no") <> "" Then
 			If rs2.EOF Then  
 				check_ok = 1
 			else
-					sql_ss2 = "select c_fund,c_exp from tbl_fund where c_member_type = 2 and c_team_no = "&c_team_no&" and c_year = 2022 and c_use = 0 and c_member_no = "& session("session_no")
+					sql_ss2 = "select c_fund,c_exp from tbl_fund where c_member_type = 2 and c_team_no = "&c_team_no&" and c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
 					Set rss2=CreateObject("ADODB.RecordSet")
 					rss2.Open sql_ss2, dbCon, 1
 
@@ -212,7 +214,7 @@ if session("session_no") <> "" Then
 						check_ok = 3
 						t_money = 50000000 '그룹평가단
 						
-						sql_ss1 = "select sum(c_fund) as c_sum from tbl_fund where c_team_type = "& rs("c_festival_type") &" and c_year = 2022 and c_use = 0 and c_member_no = "& session("session_no")
+						sql_ss1 = "select sum(c_fund) as c_sum from tbl_fund where c_team_type = "& rs("c_festival_type") &" and c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
 						Set rss1=CreateObject("ADODB.RecordSet")
 						rss1.Open sql_ss1, dbCon, 1
 

@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
-	s_date = "2022-07-04 00:00"
-	e_date = "2022-08-15 23:59"
+	s_date = "2023-07-24 00:00"
+	e_date = "2023-08-18 23:59"
 %>
 <%
 	c_festival_type = r_call("c_festival_type")
@@ -19,8 +19,8 @@
 	else
 	sql_d = " select a.c_festival_type, a.c_no, b.c_no as c_festival_no, a.c_team_name, b.c_member_name, b.c_item_name,b.c_main_type,c_main, b.c_information "
 	sql_d = sql_d & " ,(select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum from tbl_fund where c_team_no = a.c_no and c_festival_no = b.c_no and c_use = 0 ) as c_sum "
- 	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = 2022 "
-	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (7,8,9) and a.c_festival = 1 "  
+ 	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = 2023 "
+	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
 	'response.write sql_d
 	Set rs=CreateObject("ADODB.RecordSet")
 	rs.Open sql_d, dbCon, 1
@@ -227,7 +227,7 @@
                         <div class="funding_state_box" style="margin-top:50px;">
                             <p>마감일</p>
 														<span class="date">
-                                2022-08-25 24:00 까지
+                                2023-08-18 24:00 까지
                             </span>
 														<div class="funding_state">
 																<%if now() < cdate(s_date) then%>
@@ -420,7 +420,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 		                        </div>
 					<input name="c_team_no" value="<%=c_team_no%>" type="hidden">
 					<input name="c_festival_no" value="<%=rs("c_festival_no")%>" type="hidden">
-					<input name="c_year" value="2022" type="hidden">
+					<input name="c_year" value="2023" type="hidden">
 					<input name="c_team_type" value="<%=rs("c_festival_type")%>" type="hidden">
 					<script>
 						function fund1(){
@@ -562,7 +562,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                         	<%
                         	fund_number = 0
                         	fund_price = 0
-                        	sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2022 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 1"
+                        	sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2023 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 1"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -609,7 +609,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <table>
                                     <tbody>
 				 <%
-                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
+                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -662,7 +662,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 				<%
                         	fund_number = 0
                         	fund_price = 0
-                        	sql_d = "select count(c_no) as f_n, sum(c_fund) as f_p from tbl_fund where c_year = 2022 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 2"
+                        	sql_d = "select count(c_no) as f_n, sum(c_fund) as f_p from tbl_fund where c_year = 2023 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 2"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -696,7 +696,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                     <tbody>
 					
                                         <%
-	                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 2 order by newid()"
+	                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 2 order by newid()"
 	                        	Set rs_d=CreateObject("ADODB.RecordSet")
 					rs_d.Open sql_d, dbCon, 1
 					If rs_d.EOF Then  
@@ -783,7 +783,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                         <%
                         	fund_number = 0
                         	fund_price = 0
-                        	sql_d = "select count(c_no) as f_n, sum(c_fund) as f_p from tbl_fund where c_year = 2022 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 3"
+                        	sql_d = "select count(c_no) as f_n, sum(c_fund) as f_p from tbl_fund where c_year = 2023 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 3"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -815,7 +815,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <table>
                                     <tbody>
 					<%
-	                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_name from tbl_fund a inner join tbl_temp_tester b on b.c_no = a.c_member_no  where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 3 order by newid()"
+	                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_name from tbl_fund a inner join tbl_temp_tester b on b.c_no = a.c_member_no  where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 3 order by newid()"
 	                        	Set rs_d=CreateObject("ADODB.RecordSet")
 					rs_d.Open sql_d, dbCon, 1
 					If rs_d.EOF Then  

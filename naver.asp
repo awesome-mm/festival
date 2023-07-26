@@ -10,14 +10,14 @@
 <!--
 
 Client ID	
-bPpAWcop7K8qGtN3g0ue
+bPpAWcop7K8qGtN3g0ue -> VPp7EwcJ_iOx110hG4kD
 Client Secret	
 gS9mNRLKA_
 재발급
 -->
   <div id="naver_id_login"></div>
   <script type="text/javascript">
-  	var naver_id_login = new naver_id_login("bPpAWcop7K8qGtN3g0ue", "http://festival.u300.or.kr/naver2.asp");
+  	var naver_id_login = new naver_id_login("VPp7EwcJ_iOx110hG4kD", "http://festival.u300.kr/naver2.asp");
   	var state = naver_id_login.getUniqState();
   	naver_id_login.setButton("white", 4,50);
   	naver_id_login.setDomain("YOUR_SERVICE_URL");

@@ -67,7 +67,7 @@
 									%>
 										<% for i = 0 to ubound(a_file) %>
 											<%if a_file(i) <> "" then%>
-											<img src="http://www.u300.or.kr/images/file.gif" width="30px" alt="file"> <a href="/upload/<%=a_file(i)%>" target="_blank"><%=a_file(i)%></a> <br>
+											<img src="http://www.u300.kr/images/file.gif" width="30px" alt="file"> <a href="/upload/<%=a_file(i)%>" target="_blank"><%=a_file(i)%></a> <br>
 											<%end if%>
 										<%next%>
 									
