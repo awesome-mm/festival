@@ -55,7 +55,8 @@
 
 
     <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
-    <script src="/js/jquery-ui-1.12.1.js"></script>
+
+
     <script src="/js/ui.js"></script>
     <script src="/js/newsTicker.js"></script>
     <script>

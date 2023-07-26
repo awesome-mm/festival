@@ -2,6 +2,8 @@
 <!--#include virtual="/include/include.asp"-->
 <!--#include virtual="/include/frame/head.asp"-->
 
+<!-- 현재 파일은 메인페이지의 벙명록 부분이 table puzzle 효과 페이지 입니다-->
+
 <!--
  <Div id="Pop" style="position:absolute; left:100px; top:100px; width:100px; height:100px; z-index:10000;display:none;"> 
  	<a href="javascript:ViewLayer();"> 
@@ -71,76 +73,302 @@
 <!-- <body onload="ViewLayer();"> -->
 
 <div class="wrapper main_wrapper">
+<%
+	now_p=r_call("now_p")
+	if now_p = "" then
+		sql_p = "select distinct a.c_puzzle_no "
+		sql_p = sql_p & " ,(select count(c_no) as my_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
+		sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2022 and a.c_use = 0 order by a.c_puzzle_no"
+		Set rs=CreateObject("ADODB.RecordSet")
+		rs.Open sql_p, dbCon, 1
+		If rs.EOF Then 
+			now_p = 1
+		else
+			now_p = 0
+			Do Until rs.EOF 
+				if rs("my_no") < 625 and now_p = 0 then
+					now_p = rs("c_puzzle_no")
+				end if 	
+			rs.MoveNext
+		        Loop
+		end if
+		rs.Close
+		Set rs=Nothing
+		if now_p = 0 then
+			now_p = 1
+		end if
+	else
+		now_p = cint(now_p)
+	end if
+	
+	t_count = 0
+	
+	sql_p = "select max(c_order) as p_count from tbl_puzzle where c_year = 2022 and c_use = 0 and c_puzzle_no = "& now_p
+	Set rs=CreateObject("ADODB.RecordSet")
+	rs.Open sql_p, dbCon, 1
 
+	If rs.EOF Then 
+		
+	else
+		t_count = rs("p_count")
+	end if
+	rs.Close
+	Set rs=Nothing
+	
+	next_p = now_p + 1
+	if next_p > 20 then
+		next_p = 1
+	end if
+	prev_p = now_p - 1
+	if prev_p = 0 then
+		prev_p = 20
+	end If
+
+
+	
+	If IsNull(t_count) Then
+
+		t_count = 0
+
+	End if
+
+	
+
+	'Response.write "77777777777=" & t_count
+
+%>
+<%
+    ok_p = t_count
+    no_p = 0
+%>   
     <div class="visual main_visual">
         <section class="main__page__visual">
 
             <div class="visual_subject">
+                <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">
                     <span class="vs1">
-                        네트워킹 데이
+                        페스티벌
                     </span>
                     <span class="vs2">
                         방명록
                     </span>
-                    <a class="more" href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">더보기<i class="fa-solid fa-chevron-right"></i></a>
+                </a>
+
+                <div class="more">
+                    <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">더보기</a>
+                </div>
             </div>
- 
+ <script>
+	function tiptip(event,flag,xx,yy){
+		note2_go("")
+		if(flag == "1"){
+			document.getElementById("note02").style.width="600px"
+			note2_go('<iframe width="600px" height="340px" src="https://www.youtube.com/embed/ry7wOrXVV8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
+		}else if(flag == "2"){
+			document.getElementById("note02").style.width="600px"
+			note2_go('<iframe width="600px" height="340px" src="https://www.youtube.com/embed/WhbqAduoC5A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
+		}else{
+			document.getElementById("note02").style.width="300px"
+			document.getElementById("exec").src="/cms/process/puzzle/box.asp?c_puzzle_no=<%=now_p%>&c_order=" + flag
+		}
+		 
+		  var x = event.offsetX + xx * 19;
+		  if(x>900){
+		  	x = x - 350
+		  }
+		  var y = event.offsetY + yy * 11;
+		   
+		document.getElementById("note01").style.top = y + "px"
+		document.getElementById("note01").style.left = x + "px"
+		document.getElementById("note01").style.display = "block"
+	}
+	function note2_go(flag){
+		document.getElementById("note02").innerHTML = flag; 
+	}
+	
+</script>
+            <div class="swiper-container" >
 
-<!-- db연결하고 데이터 뽑아서 사용하는 로직-->
-        <div class=" movingElement_box postit_box">
-<%
-            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2022 and c_use = 0 order by c_no desc) as aa order by newid()"
-            Set tbl_board=CreateObject("ADODB.RecordSet")
-            tbl_board.Open strSQL, dbCon, 1
-            If tbl_board.EOF Then
-            else
-            i=0
-                Do Until tbl_board.EOF
-                
-                c_member_id = tbl_board("c_member_id")
-                t_s_no = len(c_member_id)
-                c_member_id = left(c_member_id, t_s_no - 3)
-                
-                c_member_id = c_member_id & "**"
-                
+    			<div class="swiper_box" style=""  >
+                        <div style="position: relative;padding:0px">
+                            <div id="img_t" style="position:absolute; top:0px; left:0px;z-index:2;padding:0px;">
+                                <table  cellpadding=0 cellspacing=0>
 
+                                    <% for j = 1 to 25 %>
+                                    
+                                        <tr>
 
-                %>
-                <div id="draggable<%=i%>" class="movingElement postit_content">
-                    <div hrdf="#" class="deleteButton"><i class="fa-solid fa-xmark"></i></div>
-                    <p><%=tbl_board("c_content")%></p>
-                    <div class="postit_bt">
-                        <p><%=c_member_id%> </p>
-                        <p><%=left(tbl_board("c_date"),10)%></p>
+                                        <% for i = 1 to 25 %>
+                                        <%
+                                            no_p = no_p + 1
+                                        %>
+
+                                            <%if no_p > t_count then%>
+
+                                                <td onclick="location.href='/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413'" style="cursor:pointer;width:39px;height:<%if j <25 then%>22<%else%>23<%end if%>px;background-color: rgba(255,255,255,0.7);border-right:1px #ffffff solid;border-bottom:1px #ffffff solid;" onmouseover="this.style.backgroundColor='rgba(247,155,52,0.8)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.7)'" title="방명록 쓰기"></td>
+                                            
+                                            <%else%>
+
+                                                <td onclick="tiptip(event,'<%=no_p%>',<%=i%>,<%=j%>)" style="cursor:pointer;width:39px;height:<%if j <25 then%>22<%else%>23<%end if%>px;;border-right:1px #ffffff solid;border-bottom:1px #ffffff solid;"  onmouseover="this.style.backgroundColor='rgba(255,255,255,0.8)'" onmouseout="this.style.backgroundColor=''" title="이 위치에 있는 방명록 보기"></td>
+
+                                            <%end if%>
+
+                                        <%next%>
+
+                                        </tr>
+
+                                    <%next%>
+
+                                </table>
+                            </div>
+                            <div id="note01" class="modal">
+                                <div class="modal_top" >
+                                    <!--<a href="#none" onclick="note2_go('');document.getElementById('note01').style.display = 'none'" style="background:#898989;color:#ffffff;font-weight:600">X</a>-->
+                                    <p class="modal_title">Welcome To Festival</p>
+                                    <a href="#none" onclick="note2_go('');document.getElementById('note01').style.display = 'none'">
+                                        <img class="close_dtn" src="/images/close_btn.png">
+                                    </a>
+                                </div>
+
+                                <div id="note02" class="modal_body"></div>
+                            </div>    
+
+                            <img src="/cms/process/puzzle/images/p<%=now_p%>.png" alt="이미지" >
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="swiper-control">
+                            <a href="#none" onclick="location.href='default.asp?now_p=<%=prev_p%>'" class="prev-btn"></a>
+                        </div>
+                        <div class="swiper-control">
+                            <a  href="#none" onclick="location.href='default.asp?now_p=<%=next_p%>'" class="next-btn"></a>
+                        </div>
+                </section>
+
+                <section class="news_ticker">
+                    <div class="inner">
+
+                        <div id="multilines">
+                            <div class="guest_book1">
+                                <ul class="newsticker dot">
+                                <%
+                                sql_p = "select   top(20) c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_order > 2 order by c_no desc "
+				Set rs=CreateObject("ADODB.RecordSet")
+				rs.Open sql_p, dbCon, 1
+				If rs.EOF Then 
+				else
+				klp = 0
+				Do Until rs.EOF or klp = 10
+					klp = klp + 1
+				%>
+                                    <li>
+                                        <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">
+                                            <div class="gb_subject">
+                                                 &nbsp;<%=replace(replace(rs("c_content"),"'",""""),chr(13)& chr(10)," ")%>
+                                            </div>
+                                            <div class="gb_id">
+                                            	<%
+                                            	c_member_id = left(rs("c_member_id"),3)
+						t_s_no = len(rs("c_member_id")) - 3
+						if t_s_no > 6 then
+							t_s_no = 6
+						end if
+						for i = 1 to t_s_no
+							c_member_id = c_member_id & "*"
+						next
+						%>	
+                                                <%=c_member_id%>
+                                            </div>
+                                            <div class="gb_date">
+                                               <%=left(rs("c_date"),10)%>
+                                            </div>
+                                        </a>
+
+                                    </li>
+                                 <%
+                                rs.MoveNext
+	                	Loop
+                                %>    
+                                </ul>
+                            </div>
+
+                            <div class="guest_book2">
+                                <ul class="newsticker dot">
+                                <%		
+                                	 
+                                	Do Until rs.EOF 
+					klp = klp + 1
+				%>
+                                    <li>
+                                        <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">
+                                            <div class="gb_subject">
+                                                 &nbsp;<%=replace(replace(rs("c_content"),"'",""""),chr(13)& chr(10)," ")%>
+
+                                            </div>
+                                            <div class="gb_id">
+                                              <%
+                                            	c_member_id = left(rs("c_member_id"),3)
+						t_s_no = len(rs("c_member_id")) - 3
+						if t_s_no > 6 then
+							t_s_no = 6
+						end if
+						for i = 1 to t_s_no
+							c_member_id = c_member_id & "*"
+						next
+						%>	
+                                               <%=c_member_id%>
+                                            </div>
+                                            <div class="gb_date">
+                                                  <%=left(rs("c_date"),10)%>
+                                            </div>
+                                        </a>
+                                    </li>
+                                  <%
+                                rs.MoveNext
+	                	Loop
+	                	end if
+	                	rs.Close
+				Set rs=Nothing
+                                %>   
+                                </ul>
+                            </div>
+                        </div>
+
+<!--                <div class="news_button">
+                    <div class="up">
+                        <button id="next-button">
+                            <img src="/images/term_up.png">
+                        </button>
+                    </div>
+                    <div class="down">
+                        <button id="prev-button">
+                            <img src="/images/term_down.png">
+                        </button>
                     </div>
                 </div>
-            <%
-            i= i+1
-                tbl_board.movenext
-                Loop
-            End if
-            tbl_board.Close
-            Set tbl_board=Nothing
-%>
-
-
-                </div>
-
+-->           
+            </div>
         </section>
-
-
     </div>
 
     <section class="investment_area" style="text-align:center;">
-        <div class="total_invest_rolling">
-            <h3>총 투자금액</h3>
-            <p id="total_investment" data-value="1000000000">1000000000</p>
-            <span>원</span>
+        <div>
+            <h3>총 투자 금액</h3>
+            <p id="total_investment" data-value="1000000000">1000000000<p>
+
         </div>
-        <div class="total_team_rollingd">
-            <h3>모의투자 참여 인원</h3>
-            <p id="total_team" data-value="300">300</p>
-            <span>팀</span>
+        <div>
+            <h3>총 참가팀</h3>
+            <p id="total_team" data-value="300">300<p> <span>팀</span>
+        </div>
+        <div>
+            <h3>실시간 추천인 순위</h3>
+            <p>1위 opoko***</p>
+        </div>
+        <div>
+            <h3>추천 개수</h3>
+            <p>213 개</p>
         </div>
     </section>
 
@@ -179,8 +407,8 @@
 </script>
 
                  <section class="ytp">
-                 <h3><span>네트워킹 데이</span> 소개영상</h3>
-                 <p class="fastival_subtitle">2023 학생 창업유망팀 300 네트워킹 대회 </p>
+                 <h3><span>페스티벌</span> 소개영상</h3>
+                 <p class="fastival_subtitle">2023 학생 창업유망팀 300 페스티벌</p>
            <!--         <div class="ytp_wrap">
                        <div class="video1">
                             <div class="video_container">
@@ -355,6 +583,9 @@ s_text = r_call("s_text")
                     <!-- <div class="inner"> -->
                     <div class="tab_menu">
                         <ul>
+
+
+
 
                             <li <%if c_festival_type = "" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="default.asp?">전 체</a>
@@ -535,7 +766,6 @@ s_text = r_call("s_text")
             
 <!--#include virtual="/include/frame/bottom.asp"-->
 <script>
-
 	// function ViewLayer(){
     //       $("#popup").css('display','flex').hide().fadeIn();
     // }
@@ -587,89 +817,6 @@ s_text = r_call("s_text")
     }
     return "";
   }
-
-//   포스트잇 애니메이션 효과
-
-
-    $(document).ready(function() {
-        console.log('로딩끝')
-
-        function postItAnimation() {
-            // Get the box containing the moving elements
-            const movingElementBox = document.querySelector(".movingElement_box");
-            const movingElements = movingElementBox.querySelectorAll(".movingElement");
-
-            // Function to update CSS top and left values
-            function updatePosition(element, topValue, leftValue) {
-            element.style.top = `${topValue}%`;
-            element.style.left = `${leftValue}%`;
-            }
-
-            // Function to generate random values for top and left
-            function getRandomPosition() {
-            const randomTop = Math.floor(Math.random() * 70) + 1; // Adjust the range based on box height (400px - element height 50px)
-            const randomLeft = Math.floor(Math.random() * 85) + 1; // Adjust the range based on box width (400px - element width 50px)
-            return { topValue: randomTop, leftValue: randomLeft };
-            }
-
-            // Function to animate the movement for each moving element
-            function animateMovement(index) {
-            if (index >= movingElements.length) {
-                return; // All elements are displayed, stop recursion
-            }
-            
-
-            const movingElement = movingElements[index];
-            const deleteButton = movingElement.querySelector(".deleteButton");
-
-            // Attach click event listener to delete button
-            deleteButton.addEventListener("click", () => {
-                // Hide the element by reducing opacity to 0
-                movingElement.style.opacity = 0;
-                // After a delay of 500ms (transition duration), set display to none
-                setTimeout(() => {
-                movingElement.style.display = "none";
-                }, 500);
-            });
-
-            const { topValue, leftValue } = getRandomPosition();
-            updatePosition(movingElement, topValue, leftValue);
-            movingElement.style.opacity = "1"; // Display the element
-
-            // Call the next element after a delay of 100ms
-            setTimeout(() => {
-                animateMovement(index + 1);
-            }, 100);
-            }
-
-            // Call the function to start the animation for each moving element
-            animateMovement(0);
-
-            let movingElementLength = $(".movingElement").length;
-            
-            $(function () {
-            for (let i = 0; i < movingElementLength; i++) {
-                $("#draggable" + i).draggable();
-            }
-            });
-        }
-        postItAnimation()
-
-// 무한루프 다시 뿌려주는 효과
-        // setInterval(() => {
-        //     const movingElements = document.querySelectorAll(".movingElement");
-        //     movingElements.forEach(element => {
-        //         element.style.opacity = "0"
-        //     });
-        //     postItAnimation()
-        // }, 10000);
-        
-        // console.log('함수실행')
-
-    });
-
-
-
     // 이벤트팝업
     // 창열기  
 //   function todayOpen(winName) {
@@ -695,9 +842,6 @@ s_text = r_call("s_text")
 
 
 </script>
-
-
-
 
 <!--#include virtual="/include/include_b.asp"-->
  

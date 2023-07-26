@@ -62,8 +62,98 @@
 %>
 
 		<div class="sub_title guest_book_title">
-				<h2>네트워킹 데이 방명록</h2>
+				<h2>퍼즐 방명록</h2>
 		</div>
+
+
+
+
+<div class="tab_menu2" >
+	<ul>
+		<li data-id="con1" <%if now_p = 1 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=1">퍼즐 No1</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 2 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=2">퍼즐 No2</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 3 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=3">퍼즐 No3</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 4 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=4">퍼즐 No4</a>
+		</li>
+		<li data-id="con1" <%if now_p = 5 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=5">퍼즐 No5</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 6 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=6">퍼즐 No6</a>
+		</li>
+
+
+		<li data-id="con1" <%if now_p = 7 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=7">퍼즐 No7</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 8 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=8">퍼즐 No8</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 9 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=9">퍼즐 No9</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 10 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=10">퍼즐 No10</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 11 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=11">퍼즐 No11</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 12 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=12">퍼즐 No12</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 13 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=13">퍼즐 No13</a>
+		</li>
+
+		<li data-id="con1" <%if now_p = 14 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=14">퍼즐 No14</a>
+		</li>
+
+		<li data-id="con3" <%if now_p = 15 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=15">퍼즐 No15</a>
+		</li>
+
+		<li data-id="con4" <%if now_p = 16 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=16">퍼즐 No16</a>
+		</li>
+
+		<li data-id="con4" <%if now_p = 17 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=17">퍼즐 No17</a>
+		</li>
+
+		<li data-id="con4" <%if now_p = 18 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=18">퍼즐 No18</a>
+		</li>
+
+
+		<li data-id="con4" <%if now_p = 19 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=19">퍼즐 No19</a>
+		</li>
+
+
+		<li data-id="con4" <%if now_p = 20 then%>class="on"<%end if%>>
+			<a href="list.asp?<%=t_para%>&now_p=20">퍼즐 No20</a>
+		</li>
+	</ul>
+</div>
+
 
 
 			<%
@@ -101,126 +191,82 @@
 	
 </script>	     	
 
-			<section class="postit_wrapper">
-			
-<!-- db연결하고 데이터 뽑아서 사용하는 로직-->
-        <div class=" movingElement_box postit_box">
-<%
-            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2022 and c_use = 0 order by c_no desc) as aa order by newid()"
-            Set tbl_board=CreateObject("ADODB.RecordSet")
-            tbl_board.Open strSQL, dbCon, 1
-            If tbl_board.EOF Then
-            else
-            i=0
-                Do Until tbl_board.EOF
-                
-                c_member_id = tbl_board("c_member_id")
-                t_s_no = len(c_member_id)
-                c_member_id = left(c_member_id, t_s_no - 3)
-                
-                c_member_id = c_member_id & "**"
-                
+	<div class="visual">
+		<section class="main__page__visual visual_box">
+				<div class="swiper-container swiper-container2" >
+					<div class="swiper_box" >
+						<div style="position: relative;padding:0px; ">
+							<div id="img_t" style="position:absolute ; top:0px; left:0px;z-index:2;padding:0px;">
+								<table  cellpadding=0 cellspacing=0>
+													<% for j = 1 to 25 %>
+													<tr>
+													<% for i = 1 to 25 %>
+													<%
+														no_p = no_p + 1
+													%>
 
+														<%if no_p > t_count then%>
 
-                %>
-                <div id="draggable<%=i%>" class="movingElement postit_content">
-                    <div hrdf="#" class="deleteButton"><i class="fa-solid fa-xmark"></i></div>
-                    <p><%=tbl_board("c_content")%></p>
-                    <div class="postit_bt">
-                        <p><%=c_member_id%> </p>
-                        <p><%=left(tbl_board("c_date"),10)%></p>
-                    </div>
-                </div>
-            <%
-            i= i+1
-                tbl_board.movenext
-                Loop
-            End if
-            tbl_board.Close
-            Set tbl_board=Nothing
-%>
-<script>
-    $(document).ready(function() {
-        console.log('로딩끝')
+															<td onclick="document.kdb.c_content.focus()" style="cursor:pointer;width:47px;height:26.5px;background-color: rgba(255,255,255,0.7);border-right:1px #ffffff solid;border-bottom:1px #ffffff solid;" onmouseover="this.style.backgroundColor='rgba(247,155,52,0.8)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.7)'" title="방명록 쓰기"></td>
+														<%else%>
 
-        function postItAnimation() {
-            // Get the box containing the moving elements
-            const movingElementBox = document.querySelector(".movingElement_box");
-            const movingElements = movingElementBox.querySelectorAll(".movingElement");
+															<td onclick="tiptip(event,'<%=no_p%>',<%=i%>,<%=j%>)" style="cursor:pointer;width:47px;height:26.5px;;border-right:1px #ffffff solid;border-bottom:1px #ffffff solid;"  onmouseover="this.style.backgroundColor='rgba(255,255,255,0.8)'" onmouseout="this.style.backgroundColor=''" title="이 위치에 있는 방명록 보기"></td>
 
-            // Function to update CSS top and left values
-            function updatePosition(element, topValue, leftValue) {
-            element.style.top = `${topValue}%`;
-            element.style.left = `${leftValue}%`;
-            }
+														<%end if%>
 
-            // Function to generate random values for top and left
-            function getRandomPosition() {
-            const randomTop = Math.floor(Math.random() * 70) + 1; // Adjust the range based on box height (400px - element height 50px)
-            const randomLeft = Math.floor(Math.random() * 85) + 1; // Adjust the range based on box width (400px - element width 50px)
-            return { topValue: randomTop, leftValue: randomLeft };
-            }
+													<%next%>
+													</tr>
+													<%next%>
+								</table>
+							</div>
+							<div id="note01" class="modal">
+								<div class="modal_top" >
+									<!--<a href="#none" onclick="note2_go('');document.getElementById('note01').style.display = 'none'" style="background:#898989;color:#ffffff;font-weight:600">X</a>-->
+									<p class="modal_title">Welcome To Festival</p>
+									<a href="#none" onclick="note2_go('');document.getElementById('note01').style.display = 'none'">
+											<img class="close_dtn" src="/images/close_btn.png">
+									</a>
+								</div>
 
-            // Function to animate the movement for each moving element
-            function animateMovement(index) {
-            if (index >= movingElements.length) {
-                return; // All elements are displayed, stop recursion
-            }
-            
+								<div id="note02" class="modal_body"></div>
+								</div>       
+										<img src="/cms/process/puzzle/images/p<%=now_p%>.png" alt="이미지" >
+								</div>
 
-            const movingElement = movingElements[index];
-            const deleteButton = movingElement.querySelector(".deleteButton");
+								<table class="pagination_group">
+								<tr>
+								
+									<td ><a href="list.asp?<%=t_para%>&now_p=1"><div class="circle1" <%if now_p = 1 then%> style="background-color:#fff;" <%end if%>></div></a></td>
+									<td ><a href="list.asp?<%=t_para%>&now_p=2"><div class="circle1" <%if now_p = 2 then%> style="background-color:#fff;" <%end if%>></div></a></td>
+									<td ><a href="list.asp?<%=t_para%>&now_p=3"><div class="circle1" <%if now_p = 3 then%> style="background-color:#fff;" <%end if%>></div></a></td>
+									<td ><a href="list.asp?<%=t_para%>&now_p=4"><div class="circle1" <%if now_p = 4 then%> style="background-color:#fff;" <%end if%>></div></a></td>
 
-            // Attach click event listener to delete button
-            deleteButton.addEventListener("click", () => {
-                // Hide the element by reducing opacity to 0
-                movingElement.style.opacity = 0;
-                // After a delay of 500ms (transition duration), set display to none
-                setTimeout(() => {
-                movingElement.style.display = "none";
-                }, 500);
-            });
+									<!--
+											<td ><a href="list.asp?<%=t_para%>&now_p=5"><div class="circle1" <%if now_p = 5 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=6"><div class="circle1" <%if now_p = 6 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=7"><div class="circle1" <%if now_p = 7 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=8"><div class="circle1" <%if now_p = 8 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=9"><div class="circle1" <%if now_p = 9 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=10"><div class="circle1" <%if now_p = 10 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=11"><div class="circle1" <%if now_p = 11 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=12"><div class="circle1" <%if now_p = 12 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=13"><div class="circle1" <%if now_p = 13 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=14"><div class="circle1" <%if now_p = 14 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=15"><div class="circle1" <%if now_p = 15 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=16"><div class="circle1" <%if now_p = 16 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=17"><div class="circle1" <%if now_p = 17 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=18"><div class="circle1" <%if now_p = 18 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=19"><div class="circle1" <%if now_p = 19 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+											<td ><a href="list.asp?<%=t_para%>&now_p=20"><div class="circle1" <%if now_p = 20 then%> style="background-color:#000000;" <%end if%>></div></a></td>
+									-->
+									
+								</tr>
+								
+								</table>
 
-            const { topValue, leftValue } = getRandomPosition();
-            updatePosition(movingElement, topValue, leftValue);
-            movingElement.style.opacity = "1"; // Display the element
-
-            // Call the next element after a delay of 100ms
-            setTimeout(() => {
-                animateMovement(index + 1);
-            }, 100);
-            }
-
-            // Call the function to start the animation for each moving element
-            animateMovement(0);
-
-            let movingElementLength = $(".movingElement").length;
-            
-            $(function () {
-            for (let i = 0; i < movingElementLength; i++) {
-                $("#draggable" + i).draggable();
-            }
-            });
-        }
-        postItAnimation()
-
-// 무한루프 다시 뿌려주는 효과
-        // setInterval(() => {
-        //     const movingElements = document.querySelectorAll(".movingElement");
-        //     movingElements.forEach(element => {
-        //         element.style.opacity = "0"
-        //     });
-        //     postItAnimation()
-        // }, 10000);
-        
-        // console.log('함수실행')
-
-    });
-
-</script>
-
-                </div>
-			</section>
+							</div> 
+						</div>  
+		</section>
 
 		<section class="news_ticker sub_news_ticker">
 			<div class="inner news_ticker_inner">
@@ -229,11 +275,10 @@
 						first_no = 0
 						a1=0
 						
-						a_period = 4
+						a_period = 10
 						
 						a2 = a1 + a_period
 						sql_p = "select t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_order > 2  and c_no > "& first_no &" )t where  rnum > "& a1 &" and rnum <= "& a2
-				response.write sql_p
 				Set rs=CreateObject("ADODB.RecordSet")
 				rs.Open sql_p, dbCon, 1
 				If rs.EOF Then 
@@ -245,7 +290,7 @@
 						first_no = rs("c_no")
 					end if
 				%>
-									<div class="comment_area" >
+									<div class="comment_area" style=" color: #fff;">
 										<div class="user_profile">
 											<img src="./images/profile_2.png" alt="">
 										</div>
@@ -280,16 +325,7 @@ next
 				%>
 					</div>
 			</div>
-			<div class="btn_box_wrap">
-				<div class="more_sch_txt">
-						<a href="#none" onclick="add_value(); setTimeout(() => {dateChange(); console.log(1)}, 300);">
-								댓글 더보기
-						</a>
-						<!-- <div class="triangle"></div> -->
-				</div>
-		</div>
 		</section>    
-
 		<script>
 			function add_value(){
 				document.getElementById("exec").src = "add_value.asp?first_no="+ document.getElementById("first_no").value +"&s_no="+ document.getElementById("s_no").value +"&s_period="+ document.getElementById("s_period").value
@@ -347,6 +383,15 @@ next
 }
 dateChange();
 		</script>    
+		<div class="btn_box_wrap">
+				<div class="more_sch_txt">
+						<a href="#none" onclick="add_value(); setTimeout(() => {dateChange(); console.log(1)}, 300);">
+								댓글 더보기
+						</a>
+						<!-- <div class="triangle"></div> -->
+				</div>
+		</div>
+	</div>
 
                  
 	<input name="first_no" id="first_no" value="<%=first_no%>" type="hidden">      
@@ -411,17 +456,17 @@ dateChange();
 	}
 </script>
                 
-				<section class="guest_book_bottom">
-						<form name="kdb" class="guest_book">
-							  <div>
-										<h2>방명록 작성</h2>
-											<div style="padding:20px 0; line-height:1.5">
+				<section>
+						<form name="kdb">
+							  <div class="guest_book" >
+										<h2  style="text-align:center;">방명록 작성</h2>
+											<div style="padding:20px 0; marin:0 auto; line-height:1.5">
 												<ul class="guest_book_guide">
 													<!--*<li>방명록 작성 기간이 아닙니다.</li>.-->
-													<li>추천인 및 방명록 작성 기회는 회원에게 한번만 주어집니다.</li>
-													<li>부적절한 방명록 작성 시 국민평가단 참여에 제한이 있을 수 있습니다.</li>
-													<li>추천인 작성 시 추천인 아이디 정확히 작성 (오탈자 발생 시 추천 불인정)</li>
-													<li>추천인이 없을 경우 공란으로 제출 (추후 추가 작성 불가)</li>
+													<li>- 추천인 및 방명록 작성 기회는 회원에게 한번만 주어집니다.</li>
+													<li>- 부적절한 방명록 작성 시 국민평가단 참여에 제한이 있을 수 있습니다.</li>
+													<li>- 추천인 작성 시 추천인 아이디 정확히 작성 (오탈자 발생 시 추천 불인정)</li>
+													<li>- 추천인이 없을 경우 공란으로 제출 (추후 추가 작성 불가)</li>
 												</ul>
 											</div>
 
@@ -437,135 +482,6 @@ dateChange();
 											</div>
 								</div>
 						 </form>
-						 <div class="allWrap">     
-								<div class="tabBox">
-										<p class="tab-link current" data-tab="tab-1">추천인 랭킹</p>
-										<p class="tab-link"  data-tab="tab-2">내가 쓴 방명록</p>
-								</div>
-								<div  id="tab-1" class="tab-content current">
-									<p>ranking</p>
-									<div class="ranking_box">
-										<div class="ranking_top">
-											<p>순위</p>
-											<p>닉네임</p>
-											<p>추천 수</p>
-										</div>
-										<ul class="ranking_list">
-											<li class="ranking_item">
-												<span>
-													<span class="rank">1</span>
-												</span>
-												<span class="ranking_id">asd@@</span>
-												<p>
-													<span class="like_icon"></span>
-													1231
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">2</span>
-												</span>
-												<span class="ranking_id">s@@</span>
-												<p>
-													<span class="like_icon"></span>
-													123
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">3</span>
-												</span>
-												<span class="ranking_id">zbvzcbzcvbzz@@</span>
-												<p>
-													<span class="like_icon"></span>
-													141
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">4</span>
-												</span>
-												<span class="ranking_id">adbadfgqqwe@@</span>
-												<p>
-													<span class="like_icon"></span>
-													11
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">5</span>
-												</span>
-												<span class="ranking_id">wqtqwtag@@</span>
-												<p>
-													<span class="like_icon"></span>
-													12
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">6</span>
-												</span>
-												<span class="ranking_id">dafbdafb@@</span>
-												<p>
-													<span class="like_icon"></span>
-													12
-												</p>
-											</li>
-
-											<li class="ranking_item">
-												<span>
-													<span class="rank">7</span>
-												</span>
-												<span class="ranking_id">vxzbabd@@</span>
-												<p>
-													<span class="like_icon"></span>
-													12
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">8</span>
-												</span>
-												<span class="ranking_id">opokon@@</span>
-												<p>
-													<span class="like_icon"></span>
-													10
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">9</span>
-												</span>
-												<span class="ranking_id">12314aas@@</span>
-												<p>
-													<span class="like_icon"></span>
-													8
-												</p>
-											</li>
-											<li class="ranking_item">
-												<span>
-													<span class="rank">10</span>
-												</span>
-												<span class="ranking_id">sdqw@@</span>
-												<p>
-													<span class="like_icon"></span>
-													4
-												</p>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div  id="tab-2" class="tab-content">
-									<div class="my_movingElement postit_content">
-											<p>내가 쓴 방명록 컨텐츠 :</p>
-											<div class="postit_bt">
-													<p>내가 쓴 방명록 아이디 : </p>
-													<p>내가 쓴 방명록 날짜 :</p>
-											</div>
-									</div>
-								</div>
-						</div>
-
 				 </section>
 
 <iframe name="exec" id="exec" src="" style="display:none;width:600px;height:600px"></iframe>                
@@ -587,16 +503,4 @@ $(".input-div").on("propertychange change keyup paste input",function(){
       //  $(this)[0].style.height='auto';
       //  $(this).height( $(this).prop('scrollHeight'));     
     });
-
-	$(".tab-link").click(function () {
-    var tab_id = $(this).attr("data-tab");
-
-    $(".tab-link").removeClass("current");
-    $(".tab-content").removeClass("current");
-
-    $(this).addClass("current");
-    $("#" + tab_id).addClass("current");
-  });
-
-
 </script>
