@@ -248,6 +248,7 @@
 							document.getElementById('gauge_bar').style.backgroundColor = "#4DFEFF";
 						}
 
+
 						</script>
 						<!---------게이지----------->
 						<!--
