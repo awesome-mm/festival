@@ -71,128 +71,25 @@
 <!-- <body onload="ViewLayer();"> -->
 
 <div class="wrapper main_wrapper">
-<%
-	now_p=r_call("now_p")
-	if now_p = "" then
-		sql_p = "select distinct a.c_puzzle_no "
-		sql_p = sql_p & " ,(select count(c_no) as my_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
-		sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2022 and a.c_use = 0 order by a.c_puzzle_no"
-		Set rs=CreateObject("ADODB.RecordSet")
-		rs.Open sql_p, dbCon, 1
-		If rs.EOF Then 
-			now_p = 1
-		else
-			now_p = 0
-			Do Until rs.EOF 
-				if rs("my_no") < 625 and now_p = 0 then
-					now_p = rs("c_puzzle_no")
-				end if 	
-			rs.MoveNext
-		        Loop
-		end if
-		rs.Close
-		Set rs=Nothing
-		if now_p = 0 then
-			now_p = 1
-		end if
-	else
-		now_p = cint(now_p)
-	end if
-	
-	t_count = 0
-	
-	sql_p = "select max(c_order) as p_count from tbl_puzzle where c_year = 2022 and c_use = 0 and c_puzzle_no = "& now_p
-	Set rs=CreateObject("ADODB.RecordSet")
-	rs.Open sql_p, dbCon, 1
 
-	If rs.EOF Then 
-		
-	else
-		t_count = rs("p_count")
-	end if
-	rs.Close
-	Set rs=Nothing
-	
-	next_p = now_p + 1
-	if next_p > 20 then
-		next_p = 1
-	end if
-	prev_p = now_p - 1
-	if prev_p = 0 then
-		prev_p = 20
-	end If
-
-
-	
-	If IsNull(t_count) Then
-
-		t_count = 0
-
-	End if
-
-	
-
-	'Response.write "77777777777=" & t_count
-
-%>
-<%
-    ok_p = t_count
-    no_p = 0
-%>   
     <div class="visual main_visual">
         <section class="main__page__visual">
 
             <div class="visual_subject">
-                <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">
                     <span class="vs1">
-                        페스티벌
+                        네트워킹 데이
                     </span>
                     <span class="vs2">
                         방명록
                     </span>
-                </a>
-
-                <div class="more">
-                    <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">더보기</a>
-                </div>
+                    <a class="more" href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">더보기<i class="fa-solid fa-chevron-right"></i></a>
             </div>
- <script>
-	function tiptip(event,flag,xx,yy){
-		note2_go("")
-		if(flag == "1"){
-			document.getElementById("note02").style.width="600px"
-			note2_go('<iframe width="600px" height="340px" src="https://www.youtube.com/embed/ry7wOrXVV8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
-		}else if(flag == "2"){
-			document.getElementById("note02").style.width="600px"
-			note2_go('<iframe width="600px" height="340px" src="https://www.youtube.com/embed/WhbqAduoC5A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>')
-		}else{
-			document.getElementById("note02").style.width="300px"
-			document.getElementById("exec").src="/cms/process/puzzle/box.asp?c_puzzle_no=<%=now_p%>&c_order=" + flag
-		}
-		 
-		  var x = event.offsetX + xx * 19;
-		  if(x>900){
-		  	x = x - 350
-		  }
-		  var y = event.offsetY + yy * 11;
-		   
-		document.getElementById("note01").style.top = y + "px"
-		document.getElementById("note01").style.left = x + "px"
-		document.getElementById("note01").style.display = "block"
-	}
-	function note2_go(flag){
-		document.getElementById("note02").innerHTML = flag; 
-	}
-	
-</script>
+ 
 
 <!-- db연결하고 데이터 뽑아서 사용하는 로직-->
-
-
-
-                        <div class=" movingElement_box postit_box">
+        <div class=" movingElement_box postit_box">
 <%
-            strSQL="select top 15 * from (select top 100 * from tbl_puzzle where c_year = 2022 and c_use = 0 order by c_no desc) as aa order by newid()"
+            strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2022 and c_use = 0 order by c_no desc) as aa order by newid()"
             Set tbl_board=CreateObject("ADODB.RecordSet")
             tbl_board.Open strSQL, dbCon, 1
             If tbl_board.EOF Then
@@ -211,9 +108,11 @@
                 %>
                 <div id="draggable<%=i%>" class="movingElement postit_content">
                     <div hrdf="#" class="deleteButton"><i class="fa-solid fa-xmark"></i></div>
-                    <p> <%=c_member_id%> </p>
                     <p><%=tbl_board("c_content")%></p>
-                    <p><%=tbl_board("c_date")%></p>
+                    <div class="postit_bt">
+                        <p><%=c_member_id%> </p>
+                        <p><%=left(tbl_board("c_date"),10)%></p>
+                    </div>
                 </div>
             <%
             i= i+1
@@ -225,30 +124,23 @@
 %>
 
 
-                        </div>
+                </div>
 
-                </section>
+        </section>
 
 
-            </div>
+    </div>
 
     <section class="investment_area" style="text-align:center;">
-        <div>
-            <h3>총 투자 금액</h3>
-            <p id="total_investment" data-value="1000000000">1000000000<p>
-
+        <div class="total_invest_rolling">
+            <h3>총 투자금액</h3>
+            <p id="total_investment" data-value="1000000000">1000000000</p>
+            <span>원</span>
         </div>
-        <div>
-            <h3>총 참가팀</h3>
-            <p id="total_team" data-value="300">300<p> <span>팀</span>
-        </div>
-        <div>
-            <h3>실시간 추천인 순위</h3>
-            <p>1위 opoko***</p>
-        </div>
-        <div>
-            <h3>추천 개수</h3>
-            <p>213 개</p>
+        <div class="total_team_rollingd">
+            <h3>모의투자 참여 인원</h3>
+            <p id="total_team" data-value="300">300</p>
+            <span>팀</span>
         </div>
     </section>
 
@@ -287,8 +179,8 @@
 </script>
 
                  <section class="ytp">
-                 <h3><span>페스티벌</span> 소개영상</h3>
-                 <p class="fastival_subtitle">2023 학생 창업유망팀 300 페스티벌</p>
+                 <h3><span>네트워킹 데이</span> 소개영상</h3>
+                 <p class="fastival_subtitle">2023 학생 창업유망팀 300 네트워킹 대회 </p>
            <!--         <div class="ytp_wrap">
                        <div class="video1">
                             <div class="video_container">
@@ -697,73 +589,82 @@ s_text = r_call("s_text")
   }
 
 //   포스트잇 애니메이션 효과
-window.onload=function(){
-    
-}
+
 
     $(document).ready(function() {
-      console.log('로딩끝')
+        console.log('로딩끝')
 
+        function postItAnimation() {
+            // Get the box containing the moving elements
+            const movingElementBox = document.querySelector(".movingElement_box");
+            const movingElements = movingElementBox.querySelectorAll(".movingElement");
 
-        // Get the box containing the moving elements
-        const movingElementBox = document.querySelector(".movingElement_box");
-        const movingElements = movingElementBox.querySelectorAll(".movingElement");
+            // Function to update CSS top and left values
+            function updatePosition(element, topValue, leftValue) {
+            element.style.top = `${topValue}%`;
+            element.style.left = `${leftValue}%`;
+            }
 
-        // Function to update CSS top and left values
-        function updatePosition(element, topValue, leftValue) {
-        element.style.top = `${topValue}%`;
-        element.style.left = `${leftValue}%`;
-        }
+            // Function to generate random values for top and left
+            function getRandomPosition() {
+            const randomTop = Math.floor(Math.random() * 70) + 1; // Adjust the range based on box height (400px - element height 50px)
+            const randomLeft = Math.floor(Math.random() * 85) + 1; // Adjust the range based on box width (400px - element width 50px)
+            return { topValue: randomTop, leftValue: randomLeft };
+            }
 
-        // Function to generate random values for top and left
-        function getRandomPosition() {
-        const randomTop = Math.floor(Math.random() * 80) + 1; // Adjust the range based on box height (400px - element height 50px)
-        const randomLeft = Math.floor(Math.random() * 80) + 1; // Adjust the range based on box width (400px - element width 50px)
-        return { topValue: randomTop, leftValue: randomLeft };
-        }
+            // Function to animate the movement for each moving element
+            function animateMovement(index) {
+            if (index >= movingElements.length) {
+                return; // All elements are displayed, stop recursion
+            }
+            
 
-        // Function to animate the movement for each moving element
-        function animateMovement(index) {
-        if (index >= movingElements.length) {
-            return; // All elements are displayed, stop recursion
-        }
-        
+            const movingElement = movingElements[index];
+            const deleteButton = movingElement.querySelector(".deleteButton");
 
-        const movingElement = movingElements[index];
-        const deleteButton = movingElement.querySelector(".deleteButton");
+            // Attach click event listener to delete button
+            deleteButton.addEventListener("click", () => {
+                // Hide the element by reducing opacity to 0
+                movingElement.style.opacity = 0;
+                // After a delay of 500ms (transition duration), set display to none
+                setTimeout(() => {
+                movingElement.style.display = "none";
+                }, 500);
+            });
 
-        // Attach click event listener to delete button
-        deleteButton.addEventListener("click", () => {
-            // Hide the element by reducing opacity to 0
-            movingElement.style.opacity = 0;
-            // After a delay of 500ms (transition duration), set display to none
+            const { topValue, leftValue } = getRandomPosition();
+            updatePosition(movingElement, topValue, leftValue);
+            movingElement.style.opacity = "1"; // Display the element
+
+            // Call the next element after a delay of 100ms
             setTimeout(() => {
-            movingElement.style.display = "none";
-            }, 500);
-        });
+                animateMovement(index + 1);
+            }, 100);
+            }
 
-        const { topValue, leftValue } = getRandomPosition();
-        updatePosition(movingElement, topValue, leftValue);
-        movingElement.style.opacity = "1"; // Display the element
+            // Call the function to start the animation for each moving element
+            animateMovement(0);
 
-        // Call the next element after a delay of 100ms
-        setTimeout(() => {
-            animateMovement(index + 1);
-        }, 100);
+            let movingElementLength = $(".movingElement").length;
+            
+            $(function () {
+            for (let i = 0; i < movingElementLength; i++) {
+                $("#draggable" + i).draggable();
+            }
+            });
         }
+        postItAnimation()
 
-        // Call the function to start the animation for each moving element
-        animateMovement(0);
-
-        let movingElementLength = $(".movingElement").length;
+// 무한루프 다시 뿌려주는 효과
+        // setInterval(() => {
+        //     const movingElements = document.querySelectorAll(".movingElement");
+        //     movingElements.forEach(element => {
+        //         element.style.opacity = "0"
+        //     });
+        //     postItAnimation()
+        // }, 10000);
         
-        $(function () {
-        for (let i = 0; i < movingElementLength; i++) {
-            $("#draggable" + i).draggable();
-        }
-        });
-        
-        console.log('함수실행')
+        // console.log('함수실행')
 
     });
 
