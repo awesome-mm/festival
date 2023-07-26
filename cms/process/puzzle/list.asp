@@ -233,7 +233,7 @@
 						
 						a2 = a1 + a_period
 						sql_p = "select t.* from ( select ROW_NUMBER() OVER (ORDER BY c_no desc) rnum, c_content, c_member_id, c_date, c_no from tbl_puzzle where c_year = 2022 and c_use = 0 and c_order > 2  and c_no > "& first_no &" )t where  rnum > "& a1 &" and rnum <= "& a2
-				response.write sql_p
+				'response.write sql_p
 				Set rs=CreateObject("ADODB.RecordSet")
 				rs.Open sql_p, dbCon, 1
 				If rs.EOF Then 
