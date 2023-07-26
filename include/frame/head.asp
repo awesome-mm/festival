@@ -107,7 +107,9 @@
                     <h1 class="logo">
                         <a href="/">
                             <div class="logo-txt">
+
                                  2023 학생 창업유망팀 300
+
                             </div>
                             <div class="logo-txt2">
                                 네트워킹 데이
