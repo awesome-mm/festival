@@ -6,7 +6,6 @@
 
 <script> 
 	var now_value = 0
-	
 	var c_no = new Array(); 
 	var c_item_name = new Array(); 
 	var c_team_name = new Array(); 

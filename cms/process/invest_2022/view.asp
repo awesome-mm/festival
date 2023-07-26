@@ -377,10 +377,6 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 								</div>
 						<%end if%>
 
-
-
-
-
 						<%if check_ok = 3 then%>
 						<script>
 							function fund1(){

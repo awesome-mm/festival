@@ -22,7 +22,7 @@
 						first_no = rs("c_no")
 					end if
 				%>
-+'  <div class="comment_area" style=" color: #fff;">'
++'  <div class="comment_area" >'
 +'    <div class="user_profile">'
 +'      <img src="./images/profile_2.png" alt="">'
 +'    </div>'

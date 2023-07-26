@@ -26,6 +26,7 @@
 		 	Set rss2=CreateObject("ADODB.RecordSet")
 			rss2.Open sql_ss2, dbCon, 1
 			If rss2.EOF Then  
+			
 		 	 	if session("session_jang") = "" then
 		 	 		c_member_type = 1
 		 	 	end if
