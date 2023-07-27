@@ -519,7 +519,9 @@ dateChange();
 								
 								post_content = "로그인을 먼저 해 주세요."
 								else
+
 								sql_check_reader =  "select * from tbl_puzzle where c_member_no =" &session("session_no")& "and c_year=2023"
+
 								Set abcde=CreateObject("ADODB.RecordSet")
 								abcde.Open sql_check_reader, dbCon, 1
 

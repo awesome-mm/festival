@@ -31,7 +31,9 @@
         <meta charset="UTF-8">
         <title><%=homepage_name%></title>
         <link type="text/css" rel="stylesheet" href="/css/default.css"/>
-        <link type="text/css" rel="stylesheet" href="/css/swiper.css"/>
+        <!--<link type="text/css" rel="stylesheet" href="/css/swiper.css"/>-->
+
+        <link type="text/css" rel="stylesheet" href="/css/swiper-bundle.min.css"/>
         <link type="text/css" rel="stylesheet" href="/css/style.css"/>
         <link type="text/css" rel="stylesheet" href="/css/responsive.css"/>
         <link type="text/css" rel="stylesheet" href="/css/magnific-popup.css"/>
@@ -268,6 +270,7 @@
                         <a href="/cms/process/membership2/list.asp?c_show_no=75&c_check_no=67&c_relation=828&c_relation2=677" title="정보변경">
                             <div class="membership" style="background:none;text-align:center;top:5px">정보변경</div>
                         </a>
+
 						
 								<%
 								
@@ -298,6 +301,7 @@
 
 								t_fund = t_fund - c_sum
 								%>
+
 												<div id="side_bar" class="side_bar">
 													<div class="side_top">
 														<p>나의 투자현황</p>

@@ -794,13 +794,27 @@ footer .footer__wrap .footer__menu ul li a {
   section .ytp_wrap {
     width: 90%;
   }
-
   .ytp_wrap .video1{
     display: flex;
   }
   .ytp_wrap .video2{
     display: flex;
     flex-direction: row-reverse;
+  }
+  /* invest_rolling */
+  .investment_area .total_invest_rolling{
+    display: block;
+  }
+  .investment_area .total_team_rollingd{
+    display: block;
+  }
+
+  .investment_area div p{
+    position: static;
+
+  }
+  .investment_area{
+    align-items: flex-start;
   }
 
   .ytp_wrap .video_box1 {
@@ -815,6 +829,34 @@ footer .footer__wrap .footer__menu ul li a {
   .ytp_wrap .video_text2{
     height: auto;
   }
+
+  /* intro_event_wrapper */
+    .intro_event_wrapper{
+        display: block;
+        margin: 50px 5%;
+        width: 90%;
+    }
+    .intro_event_wrapper h3{
+        padding-bottom: 20px;
+    }
+    .intro_event_wrapper .event_area{
+        max-width: 720px;
+        margin: 0 auto;
+
+    }
+    .intro_event_wrapper .intro_area{
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    .intro_event_wrapper .event_area h3{
+        border-bottom: none;
+        margin-bottom: 0;
+        margin-top: 50px;
+    }
+    .intro_event_wrapper .intro_area{
+    width: auto;
+}
+
   /* sub  title */
   .sub_title{
     text-align: center;
@@ -981,7 +1023,34 @@ footer .footer__wrap .footer__menu ul li a {
   .visual .more{
     margin-top: 10px;
   }
-  
+
+  /* intro_event_wrapper */
+    .intro_event_wrapper{
+        display: block;
+        margin: 0 5%;
+        width: 90%;
+    }
+    .intro_event_wrapper .event_area{
+        max-width: 360px;
+        margin: 0 auto;
+
+    }
+    .intro_event_wrapper .intro_area{
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    .intro_event_wrapper .event_area h3{
+        border-bottom: none;
+        margin-bottom: 0;
+        margin-top: 50px;
+    }
+    .intro_event_wrapper .introduction h3{
+        text-align: center;
+    }
+    .intro_event_wrapper .introduction h3 span{
+        display: block;
+        margin: 0;
+    }
 
   /* section mid_box */
   .u300_bn img{

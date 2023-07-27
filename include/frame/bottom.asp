@@ -10,7 +10,7 @@
 
                 <div class="footer_box">
                     <div class="footer__logo">
-                        <img src="/images/footer_logo.png" alt="이미지">
+                        <img src="/images/footer_logo2.png" alt="이미지">
                     </div>
                     <div class="footer__menu">
                         <ul>
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="orz_img" >
-                        <img src="/images/organize2.png" >
+                        <img src="/images/organize3.png" >
                     </div>
 
                 </div>
@@ -63,7 +63,9 @@
         $('.newsticker').newsTicker();
     </script>
 
-    <script src="/js/swiper.js"></script>
+    <!--<script src="/js/swiper.js"></script> -->
+    <script src="/js/swiper-bundle.min.js"></script>
+    <script src="/js/swiper-bundle.min.js.map"></script>
     <!--<script>
         var mainVisual = new Swiper('.main__page__visual .swiper-container', {
 
@@ -90,13 +92,47 @@
             // } }
         });
     </script> -->
+
+<script>
+          var swiper = new Swiper('.swiper', {
+            slidesPerView: 2,
+            direction: 'horizontal',
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            },
+            on: {
+            resize: function () {
+                swiper.changeDirection('horizontal');
+                swiper.slidesPerView = 3
+            },
+            },
+            breakpoints: {
+            // 화면의 넓이가 320px 이상일 때
+            0: {
+            slidesPerView: 1,
+            },
+            // 화면의 넓이가 640px 이상일 때
+            640: {
+            slidesPerView: 2 ,
+            }
+            }
+        });
+
+        function getDirection() {
+            var windowWidth = window.innerWidth;
+            var direction = window.innerWidth <= 760 ? 'horizontal' : 'horizontal' ;
+
+            return direction;
+        }
+</script>
+
     <script src="https://kit.fontawesome.com/e67abfe1c6.js" crossorigin="anonymous"></script>
     <script src="/js/jquery.magnific-popup.js"></script>
 
     <script>
     // youtube modal iframe pupup
     $(document).ready(function () {
-
         $('.popup-youtube').magnificPopup({
             disableOn: 320,
             type: 'iframe',
@@ -105,8 +141,8 @@
             preloader: true,
             fixedContentPos: false
         });
-
-          function sidereplacePrice() {
+        
+         function sidereplacePrice() {
             var total_side_invest = $(".total_side_invest");
             var total_side_remaining = $(".total_side_remaining");
             var sideInverstTotalValue = $(".total_side_invest").html();

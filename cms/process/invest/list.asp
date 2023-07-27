@@ -150,7 +150,7 @@ s_text = r_call("s_text")
                             
                             <button type="button" class="btn search_btn" onclick="s_search()">
                                 <!--<img src="/images/search.png" alt="">-->
-                                <img src="/images/search2.png" alt="">
+                                <img src="/images/search3.png" alt="">
                             </button>
                         
 
@@ -187,9 +187,11 @@ s_text = r_call("s_text")
 
  </form>
 
+
  <div id ="bug1_section" style="display : none;">벌레1</div>
  <input id ="bug1_input" type="hidden" value="0">
  <img id="bug_img1" src="/images/bugIMG1.png" style="display:none;">
+
 <script>
 	/*cms/process/invest/list.asp 프로젝트더보기버튼3번 눌르면 벌레1 출현*/
 	function bug1_plus(){
