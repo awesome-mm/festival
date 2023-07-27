@@ -35,7 +35,7 @@
 	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
 
 
-	response.write sql_d
+	'response.write sql_d
 	'Response.End
 
 
@@ -539,12 +539,10 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 
 %>
 							<div>
-								<input name="c_team_no" value="c_team_no:<%=c_team_no%>" type="text">
-								<input name="c_festival_no" value="c_festival_no:<%=rs("c_festival_no")%>" type="text">
-								<input name="c_year" value="year:2023" type="text">
-								<input name="ffffff" value="c_member_type:1" type="text">
-								<input name="ffffff" value="session_no:<%=session("session_no")%>" type="text">
-								<input name="c_team_type" value="c_team_type:<%=rs("c_festival_type")%>" type="text">
+								<input name="c_team_no" value="<%=c_team_no%>" type="hidden">
+								<input name="c_festival_no" value="<%=rs("c_festival_no")%>" type="hidden">
+								<input name="c_year" value="2023" type="hidden">
+								<input name="c_team_type" value="<%=rs("c_festival_type")%>" type="hidden">
 							</div>
 
 						<div class="invest_area">
@@ -758,7 +756,7 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 									fund_price = 0
 								end if
 				end if
-				response.write c_team_no
+				'response.write c_team_no
 				rs_d.Close
 				Set rs_d=Nothing
 							%>
