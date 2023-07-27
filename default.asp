@@ -87,7 +87,7 @@
  
 
 <!-- db연결하고 데이터 뽑아서 사용하는 로직-->
-        <div class=" movingElement_box postit_box">
+        <div class=" movingElement_box postit_box main_postit_box">
 <%
             strSQL="select top 20 * from (select top 100 * from tbl_puzzle where c_year = 2023 and c_use = 0 order by c_no desc) as aa order by newid()"
             Set tbl_board=CreateObject("ADODB.RecordSet")
@@ -178,89 +178,58 @@
     }
 </script>
 
-                 <section class="ytp">
-                 <h3><span>네트워킹 데이</span> 소개영상</h3>
-                 <p class="fastival_subtitle">2023 학생 창업유망팀 300 네트워킹 대회 </p>
-           <!--         <div class="ytp_wrap">
-                       <div class="video1">
-                            <div class="video_container">
-                                <iframe width="100%" height="100%"
-                                src="https://www.youtube.com/embed/ry7wOrXVV8w" 
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen="allowfullscreen"></iframe>
-                            </div>
-                        </div>
-
-                        <div class="video2">
-                            <div class="video_container">
-                                <iframe width="100%" height="100%"
-                                src="https://www.youtube.com/embed/WhbqAduoC5A" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; encrypted-media;  gyroscope; picture-in-picture" 
-                                allowfullscreen></iframe>
-                            </div>
-                        </div>
-
-                    </div>-->
-
-					<div class="ytp_wrap">
-                        <div class="video1">
-                            <div class="video_container video_box1">
+                  <section class="intro_event_wrapper">
+                    <div class="intro_area">
+                        <div class="introduction">
+                            <h3>네트워킹 데이 소개영상<span>INTRO</span></h3>
+                            <div class="video_container intro_video">
                                 <div class="imgPart">
                                     <a class="popup-youtube" href="https://www.youtube.com/watch?v=1zjhNgoT_W8">
                                         <img src="./images/youtube_video1.jpg" alt="침착맨 유튜브 홍보영상">
                                         <i class="fa-brands fa-youtube"></i>
                                     </a>
                                 </div>
-
-                               <!-- <iframe width="100%" height="100%"
-                                 src="https://www.youtube.com/embed/1zjhNgoT_W8" 
-								 title="당신의 소년... 아니 당신의 창업팀에 지금 투표하세요! [시즌4 ep.8]" 
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen="allowfullscreen"></iframe>-->
                             </div>
-                            <div class="video_text video_text1">
-                                <h4>당신의 창업팀에 지금 투표하세요!</h4>
-                                <p>
-                                미래의 대기업은 당신의 손에서<br>
-                                지금 바로 학생들의 창업아이템을 평가해주세요<br>
-                                투표하고 푸짐한 상품 받아가는 거 잊지말기! 
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="video2">                            
-                            <div class="video_container video_box2">
-
-                                <div class="imgPart">
-                                    <a class="popup-youtube" href="https://www.youtube.com/watch?v=nJFMWIY8ugU">
-                                        <img src="./images/youtube_video2.jpg" alt="모의투자대회 홍보영상">
-                                        <i class="fa-brands fa-youtube"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="video_text video_text2">
-                                        <h4>학생 창업유망팀 300 페스티벌 홍보영상</h4>
-                                        <p>
-                                        손해 볼 일 1도 없는 모의투자대회 국민평가단<br>
-                                        내 손으로 최고의 학생 창업팀을 뽑고 역대급 경품의 주인이 되어보세요!
-                                        </p>
-                            </div>
-                               <!-- <iframe width="100%" height="100%"
-                                 src="https://www.youtube.com/embed/nJFMWIY8ugU" title="학생 창업유망팀 300 페스티벌 홍보영상 (Full ver.)" frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen="allowfullscreen"></iframe>
-                            -->
-
                         </div>
                     </div>
 
+                    <div class="event_area">
+                    <h3>이벤트<span>EVENT</span></h3>
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="#">
+                            <img src="./images/image105.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                            <img src="./images/image106.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                            <img src="./images/image107.png" alt="">
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                            <img src="./images/image108.png" alt="">
+                            </a>
+                        </div>
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    </div>
                 </section>
 
-                <section class="mid_box">
 
+
+                <section class="mid_box">
                     <div class="mid_con">
                         <div class="u300_bn">
                             <img id="over_768" src="/images/mid_bn_desk_2.png">
@@ -351,7 +320,7 @@ c_festival_type = r_call("c_festival_type")
 s_text = r_call("s_text")
 %>                
 <form name="kdb">                
-                 <section class="startup_list" id="go_tab">
+                 <section class="startup_list mian_startup_list" id="go_tab">
                     <!-- <div class="inner"> -->
                     <div class="tab_menu">
                         <ul>
@@ -490,7 +459,7 @@ s_text = r_call("s_text")
                         
                         <button type="button" class="btn  search_btn" onclick="s_search(); saveScrollPosition();">
                                 <!-- <img src="/images/search.png" alt=""> -->
-                            <img src="/images/search2.png" alt="">
+                            <img src="/images/search3.png" alt="">
                             <span class="hidden">검색<span>
                         </button>
                         
@@ -508,12 +477,13 @@ s_text = r_call("s_text")
                     보기 </a> </div> <div class='triangle'></div> </div> -->
 
                     <!-- <div class="more_sch" style="background: url('/images/more_over.png') no-repeat center">-->
+                    <div>
+                    
+                    </div>
                     <div class="more_sch" >
                         <div class="more_sch_txt">
                             <a href="#none" onclick="exec2.go_next()" >
-                            	<div color="#ffffff">
                                 프로젝트 더보기
-                                </div>
                             </a>
                         </div>
                     </div>
@@ -531,8 +501,9 @@ s_text = r_call("s_text")
 	document.kdb.submit()
  </script>             
 
-<iframe name="exec" id="exec" src="" style="display:none;width:0px;height:0px"></iframe>                
-            
+<iframe name="exec" id="exec" src="" style="display:none;width:0px;height:0px"></iframe>           
+
+
 <!--#include virtual="/include/frame/bottom.asp"-->
 <script>
 
@@ -592,7 +563,7 @@ s_text = r_call("s_text")
 
 
     $(document).ready(function() {
-        console.log('로딩끝')
+        // console.log('로딩끝')
 
         function postItAnimation() {
             // Get the box containing the moving elements
@@ -666,7 +637,10 @@ s_text = r_call("s_text")
         
         // console.log('함수실행')
 
+
     });
+    
+
 
 
 

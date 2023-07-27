@@ -150,7 +150,7 @@ s_text = r_call("s_text")
                             
                             <button type="button" class="btn search_btn" onclick="s_search()">
                                 <!--<img src="/images/search.png" alt="">-->
-                                <img src="/images/search2.png" alt="">
+                                <img src="/images/search3.png" alt="">
                             </button>
                         
 
@@ -186,9 +186,10 @@ s_text = r_call("s_text")
                 </section>
 
  </form>
-
+<!--
  <div id ="bug_section">벌레</div>
  <input id ="bug1_input" type="text" value="0">
+-->
 <script>
 	function bug1_plus(){
         let bug1 = document.getElementById('bug1_input');
