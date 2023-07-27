@@ -32,7 +32,9 @@ if session("session_no") <> "" or session("session_jang") = "2" Then
 		If rs1.EOF Then  
 			check_ok = 1
 		else
-			sql_ss2 = "select c_fund,c_exp from tbl_fund where c_member_type = 1 and c_team_no = "&c_team_no&" and c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
+		sql_ss2 = "select c_fund,c_exp from tbl_fund where  c_team_no = "&c_team_no&" and c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
+			
+			'sql_ss2 = "select c_fund,c_exp from tbl_fund where c_member_type = 1 and c_team_no = "&c_team_no&" and c_year = 2023 and c_use = 0 and c_member_no = "& session("session_no")
 			Set rss2=CreateObject("ADODB.RecordSet")
 			rss2.Open sql_ss2, dbCon, 1
 
@@ -81,6 +83,7 @@ if session("session_no") <> "" or session("session_jang") = "2" Then
 		Set rs1=Nothing
 
 	end If
+
 
 
 	if session("session_jang") = "1" then

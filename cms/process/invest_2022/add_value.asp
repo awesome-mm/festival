@@ -82,7 +82,7 @@
 
 				if(c_team_name[i] != null){
 					t1 = t1 + 1
-					let_go = let_go +'<a href="/cms/process/invest_2022/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
+					let_go = let_go +'<a href="/cms/process/invest_2022/view.asp?c_show_no=170&c_check_no=108&c_relation=1022&c_relation2=1040&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
 		                      +'       <div class="startup_info">	'
 		                      +'           <div class="img-box" style="height:290px">	'
 		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" style="max-width: 380px;">	'
