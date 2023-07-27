@@ -60,6 +60,7 @@
 	   <section>
                     <div class="sub_title my_invest_title">
                         <h2>투자내역</h2>
+
                     </div>
 
                     <div class="my_invest_information">

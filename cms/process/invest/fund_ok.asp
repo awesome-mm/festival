@@ -38,11 +38,12 @@
 				in_sql = "insert into tbl_fund (c_team_no,c_festival_no,c_member_type,c_member_no,c_fund,c_exp,c_use,c_date,c_year,c_team_type) values ("
 				in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& session("session_no") &","& c_fund  &",'"& c_exp &"',0,getdate(),"& c_year  &","& c_team_type &")"
 				'response.write in_sql
-				 dbCon.Execute in_sql
+				dbCon.Execute in_sql
 %>
+
 <script>
+	
 	 alert("<%=formatnumber(c_fund,0)%>원을 모의투자 하였습니다.")
-	//alert("<%=in_sql %>")
 	 parent.location.href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=<%=c_team_no%>"
 </script>
  <%	
