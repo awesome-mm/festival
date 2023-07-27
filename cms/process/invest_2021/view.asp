@@ -64,10 +64,10 @@
 </script> 
 
 <form name="kdb">
-	  <div>
-							<div class="sub_title">
-									<h2>투자하기</h2>
-							</div>
+			<div class="invest_bg">
+					<div class="sub_title_view">
+							<h2>투자하기</h2>
+					</div>
 							<section class="sub_intro">
                     <div class="ytp_wrap2">
                     		<%if rs("c_main_type") = 0 then%>
@@ -194,6 +194,7 @@
 												</div>	
 										</div>
                 </section>
+							</div>
 										<div class="login_bn">
                         <div class="login_bn_txt">
 													<span style="color:red;">

@@ -83,10 +83,10 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 	};
 </script> 
 <form name="kdb">
-	  <div >
-	  	 <div class="sub_title">
-									<h2>투자하기</h2>
-							</div>
+			<div class="invest_bg">
+					<div class="sub_title_view">
+							<h2>투자하기</h2>
+					</div>
                 <!--
 								<section class="sub_title2" >
                     <div class="title_wrap"  >
@@ -227,6 +227,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 													</div>
 											</div>
                 </section>
+							</div>
 <script>
 	 
 	if(getCookie("like_<%=c_team_no%>") == "ok"){

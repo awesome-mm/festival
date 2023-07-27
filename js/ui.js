@@ -214,6 +214,10 @@ $('.top_move').click(function(e){
      $("html,body").stop().animate({"scrollTop":0},1000); 
   });
 
+  // 투자하기 펀딩진행 버튼
+$('.fd_btn_group .state_ongoing').click(function(){
+  $(".invest_area").toggle("fast")
+})
 
 // iframe 높이 자동지정  최초 로드 시 iframe 높이값 비율에 맞게 세팅 var $videoIframe =
 // document.getElementById('video3'); var responsiveHeight =

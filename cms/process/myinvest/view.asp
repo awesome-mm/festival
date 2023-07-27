@@ -81,9 +81,10 @@
 	};
 </script> 
 <form name="kdb">
-								<div class="sub_title">
-										<h2>나의 투자내역</h2>
-								</div>
+			<div class="invest_bg">
+					<div class="sub_title_view">
+							<h2>투자하기</h2>
+					</div>
 
                 <section class="sub_intro">
                     <div class="ytp_wrap2">
@@ -295,6 +296,7 @@
 														</div>
 													</div>
                 </section>
+							</div>
 <script>
 	 
 	if(getCookie("like_<%=c_team_no%>") == "ok"){

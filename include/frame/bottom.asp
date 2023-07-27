@@ -65,7 +65,7 @@
 
     <!--<script src="/js/swiper.js"></script> -->
     <script src="/js/swiper-bundle.min.js"></script>
-    <script src="/js/swiper-bundle.min.js.map"></script>
+    <!--<script src="/js/swiper-bundle.min.js.map"></script>-->
     <!--<script>
         var mainVisual = new Swiper('.main__page__visual .swiper-container', {
 
