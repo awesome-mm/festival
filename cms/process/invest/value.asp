@@ -57,8 +57,10 @@ if session("session_no") <> "" or session("session_jang") = "2" Then
 
 
 				p_money =  t_money - t_sum
+				
 				p1_money = 1000000
 				p2_money = 5000000
+
 				if p2_money > p_money then
 					p2_money = p_money
 				end if	
