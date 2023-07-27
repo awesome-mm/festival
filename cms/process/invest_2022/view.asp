@@ -30,8 +30,8 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 	else
 	sql_d = " select a.c_festival_type, a.c_no, b.c_no as c_festival_no, a.c_team_name, b.c_member_name, b.c_item_name,b.c_main_type,c_main, b.c_information "
 	sql_d = sql_d & " ,(select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum  from tbl_fund where c_team_no = a.c_no and c_festival_no = b.c_no and c_use = 0 ) as c_sum "
- 	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = '2023' "
-	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
+ 	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = '2022' "
+	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (7,8,9) and a.c_festival = 1 "  
 
 	'response.write sql_d
 	'Response.End
@@ -49,7 +49,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 <%	
 	else
 %>
-﻿<!-- #include virtual="/cms/process/invest/value.asp" -->
+﻿<!-- #include virtual="/cms/process/invest_2022/value.asp" -->
 <%
 
 
@@ -318,7 +318,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 
 
 					<%if isnull(session("session_no")) or  session("session_no") = "" then
-						url = replace(replace("/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=" & c_team_no,"&","creesy"),"?","resoft")
+						url = replace(replace("/cms/process/invest_2022/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=" & c_team_no,"&","creesy"),"?","resoft")
 					%>
 
 
@@ -511,7 +511,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 									</div>
 									<div class="login_box">
 										<div class="login_bt">
-											<a href="/cms/process/invest/list.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903" >
+											<a href="/cms/process/invest_2022/list.asp?c_show_no=170&c_check_no=108&c_relation=1022&c_relation2=1040" >
 											   팀 목록 가기
 											</a>
 										</div>
