@@ -101,7 +101,24 @@
 		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
 		return value? value[2] : null;
 	};
-	</script> 
+	</script>
+
+			<!----------벌레2--------->
+			<input id ="bug2_input" type="text" style="display:none;">
+			<img id="bug_img2" src="/images/bugIMG2.png" style=" display:none; position: fixed; left:2%; top: 70%; transform: translateY(-50%);">
+			<script>
+			(function rand(){
+				var bug2_input = document.querySelector("#bug2_input");
+				var random_num = Math.random();
+				random_num = Math.floor(random_num*10);
+				bug2_input.value=random_num;
+				if(bug2_input.value == "1" || bug2_input.value == "2" || bug2_input.value == "3"){
+					document.querySelector("#bug_img2").style.display="block";
+				}
+			})();
+			</script>
+			<!----------벌레2----------->
+
 	<form name="kdb">
 		<div >
 							<div class="sub_title">
@@ -311,7 +328,7 @@
 																	</a>
 																</div>
 															</div>
-																			
+															
 															<div class="like_bt">
 																	<span id="heart">
 																			<a onclick='setCookie("like_<%=c_team_no%>","ok", 30);'><i id="c_heart" class="fa fa-heart"></i></a>
@@ -510,10 +527,9 @@
 							%>
 							<input id="my_team_no" name="my_team_no" type="hidden" value="<%=my_team_no%>">
 
-							<input id="c_team_no" name="c_team_no1" type="hidden" value="<%= c_team_no  %>">
-					
-	
-						
+							<input id="c_team_no" name="c_team_no1" type="hidden" value="<%=c_team_no%>">
+							
+
 						<%if check_ok = 3 then%>
 
 						<script>
@@ -1136,10 +1152,9 @@ p2_money = p_money
 					</div>
 					<br>
 					<div style="  display:flex; justify-content:center;">
-					
 						<%
-							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
-							strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (7,8,9) and c_use = 0 and c_festival =1 ORDER BY newid()" 
+							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
+
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")
 							tbl_board.Open strSQL, dbCon, 1

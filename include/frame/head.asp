@@ -268,7 +268,36 @@
                         <a href="/cms/process/membership2/list.asp?c_show_no=75&c_check_no=67&c_relation=828&c_relation2=677" title="정보변경">
                             <div class="membership" style="background:none;text-align:center;top:5px">정보변경</div>
                         </a>
-												
+						
+								<%
+								
+								sql_m = "select (select c_content from tbl_puzzle where c_member_no = "& session("session_no") &" and c_year=2023)as check_guestbook, sum(c_fund) as c_sum from tbl_fund where c_year = 2023 and c_member_no = "& session("session_no") &" and c_use = 0 "
+								Set rs_m=CreateObject("ADODB.RecordSet")
+								rs_m.Open sql_m, dbCon, 1
+								
+								If rs_m.EOF Then
+								else
+									if isnull(rs_m("c_sum")) or rs_m("c_sum") = "" then
+										c_sum = 0
+									else
+										c_sum = rs_m("c_sum")
+									end if
+								end if
+
+								if session("session_jang") = "" Or session("session_jang") = "1" Or session("session_jang") = "2" Then
+									if isnull(rs_m("check_guestbook")) or rs_m("check_guestbook") = "" then
+										t_fund = 0
+									else
+										t_fund = 20000000
+									end if
+								End if
+
+								rs_m.Close
+								Set rs_m=Nothing  
+
+
+								t_fund = t_fund - c_sum
+								%>
 												<div id="side_bar" class="side_bar">
 													<div class="side_top">
 														<p>나의 투자현황</p>
@@ -276,11 +305,11 @@
 													<div class="side_content">
 														<div>
 															<p>총 투자금액</p>
-															<span class="total_side_invest">18620000</span>
+															<span class="total_side_invest"><%=c_sum%></span>
 														</div>
 														<div>
 															<p>잔여금액</p>
-															<span class="total_side_remaining">1380000</span>
+															<span class="total_side_remaining"><%=t_fund%></span>
 														</div>
 													</div>
 													<div class="btn_sideBar">
@@ -345,3 +374,13 @@
                     </div>
                 </div>
             </nav>
+<!--
+벌레찾기
+head.asp에서 db열고 로그인계정 id를 기준으로 이스터에그관련 정보들 세션에 담아두고
+해당 세션의 값들이 0일 경우에만 벌레관련태그,js들이 실행되도록 asp if문을 통해 제어
+벌레1 : cms/process/invest/list.asp 프로젝트더보기버튼3번 누르면출현
+벌레2 : cms/process/invest/view.asp 랜덤난수1~10 발생 1,2,3 뜰 경우 벌레 출현
+벌레3 : 
+벌레4 : 
+벌레5 : 
+-->

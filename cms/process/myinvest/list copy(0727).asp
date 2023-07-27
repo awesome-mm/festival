@@ -7,13 +7,13 @@
  		location.href="/cms/process/login/list.asp?c_show_no=76&c_check_no=67&c_relation=734&c_relation2=748"
  	</script>
 <%else%>
-		<%
-		
-		sql_m = "select (select c_content from tbl_puzzle where c_member_no = "& session("session_no") &" and c_year=2023)as check_guestbook, sum(c_fund) as c_sum from tbl_fund where c_year = 2023 and c_member_no = "& session("session_no") &" and c_use = 0 "
-		Set rs_m=CreateObject("ADODB.RecordSet")
+ 	 	<%
+ 	 	my_invest = 0
+ 	 	sql_m = "select sum(c_fund) as c_sum from tbl_fund where c_year = 2023 and c_member_no = "& session("session_no") &" and c_use = 0 "
+ 	 	Set rs_m=CreateObject("ADODB.RecordSet")
 		rs_m.Open sql_m, dbCon, 1
-		
-		If rs_m.EOF Then
+		If rs_m.EOF Then 
+			my_invest = 0
 		else
 			if isnull(rs_m("c_sum")) or rs_m("c_sum") = "" then
 				c_sum = 0
@@ -21,23 +21,41 @@
 				c_sum = rs_m("c_sum")
 			end if
 		end if
-
-
-		if session("session_jang") = "" Or session("session_jang") = "1" Or session("session_jang") = "2" Then
-			if isnull(rs_m("check_guestbook")) or rs_m("check_guestbook") = "" then
-				t_fund = 0
-			else
-				t_fund = 20000000
-			end if
-		End if
-
 		rs_m.Close
 		Set rs_m=Nothing  
+		
+
+		if session("session_jang") = "" Or session("session_jang") = "1" Then
+			t_fund = 20000000
+		Else
+			t_fund = 50000000
+		End if
 
 
+		if session("session_jang") = "1" then
+			t_fund = 0
+		end If
 
+
+		if session("session_jang") = "2" Then
+
+			if cint(session("session_team_type")) = 1  then
+				t_fund = 50000000
+			end If
+
+			if cint(session("session_team_type")) = 2 Or cint(session("session_team_type")) = 3 Or cint(session("session_team_type")) = 4 or cint(session("session_team_type")) = 5 Or cint(session("session_team_type")) = 6 Or cint(session("session_team_type")) = 7  then
+				t_fund = 100000000
+			end If
+
+			if cint(session("session_team_type")) = 8  then
+				t_fund = 300000000
+			end If
+
+		end if
+		
 		t_fund = t_fund - c_sum
-		%>
+
+ 	 	%>
  
 	   <section>
                     <div class="sub_title my_invest_title">
