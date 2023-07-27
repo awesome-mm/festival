@@ -34,7 +34,7 @@
  	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = '2023' "
 	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
 
-
+	'response.write c_team_no
 	'response.write sql_d
 	'Response.End
 
@@ -101,7 +101,24 @@
 		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
 		return value? value[2] : null;
 	};
-	</script> 
+	</script>
+
+			<!----------벌레2--------->
+			<input id ="bug2_input" type="text" style="display:none;">
+			<img id="bug_img2" src="/images/bugIMG2.png" style=" display:none; position: fixed; left:2%; top: 70%; transform: translateY(-50%);">
+			<script>
+			(function rand(){
+				var bug2_input = document.querySelector("#bug2_input");
+				var random_num = Math.random();
+				random_num = Math.floor(random_num*10);
+				bug2_input.value=random_num;
+				if(bug2_input.value == "1" || bug2_input.value == "2" || bug2_input.value == "3"){
+					document.querySelector("#bug_img2").style.display="block";
+				}
+			})();
+			</script>
+			<!----------벌레2----------->
+
 	<form name="kdb">
 		<div >
 							<div class="sub_title">
@@ -311,7 +328,7 @@
 																	</a>
 																</div>
 															</div>
-																			
+															
 															<div class="like_bt">
 																	<span id="heart">
 																			<a onclick='setCookie("like_<%=c_team_no%>","ok", 30);'><i id="c_heart" class="fa fa-heart"></i></a>
@@ -405,11 +422,13 @@
 
 	'check_ok 3일 경우 테스트 하기
 
-	check_ok = 3
+	'check_ok = 3
 
-	p1_money = 10000
+	p1_money = 1000000
 
-	p2_money = 500000
+	p2_money = 5000000
+
+
 
 
 	' response.write check_ok
@@ -426,7 +445,7 @@
 
 
 				<section>
-					<%if isnull(session("session_no")) or  session("session_no") = "" then
+					<%if isnull(session("session_no")) or  session("session_no") = "" Or  session("session_no") = "2" then
 						url = replace(replace("/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=" & c_team_no,"&","creesy"),"?","resoft")
 					%>
 
@@ -487,8 +506,12 @@
 						<%end if%>
 
 							<%
-							sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no")  
+							sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no") &" and c_project_no in (10,11,12,13,14)"
 
+
+'	response.write c_team_no
+'	response.write sql_check_reader
+'	Response.End
 								Set abcde=CreateObject("ADODB.RecordSet")
 								abcde.Open sql_check_reader, dbCon, 1
 
@@ -504,7 +527,9 @@
 							%>
 							<input id="my_team_no" name="my_team_no" type="hidden" value="<%=my_team_no%>">
 
-							<input id="c_team_no" name="c_team_no" type="hidden" value="<%= c_team_no  %>">
+							<input id="c_team_no" name="c_team_no1" type="hidden" value="<%=c_team_no%>">
+							
+
 						<%if check_ok = 3 then%>
 
 						<script>
@@ -532,12 +557,6 @@
 							}
 						</script>
 
-
-<%
-in_sql = "insert into tbl_fund (c_team_no,c_festival_no,c_member_type,c_member_no,c_fund,c_exp,c_use,c_date,c_year,c_team_type) values ("
-in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& session("session_no") &","& c_fund  &",'"& c_exp &"',0,getdate(),"& c_year  &","& c_team_type &")"
-
-%>
 							<div>
 								<input name="c_team_no" value="<%=c_team_no%>" type="hidden">
 								<input name="c_festival_no" value="<%=rs("c_festival_no")%>" type="hidden">
@@ -561,7 +580,7 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 											</div>
 											<div class="my_invest4">
 												<div class="my_invest3">
-													<img src="/images/icon_my_invest2.png">
+													 &nbsp; &nbsp;<img src="/images/icon_my_invest2.png">
 												</div>
 												<div class="team_investable">
 													<span>팀에 투자 가능 금액</span><br>
@@ -570,6 +589,11 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 												</div>
 											</div>
 										</div>
+<%if p2_money > p_money   then  
+
+p2_money = p_money
+
+%>
 										<div class="fund_formbox">
 											<div class="invest_selector">
 												<label for="c_fund" class="sp0">투자 희망금액</label>
@@ -581,7 +605,22 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 													<%next%>
 												</select>
 											</div>
-					
+<%else %>
+
+
+
+										<div class="fund_formbox">
+											<div class="invest_selector">
+												<label for="c_fund" class="sp0">투자 희망금액</label>
+												<select id="c_fund" class="is_select" name="c_fund">
+													<%for i = p1_money to p2_money step p1_money%>
+														<option value="<%=i%>" <%if i = p1_money then%>selected <%end if%>>
+															<%=formatnumber(i,0)%>원
+														</option>
+													<%next%>
+												</select>
+											</div>
+					<%end if%>
 											<div class="invest_go">
 												<label class="cheering" for="c_exp">응원하기</label>
 												<textarea name="c_exp" id="c_exp" cols="30" rows="10" placeholder="응원글을 작성해주세요"></textarea>
@@ -598,13 +637,11 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 							<div class="login_bn">
 									<div class="login_bn_txt">
 
-										<%if session("session_jang") = "" Then%>
+										<%if session("session_jang") = "" or session("session_jang") = "2" Then%>
 
 											회원님은 이미 <span style="color:red">투자금액을 모두 소진 하였습니다.</span><br>
 
-										<%else%>
-			
-											회원님은 이미 <span style="color:red">해당트랙에 투자를 완료 하였습니다.</span><br>
+										
 										
 										<%end if%>
 										
@@ -685,13 +722,13 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 								<a href="#none">국민평가의견</a>
 
 							</li>
-							<li data-id="con3"style="display:none;" >
+						<!--	<li data-id="con3"style="display:none;" >
 								<a href="#none">상호평가의견</a>
 
 							</li>
 							<li data-id="con4" style="display:none;">
 								<a href="#none">전문가평가의견</a>
-							</li>
+							</li> -->
 						</ul>
 
 						<div id="con1" class="conBox1 on">
@@ -840,6 +877,7 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 							</div>
 				
 						</div>
+						<!--상호평가의견 -->
 				<%
         fund_number = 0
         fund_price = 0
@@ -1114,10 +1152,9 @@ in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& sessio
 					</div>
 					<br>
 					<div style="  display:flex; justify-content:center;">
-					
 						<%
-							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
-							strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (7,8,9) and c_use = 0 and c_festival =1 ORDER BY newid()" 
+							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
+
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")
 							tbl_board.Open strSQL, dbCon, 1

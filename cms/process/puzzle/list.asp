@@ -455,7 +455,7 @@ dateChange();
 										
 <%
 	  strSQL = "select top 10 recom, c_id , * from ( SELECT a.* "
-	  strSQL = strSQL & " ,(select count(c_no) as recom from tbl_member where c_recommend = a.c_id and festival_recommend_date > '2022-07-05' and recommend_year='2022') as recom "
+	  strSQL = strSQL & " ,(select count(c_no) as recom from tbl_member where c_recommend = a.c_id and festival_recommend_date > '2023-07-05' and recommend_year='2023') as recom "
 	  strSQL = strSQL & " FROM tbl_member a WHERE a.c_no= c_no  ) t where t.recom > 0   order by t.recom desc  "
 
 	 'response.write strSQL
@@ -519,7 +519,9 @@ dateChange();
 								
 								post_content = "로그인을 먼저 해 주세요."
 								else
-								sql_check_reader =  "select * from tbl_puzzle where c_member_no =" &session("session_no") & "and c_year=2023"
+
+								sql_check_reader =  "select * from tbl_puzzle where c_member_no =" &session("session_no")& "and c_year=2023"
+
 								Set abcde=CreateObject("ADODB.RecordSet")
 								abcde.Open sql_check_reader, dbCon, 1
 

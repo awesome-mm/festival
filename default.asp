@@ -139,7 +139,7 @@
         </div>
         <div class="total_team_rollingd">
             <h3>모의투자 참여 인원</h3>
-            <p id="total_team" data-value="300">300</p>
+            <p id="total_team" data-value="300">350</p>
             <span>팀</span>
         </div>
     </section>
