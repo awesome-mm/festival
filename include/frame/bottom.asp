@@ -96,15 +96,53 @@
     <script>
     // youtube modal iframe pupup
     $(document).ready(function () {
+
         $('.popup-youtube').magnificPopup({
             disableOn: 320,
             type: 'iframe',
             mainClass: 'mfp-fade',
             removalDelay: 160,
             preloader: true,
-
             fixedContentPos: false
         });
+
+          function sidereplacePrice() {
+            var total_side_invest = $(".total_side_invest");
+            var total_side_remaining = $(".total_side_remaining");
+            var sideInverstTotalValue = $(".total_side_invest").html();
+            var sideRemainingValue = $(".total_side_remaining").html();
+
+            var replacePriceInvest = numberWithCommas(
+            Math.floor(sideInverstTotalValue)
+            );
+            var replacePriceRemaining = numberWithCommas(
+            Math.floor(sideRemainingValue)
+            );
+
+            total_side_invest.text(replacePriceInvest);
+            total_side_remaining.text(replacePriceRemaining);
+        }
+        
+        // 3자리마다 , 찍기
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        sidereplacePrice();
+
+        $(".side_bar .side_up").on("click", function () {
+            $(".side_bar .side_content").slideUp();
+
+            $(".side_up").css("display", "none");
+            $(".side_down").css("display", "block");
+        });
+
+        $(".side_bar .side_down").on("click", function () {
+            $(".side_bar .side_content").slideDown();
+            $(".side_down").css("display", "none");
+            $(".side_up").css("display", "block");
+        });
+
     });
 
     // 로컬 스토리지를 이용한 height 저장 후 특정 위치로 이동
