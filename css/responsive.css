@@ -1,19 +1,8 @@
 @charset "UTF-8"; 
 
-@media (min-width:1600px) { } 
 
-@media (max-width:1550px) { 
-
- .login_bn_txt { 
- font-size: 25px; 
- } 
- } 
 
 @media (max-width:1450px) { 
-
- .login_bn_txt { 
- font-size: 20px; 
- } 
 
  .menu-item > a { 
 
@@ -312,9 +301,6 @@ max-width: 100%;
 
  section .ytp_wrap { 
  flex-wrap: wrap; 
- } 
- .login_bn_txt { 
- padding-top: 0; 
  } 
 
  .tab_menu2 .conBox { 
@@ -1287,9 +1273,7 @@ footer .footer__wrap .footer__menu ul li a {
     padding: 20px 0;
     border-radius: 10px;
   }
-  .login_bn_txt{
-    font-size: 18px;
-  }
+
   .login_box{
     justify-content: center;
     margin-top: 10px;
