@@ -187,9 +187,11 @@ s_text = r_call("s_text")
 
  </form>
 
- <div id ="bug_section">벌레</div>
- <input id ="bug1_input" type="text" value="0">
+ <div id ="bug1_section" style="display : none;">벌레1</div>
+ <input id ="bug1_input" type="hidden" value="0">
+ <img id="bug_img1" src="/images/bugIMG1.png" style="display:none;">
 <script>
+	/*cms/process/invest/list.asp 프로젝트더보기버튼3번 눌르면 벌레1 출현*/
 	function bug1_plus(){
         let bug1 = document.getElementById('bug1_input');
         let bug_section = document.getElementById('bug_section');
@@ -197,10 +199,12 @@ s_text = r_call("s_text")
         bug1_click += 1
         bug1.value = String(bug1_click);
         if (bug1_input.value == "3"){
-                bug_section.innerHTML += '<img src="/images/icon_fest1.png">';
+            document.querySelector("#bug_img1").style.display="block";
         }
+		if(bug1_input.value != "3"){
+			document.querySelector("#bug_img1").style.display="none";
+		}
 	}
-
 </script>
 
 
@@ -208,14 +212,10 @@ s_text = r_call("s_text")
 
 
  <script>
-
-
  	document.kdb.action = "add_value.asp"
 	document.kdb.method = "post"
 	document.kdb.target = "exec"
 	document.kdb.submit();
-
-
  </script>
 
 
