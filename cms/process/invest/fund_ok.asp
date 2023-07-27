@@ -15,7 +15,9 @@
 </script> 
 <%	 
   	 else
-  	 	   	c_team_no = r_call("c_team_no")
+  	 	   '	c_team_no1 = r_call("c_team_no")
+
+			c_team_no = r_call("c_team_no1")
 		 	c_festival_no = r_call("c_festival_no")
 		 	c_year = r_call("c_year")
 		 	c_team_type = r_call("c_team_type")
@@ -23,6 +25,10 @@
 		 	c_exp = r_call("c_exp")
 		 
 			sql_ss2 = "select c_no from tbl_fund where c_team_no = "&c_team_no&" and c_year = "& c_year &" and c_use = 0 and c_member_no = "& session("session_no")
+	
+'response.write c_festival_no
+
+'	response.write sql_ss2
 		 	Set rss2=CreateObject("ADODB.RecordSet")
 			rss2.Open sql_ss2, dbCon, 1
 			If rss2.EOF Then  
@@ -37,7 +43,9 @@
 			
 				in_sql = "insert into tbl_fund (c_team_no,c_festival_no,c_member_type,c_member_no,c_fund,c_exp,c_use,c_date,c_year,c_team_type) values ("
 				in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& session("session_no") &","& c_fund  &",'"& c_exp &"',0,getdate(),"& c_year  &","& c_team_type &")"
-				'response.write in_sql
+				
+				response.write in_sql
+				
 				dbCon.Execute in_sql
 %>
 

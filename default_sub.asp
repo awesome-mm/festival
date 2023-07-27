@@ -375,7 +375,7 @@
                             <div class="video_container">
                                 <iframe width="100%" height="100%"
                                  src="https://www.youtube.com/embed/pFShDYqNI0c" frameborder="0"
-                                 title="2022 학생 창업유망팀 300 페스티벌 홍보영상 (15초 ver.)" 
+                                 title="2023 학생 창업유망팀 300 페스티벌 홍보영상 (15초 ver.)" 
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen="allowfullscreen"></iframe>
                             </div>
@@ -384,7 +384,7 @@
                         <div class="video2">
                             <div class="video_container">
                                 <iframe width="100%" height="100%"
-                                 src="https://www.youtube.com/embed/nJFMWIY8ugU" title="2022 학생 창업유망팀 300 페스티벌 홍보영상 (Full ver.)" frameborder="0"
+                                 src="https://www.youtube.com/embed/nJFMWIY8ugU" title="2023 학생 창업유망팀 300 페스티벌 홍보영상 (Full ver.)" frameborder="0"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen="allowfullscreen"></iframe>
                             </div>

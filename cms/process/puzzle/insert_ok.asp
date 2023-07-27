@@ -137,7 +137,7 @@
 
 			
 			in_sql = "insert into tbl_puzzle (c_year,c_puzzle_no,c_order,c_garo,c_sero,c_member_no,c_member_id,c_content,c_point,c_use,c_date) values ("
-			in_sql = in_sql & "2023" &","& now_p &","& my_order &","& my_garo &","& my_sero  &","& session("session_no") &",'"& session("session_id")  &"','"& c_content &"',"
+			in_sql = in_sql & "2023" &","& now_p &",0,0,0,"& session("session_no") &",'"& session("session_id")  &"','"& c_content &"',"
 			in_sql = in_sql & my_point &",0,getdate())"
 
 			'response.write in_sql

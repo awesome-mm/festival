@@ -27,29 +27,13 @@
 
 		if session("session_jang") = "" Or session("session_jang") = "1" Then
 			t_fund = 20000000
-		Else
-			t_fund = 50000000
+
 		End if
-
-
-		if session("session_jang") = "1" then
-			t_fund = 0
-		end If
 
 
 		if session("session_jang") = "2" Then
 
-			if cint(session("session_team_type")) = 1  then
-				t_fund = 50000000
-			end If
-
-			if cint(session("session_team_type")) = 2 Or cint(session("session_team_type")) = 3 Or cint(session("session_team_type")) = 4 or cint(session("session_team_type")) = 5 Or cint(session("session_team_type")) = 6 Or cint(session("session_team_type")) = 7  then
-				t_fund = 100000000
-			end If
-
-			if cint(session("session_team_type")) = 8  then
-				t_fund = 300000000
-			end If
+			t_fund = 20000000
 
 		end if
 		
