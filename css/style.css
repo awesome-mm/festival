@@ -2336,17 +2336,127 @@ section.sub_intro {
 }
 
 .range_bar{
+    width: 100%;
+    height: 12px;
+    background: #E6E6E6;
     margin-top: 30px;
-    background: #333333;
-    border-radius: 1rem;
-    margin-bottom: 12px;
+    border-radius: 6px;
     position:relative;
 }
-.range_bar div{
-    height: 1.2rem;
-    box-sizing: border-box;
+
+.range_bar #gauge_bar{
     position:absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 12px;
+    border-radius: 6px;
+    background-color: #E6E6E6;
 }
+.range_bar #gauge_bar .gradient-iron{
+    background-color: #899AFF;
+}
+.range_bar #gauge_bar .gradient-bronze{
+    background: linear-gradient(270deg, rgba(146,93,77,1) 0%,rgba(202,148,114,1)40%, rgba(158,126,77,1) 100%);
+
+}
+.range_bar #gauge_bar .gradient-silver{
+    background: linear-gradient(270deg, rgba(193,193,193,1) 0%, rgba(255,255,255,1)40%, rgba(146,146,146,1) 100%);
+
+}
+.range_bar #gauge_bar .gradient-gold{
+    background: linear-gradient(270deg, rgba(253,191,111,1) ,rgba(255,231,201,1)40%,  rgba(255,184,0,1) 100%);
+
+}
+.range_bar #gauge_bar .gradient-platinum{
+    background: linear-gradient(270deg, rgba(31,196,233,1) 0% , rgba(140,221,255,1)40%,  rgba(42,170,255,1) 100%);
+
+}
+.range_bar #gauge_bar .range_bar_ani{
+    width: 0;
+    height: 12px;
+    position: absolute;
+    animation: range 1s ease-out;
+    animation-fill-mode: forwards;
+    border-radius: 6px;
+    overflow: hidden;
+}
+@keyframes range {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+.range_line_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(1px);
+}
+.range_line_flex span{
+    display: block;
+    width: 1px;
+    height: 9px;
+    background-color: #333;
+}
+.range_bar_arrow_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 101%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.range_bar_rable{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.range_bar_rable .label{
+    font-size: 12px;
+    padding: 3px 9px;
+    text-align: center;
+    border-radius: 11.5px;
+    position: absolute;
+    top: 5px;
+}
+
+.range_bar_rable .label1{
+    color: #fff;
+    background: linear-gradient(270deg, rgba(54,211,154,1) 0%, rgba(222,240,102,1) 100%);
+    left: -3.666%;
+}
+.range_bar_rable .label2{
+    color: #FFDBBA;
+    background: linear-gradient(270deg, rgba(146,93,77,1) 0%,rgba(202,148,114,1)40%, rgba(158,126,77,1) 100%);
+    left: 19.83%;
+}
+.range_bar_rable .label3{
+    color: #696969;
+    background: linear-gradient(270deg, rgba(193,193,193,1) 0%, rgba(255,255,255,1)40%, rgba(146,146,146,1) 100%);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.range_bar_rable .label4{
+    color: #A06921;
+    background: linear-gradient(270deg, rgba(253,191,111,1) ,rgba(255,231,201,1)40%,  rgba(255,184,0,1) 100%);
+    right: 19.66%;
+}
+.range_bar_rable .label5{
+    color: #086693;
+    background: linear-gradient(270deg, rgba(31,196,233,1) 0% , rgba(140,221,255,1)40%,  rgba(42,170,255,1) 100%);
+    right: -5.833%;
+}
+
+
+
+
 
 
 /*
@@ -2637,7 +2747,7 @@ section.sub_intro {
 }
 
 .login_bt {
-    border: 1px solid #BCBCBC;
+    border: 1px solid #2D41BA;
     width: auto;
     height: 52px;
     top: 3rem;
@@ -2668,7 +2778,7 @@ section.sub_intro {
 }
 
 .mem_bt {
-    border: 1px solid #BCBCBC;
+    border: 1px solid #2D41BA;
     width: 146px;
     height: 52px;
     top: 3rem;
@@ -2686,12 +2796,12 @@ section.sub_intro {
 }
 
 .mem_bt:hover {
-    border: 1px solid #e5590c;
+    border: 1px solid #2D41BA;
 
 }
 
 .mem_bt:hover a {
-    color: #e5590c;
+    color: #2D41BA;
 }
 
 section.tab2 {

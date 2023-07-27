@@ -207,72 +207,72 @@
 						<!---------게이지----------->
 						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
 
-						<div class="range_bar" style="width:90%; padding-left: 3%;">
-							<div class="gh_2" id ="gauge_bar" style=" width:<%=c_sum_rate_bar%>%;"></div>
-							<div style="width:25%; border-right:1px dotted #000;"></div>
-							<div style="width:50%; border-right:1px dotted #000;"></div>
-							<div style="width:75%; border-right:1px dotted #000;"></div>
-							<div style="width:100%; border:1px solid #000;"></div>
-						</div>
-						<div style="height:10px;"></div>
-
-						<div class="range_bar_bottom " style="width:90%; position:relative; margin-top:5px;">
-							<img src="/images/up.png" style="padding-left:2%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:27.7%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:53.6%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:79.4%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:105.1%; position:absolute;">
+						<div class="range_bar">
+							<div class="range_bar_width" id ="gauge_bar" style=" width:<%=c_sum_rate_bar%>%;">
+								<div class="range_bar_ani"></div>
+							</div>
+							<div class="range_line_flex">
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+							</div>
 						</div>
 
-
-						<div class="range_bar_bottom2 " style="width:110%; position:relative; margin-top:20px;">
-							<div style="padding-left:0%; position:absolute;">
-								<div style="border-radius: 10px; width:40px; text-align:center; background: radial-gradient(circle, rgba(240,251,242,1) 0%, rgba(132,238,175,1) 34%, rgba(63,217,125,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Seed<span>
-								</div>
-							</div>
-							<div style="padding-left:20%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(251,240,240,1) 0%, rgba(224,193,159,1) 34%, rgba(207,136,58,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series A<span>
-								</div>
-							</div>
-							<div style="padding-left:41%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(226,226,226,1) 34%, rgba(189,189,189,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series B<span>
-								</div>
-							</div>
-							<div style="padding-left:62%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(247,228,173,1) 36%, rgba(240,202,95,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series C<span>
-								</div>
-							</div>
-							<div style="padding-left:81%; position:absolute;">
-								<div style="border-radius: 10px; width:75px; text-align:center;  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(95,214,240,1) 100%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Pre-Unicorn<span>
-								</div>
-							</div>
-
+						<div class="range_bar_arrow_flex" >
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
 						</div>
+
+
+						<div class="range_bar_rable">
+								<div class="label label1">
+									<span>Seed<span>
+								</div>
+								<div class="label label2">
+									<span>Series A<span>
+								</div>
+								<div class="label label3" >
+									<span>Series B<span>
+								</div>
+								<div class="label label4" >
+									<span>Series C<span>
+								</div>
+								<div class="label label5" >
+									<span>Pre-Unicorn<span>
+								</div>
+							</div>
 						<script>
-						function asd(){
-						let gauge_bar = document.querySelector("#gauge_bar");
-						let invest_grade = document.querySelector("#invest_grade");
-						let value = invest_grade.value;
+
+						$(document).ready(function(){
+							let gauge_bar = $("#gauge_bar");
+							let invest_grade = $("#invest_grade");
+
+							let gauge_value = invest_grade.val();
+							console.log(gauge_value)
+							console.log(invest_grade)
+
+							
+							if (gauge_value === "iron"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-iron");
+							}else if (gauge_value === "bronze"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-bronze");
+							}else if (gauge_value === "silver"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-silver");
+							}else if (gauge_value === "gold"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-gold");
+							}else if (gauge_value === "platinum"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-platinum");
+							}
+
+						})
+
+
 						
-						if (value =="iron"){
-							gauge_bar.style.backgroundColor = "#615866";
-						}else if (value =="bronze"){
-							gauge_bar.style.backgroundColor = "#B97A57";
-						}else if (value =="silver"){
-							gauge_bar.style.backgroundColor = "#C3C3C3";
-						}else if (value =="gold"){
-							gauge_bar.style.backgroundColor = "#FFC90E";
-						}else if (value =="platinum"){
-							gauge_bar.style.backgroundColor = "#4DFEFF";
-						}
-						
-						}
-						asd()
 						
 						
 
