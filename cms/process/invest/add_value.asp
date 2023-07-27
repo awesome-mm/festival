@@ -56,6 +56,7 @@
 			if isnull(rs("c_sum")) then
 				c_sum = 0
 				c_sum_rate = 0
+				c_sum_rate2 = 0
 			else			
 				c_sum = formatnumber(rs("c_sum"),0)
 				hkk = cdbl(rs("c_sum"))
@@ -78,13 +79,13 @@
 
 				/*--------------뱃지-----------*/
 				if (c_sum_rate[<%=ai%>] >= 25 && c_sum_rate[<%=ai%>] < 50){
-					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"> '
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:17px;height:19px;"> '
 				}else if (c_sum_rate[<%=ai%>] >= 50 && c_sum_rate[<%=ai%>] < 75){
-					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"><img src="/images/silver.png" style="width:12px;height:19px;"> '
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:17px;height:19px;"><img src="/images/silver.png" style="width:17px;height:19px;"> '
 				}else if (c_sum_rate[<%=ai%>] >= 75 && c_sum_rate[<%=ai%>] < 100){
-					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"><img src="/images/silver.png" style="width:12px;height:19px;"><img src="/images/gold.png" style="width:12px;height:19px;"> '
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:17px;height:19px;"><img src="/images/silver.png" style="width:17px;height:19px;"><img src="/images/gold.png" style="width:17px;height:19px;"> '
 				}else if  (c_sum_rate[<%=ai%>] >= 100){
-					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:12px;height:19px;"><img src="/images/silver.png" style="width:12px;height:19px;"><img src="/images/gold.png" style="width:12px;height:19px;"><img src="/images/platinum.png" style="width:12px;height:19px;">'
+					invest_badge[<%=ai%>] = ' <img src="/images/bronze.png" style="width:17px;height:19px;"><img src="/images/silver.png" style="width:17px;height:19px;"><img src="/images/gold.png" style="width:17px;height:19px;"><img src="/images/platinum.png" style="width:17px;height:19px;">'
 				}else{
 					invest_badge[<%=ai%>] =''
 				}

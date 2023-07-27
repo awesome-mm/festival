@@ -1,4 +1,4 @@
-<!-- #include virtual="/cms/sub_top.asp" -->
+﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
 	s_date = "2023-07-24 00:00"
 	e_date = "2023-08-18 23:59"
@@ -35,7 +35,7 @@
 	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
 
 
-	'response.write sql_d
+	response.write sql_d
 	'Response.End
 
 
@@ -153,22 +153,22 @@
 								<!--------------------------뱃지-------------------------------->
 								<%if invest_grade <> "iron" then%>
 									<%if invest_grade ="bronze" then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
 
 									<%elseif invest_grade ="silver" then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
-										<img src="/images/silver.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
+										<img src="/images/silver.png" style="max-width:100%; height:auto;">
 
 									<%elseif invest_grade ="gold"   then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
-										<img src="/images/silver.png" style="width:30px; height:40px;">
-										<img src="/images/gold.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
+										<img src="/images/silver.png" style="max-width:100%; height:auto;">
+										<img src="/images/gold.png" style="max-width:100%; height:auto;">
 
 									<%elseif invest_grade ="platinum" then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
-										<img src="/images/silver.png" style="width:30px; height:40px;">
-										<img src="/images/gold.png" style="width:30px; height:40px;">
-										<img src="/images/platinum.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
+										<img src="/images/silver.png" style="max-width:100%; height:auto;">
+										<img src="/images/gold.png" style="max-width:100%; height:auto;">
+										<img src="/images/platinum.png" style="max-width:100%; height:auto;">
 									<%end if%>
 								<%end if%>
 								<!--------------------------뱃지-------------------------------->
@@ -236,19 +236,28 @@
 
 						</div>
 						<script>
-						let invest_grade = document.querySelector("#invest_grade").value;
 						
-						if (invest_grade =="iron"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#615866";
-						}else if (invest_grade =="bronze"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#B97A57";
-						}else if (invest_grade =="silver"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#C3C3C3";
-						}else if (invest_grade =="gold"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#FFC90E";
-						}else if (invest_grade =="platinum"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#4DFEFF";
+						function asd(){
+						let gauge_bar = document.querySelector("#gauge_bar");
+						let invest_grade = document.querySelector("#invest_grade");
+						let value = invest_grade.value;
+						
+						if (value =="iron"){
+							gauge_bar.style.backgroundColor = "#615866";
+						}else if (value =="bronze"){
+							gauge_bar.style.backgroundColor = "#B97A57";
+						}else if (value =="silver"){
+							gauge_bar.style.backgroundColor = "#C3C3C3";
+						}else if (value =="gold"){
+							gauge_bar.style.backgroundColor = "#FFC90E";
+						}else if (value =="platinum"){
+							gauge_bar.style.backgroundColor = "#4DFEFF";
 						}
+						
+						}
+						asd()
+						
+						
 
 
 						</script>
@@ -523,11 +532,19 @@
 							}
 						</script>
 
+
+<%
+in_sql = "insert into tbl_fund (c_team_no,c_festival_no,c_member_type,c_member_no,c_fund,c_exp,c_use,c_date,c_year,c_team_type) values ("
+in_sql = in_sql & c_team_no &","& c_festival_no &","& c_member_type &","& session("session_no") &","& c_fund  &",'"& c_exp &"',0,getdate(),"& c_year  &","& c_team_type &")"
+
+%>
 							<div>
-								<input name="c_team_no" value="<%=c_team_no%>" type="hidden">
-								<input name="c_festival_no" value="<%=rs("c_festival_no")%>" type="hidden">
-								<input name="c_year" value="2023" type="hidden">
-								<input name="c_team_type" value="<%=rs("c_festival_type")%>" type="hidden">
+								<input name="c_team_no" value="c_team_no:<%=c_team_no%>" type="text">
+								<input name="c_festival_no" value="c_festival_no:<%=rs("c_festival_no")%>" type="text">
+								<input name="c_year" value="year:2023" type="text">
+								<input name="ffffff" value="c_member_type:1" type="text">
+								<input name="ffffff" value="session_no:<%=session("session_no")%>" type="text">
+								<input name="c_team_type" value="c_team_type:<%=rs("c_festival_type")%>" type="text">
 							</div>
 
 						<div class="invest_area">
