@@ -22,6 +22,7 @@
 			end if
 		end if
 
+
 		if session("session_jang") = "" Or session("session_jang") = "1" Or session("session_jang") = "2" Then
 			if isnull(rs_m("check_guestbook")) or rs_m("check_guestbook") = "" then
 				t_fund = 0
@@ -32,6 +33,7 @@
 
 		rs_m.Close
 		Set rs_m=Nothing  
+
 
 
 		t_fund = t_fund - c_sum
