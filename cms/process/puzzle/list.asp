@@ -141,7 +141,7 @@
 %>
 <script>
     $(document).ready(function() {
-        console.log('로딩끝')
+        // console.log('로딩끝')
 
         function postItAnimation() {
             // Get the box containing the moving elements
@@ -205,13 +205,13 @@
         postItAnimation()
 
 // 무한루프 다시 뿌려주는 효과
-        // setInterval(() => {
-        //     const movingElements = document.querySelectorAll(".movingElement");
-        //     movingElements.forEach(element => {
-        //         element.style.opacity = "0"
-        //     });
-        //     postItAnimation()
-        // }, 10000);
+        setInterval(() => {
+            const movingElements = document.querySelectorAll(".movingElement");
+            movingElements.forEach(element => {
+                element.style.opacity = "0"
+            });
+            postItAnimation()
+        }, 10000);
         
         // console.log('함수실행')
 
@@ -540,6 +540,7 @@ dateChange();
 													<p><%=post_id%></p>
 													<p><%=left(post_date,10)%></p>
 											</div>
+											<div class="pin_image"></div>	
 									</div>
 								</div>
 						</div>

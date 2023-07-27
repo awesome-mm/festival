@@ -264,11 +264,34 @@
                             	<!--<a href="/cms/process/login/logout.asp" title="로그아웃" style="font-size:10px;font-weight:600">로그아웃</a>-->
                             	<a href="/cms/process/login/logout.asp" title="로그아웃" style="">로그아웃</a>
 														</div>
-                        </a>
 
                         <a href="/cms/process/membership2/list.asp?c_show_no=75&c_check_no=67&c_relation=828&c_relation2=677" title="정보변경">
                             <div class="membership" style="background:none;text-align:center;top:5px">정보변경</div>
                         </a>
+												
+												<div id="side_bar" class="side_bar">
+													<div class="side_top">
+														<p>나의 투자현황</p>
+													</div>
+													<div class="side_content">
+														<div>
+															<p>총 투자금액</p>
+															<span class="total_side_invest">18620000</span>
+														</div>
+														<div>
+															<p>잔여금액</p>
+															<span class="total_side_remaining">1380000</span>
+														</div>
+													</div>
+													<div class="btn_sideBar">
+														<a class="side_up" href="#">
+															<i class="fa-solid fa-caret-up "></i>
+														</a>
+														<a class="side_down" href="#">
+															<i class="fa-solid fa-caret-down "></i>
+														</a>
+													</div>
+												</div>
 						<%end if%>
                     </div>
 
