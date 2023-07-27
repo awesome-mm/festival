@@ -182,7 +182,7 @@ s_text = r_call("s_text")
                         </div>
                         <!--<div class='triangle'></div>-->
 
-
+ 
                 </section>
 
  </form>
