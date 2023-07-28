@@ -233,7 +233,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 	if(getCookie("like_<%=c_team_no%>") == "ok"){
 		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'no\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}else{
-		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart-o"></i></a>'
+		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}
 </script>
 <script type="text/javascript">

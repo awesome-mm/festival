@@ -1090,7 +1090,6 @@ section.main__page__visual .swiper-container2 {
     background: url('../images/rolling_bg.png') center no-repeat;
     background-size: cover;
     z-index: -1;
-    top: 0;
 }
 
   .investment_area p{
@@ -1878,23 +1877,30 @@ button.btn:focus{
 
 .info-box .line {
     margin: 10px 0;
-    /* border: 1px solid #999999; */
-    background: #F3EFF5;
+    background: #E6E6E6;
     border-radius: 18px;
 }
 
 .info-box .line span {
-    /* border-bottom: #ff9000; */
-
     display: block;
     height: 4px;
     border-radius:4px;
     box-sizing: border-box;
-    
-
-    /*
-    animation: gh_1 2s 1;
-    */
+}
+.info-box .line span.gradient-iron{
+  background-color: #899AFF;
+}
+.info-box .line span.gradient-bronze{
+   background: linear-gradient(270deg, rgba(146,93,77,1) 0%,rgba(202,148,114,1)40%, rgba(158,126,77,1) 100%);
+}
+.info-box .line span.gradient-silver{
+  background: linear-gradient(270deg, rgba(193,193,193,1) 0%, rgba(255,255,255,1)40%, rgba(146,146,146,1) 100%);
+}
+.info-box .line span.gradient-gold{
+   background: linear-gradient(270deg, rgba(253,191,111,1) ,rgba(255,231,201,1)40%, rgba(255,184,0,1) 100%);
+}
+.info-box .line span.gradient-platinum{
+  background: linear-gradient(270deg, rgba(31,196,233,1) 0% , rgba(140,221,255,1)40%, rgba(42,170,255,1) 100%);
 }
 
 @keyframes gh_1 {
@@ -2131,13 +2137,14 @@ button.btn:focus{
     color: #fff;
     font-size: 18px;
     padding: 10px 20px;
-    background-color: #e5590c;
+    background-color: #2D41BA;
     transition: all 0.2s ease-out;
     border-radius: 10px;
 
 }
 .btn_box3 a:hover{
-    background: #ff9000;
+    background: #D1D8FF;
+    color: #2D41BA;
     cursor: pointer;
 }
 
@@ -2185,7 +2192,6 @@ button.btn:focus{
 }
 
 section.sub_intro {
-    padding-top: 7rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -2253,7 +2259,7 @@ section.sub_intro {
 
 .team_info {
     color: #fff;
-    margin-bottom: 3.5rem;
+    margin-bottom: 40px;
 
 }
 .team_info h3{
@@ -2275,7 +2281,6 @@ section.sub_intro {
 }
 
 .achiev_txt {
-    padding-top: 3rem;
     color: #D1D8FF;
     display: flex;
     align-items: center;
@@ -2300,7 +2305,7 @@ section.sub_intro {
 }
 
 .amt_txt {
-    margin-top: 12px;
+    margin-top: 2px;
     color: #fff;
     display: flex;
     align-items: center;
@@ -2341,46 +2346,57 @@ section.sub_intro {
     background: #E6E6E6;
     margin-top: 30px;
     border-radius: 6px;
-    position:relative;
+    position: relative;
+    overflow: hidden;
+}
+.info-box .range_bar{
+    height: 4px;
+    overflow: visible;
+
+}
+.info-box .range_bar .gauge_bar{
+    height: 4px;
 }
 
-.range_bar #gauge_bar{
+.range_bar .gauge_bar{
     position:absolute;
     top: 0;
     left: 0;
     width: 0%;
     height: 12px;
-    border-radius: 6px;
     background-color: #E6E6E6;
 }
-.range_bar #gauge_bar .gradient-iron{
+.range_bar .gauge_bar .gradient-iron{
     background-color: #899AFF;
 }
-.range_bar #gauge_bar .gradient-bronze{
+.range_bar .gauge_bar .gradient-bronze{
     background: linear-gradient(270deg, rgba(146,93,77,1) 0%,rgba(202,148,114,1)40%, rgba(158,126,77,1) 100%);
 
 }
-.range_bar #gauge_bar .gradient-silver{
+.range_bar .gauge_bar .gradient-silver{
     background: linear-gradient(270deg, rgba(193,193,193,1) 0%, rgba(255,255,255,1)40%, rgba(146,146,146,1) 100%);
 
 }
-.range_bar #gauge_bar .gradient-gold{
+.range_bar .gauge_bar .gradient-gold{
     background: linear-gradient(270deg, rgba(253,191,111,1) ,rgba(255,231,201,1)40%,  rgba(255,184,0,1) 100%);
 
 }
-.range_bar #gauge_bar .gradient-platinum{
+.range_bar .gauge_bar .gradient-platinum{
     background: linear-gradient(270deg, rgba(31,196,233,1) 0% , rgba(140,221,255,1)40%,  rgba(42,170,255,1) 100%);
 
 }
-.range_bar #gauge_bar .range_bar_ani{
+
+.range_bar .gauge_bar .range_bar_ani{
     width: 0;
     height: 12px;
     position: absolute;
     animation: range 1s ease-out;
     animation-fill-mode: forwards;
-    border-radius: 6px;
-    overflow: hidden;
 }
+.info-box .range_bar .gauge_bar .range_bar_ani{
+    height: 4px;
+}
+
 @keyframes range {
     0% {
         width: 0;
@@ -2395,13 +2411,28 @@ section.sub_intro {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transform: translateY(1px);
+    transform: translateY(3px);
 }
 .range_line_flex span{
     display: block;
     width: 1px;
-    height: 9px;
-    background-color: #333;
+    height: 6px;
+    background-color: #2D41BA;
+}
+.info-box .range_line_flex span{
+    width: 2px;
+    height: 3px;
+    background: #000;
+}
+
+.info-box .range_line_flex{
+    transform: translateY(-3px);
+}
+.range_line_flex span:first-child{
+    opacity: 0;
+}
+.range_line_flex span:last-child{
+    opacity: 0;
 }
 .range_bar_arrow_flex{
     display: flex;
@@ -2411,6 +2442,7 @@ section.sub_intro {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 8px;
 }
 .range_bar_rable{
     display: flex;
@@ -2424,7 +2456,7 @@ section.sub_intro {
     text-align: center;
     border-radius: 11.5px;
     position: absolute;
-    top: 5px;
+    top: 10px;
 }
 
 .range_bar_rable .label1{
@@ -2498,7 +2530,7 @@ section.sub_intro {
     font-size: 16px;
 }
 .funding_state_box p {
-    margin-right: 40px;
+    margin-right: 20px;
     color: #D1D8FF;
 }
 
@@ -2510,9 +2542,10 @@ section.sub_intro {
 .funding_state_box .funding_state span {
     display: inline-block;
     font-size: 14px;
-    color: #fff;
+    color: #2D41BA;
     border-radius: 6px;
     padding: 5px 10px;
+    background-color: #fff;
 }
 .state_pending {
    background: #ff9000;
@@ -2704,7 +2737,7 @@ section.sub_intro {
     width: 200%;
     height: 100%;
     background-color: #D1D8FF;
-    z-index: -1;
+    z-index: -555;
 }
 
 .login_btn{
@@ -2716,11 +2749,11 @@ section.sub_intro {
     margin: 0 auto;
     text-align: center;
     color: #fff;
-    background: #e5590c;
+    background: #2D41BA;
     transition: all 0.2s ease-out;
 }
 .login_btn:hover {
-    background: #ff9000;
+    background: #086693;
 }
 .login_bn {
     position: relative;
@@ -2765,6 +2798,7 @@ section.sub_intro {
     display: block;
     width: 100%;
     box-sizing: border-box;
+    color: #2D41BA;
 
 }
 
@@ -2921,7 +2955,7 @@ section.tab2 {
 }
 
 .con2_bn span {
-    color: #ff9000;
+    color: #2D41BA;
 }
 
 .con2_bn span.con2_act {
@@ -3493,8 +3527,8 @@ div.postit_content > p > a {
     /* float: left; */
     width: 700px;
     height: 994px;
-    border-top: 2px solid #e5590c;
-    border-bottom: 2px solid #e5590c;
+    border-top: 2px solid #2D41BA;
+    border-bottom: 2px solid #2D41BA;
     background: #f7f7f7;
     color: #333333;
     display: flex;
@@ -3516,7 +3550,7 @@ div.postit_content > p > a {
 
 .fes_title {
     padding: 40px 0 10px;
-    color: #e5590c;
+    color: #2D41BA;
     font-size: 20px;
 }
 
@@ -3525,28 +3559,44 @@ div.postit_content > p > a {
     padding: 10px;
 }
 .invest_area{
-    margin-top: 55px;
-    background: #f18a2e;
-    padding-top: 30px;
+    background: #ECEFFF;
     border-radius: 20px;
 }
 .invest_area p{
-    color: #fff;
+}
+.invest_area .team_name{
+    background-color: #D1D8FF;
+    text-align: center;
     font-size: 35px;
     font-weight: 600;
+    color: #2D41BA;
+    padding: 12px 0;
 }
+
 .my_invest {
     max-width: 100%;
-    padding: 35px 0;
+    padding: 50px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    position: relative;
+    gap: 235px;
+}
+.my_invest::before{
+    content: '';
+    display: block;
+    width: 200%;
+    position: absolute;
+    height: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -2;
+    background-color: #ECEFFF;
 }
 
 .my_invest_information {
     max-width: 100%;
-    background: #f18a2e;
+    background: #D1D8FF;
     border-radius: 10px;
 }
 
@@ -3555,15 +3605,12 @@ div.postit_content > p > a {
 }
 .fund_formbox{
     width: 40%;
-    margin-right: 10%;
 }
 
 
 .my_invest_wrap {
-    width: 45%;
     padding-bottom: 4rem;
     position: relative;
-    margin-right: 5%;
 }
 .my_investment_details{
     display: flex;
@@ -3577,18 +3624,18 @@ div.postit_content > p > a {
 
 .my_invest1 {
     display: inline-block;
-    margin-right: 40px;
     position: relative;
    
 }
 
 .my_invest2 {
-    color: #fff;
+    color: #2D41BA;
     font-size: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 70px;
+    gap: 45px;
 }
 
 .my_invest2 .sp1 {
@@ -3600,17 +3647,17 @@ div.postit_content > p > a {
 }
 
 .my_invest3 {
-    /* margin:0 40px 0 207px ; */
     color: #fff;
-    margin-right: 40px;
 }
 
 .my_invest4 {
-    color: #fff;
+    color: #2D41BA;
     font-size: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 45px;
+
 }
 
 .my_invest4 .sp1 {
@@ -3623,9 +3670,13 @@ div.postit_content > p > a {
 .team_investable{
     margin-right: 20px;
 }
+.team_investable b{
+    font-weight: 500;
+    font-size: 16px;
+}
 .invest_selector {
     position: relative;
-    color: #fff;
+    color: #2D41BA;
     font-size : 20px;
     margin-bottom: 20px;
 }
@@ -3640,12 +3691,12 @@ div.postit_content > p > a {
     border: none;
     outline: none;
     font-size: 22px;
-    color: #ff9000;
+    color: #2D41BA;
     padding: 0 10px;
 }
 
 .is_seclect .sp1 {
-    color: #ff9000;
+    color: #2D41BA;
 }
 
 .invest_go_bn {
@@ -3678,7 +3729,7 @@ div.postit_content > p > a {
     margin-bottom: 20px;
 }
 #c_exp::placeholder{
-    color: #ff9000;
+    color: #A0A0A0;
 }
 .invest_go {
     max-width: 100%;
@@ -3689,7 +3740,7 @@ div.postit_content > p > a {
 
 .cheering {
     display: inline-block;
-    color: #fff;
+    color: #2D41BA;
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -3737,17 +3788,14 @@ div.postit_content > p > a {
 
 
 .my_invest_amt {
-    /* border:1px solid #e4e4e4; */
-    background: #999999;
     max-width: 100%;
     height: 40px;
     display: flex;
     justify-content: space-between;
     font-family: "Pretendard", Helvetica, sans-serif;
     padding: 0 20px;
-    background: #ea2027;
-    background: linear-gradient(326deg, #ea2027 0%, #ee5a24 74%);
-
+    /* background: linear-gradient(326deg, #D1D8FF 0%, #2D41BA 74%); */
+background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
 }
 
 /* .my_invest span {
@@ -3757,7 +3805,7 @@ div.postit_content > p > a {
 
 .my1 {
     margin-top: 10px;
-    color: #ffffff;
+    color: #fff;
 }
 
 footer .footer__wrap {
@@ -3794,7 +3842,7 @@ footer .footer__wrap .footer__menu ul li a {
 }
 
 footer .footer__wrap .footer__menu ul li a:hover {
-    color: #ff9000;
+    color: #0026ff;
 }
 
 footer .footer_box {
@@ -4001,7 +4049,7 @@ footer .footer__wrap .orz_img img {
     position: absolute;
     right: -16px;
     top: -8px;
-    background-color: #FF9000;
+    background-color: #2D41BA;
     width: 12px;
     height: 12px;
     border-radius: 6px;
@@ -4030,7 +4078,7 @@ footer .footer__wrap .orz_img img {
     position: absolute;
     right: -16px;
     top: -8px;
-    background-color: #FF9000;
+    background-color: #2D41BA;
     width: 12px;
     height: 12px;
     border-radius: 6px;
@@ -4048,7 +4096,7 @@ footer .footer__wrap .orz_img img {
     margin-left: 5px;
 }
 .use_terms span{
-    color :#e3690b;
+    color :#e30b0b;
     font-size: 16px;
     margin-left: 5px;
 }
@@ -4199,7 +4247,7 @@ footer .footer__wrap .orz_img img {
 }
 .member_box label::after{
     content: '*';
-    color: rgb(157, 4, 4);
+    color: #e30b0b;
     position: absolute;
     top: 3px;
     margin-left: 2px;
@@ -4251,15 +4299,15 @@ footer .footer__wrap .orz_img img {
 .phone_btn{
     padding: 10px 20px;
     font-size: 14px;
-    background-color: #e5590c;
+    background-color: #2D41BA;
     color:#fff;
     border-radius: 5px;
     box-sizing: border-box;
-    border: 1px solid #e5590c;
+    border: 1px solid #2D41BA;
     transition: all 0.2s ease-out;
 }
 .phone_btn:hover{
-    background-color: #ff9000;
+    background-color: #6477e4;
 }
 .phone_number_box{
     display: inline-block;
@@ -4315,16 +4363,15 @@ footer .footer__wrap .orz_img img {
 .login_btn_group a{
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #e5590c;
+    background-color: #2D41BA;
     color: #fff;
     border-radius: 5px;
     box-sizing: border-box;
-    border: 1px solid #e5590c;
     transition: all 0.2s ease-out;
 }
 
 .login_btn_group a:hover {
-    background-color: #ff9000;
+    background-color: #0e82ee;
 }
 .idpw_save_sch {
     margin-bottom: 24px;
@@ -4351,15 +4398,15 @@ footer .footer__wrap .orz_img img {
     width: 200px;
     padding: 15px 0;
     font-size: 16px;
-    background-color: #e5590c;
+    background-color: #2D41BA;
     color:#fff;
     border-radius: 5px;
     box-sizing: border-box;
-    border: 1px solid #e5590c;
+    border: 1px solid #2D41BA;
     transition: all 0.2s ease-out;
 }
 .join_btn:hover{
-    background-color: #ff9000;
+    background-color: #6477e4;
 }
 
 .join_btn_gray{
@@ -4545,8 +4592,8 @@ table.idpw_sch_tb {
 .btn.id_find{
     text-align: center;
     font-size: 20px;
-    border: 1px solid #e5590c;
-    background: #e5590c;
+    border: 1px solid #2D41BA;
+    background: #2D41BA;
     box-sizing: border-box;
     border-radius: 5px;
     padding: 10px 0;
@@ -4556,14 +4603,14 @@ table.idpw_sch_tb {
 
 }
 .btn.id_find:hover{
-    background: #ff9000;
+    background: #6477e4;
 }
 
 .btn.pw_find{
     text-align: center;
     font-size: 20px;
-    border: 1px solid #ff9000;
-    background: #e5590c;
+    border: 1px solid #2D41BA;
+    background: #2D41BA;
     box-sizing: border-box;
     border-radius: 5px;
     padding: 10px 0;
@@ -4573,7 +4620,7 @@ table.idpw_sch_tb {
     margin-left: 10px;
 }
 .btn.pw_find:hover{
-    background: #ff9000;
+    background: #6477e4;
 }
 
 
@@ -4584,7 +4631,7 @@ table.idpw_sch_tb {
     padding: 4rem 5rem 6rem;
     line-height: 2;
     color: #666666;
-    border-top: 1px solid #f08536;
+    border-top: 1px solid #2D41BA;
     margin: 0 auto;
 }
 
@@ -4896,7 +4943,7 @@ table.idpw_sch_tb {
     display: inline-block;
     width: 32px;
     height: 32px;
-    background-color: #ff9000;
+    background-color: #2D41BA;
     color: #fff;
     text-align: center;
     border-radius: 50%;
@@ -4925,7 +4972,7 @@ table.idpw_sch_tb {
     height: 30px;
     line-height: 30px;
     text-align: center;
-    background-color: #ff9000;
+    background-color: #2D41BA;
     color: #fff;
     border-radius: 23px;
     font-size: 14px;
@@ -5316,7 +5363,7 @@ table.idpw_sch_tb {
 }
 
 .co590 {
-    color: #e5590c;
+    color: #2D41BA;
 }
 
 
@@ -5485,7 +5532,7 @@ table.idpw_sch_tb {
 .diagonal {
     width: 2px;
     height: 50px;
-    background-color:#e5590c;
+    background-color:#2D41BA;
     transform: rotate(45deg);
     margin:0 auto;
     margin-bottom: 10px;
@@ -5503,16 +5550,15 @@ table.idpw_sch_tb {
 
  .pati_term {
     display: inline-block;
-    border: 1px solid #ff9000;
+    border: 1px solid #2D41BA;
     padding: 10px;
-    color: #ff9000;
+    color: #2D41BA;
     border-radius: 40px;
     width: 250px;
     box-sizing: border-box;
     font-size: 16px;
     text-align: center;
     margin-top: 15px;
-    margin-left: 5rem;
 }
 .pati_term span{
     position: relative;
@@ -5528,7 +5574,7 @@ table.idpw_sch_tb {
     width: 6px;
     height: 6px;
     border-radius: 3px;
-    background-color: #ff9000;
+    background-color: #2D41BA;
     position: absolute;
     top: 6px;
     left: -10px;
@@ -5562,7 +5608,6 @@ table.idpw_sch_tb {
 
 .pati_how {
     margin-top: 8rem;
-    margin-left: 5rem;
     margin-bottom: 18px;
     display: inline-block;
     font-size: 3rem;
@@ -5854,8 +5899,7 @@ table.idpw_sch_tb {
 }
 
 .pati_wrap {
-    width: 94%;
-    margin:0 3%;
+    width: 100%;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -5873,19 +5917,19 @@ table.idpw_sch_tb {
     color: #3a3a3a;
 }
 .pati_wrap .btn_home a{
-    color: #ff9000;
+    color: #2D41BA;
     font-size: 14px;
     width: 160px;
     display: inline-block;
     text-align: center;
-    border: 1px solid #ff9000;
+    border: 1px solid #2D41BA;
     border-radius: 30px;
     padding: 7px 0;
     box-sizing: border-box;
     transition: all 0.2s ease-out;
 }
 .pati_wrap .btn_home a:hover{
-    background: #ff9000;
+    background: #2D41BA;
     color: #fff;
 }
 .pati_wrap .btn_home a i{

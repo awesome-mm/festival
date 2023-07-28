@@ -81,39 +81,39 @@
 	};
 </script> 
 <form name="kdb">
+		<div class="blue">
 			<div class="invest_bg">
 					<div class="sub_title_view">
 							<h2>투자하기</h2>
 					</div>
-
-                <section class="sub_intro">
-                    <div class="ytp_wrap2">
-                    		<%if rs("c_main_type") = 0 then%>
-                            		<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">
-                            	<% else
-                            		t1 = split(rs("c_main"),"/")
-                            	%>
-                        <div class="video3">
-                             	
-                                <iframe
-                                    width="100%"
-                                    height="100%"
-                                    src="https://www.youtube.com/embed/<%=t1(ubound(t1))%>"
-                                    frameborder="0"
-                                    allow="encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen="allowfullscreen"></iframe>
-                                
+					<section class="sub_intro">
+							<div class="ytp_wrap2">
+									<%if rs("c_main_type") = 0 then%>
+													<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">
+												<% else
+													t1 = split(rs("c_main"),"/")
+												%>
+									<div class="video3">
+												
+													<iframe
+															width="100%"
+															height="100%"
+															src="https://www.youtube.com/embed/<%=t1(ubound(t1))%>"
+															frameborder="0"
+															allow="encrypted-media; gyroscope; picture-in-picture"
+															allowfullscreen="allowfullscreen"></iframe>
+													
                             
                         </div>
                        	 <%end if%>
                     </div>
 
-                    <div class="intro_txt">
-                        <div class="team_info">
-														<h3><%=rs("c_item_name")%></h3>
-														<b>참가팀 정보</b>
-                            <span class="team_name">
-                                <%=rs("c_team_name")%>
+					<div class="intro_txt">
+						<div class="team_info">
+									<b>참가팀 정보</b>
+								<span class="team_name">
+									<%=rs("c_team_name")%>
+								</span>
 								
 								<!--------------------------뱃지-------------------------------->
 								<%if invest_grade <> "iron" then%>
@@ -137,114 +137,100 @@
 									<%end if%>
 								<%end if%>
 								<!--------------------------뱃지-------------------------------->
-                            
+									<h3><%=rs("c_item_name")%></h3>
 							</span>
-                        </div>
-                        <div class="achiev_txt">
-                            <p>달성률</p>
-														<span class="achiev_no"><%=c_sum_rate*4%></span>
-                            <span class="achive_pro">%</span>
-                        </div>
+						</div>
+						<div class="achiev_txt">
+							<p>달성률</p>
+							<span class="achiev_no"><%=c_sum_rate*4%></span>
+							<span class="achive_pro">%</span>
+						</div>
 
-                        <div class="amt_txt">
-                            <p>모집금액</p>
-														<span class="amt_price"><%=c_sum%></span>
-                            <span class="amt_won">원</span>
-                        </div >
+						<div class="amt_txt">
+							<p>모집금액</p>
+							<span class="amt_price"><%=c_sum%></span>
+							<span class="amt_won">원</span>
+						</div >
 
 						<!---------게이지----------->
 						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
 
-                        <div class="range_bar" style="width:90%; padding-left: 3%;">
-							<div class="gh_2" id ="gauge_bar" style=" width:<%=c_sum_rate_bar%>%;"></div>
-							<div style="width:25%; border-right:1px dotted #000;"></div>
-							<div style="width:50%; border-right:1px dotted #000;"></div>
-							<div style="width:75%; border-right:1px dotted #000;"></div>
-							<div style="width:100%; border:1px solid #000;"></div>
-                        </div>
-
-						<div style="height:10px;"></div>
-
-						<div class="range_bar_bottom " style="width:90%; position:relative; margin-top:5px;">
-							<img src="/images/up.png" style="padding-left:2%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:27.7%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:53.6%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:79.4%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:105.1%; position:absolute;">
+						<div class="range_bar">
+							<div class="range_bar_width gauge_bar"  style=" width:<%=c_sum_rate_bar%>%;">
+								<div class="range_bar_ani"></div>
+							</div>
+							<div class="range_line_flex">
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+							</div>
 						</div>
 
-						<div class="range_bar_bottom2 " style="width:110%; position:relative; margin-top:20px;">
-
-							<div style="padding-left:0%; position:absolute;">
-								<div style="border-radius: 10px; width:40px; text-align:center; background: radial-gradient(circle, rgba(240,251,242,1) 0%, rgba(132,238,175,1) 34%, rgba(63,217,125,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Seed<span>
-								</div>
-							</div>
-							<div style="padding-left:20%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(251,240,240,1) 0%, rgba(224,193,159,1) 34%, rgba(207,136,58,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series A<span>
-								</div>
-							</div>
-							<div style="padding-left:41%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(226,226,226,1) 34%, rgba(189,189,189,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series B<span>
-								</div>
-							</div>
-							<div style="padding-left:62%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(247,228,173,1) 36%, rgba(240,202,95,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series C<span>
-								</div>
-							</div>
-							<div style="padding-left:81%; position:absolute;">
-								<div style="border-radius: 10px; width:75px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(95,214,240,1) 100%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Pre-Unicorn<span>
-								</div>
-							</div>
-
+						<div class="range_bar_arrow_flex" >
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
 						</div>
+
+						<div class="range_bar_rable">
+								<div class="label label1">
+									<span>Seed<span>
+								</div>
+								<div class="label label2">
+									<span>Series A<span>
+								</div>
+								<div class="label label3" >
+									<span>Series B<span>
+								</div>
+								<div class="label label4" >
+									<span>Series C<span>
+								</div>
+								<div class="label label5" >
+									<span>Pre-Unicorn<span>
+								</div>
+						 </div>
 						
 						<script>
 						let invest_grade = document.querySelector("#invest_grade").value;
 						
-						if (invest_grade =="iron"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#615866";
-						}else if (invest_grade =="bronze"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#B97A57";
-						}else if (invest_grade =="silver"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#C3C3C3";
-						}else if (invest_grade =="gold"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#FFC90E";
-						}else if (invest_grade =="platinum"){
-							document.getElementById('gauge_bar').style.backgroundColor = "#4DFEFF";
-						}
-
+							if (gauge_value === "iron"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-iron");
+							}else if (gauge_value === "bronze"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-bronze");
+							}else if (gauge_value === "silver"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-silver");
+							}else if (gauge_value === "gold"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-gold");
+							}else if (gauge_value === "platinum"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-platinum");
+							}
 						</script>
-						<!---------게이지----------->
-						<!--
-                        <div class="goal_amt">
-                            <span>목표금액 10억 원</span>
-                        </div>
-						-->
-                        <div class="funding_state_box" style="margin-top:50px;">
-                            <p>마감일</p>
-														<span class="date">
-                                2023-08-18 24:00 까지
-                            </span>
-														<div class="funding_state">
-																<%if now() < cdate(s_date) then%>
-																	<span class="state_pending">대기중</span>
-																<%else%>
-																	<%if now() > cdate(e_date) then%>
-																		<span class="state_end">투자 종료</span>
+
+														<div class="funding_state_box"style="margin-top : 60px;">
+															<p>마감일</p>
+															<span class="date">
+																	2023-08-18 24:00 까지
+															</span>
+
+															<div class="funding_state">
+																	<%if now() < cdate(s_date) then%>
+																		<span class="state_pending">대기중</span>
 																	<%else%>
-																		<span class="state_ongoing">투자 진행중</span>
+																		<%if now() > cdate(e_date) then%>
+																			<span class="state_end">투자 종료</span>
+																		<%else%>
+																			<span class="state_ongoing">투자 진행중</span>
+																		<%end if%>
 																	<%end if%>
-																<%end if%>
+															</div>
 														</div>
-                        </div>
 
 
-                        <div class="fd_btn_group">
+														<div class="fd_btn_group">
 															<div class="fd_end">
 																<div class="fd_top">
 																	<a href="#">
@@ -255,13 +241,18 @@
 																		<%if now() > cdate(e_date) then%>
 																			<span class="state_end">펀딩마감</span>
 																		<%else%>
+																		<!--
 																			<span class="state_ongoing" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>fund1()<%else%>alert('투자가능 기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>">펀딩진행</span>
+																		-->
+																			<span class="state_ongoing">펀딩진행</span>
 																		<%end if%>
 																	<%end if%>
 																	</a>
 																</div>
 															</div>
-																			
+
+
+
 															<div class="like_bt">
 																	<span id="heart">
 																			<a onclick='setCookie("like_<%=c_team_no%>","ok", 30);'><i id="c_heart" class="fa fa-heart"></i></a>
@@ -272,43 +263,38 @@
 															<div class="share_bt" >
 																<span >
 																	<a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	 <!-- <img src="/images/sns1.gif" title="facebook" class="sharebtn_custom" > -->
 																		<img src="/images/sns1_2.png" title="facebook" class="sharebtn_custom" >
 																	</a>
 																	<a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns2.gif" title="twitter" class="sharebtn_custom" >-->
-																	 <img src="/images/sns2_2.png" title="twitter" class="sharebtn_custom" >
+																		<img src="/images/sns2_2.png" title="twitter" class="sharebtn_custom" >
 																	</a> 
 																	<a href="" onclick="window.open(url_combine_ks, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns3.gif" title="kakao" class="sharebtn_custom" >-->
-																	 <img src="/images/sns3_2.png" title="kakao" class="sharebtn_custom" >
+																		<img src="/images/sns3_2.png" title="kakao" class="sharebtn_custom" >
 																	</a> 
 																	<a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns4.gif" title="Naver" class="sharebtn_custom" >-->
-																	 <img src="/images/sns4_2.png" title="Naver" class="sharebtn_custom" >
+																		<img src="/images/sns4_2.png" title="Naver" class="sharebtn_custom" >
 																	</a>
 																	<a href="" onclick="window.open(url_combine_band, '', 'scrollbars=no, width=584, height=635'); return false;">
-																	<!-- <img src="/images/sns5.gif" title="Naver_band" class="sharebtn_custom" >-->
-																	 <img src="/images/sns5_2.png" title="Naver_band" class="sharebtn_custom" >
+																		<img src="/images/sns5_2.png" title="Naver_band" class="sharebtn_custom" >
 																	</a>
 																</span>
 															</div>
 														</div>
 													</div>
-                </section>
-							</div>
+											</div>
+				</section>
+		</div>
+
 <script>
-	 
 	if(getCookie("like_<%=c_team_no%>") == "ok"){
 		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'no\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}else{
-		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart-o"></i></a>'
+		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}
 </script>
 <script type="text/javascript">
 
 function clip(){
-
 	var url = '';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
@@ -370,7 +356,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  	<%if check_ok = 2 then%>
                  		<div class="login_bn">
 		                        <div class="login_bn_txt">
-				            학생창업유망팀 300 페스티벌 <font color=red>참가팀의 팀원은 모의 투자에 참여할 수 없습니다</font>..<br>
+				            학생창업유망팀 300 페스티벌 참가팀의 팀원은 모의 투자에 참여할 수 없습니다.<br>
 		                            주변에 많이 알려 많은 투자를 받을 수 있게 응원해 주세요.!
 		                        </div>
 	                    	</div>
@@ -379,8 +365,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		<div class="login_bn">
 		                        <div class="login_bn_txt">
 		
-										<span style="color:red">방명록 작성</span>을 해야만 <span style="color:red">투자 포인트</span>를 받을 수 있습니다.<br>
-										방명록 작성하여 모의 투자에 참여해 주세요.!
+															방명록 작성을 해야만 투자 포인트를 받을 수 있습니다.<br>
+															방명록 작성하여 모의 투자에 참여해 주세요.!
 		                        </div>
 		                        <div class="login_box">
 		                            <div class="login_bt">
@@ -471,8 +457,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		<div class="login_bn">
 		                        <div class="login_bn_txt">
 		
-		                            회원님은 이미 <span style="color:red;">투자금액을 소진</span>하여 더 이상 투자가 불가능 합니다.<br>
-		                            그동안 투자에 참여해 주셔서 감사합니다.
+		                            회원님은 이미 투자금액을 모두 소진 하였습니다.
+
 		                        </div>
 		                        <div class="login_box">
 		                            <div class="login_bt">
@@ -487,10 +473,9 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		 <div class="login_bn">
 		                        <div class="login_bn_txt" style="padding:30px">
 
-																회원님은 이 팀에 <span style="color:red;"> <%=past_fund%></span>원을 이미 투자하였습니다..<br>
-																응원글<br />
+																회원님은 이 팀에 <%=past_fund%>원을 이미 투자하였습니다..<br>
 		                            <span style="font-size:16px">
-		                            "<%=past_exp%>"
+		                            	응원글 "<%=past_exp%>"
 		                            </span>
 		                        </div>
 		                        <div class="login_box">
@@ -506,8 +491,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                  		 <div class="login_bn">
 		                        <div class="login_bn_txt" style="padding:30px">
 		
-		                            회원님은 참가팀의 팀장이기 떄문에 <span style="color:red;">평가 대상 팀만 모의투자</span>가 가능합니다.<br>
-		                            모의 투자 가능한 그룹은 "<span style="color:red;"> <%=gog_text%> </span>" 입니다
+		                            회원님은 참가팀의 팀장이기 떄문에 평가 대상 팀만 모의투자가 가능합니다.<br>
+		                            모의 투자 가능한 그룹은 "<%=gog_text%> " 입니다
 		                        </div>
 		                        <div class="login_box">
 		                            <div class="login_bt">
@@ -542,22 +527,20 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                             </li>
                         </ul>
 
-                        <div id="con1" class="conBox1 on"">
+                        <div id="con1" class="conBox1 on">
                           
                             <div   style="text-align:left;width:100%;line-height:130%;padding-top:50px;padding-bottom:50px;">
-                            	 <center>
+                            	 <div style="text-align:center;">
 	                            <div   style="text-align:left;width:90%;max-width:1100px;line-height:130%;padding:30px;background:#ffffff">
 	                                <p>
 	                                <%if c_team_no = "2937" then%>
-	                                	<center>
 	                                	비공개
-	                                	</center>
 	                                <%else%>
 	                                <%=rs("c_information")%>	
 	                                <%end if%>	
 	                                </p>
 	                            </div>
-	                           </center>
+	                           </div>
                             </div>
                         </div>
                         <div id="con2" class="conBox1">

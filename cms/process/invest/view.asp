@@ -125,20 +125,6 @@
 					<div class="sub_title_view">
 							<h2>투자하기</h2>
 					</div>
-				<!--
-								<section class="sub_title2" >
-					<div class="title_wrap"  >
-						<div class="title1"  style="margin: 5rem auto 0rem;max-width:60%;line-height:150%;word-break:keep-all">
-							<p>"<span><%=rs("c_item_name")%></span>"</p>		
-						</div>
-						<div class="title2">
-							<%=rs("c_team_name")%>
-						</div>
-					</div>
-				</section>
-								-->
-
-
 				<section class="sub_intro">
 					<div class="ytp_wrap2">
 							<%if rs("c_main_type") = 0 then%>
@@ -195,20 +181,20 @@
 						</div>
 						<div class="achiev_txt">
 							<p>달성률</p>
-														<span class="achiev_no"><%=c_sum_rate*4%></span>
+							<span class="achiev_no"><%=c_sum_rate*4%></span>
 							<span class="achive_pro">%</span>
 						</div>
 
 						<div class="amt_txt">
 							<p>모집금액</p>
-														<span class="amt_price"><%=c_sum%></span>
+							<span class="amt_price"><%=c_sum%></span>
 							<span class="amt_won">원</span>
 						</div >
 						<!---------게이지----------->
 						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
 
 						<div class="range_bar">
-							<div class="range_bar_width" id ="gauge_bar" style=" width:<%=c_sum_rate_bar%>%;">
+							<div class="range_bar_width gauge_bar"  style=" width:<%=c_sum_rate_bar%>%;">
 								<div class="range_bar_ani"></div>
 							</div>
 							<div class="range_line_flex">
@@ -245,11 +231,11 @@
 								<div class="label label5" >
 									<span>Pre-Unicorn<span>
 								</div>
-							</div>
-						<script>
+						 </div>
 
+						<script>
 						$(document).ready(function(){
-							let gauge_bar = $("#gauge_bar");
+							let gauge_bar = $(".gauge_bar");
 							let invest_grade = $("#invest_grade");
 
 							let gauge_value = invest_grade.val();
@@ -270,46 +256,26 @@
 							}
 
 						})
-
-
-						
-						
-						
-
-
 						</script>
-						<!---------게이지----------->
-						<!--
-						<div class="goal_amt">
-							<span>목표금액 10억 원</span>
-						</div>
-						-->
+
 						<div class="funding_state_box"style="margin-top : 60px;">
 							<p>마감일</p>
-														<span class="date">
-                                2023-08-18 24:00 까지
-                            </span>
+							<span class="date">
+									2023-08-18 24:00 까지
+							</span>
 
-														<div class="funding_state">
-																<%if now() < cdate(s_date) then%>
-																	<span class="state_pending">대기중</span>
-																<%else%>
-																	<%if now() > cdate(e_date) then%>
-																		<span class="state_end">투자 종료</span>
-																	<%else%>
-																		<span class="state_ongoing">투자 진행중</span>
-																	<%end if%>
-																<%end if%>
-														</div>
+							<div class="funding_state">
+									<%if now() < cdate(s_date) then%>
+										<span class="state_pending">대기중</span>
+									<%else%>
+										<%if now() > cdate(e_date) then%>
+											<span class="state_end">투자 종료</span>
+										<%else%>
+											<span class="state_ongoing">투자 진행중</span>
+										<%end if%>
+									<%end if%>
+							</div>
 						</div>
-
-												<!--
-													<div class="tag">
-															<span>
-																	
-															</span>
-													</div>
-												-->
 
 														<div class="fd_btn_group">
 															<div class="fd_end">
@@ -344,23 +310,18 @@
 															<div class="share_bt" >
 																<span >
 																	<a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
-																		<!-- <img src="/images/sns1.gif" title="facebook" class="sharebtn_custom" > -->
 																		<img src="/images/sns1_2.png" title="facebook" class="sharebtn_custom" >
 																	</a>
 																	<a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns2.gif" title="twitter" class="sharebtn_custom" >-->
 																		<img src="/images/sns2_2.png" title="twitter" class="sharebtn_custom" >
 																	</a> 
 																	<a href="" onclick="window.open(url_combine_ks, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns3.gif" title="kakao" class="sharebtn_custom" >-->
 																		<img src="/images/sns3_2.png" title="kakao" class="sharebtn_custom" >
 																	</a> 
 																	<a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns4.gif" title="Naver" class="sharebtn_custom" >-->
 																		<img src="/images/sns4_2.png" title="Naver" class="sharebtn_custom" >
 																	</a>
 																	<a href="" onclick="window.open(url_combine_band, '', 'scrollbars=no, width=584, height=635'); return false;">
-																	<!-- <img src="/images/sns5.gif" title="Naver_band" class="sharebtn_custom" >-->
 																		<img src="/images/sns5_2.png" title="Naver_band" class="sharebtn_custom" >
 																	</a>
 																</span>
@@ -386,13 +347,10 @@
 	}else{
 		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}
-
-
 	</script>
+
 	<script type="text/javascript">
-
 	function clip(){
-
 	var url = '';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
@@ -428,7 +386,7 @@
 
 	'check_ok 3일 경우 테스트 하기
 
-	'check_ok = 3
+	' check_ok = 3
 
 	p1_money = 1000000
 
@@ -571,7 +529,7 @@
 							</div>
 
 						<div class="invest_area">
-							<p style="text-align : center;"><%=rs("c_team_name")%> </p>
+								<p class="team_name"><%=rs("c_team_name")%> </p>
 								<div class="my_invest">
 										<div class="my_invest_wrap">
 											<div class="my_invest2">
@@ -586,10 +544,10 @@
 											</div>
 											<div class="my_invest4">
 												<div class="my_invest3">
-													 &nbsp; &nbsp;<img src="/images/icon_my_invest2.png">
+													<img src="/images/icon_my_invest2.png">
 												</div>
 												<div class="team_investable">
-													<span>팀에 투자 가능 금액</span><br>
+													<span><b>한팀당</b><br>최대 1회 투자 가능 금액</span><br>
 													<span class="sp1"><%=formatnumber(p2_money,0)%></span>
 													<span class="sp2">원</span>
 												</div>
@@ -643,8 +601,6 @@ p2_money = p_money
 										<%if session("session_jang") = "" or session("session_jang") = "2" Then%>
 
 											회원님은 이미 투자금액을 모두 소진 하였습니다.<br>
-
-										
 										
 										<%end if%>
 										
@@ -685,8 +641,10 @@ p2_money = p_money
 
 							<div class="login_bn">
 									<div class="login_bn_txt" style="">
-			
+
+										회원님은 참가팀의 팀장이기 떄문에 평가 대상 팀만 모의투자가 가능합니다.
 										회원님의 모의 투자 가능한 그룹은 " <%=gog_text%> " 입니다
+										
 									</div>
 									<!--
 									<div class="login_box">
