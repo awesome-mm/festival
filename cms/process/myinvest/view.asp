@@ -384,7 +384,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 		
 		                            <div class="my_invest2">
 		                                <div class="my_invest1">
-		                                    <img src="/images/icon_my_invest1.png">
+		                                    <img src="/images/icon_money.png">
 		                                </div>
 		                                <div class="mi_1">
 		                                    <span>나의 <%=money_info%> 투자 가능 금액</span><br>
@@ -395,7 +395,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 		
 		                            <div class="my_invest4">
 		                                <div class="my_invest3">
-		                                    <img src="/images/icon_my_invest2.png">
+		                                    <img src="/images/icon_team_money.png">
 		                                </div>
 		                                <div>
 		                                    <span><%=rs("c_team_name")%> 팀에 투자 가능 금액</span><br>
@@ -904,7 +904,13 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                     </div>
 
 				<!-----------------랜덤팀 10개 이동S---------------->
-				<br><br><br><br><br>
+				<div class="recommend_area">
+					<p>다른 인기 아이템들도 살펴보세요!</p>
+
+					<div class="recommend_list"> 
+						<% 
+							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
+
 
 				<div>
 					<div style="width:100%">
@@ -916,6 +922,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 						<%
 							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
 							strSQL="select  a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 and b.c_item_name is not null and b.c_thumbnail is not null and b.c_main is not null and b.c_information is not null  order by newid()" 
+
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")
 							tbl_board.Open strSQL, dbCon, 1
@@ -923,24 +930,22 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 							else
 								Do Until tbl_board.EOF
 						%>
-								<div style="  float:left; margin-left :10px;">
-									<div style="text-align:center; border:1px solid #000; width:100px; height:130px;">
+									<div class="recommend_item">
 										<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=<%=tbl_board("c_no")%>&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">
 											<!--운영에반영후 팀로고가없는애들은 팀명도 같이출력되도록-->
 											<%if tbl_board("c_logo") = "" then%>
-												<span style="font-size:10px;"><%=tbl_board("c_team_name")%></span><br>
-												<img src="/images/logo3.png" style="width:80px;height:80px;">
+												<span><%=tbl_board("c_team_name")%></span>
+												<img src="/images/logo3.png" style="width:100px">
 												<!--<img src="/images/seoul/logo3.png" style="width:80px;height:80px;">-->
 
 											<%else%>
-												<span style="font-size:10px;"><%=tbl_board("c_team_name")%></span><br>
+												<span><%=tbl_board("c_team_name")%></span>
 												<!--<img src="/images/logo3.png" style="width:80px;height:80px;">-->
-												<img src="/upload/<%=tbl_board("c_logo")%>" style="width:80px;height:80px;">
+												<img src="/upload/<%=tbl_board("c_logo")%>" style="width:100px">
 
 											<%end if%>
 										</a>
 									</div>
-								</div>
 						<%		
 								tbl_board.MoveNext
 								Loop
@@ -950,16 +955,11 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 						%>
 					</div>
 				</div>
-				<br>
-				<br>
 				<!-----------------랜덤팀 10개 이동E---------------->
-
-
-
-                </section>
+				</section>
 
                 <!-- <section class="tab2"> <div class="a"> </div> </section> -->
-
+			</div>
 </form>
 <%
 	end if

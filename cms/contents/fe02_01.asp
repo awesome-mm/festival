@@ -135,12 +135,12 @@
                             </div>
     
                             <div class="pati_etc tac">투자유치 1등 맞추기, 추천인, 로고디자인 투표 이벤트 등<br> 다양한 이벤트가 준비되었으니 많은 관심과 참여 바랍니다.
-                                <br><span style="color:red">자세한 참여방법은 하단 매뉴얼 참조</span>  </div>
+                                <br><span style="color: #2D41BA">자세한 참여방법은 하단 매뉴얼 참조</span>  </div>
                            <table >
                                 <tr>
                                     <td style="text-align:right;padding-right:10px">
                                         <div class="more_sch_box" style="">
-                                            <div class="more_sch_txt">
+                                            <div class="more_sch_txt menu_btn">
                                                 <a href="/cms/contents/mannual_01_general.pdf" target="_blank" title="매뉴얼 다운로드">국민평가단 매뉴얼 확인하기</a>
                                             </div>
                                         </div>

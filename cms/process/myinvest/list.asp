@@ -49,7 +49,7 @@
                         <div class="my_invest_wrap my_investment_details" style="width:100%">
                             <div class="my_invest2">
                                 <div class="my_invest1">
-                                    <img src="/images/icon_my_invest1.png">
+                                    <img src="/images/icon_money.png">
                                 </div>
                                 <div class="mi_1">
                                     <span>나의 현재 투자 가능 금액</span><br>
@@ -60,7 +60,7 @@
 
                             <div class="my_invest4">
                                 <div class="my_invest3">
-                                    <img src="/images/icon_tot_invest.png">
+                                    <img src="/images/icon_team_money.png">
                                 </div>
                                 <div class="mi_2">
                                     <span>나의 현재 총 투자 금액</span><br>

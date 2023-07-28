@@ -131,6 +131,7 @@
 
     </div>
 <%
+
 str_total_sum = " select count(c_no)as total_sum_population ,sum(convert(bigint,c_fund))as total_sum_fund from tbl_fund where c_year=2023"
 set rolling_section = dbCon.execute(str_total_sum)
 If rolling_section.EOF then
@@ -147,12 +148,15 @@ set rolling_section = nothing
         <div class="total_invest_rolling">
             <h3>총 투자금액</h3>
             <p id="total_investment" data-value="<%=total_sum_fund%>"></p>
+
             <span>원</span>
         </div>
         <div class="total_team_rollingd">
             <h3>모의투자 참여 인원</h3>
+
             <p id="total_team" data-value="<%=total_sum_population%>"></p>
             <span>명</span>
+
         </div>
     </section>
 
