@@ -130,16 +130,29 @@
 
 
     </div>
+<%
+    str_total_sum = " select count(c_no)as total_sum_population ,sum(convert(bigint,c_fund))as total_sum_fund from tbl_fund where c_year=2023"
+    set rolling_section = dbCon.execute(str_total_sum)
+    If rolling_section.EOF then
+        total_sum_fund = 0
+        total_sum_population = 0
+        else
+        total_sum_fund = rolling_section("total_sum_fund")
+        total_sum_population = rolling_section("total_sum_population")
+    end if
+    rolling_section.close
+    set rolling_section = nothing
+%>
 
     <section class="investment_area" style="text-align:center;">
         <div class="total_invest_rolling">
             <h3>총 투자금액</h3>
-            <p id="total_investment" data-value="1000000000">1000000000</p>
+            <p id="total_investment" data-value="<%=total_sum_fund%>">1000000000</p>
             <span>원</span>
         </div>
         <div class="total_team_rollingd">
             <h3>모의투자 참여 인원</h3>
-            <p id="total_team" data-value="300">350</p>
+            <p id="total_team" data-value="<%=total_sum_population%>">350</p>
             <span>팀</span>
         </div>
     </section>

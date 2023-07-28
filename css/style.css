@@ -2077,9 +2077,8 @@ button.btn:focus{
     /* display: block; */
     width: 255px;
     height: 70px;
-    border-radius: 5px;
     margin: 0 auto;
-    border: 1px solid #999999;
+    overflow: hidden;
     /* margin-bottom: 50px; */
 
 }
@@ -2087,17 +2086,21 @@ button.btn:focus{
 .btn_box_txt {
     text-align: center;
     line-height: 70px;
-    color: #999999;
+    color: #fff;
     font-size: 25px;
+    background: #2D41BA;
+    border-radius: 25px;
+    transition: all 0.2s ease-out;
 }
 
-.btn_box:hover {
-    border: 1px solid #f18a2e;
-    background: #f18a2e;
+.btn_box .btn_box_txt:hover {
+    background: #6477e4;
     cursor: pointer;
 
 }
-
+.btn_box_txt a{
+    color: #fff;
+}
 .btn_box:hover .btn_box_txt a{
     color: #fff;
 }
@@ -2556,6 +2559,52 @@ section.sub_intro {
 .state_ongoing {
     /* background: #ff9000; */
     border: 1px solid #fff;
+}
+
+.recommend_area{
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+.recommend_area p{
+    font-size: 16px;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    color: #fff;
+}
+.recommend_area p::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 200%;
+    height: 100%;
+    background: #2D41BA;
+    z-index: -3;
+}
+.recommend_area .recommend_list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    text-align: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+.recommend_area .recommend_list .recommend_item{
+    max-width: 100px;
+    padding: 15px;
+}
+.recommend_area .recommend_list .recommend_item span{
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.recommend_area .recommend_list .recommend_item img{
+    width: 100%;
 }
 
 .tag {
@@ -3562,8 +3611,11 @@ div.postit_content > p > a {
     background: #ECEFFF;
     border-radius: 20px;
 }
-.invest_area p{
+
+.invest_area.funding_area{
+    display: none;
 }
+
 .invest_area .team_name{
     background-color: #D1D8FF;
     text-align: center;
@@ -3625,7 +3677,10 @@ div.postit_content > p > a {
 .my_invest1 {
     display: inline-block;
     position: relative;
-   
+    width: 62px;
+}
+.my_invest1 img{
+    width: 100%;
 }
 
 .my_invest2 {
@@ -3648,6 +3703,10 @@ div.postit_content > p > a {
 
 .my_invest3 {
     color: #fff;
+    width: 62px;
+}
+.my_invest3 img{
+    width: 100%;
 }
 
 .my_invest4 {
@@ -5521,9 +5580,16 @@ table.idpw_sch_tb {
     font-size: 18px;
     width: 180px;
     padding: 15px 0;
-    background-color: #2F41BB;
+    background-color: #2D41BA;
     transition: all 0.2s ease-out;
     border-radius: 25px;
+}
+.more_sch_txt.menu_btn a{
+    width: auto;
+    padding: 15px 30px;
+    background: none;
+    border: 1px solid #2D41BA;
+    color: #2D41BA;
 }
 
 .more_sch_txt a:hover{
@@ -5618,24 +5684,23 @@ table.idpw_sch_tb {
 }
 
 .pati_con_wrap {
-    padding: 4rem;
+    padding: 32px;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     justify-items: center;
-    column-gap: 30px;
+    column-gap: 36px;
     row-gap: 97px;
+    padding-bottom: 60px;
 }
 
 .step {
     width: 100%;
-    height: 400px;
     overflow: hidden;
 }
 
 .img_box img {
-    width: 60%;
-    object-fit: cover;
+    width: 100%;
 }
 
 .img_box .step1_img,
@@ -5643,7 +5708,6 @@ table.idpw_sch_tb {
 .img_box .step3_img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .st_subject {
@@ -5651,7 +5715,7 @@ table.idpw_sch_tb {
     margin-bottom: 16px;
 }
 .st_subject .step_num{
-    color: #ff9000;
+    color: #2D41BA;
     font-weight: 600;
     margin-right: 15px;
     font-size: 16px;
@@ -5665,7 +5729,6 @@ table.idpw_sch_tb {
 
 .pati_con_wrap .img_box {
     position: relative;
-    padding:1rem;
     text-align: center;
     width: 100%;
     background-color: #fff;
@@ -5673,22 +5736,24 @@ table.idpw_sch_tb {
     box-sizing: border-box;
 }
 .help_box{
+    width: 100%;
+    text-align: center;
     display: inline-block;
 	position:absolute;
 	background: #0d2e8f;
     color:#fff;
-    padding: 20px 35px;
-    border-radius: 34px 34px 34px 0;
+    padding: 18px;
     font-size: 16px;
     font-weight: 400;
 }
 .arrow_box {
+    width: 100%;
+    text-align: center;
     display: inline-block;
 	position:absolute;
 	background: #0d2e8f;
     color:#fff;
-    padding: 20px 35px;
-    border-radius: 34px 34px 34px 0;
+    padding: 18px 0;
     font-size: 16px;
     font-weight: 400;
 }
@@ -5735,7 +5800,7 @@ table.idpw_sch_tb {
     border-radius: 1rem;
     border:.2rem solid #ff9000;
     background: hsla(120, 100%, 75%, .3);
-
+    display: none;
 }
 
 
@@ -5748,6 +5813,7 @@ table.idpw_sch_tb {
 	width: 0;
 	position: absolute;
 	pointer-events: none;
+
 }
 
 .arrow_box:after {
@@ -5805,6 +5871,7 @@ table.idpw_sch_tb {
     border-radius: 1rem;
     border:.2rem solid #1b00ff;
     background: hsla(120, 100%, 75%, .3);
+    display: none;
 }
 
 .select_box3 {
@@ -5818,6 +5885,8 @@ table.idpw_sch_tb {
     border-radius: 1rem;
     border:.2rem solid #1b00ff;
     background: hsla(120, 100%, 75%, .3);
+    display: none;
+
 }
 
 .select_box4 {
@@ -5831,52 +5900,48 @@ table.idpw_sch_tb {
     border-radius: 1rem;
     border:.2rem solid #1b00ff;
     background: hsla(120, 100%, 75%, .3);
+    display: none;
+
 }
 
 
 
 .step1{
     position:absolute;
-    left: 46%;
-    top: 62%;
+    left: 0%;
+    top: 0%;
 }
 
 .step2 {
     position:absolute;
-    right: 3%;
-    top: 10%;
+    left: 0%;
+    top: 0%;
 }
 
 .step3 {
     position:absolute;
-    right:0;
-    bottom:13%;
-    border-radius: 0 34px 34px 34px;
+    left:0;
+    top:0%;
 }
 
 .step4-1 {
     position:absolute;
-    right:0;
-    top:-12%;
+    left:0;
+    top: 0%;
 
 }
 
 
 .step4-2 {
     position:absolute;
-    right:0;
-    bottom:10%;
-    border-radius: 0 34px 34px 34px;
-
-
+    left:0;
+    top: 0%;
 }
 
 .step5 {
     position:absolute;
-    right:0;
-    top: 27%;
-    border-radius: 34px 0 34px 34px;
-
+    left:0;
+    top: 0%;
 }
 
 .participation{
@@ -5887,10 +5952,10 @@ table.idpw_sch_tb {
 
 .pati_etc {
     max-width: 100% ;
-    margin:0 40px;
-    font-size: 2.5rem;
+    font-size: 24px;
     padding-top: 60px;
     border-top: 1px solid #BCBCBC;
+    line-height: 1.5;
 }
 .pati_etc span{
     display: inline-block;

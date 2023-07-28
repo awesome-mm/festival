@@ -39,14 +39,9 @@
      
 %>
 	       <div class="mem_wrapper">
-                    <div class="title3" >
-                        <div>
-                            <div class="diagonal"></div>
-                        </div>
-                        <div>
-                            <span class="co666">이벤트</span>
-                        </div>
-                    </div>
+												<div class="login_title main_login_title">
+													<h2>이벤트</h2>
+												</div>
 
 
                     <div class="notice_detail" >
@@ -59,7 +54,7 @@
                              
                         </div > -->
 
-						<div class="mgt30 mg10 pdt40 fs21 col666" style="padding-bottom:30px;border-top:1px solid #f18a2e;;border-bottom:1px solid #f18a2e;">
+						<div class="mgt30 mg10 pdt40 fs21 " style="padding-bottom:30px;border-top:1px solid #2D41BA;;border-bottom:1px solid #2D41BA;">
 <!--                             <div style="padding-left:30px;min-height:200px"> -->
 							         <%=tbl_board("c_contents")%>
                              

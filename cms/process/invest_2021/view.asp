@@ -92,11 +92,11 @@
 
                     <div class="intro_txt">
                         <div class="team_info">
-														<h3><%=rs("c_item_name")%></h3>
 														<b>참가팀 정보</b>
                             <span class="team_name">
                                 <%=rs("c_team_name")%>
                             </span>
+														<h3><%=rs("c_item_name")%></h3>
                         </div>
                         <div class="achiev_txt">
                             <p>달성률</p>
@@ -333,7 +333,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 										<div class="my_invest_wrap">
 											<div class="my_invest2">
 												<div class="my_invest1">
-													<img src="/images/icon_my_invest1.png">
+													<img src="/images/icon_money.png">
 												</div>
 												<div class="mi_1">
 													<span>나의 <%=money_info%> 투자 가능 금액</span><br>
@@ -343,7 +343,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 											</div>
 											<div class="my_invest4">
 												<div class="my_invest3">
-													<img src="/images/icon_my_invest2.png">
+													<img src="/images/icon_team_money.png">
 												</div>
 												<div>
 													<span>팀에 투자 가능 금액</span><br>
