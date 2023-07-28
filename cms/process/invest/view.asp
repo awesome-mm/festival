@@ -512,11 +512,12 @@
 						<%end if%>
 
 							<%
-							sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no") &" and c_project_no in (10,11,12,13,14)"
+					'		sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no") &" and c_project_no in (10,11,12,13,14)"
+							sql_check_reader = "select a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and  a.c_member_no =" &session("session_no")&" and b.c_year=2023   "
 
-
-'	response.write c_team_no
-'	response.write sql_check_reader
+'	response.write  " session_no -> "&session("session_no")   '45663
+'		response.write " c_team_no -> "& c_team_no  				'4418
+'	response.write " sql_check_reader -> "& sql_check_reader
 '	Response.End
 								Set abcde=CreateObject("ADODB.RecordSet")
 								abcde.Open sql_check_reader, dbCon, 1
@@ -525,7 +526,7 @@
 											If abcde.EOF Then  
 													my_team_no = 0000
 													else
-													my_team_no = abcde("c_team_no")
+													my_team_no = abcde("c_no")
 											end if
 											' response.write my_team_no
 											abcde.Close

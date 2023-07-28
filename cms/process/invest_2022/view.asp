@@ -327,8 +327,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 						<div class="login_bn">
 							<div class="login_bn_txt">
 
-								로그인을 하시고 성장가능성 있는 기업에<br>
-								모의 투자하시고, 푸짐한 상품도 받아가세요!
+								로그인을 한 후 성장가능성이 있는 기업에 
+								모의 투자하시고,<br> 푸짐한 상품도 받아가세요!
 							</div>
 							<div class="login_box">
 								<div class="login_bt">
