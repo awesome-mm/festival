@@ -547,7 +547,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                         	<%
                         	fund_number = 0
                         	fund_price = 0
-                        	sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2023 and c_team_no = "& c_team_no &" and c_use = 0 and c_member_type = 1"
+                        	sql_d = "select count(c_no) as f_n, sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as f_p from tbl_fund where c_year = 2023 and c_team_no = "& c_team_no &" and c_use = 0 "
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -594,7 +594,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                                 <table>
                                     <tbody>
 				 <%
-                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
+                        	sql_d = "select top(5) a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 order by a.c_date desc"
+							
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 				rs_d.Open sql_d, dbCon, 1
 				If rs_d.EOF Then  
@@ -909,6 +910,18 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 					<div class="recommend_list"> 
 						<% 
 							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
+
+
+				<div>
+					<div style="width:100%">
+						<span style="padding-left:12.5%;">다른 인기 아이템들도 살펴보세요!</span>
+					</div>
+					<br>
+					<div style="  display:flex; justify-content:center;">
+					
+						<%
+							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
+							strSQL="select  a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 and b.c_item_name is not null and b.c_thumbnail is not null and b.c_main is not null and b.c_information is not null  order by newid()" 
 
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")

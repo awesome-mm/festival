@@ -32,10 +32,10 @@
 	sql_d = " select a.c_festival_type, a.c_no, b.c_no as c_festival_no, a.c_team_name, b.c_member_name, b.c_item_name,b.c_main_type,c_main, b.c_information "
 	sql_d = sql_d & " ,(select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum  from tbl_fund where c_team_no = a.c_no and c_festival_no = b.c_no and c_use = 0 ) as c_sum "
  	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = '2023' "
-	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
+	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 " 
 
 	'response.write c_team_no
-	'response.write sql_d
+	response.write sql_d
 	'Response.End
 
 
@@ -1110,7 +1110,7 @@ p2_money = p_money
 
 					<div class="recommend_list"> 
 						<% 
-							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
+							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 and b.c_item_name is not null and b.c_thumbnail is not null and b.c_main is not null and b.c_information is not null  order by newid()"
 
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")
