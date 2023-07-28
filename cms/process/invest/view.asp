@@ -721,7 +721,7 @@ p2_money = p_money
 							</li>
 
 							<li data-id="con2">
-								<a href="#none">국민평가의견</a>
+								<a href="#none">평가의견</a>
 
 							</li>
 						<!--	<li data-id="con3"style="display:none;" >
@@ -827,7 +827,7 @@ p2_money = p_money
                                     <tbody>
 				 <%
                         	'sql_d = "select   a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
-													sql_d = "select a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 order by newid()"
+													sql_d = "select a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 order by a.c_date desc"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 
 				rs_d.Open sql_d, dbCon, 1

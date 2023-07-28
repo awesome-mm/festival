@@ -455,7 +455,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 
 
 
-						<%if check_ok = 4 then%>
+						<%if  = 4 then%>
 							<div class="login_bn">
 									<div class="login_bn_txt">
 
