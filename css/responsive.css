@@ -788,6 +788,9 @@ footer .footer__wrap .footer__menu ul li a {
     flex-direction: row-reverse;
   }
   /* invest_rolling */
+  .investment_area{
+    display: none;
+  }
   .investment_area .total_invest_rolling{
     display: block;
   }

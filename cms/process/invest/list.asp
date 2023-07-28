@@ -26,8 +26,6 @@ s_text = r_call("s_text")
                     <!-- <div class="inner"> -->
                     <div class="tab_menu" >
                         <ul>
-
-                        
                             <li <%if c_festival_tpye = "" then%>class="on"<%else%>class="off"<%end if%>>
                                <a href="list.asp?<%=t_para%>"> 전체</a>
                             </li>
@@ -72,32 +70,7 @@ s_text = r_call("s_text")
                                 <a href="list.asp?<%=t_para%>&c_festival_type=10">교육</a>
                             </li>
                             
-<!--
-                            <li <%if c_festival_tpye = "" then%>class="on"<%else%>class="off"<%end if%>>
-                               <a href="list.asp?<%=t_para%>"> 전체</a>
-                            </li>
-
-                            <li <%if c_festival_tpye = "1" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=1">도약<span>(일반)</span></a>
-                            </li>
-
-                            <li <%if c_festival_tpye = "2" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=2">도약<span>(유학생)</span></a>
-                            </li>
-
-                            <li <%if c_festival_tpye = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=3">성장<span>(일반)</span></a>
-                            </li>
-
-                            <li <%if c_festival_tpye = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=4">성장<span>(전문대)</span></a>
-                            </li>
-
-                            <li <%if c_festival_tpye = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=5">교육</a>
-                            </li>
--->
-                        </ul>
+                       </ul>
 
                     </div>
 			
@@ -144,8 +117,6 @@ s_text = r_call("s_text")
                             class="input_wrap"
                             onkeyup="if (window.event.keyCode == 13) {s_search();}">
                         <label for="keyword" class="keyword_label">검색</label>
-
-                        
                             <!--<button type="button" class="btn gray small" onclick="s_search()">-->
                             
                             <button type="button" class="btn search_btn" onclick="s_search()">
@@ -228,6 +199,7 @@ s_text = r_call("s_text")
                                 프로젝트 더보기
                             </a>
                         </div>
+
                         <%end if%>
  
                 </section>

@@ -62,7 +62,7 @@
 
                         <button type="button" class="btn  search_btn" onclick="s_search();">
                                 <!-- <img src="/images/search.png" alt=""> -->
-                            <img src="/images/search2.png" alt="">
+                            <img src="/images/search3.png" alt="">
 														<span class="hidden">검색<span>
                         </button>
 

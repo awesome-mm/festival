@@ -109,16 +109,16 @@
 				/*----------등급-----------*/
 
 				/*---------게이지바 컬러-------*/
-				if (c_sum_rate[<%=ai%>] <25){
-					color_by_grade[<%=ai%>] = '#615866'
+				if (c_sum_rate[<%=ai%>] < 25){
+					color_by_grade[<%=ai%>] = 'gradient-iron'
 				}else if (c_sum_rate[<%=ai%>] >= 25 && c_sum_rate[<%=ai%>] < 50){
-					color_by_grade[<%=ai%>] = '#B97A57'
+					color_by_grade[<%=ai%>] = 'gradient-bronze'
 				}else if (c_sum_rate[<%=ai%>] >= 50 && c_sum_rate[<%=ai%>] < 75){
-					color_by_grade[<%=ai%>] = '#C3C3C3'
+					color_by_grade[<%=ai%>] = 'gradient-silver'
 				}else if (c_sum_rate[<%=ai%>] >= 75 && c_sum_rate[<%=ai%>] < 100){
-					color_by_grade[<%=ai%>] = '#FFC90E'
+					color_by_grade[<%=ai%>] = 'gradient-gold'
 				}else if (c_sum_rate[<%=ai%>] >= 100){
-					color_by_grade[<%=ai%>] = '#4DFEFF'
+					color_by_grade[<%=ai%>] = 'gradient-platinum'
 				}
 
 
@@ -150,14 +150,23 @@
 		                      +'           <div class="info-box">	'
 		                      +'               <div class="subject">	'
 		                      +'                   '+ c_team_name[i] +' '
-							  +'				'+ invest_badge[i] +' '
+							  					+'										'+ invest_badge[i] +' '
 		                      +'               </div>	'
 		                      +'               <div class="content" style="height:40px;overflow: hidden;">	'
 		                      +'                   '+ c_item_name[i] +'	'
 		                      +'               </div>	'
-		                      +'               <div class="line">	'
-		                      +'                   <span class="gh_1" id="abbb" style="width:'+ c_sum_rate2[i] +'%; background:'+color_by_grade[i]+';"></span>	'
-		                      +'               </div>	'
+													+'				      <div class="list_range range_bar"> '
+													+'								<div class="range_bar_width gauge_bar" style="width: '+ c_sum_rate2[i]+'%;">'
+													+'									<div class="range_bar_ani '+color_by_grade[i]+'"></div>'
+													+'								</div>'
+													+'								<div class="info_item_line range_line_flex">'
+													+'									<span class="range_line"></span>'
+													+'									<span class="range_line"></span>'
+													+'									<span class="range_line"></span>'
+													+'									<span class="range_line"></span>'
+													+'									<span class="range_line"></span>'
+													+'								</div>'
+													+'							</div>'
 												  +'						   <div class="funding_price"> '
 													+'                  <div class="dal">	'
 													+'                        <span>'+ (c_sum_rate[i]*4) +'% 달성</span>'
@@ -181,54 +190,6 @@
 		                        	t1 = 0
 		                        }
 				 }
-				//if(c_team_name[i] != null){
-				// 	t1 = t1 + 1
-				// 	let_go = let_go +'<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
-		    //                   +'       <div class="startup_info">	'
-		    //                   +'           <div class="img-box" style="height:220px">	'
-		    //                   +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" style="max-width: 380px;">	'
-		    //                   +'           </div>	'
-		    //                   +'           <div class="info-box">	'
-		    //                   +'               <div class="subject">	'
-		    //                   +'                   '+ c_team_name[i] +' '
-		    //                   +'               </div>	'
-		    //                   +'               <div class="content" style="height:40px;overflow: hidden;">	'
-		    //                   +'                   '+ c_item_name[i] +'	'
-		    //                   +'               </div>	'
-		    //                   +'               <div class="line">	'
-		    //                   +'                   <span class="gh_1" style="width:'+ c_sum_rate2[i] +'%"></span>	'
-		    //                   +'               </div>	'
-				// 									+'								<div class=""> '
-				// 									+'                <div class="dal">	'
-				// 									+'                    <div class="dal1">	'
-				// 									+'                        달성률	'
-				// 									+'                    </div>	'
-				// 									+'                    <div class="dal2">	'
-				// 									+'                        '+ c_sum_rate[i] +'	'
-				// 									+'                        <span>	'
-				// 									+'                            %	'
-				// 									+'                        </span>	'
-				// 									+'                    </div>	'
-				// 									+'               </div>	'
-				// 									+'                <div class="mogip">	'
-				// 									+'                    <div class="mogip1">	'
-				// 									+'                        모집금액	'
-				// 									+'                   </div>	'
-				// 									+'                   <div class="mogip2">	'
-				// 									+'                       '+ c_sum[i] +'	'
-				// 									+'                       <span>	'
-				// 									+'                           원	'
-				// 									+'                       </span>	'
-				// 									+'                   </div>	'
-				// 									+'               </div>	'
-				// 									+'							</div>'
-		    //                   +'          </div>	'
-		    //                   +'      </div>	'
-		    //                   +'  </a>	'
-		    //                     if(t1 == 4){
-		    //                     	t1 = 0
-		    //                     }
-				//  }
 				s1 = i;
 			} 
 			if(t1 > 0){

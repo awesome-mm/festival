@@ -18,11 +18,11 @@
 												</div>
                         <div class="idpw">
                             <div class="input_st2" style="line-height:150%; font-size:24px; margin:30px 0;">
-                                <span style="color:#E7590C;">SNS 연결 아이디</span>  
+                                <span style="color:#2D2BB1;">SNS 연결 아이디</span>  
                                 <%=session("session_id")%>
                              	<!--
                              	<br />
-                                 <font color="#E7590C">이름</font>  
+                                 <font color="#2D2BB1">이름</font>  
                                 <%=session("session_name")%>
                                 -->
                             </div>

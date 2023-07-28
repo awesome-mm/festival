@@ -109,23 +109,23 @@
 
 								if rate_t >= 0 AND rate_t < 25 then
 									invest_grade = "iron"
-									color_by_grade = "#615866"
+									color_by_grade = "gradient-iron"
 
 								elseif rate_t >= 25 AND rate_t < 50 then
 									invest_grade = "bronze"
-									color_by_grade = "#B97A57"
+									color_by_grade = "gradient-bronze"
 
 								elseif rate_t >= 50 AND rate_t < 75 then
 									invest_grade = "silver"
-									color_by_grade = "#C3C3C3"
+									color_by_grade = "gradient-silver"
 
 								elseif rate_t >= 75 AND rate_t < 100 then
 									invest_grade = "gold"
-									color_by_grade = "#FFC90E"
+									color_by_grade = "gradient-gold"
 
 								elseif rate_t >= 100 then
 									invest_grade = "platinum"
-									color_by_grade = "#4DFEFF"
+									color_by_grade = "gradient-platinum"
 
 								end if
 								%>
@@ -166,36 +166,18 @@
 		                                             <%=rs_m("c_item_name")%>
 		                                        </div>
 		
-		                                        <div class="line">
-		                                            <span class="gh_1" style="width:<%=rate_t2%>%; background:<%=color_by_grade%>"></span>
-		                                        </div>
-																						<!--
-		                                        <div class="dal">
-		                                            <div class="dal1">
-		                                                달성률
-		                                            </div>
-		                                            <div class="dal2">
-		                                            	 
-		                                                <%=formatnumber(rate_t,2)%>
-		                                                <span>
-		                                                    %
-		                                                </span>
-		                                            </div>
-		
-		                                        </div>
-		                                        <div class="mogip">
-		                                            <div class="mogip1">
-		                                                모집금액
-		                                            </div>
-		                                            <div class="mogip2">
-		
-		                                                <%=formatnumber(hkk,0)%>
-		                                                <span>
-		                                                    원
-		                                                </span>
-		                                            </div>
-		                                        </div>
-																						-->
+																						<div class="list_range range_bar">
+																							<div class="range_bar_width gauge_bar" style="width:<%=rate_t2%>%;">
+																								<div class="range_bar_ani <%=color_by_grade%>" id="abbb"></div>
+																							</div>
+																							<div class="info_item_line range_line_flex">
+																								<span class="range_line"></span>
+																								<span class="range_line"></span>
+																								<span class="range_line"></span>
+																								<span class="range_line"></span>
+																								<span class="range_line"></span>
+																							</div>
+																						</div>
 
 																						<div class="funding_price"> 
 																							<div class="dal"> 

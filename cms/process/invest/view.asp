@@ -125,20 +125,6 @@
 					<div class="sub_title_view">
 							<h2>투자하기</h2>
 					</div>
-				<!--
-								<section class="sub_title2" >
-					<div class="title_wrap"  >
-						<div class="title1"  style="margin: 5rem auto 0rem;max-width:60%;line-height:150%;word-break:keep-all">
-							<p>"<span><%=rs("c_item_name")%></span>"</p>		
-						</div>
-						<div class="title2">
-							<%=rs("c_team_name")%>
-						</div>
-					</div>
-				</section>
-								-->
-
-
 				<section class="sub_intro">
 					<div class="ytp_wrap2">
 							<%if rs("c_main_type") = 0 then%>
@@ -195,121 +181,101 @@
 						</div>
 						<div class="achiev_txt">
 							<p>달성률</p>
-														<span class="achiev_no"><%=c_sum_rate*4%></span>
+							<span class="achiev_no"><%=c_sum_rate*4%></span>
 							<span class="achive_pro">%</span>
 						</div>
 
 						<div class="amt_txt">
 							<p>모집금액</p>
-														<span class="amt_price"><%=c_sum%></span>
+							<span class="amt_price"><%=c_sum%></span>
 							<span class="amt_won">원</span>
 						</div >
 						<!---------게이지----------->
 						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
 
-						<div class="range_bar" style="width:90%; padding-left: 3%;">
-							<div class="gh_2" id ="gauge_bar" style=" width:<%=c_sum_rate_bar%>%;"></div>
-							<div style="width:25%; border-right:1px dotted #000;"></div>
-							<div style="width:50%; border-right:1px dotted #000;"></div>
-							<div style="width:75%; border-right:1px dotted #000;"></div>
-							<div style="width:100%; border:1px solid #000;"></div>
-						</div>
-						<div style="height:10px;"></div>
-
-						<div class="range_bar_bottom " style="width:90%; position:relative; margin-top:5px;">
-							<img src="/images/up.png" style="padding-left:2%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:27.7%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:53.6%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:79.4%; position:absolute;">
-							<img src="/images/up.png" style="padding-left:105.1%; position:absolute;">
+						<div class="range_bar">
+							<div class="range_bar_width gauge_bar"  style=" width:<%=c_sum_rate_bar%>%;">
+								<div class="range_bar_ani"></div>
+							</div>
+							<div class="range_line_flex">
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+								<span class="range_line"></span>
+							</div>
 						</div>
 
-
-						<div class="range_bar_bottom2 " style="width:110%; position:relative; margin-top:20px;">
-							<div style="padding-left:0%; position:absolute;">
-								<div style="border-radius: 10px; width:40px; text-align:center; background: radial-gradient(circle, rgba(240,251,242,1) 0%, rgba(132,238,175,1) 34%, rgba(63,217,125,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Seed<span>
-								</div>
-							</div>
-							<div style="padding-left:20%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(251,240,240,1) 0%, rgba(224,193,159,1) 34%, rgba(207,136,58,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series A<span>
-								</div>
-							</div>
-							<div style="padding-left:41%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(226,226,226,1) 34%, rgba(189,189,189,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series B<span>
-								</div>
-							</div>
-							<div style="padding-left:62%; position:absolute;">
-								<div style="border-radius: 10px; width:50px; text-align:center; background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(247,228,173,1) 36%, rgba(240,202,95,1) 70%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Series C<span>
-								</div>
-							</div>
-							<div style="padding-left:81%; position:absolute;">
-								<div style="border-radius: 10px; width:75px; text-align:center;  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(95,214,240,1) 100%);">
-									<span style="font-size:10px; font-weight:bold; vertical-align: middle;">Pre-Unicorn<span>
-								</div>
-							</div>
-
+						<div class="range_bar_arrow_flex" >
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
+							<img src="/images/invest_arrow.png" alt="">
 						</div>
+
+
+						<div class="range_bar_rable">
+								<div class="label label1">
+									<span>Seed<span>
+								</div>
+								<div class="label label2">
+									<span>Series A<span>
+								</div>
+								<div class="label label3" >
+									<span>Series B<span>
+								</div>
+								<div class="label label4" >
+									<span>Series C<span>
+								</div>
+								<div class="label label5" >
+									<span>Pre-Unicorn<span>
+								</div>
+						 </div>
+
 						<script>
-						function asd(){
-						let gauge_bar = document.querySelector("#gauge_bar");
-						let invest_grade = document.querySelector("#invest_grade");
-						let value = invest_grade.value;
-						
-						if (value =="iron"){
-							gauge_bar.style.backgroundColor = "#615866";
-						}else if (value =="bronze"){
-							gauge_bar.style.backgroundColor = "#B97A57";
-						}else if (value =="silver"){
-							gauge_bar.style.backgroundColor = "#C3C3C3";
-						}else if (value =="gold"){
-							gauge_bar.style.backgroundColor = "#FFC90E";
-						}else if (value =="platinum"){
-							gauge_bar.style.backgroundColor = "#4DFEFF";
-						}
-						
-						}
-						asd()
-						
-						
+						$(document).ready(function(){
+							let gauge_bar = $(".gauge_bar");
+							let invest_grade = $("#invest_grade");
 
+							let gauge_value = invest_grade.val();
+							console.log(gauge_value)
+							console.log(invest_grade)
 
+							
+							if (gauge_value === "iron"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-iron");
+							}else if (gauge_value === "bronze"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-bronze");
+							}else if (gauge_value === "silver"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-silver");
+							}else if (gauge_value === "gold"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-gold");
+							}else if (gauge_value === "platinum"){
+								gauge_bar.children('.range_bar_ani').addClass("gradient-platinum");
+							}
+
+						})
 						</script>
-						<!---------게이지----------->
-						<!--
-						<div class="goal_amt">
-							<span>목표금액 10억 원</span>
-						</div>
-						-->
+
 						<div class="funding_state_box"style="margin-top : 60px;">
 							<p>마감일</p>
-														<span class="date">
-                                2023-08-18 24:00 까지
-                            </span>
+							<span class="date">
+									2023-08-18 24:00 까지
+							</span>
 
-														<div class="funding_state">
-																<%if now() < cdate(s_date) then%>
-																	<span class="state_pending">대기중</span>
-																<%else%>
-																	<%if now() > cdate(e_date) then%>
-																		<span class="state_end">투자 종료</span>
-																	<%else%>
-																		<span class="state_ongoing">투자 진행중</span>
-																	<%end if%>
-																<%end if%>
-														</div>
+							<div class="funding_state">
+									<%if now() < cdate(s_date) then%>
+										<span class="state_pending">대기중</span>
+									<%else%>
+										<%if now() > cdate(e_date) then%>
+											<span class="state_end">투자 종료</span>
+										<%else%>
+											<span class="state_ongoing">투자 진행중</span>
+										<%end if%>
+									<%end if%>
+							</div>
 						</div>
-
-												<!--
-													<div class="tag">
-															<span>
-																	
-															</span>
-													</div>
-												-->
 
 														<div class="fd_btn_group">
 															<div class="fd_end">
@@ -344,23 +310,18 @@
 															<div class="share_bt" >
 																<span >
 																	<a href="" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600'); return false;">
-																		<!-- <img src="/images/sns1.gif" title="facebook" class="sharebtn_custom" > -->
 																		<img src="/images/sns1_2.png" title="facebook" class="sharebtn_custom" >
 																	</a>
 																	<a href="" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns2.gif" title="twitter" class="sharebtn_custom" >-->
 																		<img src="/images/sns2_2.png" title="twitter" class="sharebtn_custom" >
 																	</a> 
 																	<a href="" onclick="window.open(url_combine_ks, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns3.gif" title="kakao" class="sharebtn_custom" >-->
 																		<img src="/images/sns3_2.png" title="kakao" class="sharebtn_custom" >
 																	</a> 
 																	<a href="" onclick="window.open(url_combine_naver, '', 'scrollbars=no, width=600, height=600'); return false;">
-																	<!-- <img src="/images/sns4.gif" title="Naver" class="sharebtn_custom" >-->
 																		<img src="/images/sns4_2.png" title="Naver" class="sharebtn_custom" >
 																	</a>
 																	<a href="" onclick="window.open(url_combine_band, '', 'scrollbars=no, width=584, height=635'); return false;">
-																	<!-- <img src="/images/sns5.gif" title="Naver_band" class="sharebtn_custom" >-->
 																		<img src="/images/sns5_2.png" title="Naver_band" class="sharebtn_custom" >
 																	</a>
 																</span>
@@ -386,13 +347,10 @@
 	}else{
 		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}
-
-
 	</script>
+
 	<script type="text/javascript">
-
 	function clip(){
-
 	var url = '';
 	var textarea = document.createElement("textarea");
 	document.body.appendChild(textarea);
@@ -428,7 +386,7 @@
 
 	'check_ok 3일 경우 테스트 하기
 
-	'check_ok = 3
+	' check_ok = 3
 
 	p1_money = 1000000
 
@@ -572,7 +530,7 @@
 							</div>
 
 						<div class="invest_area">
-							<p style="text-align : center;"><%=rs("c_team_name")%> </p>
+								<p class="team_name"><%=rs("c_team_name")%> </p>
 								<div class="my_invest">
 										<div class="my_invest_wrap">
 											<div class="my_invest2">
@@ -587,10 +545,10 @@
 											</div>
 											<div class="my_invest4">
 												<div class="my_invest3">
-													 &nbsp; &nbsp;<img src="/images/icon_my_invest2.png">
+													<img src="/images/icon_my_invest2.png">
 												</div>
 												<div class="team_investable">
-													<span>팀에 투자 가능 금액</span><br>
+													<span><b>한팀당</b><br>최대 1회 투자 가능 금액</span><br>
 													<span class="sp1"><%=formatnumber(p2_money,0)%></span>
 													<span class="sp2">원</span>
 												</div>
@@ -644,8 +602,6 @@ p2_money = p_money
 										<%if session("session_jang") = "" or session("session_jang") = "2" Then%>
 
 											회원님은 이미 투자금액을 모두 소진 하였습니다.<br>
-
-										
 										
 										<%end if%>
 										
@@ -686,8 +642,10 @@ p2_money = p_money
 
 							<div class="login_bn">
 									<div class="login_bn_txt" style="">
-			
+
+										회원님은 참가팀의 팀장이기 떄문에 평가 대상 팀만 모의투자가 가능합니다.
 										회원님의 모의 투자 가능한 그룹은 " <%=gog_text%> " 입니다
+										
 									</div>
 									<!--
 									<div class="login_box">
