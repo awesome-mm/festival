@@ -60,7 +60,7 @@
 			else			
 				c_sum = formatnumber(rs("c_sum"),0)
 				hkk = cdbl(rs("c_sum"))
-				c_sum_rate = formatnumber(hkk / 1000000000 * 100 , 0)
+				c_sum_rate = formatnumber(hkk / 1000000000 * 100)
 				if c_sum_rate > 100 then
 					c_sum_rate2 = 100
 				else

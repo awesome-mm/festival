@@ -908,16 +908,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 					<p>다른 인기 아이템들도 살펴보세요!</p>
 
 					<div class="recommend_list"> 
-						<% 
-							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
-
-
-				<div>
-					<div style="width:100%">
-						<span style="padding-left:12.5%;">다른 인기 아이템들도 살펴보세요!</span>
-					</div>
-					<br>
-					<div style="  display:flex; justify-content:center;">
+						
 					
 						<%
 							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
