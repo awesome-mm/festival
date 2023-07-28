@@ -470,11 +470,12 @@
 						<%end if%>
 
 							<%
-							sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no") &" and c_project_no in (10,11,12,13,14)"
+					'		sql_check_reader =  "select * from tbl_team_member where c_member_no =" &session("session_no") &" and c_project_no in (10,11,12,13,14)"
+							sql_check_reader = "select a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and  a.c_member_no =" &session("session_no")&" and b.c_year=2023   "
 
-
-'	response.write c_team_no
-'	response.write sql_check_reader
+'	response.write  " session_no -> "&session("session_no")   '45663
+'		response.write " c_team_no -> "& c_team_no  				'4418
+'	response.write " sql_check_reader -> "& sql_check_reader
 '	Response.End
 								Set abcde=CreateObject("ADODB.RecordSet")
 								abcde.Open sql_check_reader, dbCon, 1
@@ -483,7 +484,7 @@
 											If abcde.EOF Then  
 													my_team_no = 0000
 													else
-													my_team_no = abcde("c_team_no")
+													my_team_no = abcde("c_no")
 											end if
 											' response.write my_team_no
 											abcde.Close
@@ -678,7 +679,7 @@ p2_money = p_money
 							</li>
 
 							<li data-id="con2">
-								<a href="#none">국민평가의견</a>
+								<a href="#none">평가의견</a>
 
 							</li>
 						<!--	<li data-id="con3"style="display:none;" >
@@ -784,7 +785,7 @@ p2_money = p_money
                                     <tbody>
 				 <%
                         	'sql_d = "select   a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2022 and a.c_team_no = "& c_team_no &" and a.c_use = 0 and a.c_member_type = 1 order by newid()"
-													sql_d = "select a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 order by newid()"
+													sql_d = "select a.c_date,a.c_exp, b.c_id from tbl_fund a inner join tbl_member b on b.c_no = a.c_member_no and c_use = 0 where a.c_year = 2023 and a.c_team_no = "& c_team_no &" and a.c_use = 0 order by a.c_date desc"
                         	Set rs_d=CreateObject("ADODB.RecordSet")
 
 				rs_d.Open sql_d, dbCon, 1
