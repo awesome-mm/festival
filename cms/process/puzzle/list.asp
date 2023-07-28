@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
 	s_date = "2023-07-16 00:00"
-	e_date = "2023-08-19 23:59"
+	e_date = "2023-08-18 23:59"
 
 	now_p=r_call("now_p")
 	if now_p = "" then
@@ -455,7 +455,7 @@ dateChange();
 										
 <%
 	  strSQL = "select top 10 recom, c_id , * from ( SELECT a.* "
-	  strSQL = strSQL & " ,(select count(c_no) as recom from tbl_member where c_recommend = a.c_id and festival_recommend_date > '2023-07-05' and recommend_year='2023') as recom "
+	  strSQL = strSQL & " ,(select count(c_no) as recom from tbl_member where c_recommend = a.c_id and festival_recommend_date > '2023-07-18' and recommend_year='2023') as recom "
 	  strSQL = strSQL & " FROM tbl_member a WHERE a.c_no= c_no  ) t where t.recom > 0   order by t.recom desc  "
 
 	 'response.write strSQL

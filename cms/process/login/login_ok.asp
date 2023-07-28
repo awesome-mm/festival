@@ -5,6 +5,7 @@
 		session("session_name") = ""
 		session("session_team_type") = ""
 		session("session_jang") = ""
+		
 			 
 	url = replace(replace(request("url"),"creesy","&"),"resoft","?")
 	if url = "" or url = "/cms/process/login/list.asp" then
