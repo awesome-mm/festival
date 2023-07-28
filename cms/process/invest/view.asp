@@ -35,7 +35,7 @@
 	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 " 
 
 	'response.write c_team_no
-	response.write sql_d
+	'response.write sql_d
 	'Response.End
 
 
@@ -66,7 +66,7 @@
 				hkk = cdbl(rs("c_sum"))
 				'c_sum_rate = formatnumber(hkk / 50000000 * 100 , 0)
 				'c_sum_rate_bar = fix(hkk / 50000000 * 100)
-				c_sum_rate = formatnumber(hkk / 1000000000 * 100 , 0)
+				c_sum_rate = formatnumber(hkk / 1000000000 * 100 )
 				c_sum_rate_bar = fix(hkk / 1000000000 * 100)
 				if c_sum_rate_bar > 100 then
 					c_sum_rate_bar = 100
