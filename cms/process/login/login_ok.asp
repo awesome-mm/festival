@@ -37,7 +37,50 @@
 		session("session_no") = tbl_board("c_no")
 		session("session_id") = tbl_board("c_id")
 		session("session_name") = tbl_board("c_name")
-	
+
+		'버그이벤트세션S--------------------------------
+		
+		sql_bug = "select * from tbl_bug_event where c_member_no ="&tbl_board("c_no")
+		Set buginfo=CreateObject("ADODB.RecordSet")
+		buginfo.Open sql_bug, dbCon, 1
+
+		if buginfo.EOF then
+			sql_bug_insert = "insert tbl_bug_event(c_member_no) values("& tbl_board("c_no") &")"
+			dbCon.Execute sql_bug_insert
+			'인서트실행 기다리기 2초( sleep(2) )
+			Function Sleep(seconds)
+				set oShell = CreateObject("Wscript.Shell")
+				cmd = "%COMSPEC% /c timeout " & seconds & " /nobreak"
+				oShell.Run cmd,0,1
+			End Function
+			sleep(2)
+
+			Set buginfo2=CreateObject("ADODB.RecordSet")
+			buginfo2.Open sql_bug, dbCon, 1
+			session("session_c_bug1")=buginfo2("c_bug1")
+			session("session_c_bug2")=buginfo2("c_bug2")
+			session("session_c_bug3")=buginfo2("c_bug3")
+			session("session_c_bug4")=buginfo2("c_bug4")
+			session("session_c_bug5")=buginfo2("c_bug5")
+			
+			buginfo2.Close
+			Set buginfo2=Nothing
+
+		else
+			session("session_c_bug1")=buginfo("c_bug1")
+			session("session_c_bug2")=buginfo("c_bug2")
+			session("session_c_bug3")=buginfo("c_bug3")
+			session("session_c_bug4")=buginfo("c_bug4")
+			session("session_c_bug5")=buginfo("c_bug5")
+		end if
+		buginfo.Close
+		Set buginfo=Nothing
+
+
+
+		'버그이벤트세션E--------------------------------
+
+
 		sql_t = "select a.c_jang, b.c_festival_type from tbl_team_member a "
 		sql_t = sql_t & " inner join tbl_team b on b.c_no = a.c_team_no and b.c_festival = 1 and b.c_project_no in (10,11,12,13,14) and b.c_use = 0 "
 		sql_t = sql_t & " where a.c_member_no = "& tbl_board("c_no") &" and a.c_use = 0 and a.c_jang in (1,2) "
