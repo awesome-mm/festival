@@ -92,8 +92,8 @@ nav.mobile-menu .mobile-menu-wrap ul.depth1 a.depth1-txt.toggle {
 
 nav.mobile-menu .mobile-menu-wrap ul.depth1 a.depth1-txt.toggle.on {
     /* background: url("../images/up@3x.png") no-repeat center right 24px/24px 24px; */
-    background: url("../images/dot.png") no-repeat center left 3px / 7px 7px ;
-    color:#ff9000;
+    /* background: url("../images/dot.png") no-repeat center left 3px / 7px 7px ; */
+    color:#2D41BA;
 
 }
 
@@ -6054,6 +6054,7 @@ table.idpw_sch_tb {
     text-align: center;
     border-radius: 40px;
     box-sizing: border-box;
+    border: 1px solid #fff;
 }
 .top_move a span{
     display: block;

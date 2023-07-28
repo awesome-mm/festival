@@ -1288,6 +1288,7 @@ footer .footer__wrap .footer__menu ul li a {
   /* 나의 투자내역 */
   .my_investment_details{
     display: block;
+    padding: 20px;
   }
   .my_investment_details .my_invest2{
     margin-bottom: 20px;

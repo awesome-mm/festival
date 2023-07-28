@@ -182,23 +182,23 @@
     });
 
     // 로컬 스토리지를 이용한 height 저장 후 특정 위치로 이동
-//     function saveScrollPosition() {
-//     let go_tab= document.querySelector('#go_tab');
-//     let tabHeight = go_tab.offsetTop;
-//     var scrollPosition = tabHeight;
-//     localStorage.setItem('scrollPosition', scrollPosition);
+    function saveScrollPosition() {
+    let go_tab= document.querySelector('#go_tab');
+    let tabHeight = go_tab.offsetTop;
+    var scrollPosition = tabHeight;
+    localStorage.setItem('scrollPosition', scrollPosition);
     
-// }
+}
 
-// window.onload = function() {
-//     var scrollPosition = localStorage.getItem('scrollPosition');
-//     if (scrollPosition) {
-//         setTimeout(() => {
-//             window.scrollTo(0, scrollPosition);
-//         }, 0);
-//       localStorage.removeItem('scrollPosition'); // 사용한 scrollPosition는 삭제 
-//     }
-//   }
+window.onload = function() {
+    var scrollPosition = localStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+        setTimeout(() => {
+            window.scrollTo(0, scrollPosition);
+        }, 0);
+      localStorage.removeItem('scrollPosition'); // 사용한 scrollPosition는 삭제 
+    }
+  }
     </script>
 
 </body>

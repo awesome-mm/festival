@@ -160,7 +160,7 @@
 <script>
     var total_investment= document.querySelector('#total_investment').dataset['value'];
     var total_team= document.querySelector('#total_team').dataset['value'];
-    console.log(total_investment)
+    // console.log(total_investment)
     $({ val : 0 }).animate({ val : total_investment }, {
     duration: 2000,
     step: function() {
@@ -339,47 +339,47 @@ s_text = r_call("s_text")
                         <ul>
 
                             <li <%if c_festival_type = "" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?">전 체</a>
+                                <a href="default.asp?" onclick="saveScrollPosition()">전 체</a>
                             </li>
 
 							<li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=1">도약(일반)</a>
+                                <a href="default.asp?c_festival_type=1" onclick="saveScrollPosition()">도약(일반)</a>
                             </li>
 
 							<li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=2">도약(유학생)</a>
+                                <a href="default.asp?c_festival_type=2" onclick="saveScrollPosition()">도약(유학생)</a>
                             </li>
 
                             <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3">성장1</a>
+                                <a href="default.asp?c_festival_type=3" onclick="saveScrollPosition()">성장1</a>
                             </li>
 
                             <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4">성장2</a>
+                                <a href="default.asp?c_festival_type=4" onclick="saveScrollPosition()">성장2</a>
                             </li>
 
                             <li <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5">성장3</a>
+                                <a href="default.asp?c_festival_type=5" onclick="saveScrollPosition()">성장3</a>
                             </li>
 
                             <li <%if c_festival_type = "6" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=6">성장4</a>
+                                <a href="default.asp?c_festival_type=6" onclick="saveScrollPosition()">성장4</a>
                             </li>
 
                             <li <%if c_festival_type = "7" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=7">성장5</a>
+                                <a href="default.asp?c_festival_type=7" onclick="saveScrollPosition()">성장5</a>
                             </li>
 
 							<li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=8">성장6</a>
+                                <a href="default.asp?c_festival_type=8" onclick="saveScrollPosition()">성장6</a>
                             </li>
 
 							<li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=9">성장(전문대)</a>
+                                <a href="default.asp?c_festival_type=9" onclick="saveScrollPosition()">성장(전문대)</a>
                             </li>
 
                             <li <%if c_festival_type = "10" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=10">교육</a>
+                                <a href="default.asp?c_festival_type=10" onclick="saveScrollPosition()">교육</a>
                             </li>
                             
 
