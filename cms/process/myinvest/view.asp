@@ -889,7 +889,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 													<div class="btn_box mgt70">
                                     <div class="btn_box_txt">
                                         <a href="list.asp?<%=t_para%>">
-                                           나의 투자내역 가기
+                                        나의 투자내역 가기
                                         </a>
                                     </div>
 													</div>
@@ -912,7 +912,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 					
 						<%
 							'strSQL="SELECT top 10 * FROM tbl_team WHERE c_no=c_no and c_project_no in (10,11,12,13,14) and c_use = 0 and c_festival =1 ORDER BY newid()"
-							strSQL="select  a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 and b.c_item_name is not null and b.c_thumbnail is not null and b.c_main is not null and b.c_information is not null  order by newid()" 
+							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 and b.c_item_name is not null and b.c_thumbnail is not null and b.c_main is not null and b.c_information is not null  order by newid()" 
 
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")

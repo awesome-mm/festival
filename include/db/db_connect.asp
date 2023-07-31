@@ -1,8 +1,7 @@
 ﻿<% Response.CharSet = "UTF-8" %>
 <%
 '테스트0728 strCon="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=u3002021_u300;PWD=u3002021A01!;Initial Catalog=u20230728;Data Source=itpeople.synology.me,14331"
-'테스트0619
- 'strCon="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=u3002021_u300;PWD=u3002021A01!;Initial Catalog=u20230619;Data Source=itpeople.synology.me,14331"
+'테스트0619 strCon="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=u3002021_u300;PWD=u3002021A01!;Initial Catalog=u20230619;Data Source=itpeople.synology.me,14331"
 '운영 
 strCon="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=u3002021_u300;PWD=u3002021A01!;Initial Catalog=u3002021_u300;Data Source=sql16ssd-009.localnet.kr" 
   Set dbCon=CreateObject("ADODB.Connection")

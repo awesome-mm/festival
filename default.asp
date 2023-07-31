@@ -132,7 +132,10 @@
 
     </div>
 <%
-str_total_sum = " select count(c_no)as total_sum_population ,sum(convert(bigint,c_fund))as total_sum_fund from tbl_fund where c_year=2023"
+
+
+str_total_sum = " select count(distinct c_member_no) as total_sum_population ,sum(convert(bigint,c_fund))as total_sum_fund from tbl_fund where c_year=2023"
+
 set rolling_section = dbCon.execute(str_total_sum)
 If rolling_section.EOF then
     total_sum_fund = 0

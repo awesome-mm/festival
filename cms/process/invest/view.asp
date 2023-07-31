@@ -103,28 +103,73 @@
 	};
 	</script>
 
-			<!----------벌레2--------->
-			<input id ="bug2_input" type="text" style="display:none;">
-			<img id="bug_img2" src="/images/bugIMG2.png" style=" display:none; position: fixed; left:2%; top: 70%; transform: translateY(-50%);">
+			
+	<!----------벌레3,4,5--------->
+			<%if (session("session_c_bug3") <> "" AND session("session_c_bug4") <> "" AND session("session_c_bug5") <> "") AND (session("session_c_bug3")=0 OR session("session_c_bug4")=0 OR session("session_c_bug5")=0) then%>
+			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
+			<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
+			<input id="total_find_bug" type="hidden" value="<%=total_find_bug%>">
+			<input id ="bug_random_number" type="hidden" style="">
+			<!--
+			<input  type="text" value = "세션c_bug3 = <%=session("session_c_bug3")%>">
+			<input  type="text" value = "세션c_bug4 = <%=session("session_c_bug4")%>">
+			<input  type="text" value = "세션c_bug5 = <%=session("session_c_bug5")%>">
+			-->
+			<div style="width:200px; position : absolute; bottom:40%; right:20%">
+				<a href="#none" onclick="find_bug();" >
+					<img id="bug_column" <%if session("session_c_bug3") = 0 then %> 
+											name="c_bug3" src="/images/bugIMG3.png" 
+										<%elseif session("session_c_bug3") = 1 AND session("session_c_bug4") = 0 then%> 
+											name="c_bug4" src="/images/bugIMG4.png" 
+										<%elseif session("session_c_bug4") = 1 AND session("session_c_bug5") = 0 then%> 
+											name="c_bug5" src="/images/bugIMG5.png" 
+										<%end if%> 
+										style="max-width:100%; display:;">
+				</a>
+			</div>
 			<script>
 			(function rand(){
-				var bug2_input = document.querySelector("#bug2_input");
+				var bug_random_number = document.querySelector("#bug_random_number");
 				var random_num = Math.random();
 				random_num = Math.floor(random_num*10);
-				bug2_input.value=random_num;
-				if(bug2_input.value == "1" || bug2_input.value == "2" || bug2_input.value == "3"){
-					document.querySelector("#bug_img2").style.display="block";
+				bug_random_number.value=random_num;
+				if(bug_random_number.value == "1" || bug_random_number.value == "2" ){
+					document.querySelector("#bug_column").style.display="block";
 				}
 			})();
-			</script>
-			<!----------벌레2----------->
 
-	<form name="kdb">
+			function find_bug(){
+				let c_member_no = document.querySelector("#bug_member_no").value
+				let total_find_bug = document.querySelector("#total_find_bug").value
+				total_find_bug = parseInt(total_find_bug)+1
+				bug_column = document.getElementById("bug_column").getAttribute('name');
+				
+				//alert("total_find_bug = "+total_find_bug +"\n"+"bug_column = "+ bug_column)
+				
+				$.ajax({
+					type: "POST",
+					url: "find_bug.asp",
+					data: "c_member_no="+c_member_no+"&bug_column="+bug_column,
+					cache: false,
+					success: function(msg){
+						alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 5 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.!");
+						document.querySelector("#bug_column").style.display="none";
+						
+					}
+				});
+				
+			}
+			</script>
+			<%end if%>
+			<!----------벌레3,4,5----------->
+	<form name="kdb" >
 		<div class="blue">
+		
 			<div class="invest_bg">
-					<div class="sub_title_view">
-							<h2>투자하기</h2>
-					</div>
+				<div class="sub_title_view">
+						<h2>투자하기</h2>
+				</div>
+					
 				<section class="sub_intro">
 					<div class="ytp_wrap2">
 							<%if rs("c_main_type") = 0 then%>
@@ -222,18 +267,28 @@
 
 								<div class="label label2">
 									<span>Series A<span>
+									<br>
+									<span>2.5억<span>
 								</div>
 								<div class="label label3" >
 									<span>Series B<span>
+									<br>
+									<span>5억<span>
 								</div>
 								<div class="label label4" >
 									<span>Series C<span>
+									<br>
+									<span>7.5억<span>
 								</div>
 								<div class="label label5" >
 									<span>Pre-Unicorn<span>
+									<br>
+									<span>10억<span>
 								</div>
 
+
 						 </div>
+
 
 
 

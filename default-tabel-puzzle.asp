@@ -507,7 +507,7 @@
                                 <p class=" guide_sub_title">
                                     2023 학생 창업유망팀 300
                                 </p>
-                                <div class="mgt30 tac co0d fs20">2023.08.16 ~ 2023.08.25</div>
+                                <div class="mgt30 tac co0d fs20"> ~ 2023.08.25</div>
 
                                 <div class="fes_info_box dib mgt30">
                                     <!--
