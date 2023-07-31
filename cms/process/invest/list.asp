@@ -133,75 +133,13 @@ s_text = r_call("s_text")
                     
                         </div>
                     </div>
-
-
-                    <!-- </div> -->
-
-                        <% if (session("session_c_bug1") <> "") AND session("session_c_bug1") = 0 then
-                            total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")
-                        %>
-                        <!--로그인을 했고 세션아이디가 벌레1이미지 찾지 않은 경우-->
-                        <div class="more_sch_txt" id="test_div1">
-                            <a href="#none" onclick="bug1_plus(); exec.go_next(); ">
-                                프로젝트 더보기
-                            </a>
-                        </div>
-
-                            <input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
-                            <input id="total_find_bug" type="hidden" value="<%=total_find_bug%>"><!--세션값들 바로 더해서 변수받아지는지 확인-->
-                            <input id ="bug1_input" type="hidden" value="0">
-                        <div style="width:50px;">
-                            <a href="#none" onclick="find_bug();">
-                                <img id="bug_img1" src="/images/bugIMG1.png" style="display:none; max-width:100%">
-                            </a>
-                        </div>
-
-                        <script>
-                            /*cms/process/invest/list.asp 프로젝트더보기버튼3번 눌르면 벌레1 출현*/
-                            function bug1_plus(){
-                                let bug1 = document.getElementById('bug1_input');
-                                let bug1_click = parseInt(bug1.value);
-                                bug1_click += 1
-                                bug1.value = String(bug1_click);
-
-                                if (bug1.value == "3"){
-                                    document.querySelector("#bug_img1").style.display="block";
-                                }
-                                if(bug1.value != "3"){
-                                    document.querySelector("#bug_img1").style.display="none";
-                                }
-                            }
-
-                            function find_bug(){
-                                let c_member_no = document.querySelector("#bug_member_no").value
-                                let total_find_bug = document.querySelector("#total_find_bug").value
-                                total_find_bug = parseInt(total_find_bug)+1
-                                
-                                $.ajax({
-                                    type: "POST",
-                                    url: "find_bug.asp",
-                                    data: "c_member_no="+c_member_no,
-                                    cache: false,
-                                    success: function(msg){
-                                        alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 2 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
-                                        document.querySelector("#bug_img1").style.display="none";
-                                        
-                                    }
-                                });
-
-                            }
-                        </script>
-                        <%else%>
-
-                        <!--로그인하지않았거나 세션아이디가 벌레1이미지 찾은경우-->
+    
                         <div class="more_sch_txt" id="test_div1">
                             <a href="#none" onclick="exec.go_next(); ">
                                 프로젝트 더보기
                             </a>
                         </div>
 
-                        <%end if%>
- 
                 </section>
 
 </form>

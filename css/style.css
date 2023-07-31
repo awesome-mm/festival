@@ -2489,11 +2489,52 @@ section.sub_intro {
     right: -5.833%;
 }
 
+/*-------add_value.asp--------*/
+.list_range_bar_rable{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 
+}
+.list_range_bar_rable .label{
+    font-size: 10px;
+    zoom:0.8;
+    padding: 3px 9px;
+    text-align: center;
+    border-radius: 11.5px;
+    position: absolute;
+    top: 12px;
+}
 
-
-
-
+.list_range_bar_rable .label1{
+    color: #fff;
+    background: linear-gradient(270deg, rgba(54,211,154,1) 0%, rgba(222,240,102,1) 100%);
+    left: -3.666%;
+}
+.list_range_bar_rable .label2{
+    color: #FFDBBA;
+    background: linear-gradient(270deg, rgba(146,93,77,1) 0%,rgba(202,148,114,1)40%, rgba(158,126,77,1) 100%);
+    left: 17.83%;
+}
+.list_range_bar_rable .label3{
+    color: #696969;
+    background: linear-gradient(270deg, rgba(193,193,193,1) 0%, rgba(255,255,255,1)40%, rgba(146,146,146,1) 100%);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.list_range_bar_rable .label4{
+    color: #A06921;
+    background: linear-gradient(270deg, rgba(253,191,111,1) ,rgba(255,231,201,1)40%,  rgba(255,184,0,1) 100%);
+    right: 17.66%;
+}
+.list_range_bar_rable .label5{
+    color: #086693;
+    background: linear-gradient(270deg, rgba(31,196,233,1) 0% , rgba(140,221,255,1)40%,  rgba(42,170,255,1) 100%);
+    right: -4.833%;
+    top: 3px;
+}
+/*-------add_value.asp--------*/
 /*
 @keyframes gh_2 {
     0% {
