@@ -219,6 +219,7 @@
 								<div class="label label1">
 									<span>Seed<span>
 								</div>
+
 								<div class="label label2">
 									<span>Series A<span>
 								</div>
@@ -231,7 +232,10 @@
 								<div class="label label5" >
 									<span>Pre-Unicorn<span>
 								</div>
+
 						 </div>
+
+
 
 						<script>
 						$(document).ready(function(){
