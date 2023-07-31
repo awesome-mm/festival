@@ -7,12 +7,12 @@
 dim type_name(10)
 type_name(1) = "도약(일반)"
 type_name(2) = "도약(글로벌)"
-type_name(3) = "성장1"
-type_name(4) = "성장2"
-type_name(5) = "성장3"
-type_name(6) = "성장4"
-type_name(7) = "성장5"
-type_name(8) = "성장6"
+type_name(3) = "성장(서울)"
+type_name(4) = "성장(인천경기)"
+type_name(5) = "성장(충청권)"
+type_name(6) = "성장(호남제주권)"
+type_name(7) = "성장(대경강원권)"
+type_name(8) = "성장(동남권)"
 type_name(9) = "성장(전문대)"
 type_name(10) = "교육"
 
@@ -91,6 +91,8 @@ if session("session_no") <> "" or session("session_jang") = "2" Then
 	if session("session_jang") = "1" then
 		check_ok = 2	
 	end If
+
+	
 	end If
 
 	
