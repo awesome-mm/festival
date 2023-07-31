@@ -298,7 +298,11 @@ set rolling_section = nothing
                                 <p class=" guide_sub_title">
                                     2023 학생 창업유망팀 300
                                 </p>
-                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.25</div>
+
+                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.18</div>
+
+                  
+
 
                                 <div class="fes_info_box dib mgt30">
                                     <!--
@@ -353,7 +357,7 @@ set rolling_section = nothing
                                     -->
                                     <div class="dib"><img width="70px" src="/images/icon_fest3.png"></div>
                                         <div class="mgl20 tal mgt5">
-                                            <span class="cofff fs14">모의투자금 총 한도</span><br>
+                                            <span class="cofff fs14">1인당 총 모의투자 금액</span><br>
                                             <span class="fs50 cofd3 fs45">20,000,000</span>
                                             <span class="fs20 cofff">원</span>
                                         </div>
@@ -379,72 +383,46 @@ s_text = r_call("s_text")
                                 <a href="default.asp?" onclick="saveScrollPosition()">전 체</a>
                             </li>
 
-							<li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
+							              <li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="default.asp?c_festival_type=1" onclick="saveScrollPosition()">도약(일반)</a>
                             </li>
 
-							<li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
+							              <li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="default.asp?c_festival_type=2" onclick="saveScrollPosition()">도약(유학생)</a>
                             </li>
 
                             <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3" onclick="saveScrollPosition()">성장1</a>
+
+                                <a href="default.asp?c_festival_type=3"  onclick="saveScrollPosition()">성장(서울)</a>
                             </li>
 
                             <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4" onclick="saveScrollPosition()">성장2</a>
+                                <a href="default.asp?c_festival_type=4"  onclick="saveScrollPosition()">성장(인천경기)</a>
                             </li>
 
                             <li <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5" onclick="saveScrollPosition()">성장3</a>
+                                <a href="default.asp?c_festival_type=5"  onclick="saveScrollPosition()">성장(충청권)</a>
                             </li>
 
                             <li <%if c_festival_type = "6" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=6" onclick="saveScrollPosition()">성장4</a>
+                                <a href="default.asp?c_festival_type=6"  onclick="saveScrollPosition()">성장(호남제주권)</a>
                             </li>
 
                             <li <%if c_festival_type = "7" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=7" onclick="saveScrollPosition()">성장5</a>
+                                <a href="default.asp?c_festival_type=7"  onclick="saveScrollPosition()">성장(대경강원권)</a>
                             </li>
 
-							<li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=8" onclick="saveScrollPosition()">성장6</a>
+							              <li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=8"  onclick="saveScrollPosition()">성장(동남권)</a>
                             </li>
 
-							<li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
+							              <li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="default.asp?c_festival_type=9" onclick="saveScrollPosition()">성장(전문대)</a>
                             </li>
 
                             <li <%if c_festival_type = "10" then%>class="on"<%else%>class="off"<%end if%>>
                                 <a href="default.asp?c_festival_type=10" onclick="saveScrollPosition()">교육</a>
                             </li>
-                            
-
-
-                            <!--<li <%if c_festival_type = "" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?#go_tab">전 체</a>
-                            </li>
-
-							<li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=1#go_tab">도약<span>(일반)</span></a>
-                            </li>
-
-                            <li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=2#go_tab">도약<span>(유학생)</span></a>
-                            </li>
-
-                            <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3#go_tab">성장<span>(일반)</span></a>
-                            </li>
-
-                            <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4#go_tab">성장<span>(전문대)</span></a>
-                            </li>
-
-                            <li  <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5#go_tab">교육</a>
-                            </li>-->
-                            <!--<a href="default.asp?#go_tab&c_festival_type=1" >교육</a>-->
 
                         </ul>
 
@@ -455,24 +433,15 @@ s_text = r_call("s_text")
 
                             <option value=""  <%if c_festival_type = "" then%>selected<%end if%>>전 체</option>
 
-      
-<!--                  
-                            <option value="1"  <%if c_festival_type = "1" then%>selected<%end if%>>도약(일반)</option>
-                            <option value="2"  <%if c_festival_type = "2" then%>selected<%end if%>>도약(유학생)</option>
-                            <option value="3"  <%if c_festival_type = "3" then%>selected<%end if%>>성장(일반)</option>
-                            <option value="4"  <%if c_festival_type = "4" then%>selected<%end if%>>성장(전문대)</option>
-                            <option value="4"  <%if c_festival_type = "5" then%>selected<%end if%>>교육</option>
--->
-
                             <option value="1" <%if c_festival_type = "1" then%>selected<%end if%>>도약(일반)</option>
                             <option value="2" <%if c_festival_type = "2" then%>selected<%end if%>>도약(유학생)</option>
-                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장1</option>
-                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장2</option>
-                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장3</option>
-                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장4</option>
-                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장5</option>
-							<option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장6</option>
-							<option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문)</option>
+                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장(서울)</option>
+                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장(인천경기)</option>
+                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장(충청권)</option>
+                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장(호남제주권)</option>
+                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장(대경강원권)</option>
+							              <option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장(동남권)</option>
+							              <option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문대)</option>
                             <option value="10" <%if c_festival_type = "10" then%>selected<%end if%>>교육</option> 
 
                         </select>
