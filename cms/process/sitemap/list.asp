@@ -14,7 +14,7 @@
                                         <a href="/cms/show.asp?c_show_no=68&c_check_no=63&c_relation=217&c_relation2=359">행사개요</a>
                                     </dd>
                                     <dd class="site_map_item">
-                                        <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">퍼즐 방명록</a>
+                                        <a href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">모의투자 방명록</a>
                                     </dd>
                                 </dl>
                                 <dl class="site_map_list">

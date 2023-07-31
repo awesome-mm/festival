@@ -89,7 +89,7 @@
 					<section class="sub_intro">
 							<div class="ytp_wrap2">
 									<%if rs("c_main_type") = 0 then%>
-													<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">
+													<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:700px; max-height:400px">
 												<% else
 													t1 = split(rs("c_main"),"/")
 												%>

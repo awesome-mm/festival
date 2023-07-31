@@ -39,27 +39,27 @@ s_text = r_call("s_text")
                             </li>
 
                             <li <%if c_festival_tpye = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=3">성장1</a>
+                                <a href="list.asp?<%=t_para%>&c_festival_type=3">성장(서울)</a>
                             </li>
 
                             <li <%if c_festival_tpye = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=4">성장2</a>
+                                <a href="list.asp?<%=t_para%>&c_festival_type=4">성장(인천경기)</a>
                             </li>
 
                             <li <%if c_festival_tpye = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=5">성장3</a>
+                                <a href="list.asp?<%=t_para%>&c_festival_type=5">성장(충청권)</a>
                             </li>
 
                             <li <%if c_festival_tpye = "6" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=6">성장4</a>
+                                <a href="list.asp?<%=t_para%>&c_festival_type=6">성장(호남제주권)</a>
                             </li>
 
                             <li <%if c_festival_tpye = "7" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=7">성장5</a>
+                                <a href="list.asp?<%=t_para%>&c_festival_type=7">성장(대경강원권)</a>
                             </li>
 
 							<li <%if c_festival_tpye = "8" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="list.asp?<%=t_para%>&c_festival_type=8">성장6</a>
+                                <a href="list.asp?<%=t_para%>&c_festival_type=8">성장(동남권)</a>
                             </li>
 
                             <li <%if c_festival_tpye = "9" then%>class="on"<%else%>class="off"<%end if%>>

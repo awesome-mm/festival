@@ -104,7 +104,7 @@
 
     <body>
         <div class="container">
-            <header>
+            <header id="headerArea">
                 <div class="header__wrap">
                     <h1 class="logo">
                         <a href="/">
@@ -117,8 +117,8 @@
                         </a>
                     </h1>
                     <h2 class="hide">대메뉴</h2>
-                    <nav class="gnb">
-                        <ul class="main-menu">
+                    <nav class="gnb" id="gnb">
+                        <ul class="main-menu dropdownmenu">
                         <%
 				dim llop(7)
 				dim llop_name(7)

@@ -30,16 +30,21 @@
 
                     <div class="event">
 			<script>
-				function s_search(f){
+
+			function enterPressSubmit(key){
+					if(key.keyCode == 13){
+						document.s_s.action = "list.asp?<%=t_para%>&c_relation3=<%=c_relation3%>"
+						document.s_s.method = "post"
+						document.s_s.submit()
+					}
+			}
+
+				function s_search(){
 					if(document.s_s.s_field.value == ""){
 						alert("검색항목을 선택하세요.")
 					//}else if(document.s_s.s_text.value == ""){
 					//	alert("키워드를 입력하세요.")
-					}else if(f.keyCode == 13){
-						document.s_s.action = "list.asp?<%=t_para%>&c_relation3=<%=c_relation3%>"
-						document.s_s.method = "post"
-						document.s_s.submit()
-					}else{
+						}else{
 						document.s_s.action = "list.asp?<%=t_para%>&c_relation3=<%=c_relation3%>"
 						document.s_s.method = "post"
 						document.s_s.submit()
@@ -57,7 +62,7 @@
                                 placeholder="키워드를 입력하세요"
                                 maxlength="20"
                                 class="input_wrap"
-                                onkeyup="s_search(this.form)">
+                                onkeyup="enterPressSubmit(this.form)">
 														<label for="keyword" class="keyword_label">검색</label>
 
 

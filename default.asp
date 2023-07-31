@@ -82,7 +82,7 @@
                     <span class="vs2">
                         방명록
                     </span>
-                    <a class="more" href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">더보기<i class="fa-solid fa-chevron-right"></i></a>
+                    <a class="more" href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">작성하기<i class="fa-solid fa-chevron-right"></i></a>
             </div>
  
 
@@ -113,6 +113,7 @@
                         <p><%=c_member_id%> </p>
                         <p><%=left(tbl_board("c_date"),10)%></p>
                     </div>
+                    <div class="pin_image"></div>
                 </div>
             <%
             i= i+1
@@ -132,7 +133,9 @@
     </div>
 <%
 
+
 str_total_sum = " select count(distinct c_member_no) as total_sum_population ,sum(convert(bigint,c_fund))as total_sum_fund from tbl_fund where c_year=2023"
+
 set rolling_section = dbCon.execute(str_total_sum)
 If rolling_section.EOF then
     total_sum_fund = 0
@@ -144,11 +147,10 @@ end if
 rolling_section.close
 set rolling_section = nothing
 %>
-    <section class="investment_area" style="text-align:center;">
+    <section id="numberRolling" class="investment_area" style="text-align:center;">
         <div class="total_invest_rolling">
             <h3>총 투자금액</h3>
             <p id="total_investment" data-value="<%=total_sum_fund%>"></p>
-
             <span>원</span>
         </div>
         <div class="total_team_rollingd">
@@ -156,42 +158,77 @@ set rolling_section = nothing
 
             <p id="total_team" data-value="<%=total_sum_population%>"></p>
             <span>명</span>
-
         </div>
     </section>
 
 <script>
     var total_investment= document.querySelector('#total_investment').dataset['value'];
     var total_team= document.querySelector('#total_team').dataset['value'];
-    console.log(total_investment)
-    $({ val : 0 }).animate({ val : total_investment }, {
-    duration: 2000,
-    step: function() {
-        var num = numberWithCommas(Math.floor(this.val));
-        $("#total_investment").text(num);
-    },
-    complete: function() {
-        var num = numberWithCommas(Math.floor(this.val));
-        $("#total_investment").text(num);
-    }
-    });
-    
-    $({ val : 0 }).animate({ val : total_team }, {
-    duration: 2000,
-    step: function() {
-        var num = numberWithCommas(Math.floor(this.val));
-        $("#total_team").text(num);
-    },
-    complete: function() {
-        var num = numberWithCommas(Math.floor(this.val));
-        $("#total_team").text(num);
-    }
-    });
 
-// 3자리마다 , 찍기
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    function rollingEffect(total_investment , total_team){
+
+        // console.log(total_investment)
+        $({ val : 100000000 }).animate({ val : total_investment }, {
+        duration: 3000,
+        step: function() {
+            var num = numberWithCommas(Math.floor(this.val));
+            $("#total_investment").text(num);
+        },
+        complete: function() {
+            var num = numberWithCommas(Math.floor(this.val));
+            $("#total_investment").text(num);
+        }
+        });
+        
+        $({ val : 0 }).animate({ val : total_team }, {
+        duration: 3000,
+        step: function() {
+            var num = numberWithCommas(Math.floor(this.val));
+            $("#total_team").text(num);
+        },
+        complete: function() {
+            var num = numberWithCommas(Math.floor(this.val));
+            $("#total_team").text(num);
+        }
+        });
+
+        // 3자리마다 , 찍기
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
     }
+
+    function getDataUpdate(){
+    $.ajax({
+        type: "POST",
+        url: "/get_rolling_data.asp",
+        data: { c_year: 2023 }, // You can pass additional data if required
+        dataType: "json",
+        async:false,
+        success: function (data) {
+            // Update the data on the client-side
+            $("#total_investment").data("value", data.total_sum_fund).text(data.total_sum_fund)
+            $("#total_team").data("value", data.total_sum_population).text(data.total_sum_population)
+            rollingEffect(data.total_sum_fund ,data.total_sum_population )
+        },
+        error: function (xhr, status, error) {
+            var errorMessage = "통신 실패.\n" +
+                "Status: " + status + "\n" +
+                "Error: " + error + "\n" +
+                "Response: " + xhr.responseText;
+            console.log(errorMessage);
+    }});
+}
+        getDataUpdate();
+        rollingEffect()
+
+        // 무한루프 다시 롤링하는 효과
+        $(document).ready(function () {
+            setInterval(getDataUpdate, 5000);
+        });
+
+        
+
 </script>
 
                   <section class="intro_event_wrapper">
@@ -264,7 +301,11 @@ set rolling_section = nothing
                                 <p class=" guide_sub_title">
                                     2023 학생 창업유망팀 300
                                 </p>
-                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.25</div>
+
+                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.18</div>
+
+                  
+
 
                                 <div class="fes_info_box dib mgt30">
                                     <!--
@@ -305,7 +346,7 @@ set rolling_section = nothing
                                     -->
                                     <div class="dib"><img width="52px" src="/images/icon_fest2.png"></div>
                                         <div class="mgl20 tal mgt5">
-                                            <span class="co666 fs14">투자가능 기업수</span><br>
+                                            <span class="co666 fs14">투자유치중인 기업수</span><br>
                                             <span class="fs50 co9000 fs45">283</span>
                                             <span class="fs20 co9000">기업</span>
                                         </div>
@@ -319,7 +360,7 @@ set rolling_section = nothing
                                     -->
                                     <div class="dib"><img width="70px" src="/images/icon_fest3.png"></div>
                                         <div class="mgl20 tal mgt5">
-                                            <span class="cofff fs14">모의투자금 총 한도</span><br>
+                                            <span class="cofff fs14">1인당 총 모의투자 금액</span><br>
                                             <span class="fs50 cofd3 fs45">20,000,000</span>
                                             <span class="fs20 cofff">원</span>
                                         </div>
@@ -342,75 +383,49 @@ s_text = r_call("s_text")
                         <ul>
 
                             <li <%if c_festival_type = "" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?">전 체</a>
+                                <a href="default.asp?" onclick="saveScrollPosition()">전 체</a>
                             </li>
 
-							<li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=1">도약(일반)</a>
+							              <li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=1" onclick="saveScrollPosition()">도약(일반)</a>
                             </li>
 
-							<li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=2">도약(유학생)</a>
+							              <li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=2" onclick="saveScrollPosition()">도약(유학생)</a>
                             </li>
 
                             <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3">성장1</a>
+
+                                <a href="default.asp?c_festival_type=3"  onclick="saveScrollPosition()">성장(서울)</a>
                             </li>
 
                             <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4">성장2</a>
+                                <a href="default.asp?c_festival_type=4"  onclick="saveScrollPosition()">성장(인천경기)</a>
                             </li>
 
                             <li <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5">성장3</a>
+                                <a href="default.asp?c_festival_type=5"  onclick="saveScrollPosition()">성장(충청권)</a>
                             </li>
 
                             <li <%if c_festival_type = "6" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=6">성장4</a>
+                                <a href="default.asp?c_festival_type=6"  onclick="saveScrollPosition()">성장(호남제주권)</a>
                             </li>
 
                             <li <%if c_festival_type = "7" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=7">성장5</a>
+                                <a href="default.asp?c_festival_type=7"  onclick="saveScrollPosition()">성장(대경강원권)</a>
                             </li>
 
-							<li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=8">성장6</a>
+							              <li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=8"  onclick="saveScrollPosition()">성장(동남권)</a>
                             </li>
 
-							<li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=9">성장(전문대)</a>
+							              <li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
+                                <a href="default.asp?c_festival_type=9" onclick="saveScrollPosition()">성장(전문대)</a>
                             </li>
 
                             <li <%if c_festival_type = "10" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=10">교육</a>
+                                <a href="default.asp?c_festival_type=10" onclick="saveScrollPosition()">교육</a>
                             </li>
-                            
-
-
-                            <!--<li <%if c_festival_type = "" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?#go_tab">전 체</a>
-                            </li>
-
-							<li <%if c_festival_type = "1" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=1#go_tab">도약<span>(일반)</span></a>
-                            </li>
-
-                            <li <%if c_festival_type = "2" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=2#go_tab">도약<span>(유학생)</span></a>
-                            </li>
-
-                            <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3#go_tab">성장<span>(일반)</span></a>
-                            </li>
-
-                            <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4#go_tab">성장<span>(전문대)</span></a>
-                            </li>
-
-                            <li  <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5#go_tab">교육</a>
-                            </li>-->
-                            <!--<a href="default.asp?#go_tab&c_festival_type=1" >교육</a>-->
 
                         </ul>
 
@@ -421,24 +436,15 @@ s_text = r_call("s_text")
 
                             <option value=""  <%if c_festival_type = "" then%>selected<%end if%>>전 체</option>
 
-      
-<!--                  
-                            <option value="1"  <%if c_festival_type = "1" then%>selected<%end if%>>도약(일반)</option>
-                            <option value="2"  <%if c_festival_type = "2" then%>selected<%end if%>>도약(유학생)</option>
-                            <option value="3"  <%if c_festival_type = "3" then%>selected<%end if%>>성장(일반)</option>
-                            <option value="4"  <%if c_festival_type = "4" then%>selected<%end if%>>성장(전문대)</option>
-                            <option value="4"  <%if c_festival_type = "5" then%>selected<%end if%>>교육</option>
--->
-
                             <option value="1" <%if c_festival_type = "1" then%>selected<%end if%>>도약(일반)</option>
                             <option value="2" <%if c_festival_type = "2" then%>selected<%end if%>>도약(유학생)</option>
-                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장1</option>
-                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장2</option>
-                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장3</option>
-                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장4</option>
-                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장5</option>
-							<option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장6</option>
-							<option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문)</option>
+                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장(서울)</option>
+                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장(인천경기)</option>
+                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장(충청권)</option>
+                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장(호남제주권)</option>
+                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장(대경강원권)</option>
+							              <option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장(동남권)</option>
+							              <option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문대)</option>
                             <option value="10" <%if c_festival_type = "10" then%>selected<%end if%>>교육</option> 
 
                         </select>
