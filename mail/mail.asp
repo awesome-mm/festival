@@ -41,7 +41,7 @@
 </head>
 <body>
 <%if alert_text <> "" then%>
-		<form name="t1" action="/mail/mail_ok.asp" method="post" ">
+		<form name="t1" action="/mail/mail_ok.asp" method="post">
 			<input name="alert_text" value="<%=alert_text%>" type="hidden">
 		</form>		
 	<script>

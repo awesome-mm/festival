@@ -104,7 +104,7 @@ sUsrAgent = UCase(Request.ServerVariables("HTTP_USER_AGENT"))
 							<section class="sub_intro">
                     <div class="ytp_wrap2">
                     		<%if rs("c_main_type") = 0 then%>
-                            		<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">
+                            		<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:700px; max-height:400px">
                             	<% else
                             		t1 = split(rs("c_main"),"/")
                             	%>
@@ -274,11 +274,15 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 
 
 <!--
-				<div class="login_bn">
-                   <div class="login_bn_txt">
-						<font color=red>모의 투자 기간이 아닙니다.</font>
-                   </div>
-                </div>
+						<div class="not_invest_period">
+							<div class="login_bn">
+									<div class="login_bn_txt">
+										<span>
+											모의 투자 기간이 아닙니다.
+										</span>
+									</div>
+							</div>
+						</div>
 -->
 
 
@@ -310,7 +314,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 %>
 
 
-                <section>
+				<section class="invest_guide_area">
 
 
 
@@ -354,7 +358,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 						<%if check_ok = 2 then%>
 							<div class="login_bn">
 									<div class="login_bn_txt">
-								학생창업유망팀 300 페스티벌 <span style="color:red">참가팀의 팀원은 모의 투자에 참여할 수 없습니다</span>..<br>
+										학생창업유망팀 300 페스티벌 참가팀의 팀원은 모의 투자에 참여할 수 없습니다.<br>
 										주변에 많이 알려 많은 투자를 받을 수 있게 응원해 주세요.!
 									</div>
 								</div>
@@ -365,7 +369,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 							<div class="login_bn">
 									<div class="login_bn_txt">
 			
-										<span style="color:red">방명록 작성</span>을 해야만 <span style="color:red">투자 포인트</span>를 받을 수 있습니다.<br>
+										방명록 작성을 해야만 투자 포인트를 받을 수 있습니다.<br>
 										방명록 작성하여 모의 투자에 참여해 주세요.!
 									</div>
 									<div class="login_box">
@@ -404,7 +408,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 							</div>
 
 
-						<div class="invest_area">
+						<div class="invest_area funding_area">
 							<p style="text-align : center;"><%=rs("c_team_name")%> </p>
 								<div class="my_invest">
 										<div class="my_invest_wrap">
@@ -461,11 +465,11 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 
 										<%if session("session_jang") = "" Then%>
 
-											회원님은 이미 <span style="color:red">투자금액을 모두 소진 하였습니다.</span><br>
+											회원님은 이미 투자금액을 모두 소진 하였습니다.<br>
 
 										<%else%>
 			
-											회원님은 이미 <span style="color:red">해당트랙에 투자를 완료 하였습니다.</span><br>
+											회원님은 이미 해당트랙에 투자를 완료 하였습니다.<br>
 										
 										<%end if%>
 										
@@ -486,7 +490,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 							 <div class="login_bn">
 									<div class="login_bn_txt" style="padding:30px">
 			
-										회원님은 이 팀에 <span style="color:red"> <%=past_fund%></span>원을 이미 투자하였습니다..<br>
+										회원님은 이 팀에 <%=past_fund%>원을 이미 투자하였습니다..<br>
 										응원글<br />
 										<span style="font-size:16px">
 										"<%=past_exp%>"
@@ -508,7 +512,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
 							 <div class="login_bn">
 									<div class="login_bn_txt" style="padding:30px">
 			
-										회원님의 모의 투자 가능한 그룹은 "<span style="color:red"> <%=gog_text%> </span>" 입니다
+										회원님의 모의 투자 가능한 그룹은 " <%=gog_text%> " 입니다
 									</div>
 									<div class="login_box">
 										<div class="login_bt">
@@ -528,7 +532,6 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                 </section>
 
                 <section class="tab2">
-                    <div class="line3"></div>
                     <div class="tab_menu2">
                         <ul class="tab2">
                             <li data-id="con1"	 class="on">

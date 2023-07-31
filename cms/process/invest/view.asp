@@ -129,7 +129,7 @@
 					<div class="ytp_wrap2">
 							<%if rs("c_main_type") = 0 then%>
 									<!--<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">-->
-									<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%;max-width:943px;max-height:529px">
+									<img src="/upload/festival/<%=rs("c_main")%>" style="width:100%; max-width:700px; max-height:400px;">
 								<% else
 									t1 = split(rs("c_main"),"/")
 								%>
@@ -333,11 +333,15 @@
 		</div>
 
 	<!--
-				<div class="login_bn">
-						<div class="login_bn_txt">
-							<span style="color:red;">모의 투자 기간이 아닙니다.</span>
+						<div class="not_invest_period">
+							<div class="login_bn">
+									<div class="login_bn_txt">
+										<span>
+											모의 투자 기간이 아닙니다.
+										</span>
+									</div>
+							</div>
 						</div>
-				</div>
 	-->
 
 
@@ -1131,7 +1135,6 @@ p2_money = p_money
 												<span><%=tbl_board("c_team_name")%></span>
 												<!--<img src="/images/logo3.png" style="width:80px;height:80px;">-->
 												<img src="/upload/<%=tbl_board("c_logo")%>" style="width:100px">
-
 											<%end if%>
 										</a>
 									</div>
