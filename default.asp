@@ -224,7 +224,7 @@ set rolling_section = nothing
 
         // 무한루프 다시 롤링하는 효과
         $(document).ready(function () {
-            setInterval(getDataUpdate, 5000);
+            setInterval(getDataUpdate, 10000);
         });
 
         

@@ -124,7 +124,7 @@
 										<%elseif session("session_c_bug4") = 1 AND session("session_c_bug5") = 0 then%> 
 											name="c_bug5" src="/images/bugIMG5.png" 
 										<%end if%> 
-										style="max-width:100%; display:;">
+										style="max-width:100%; display:none;">
 				</a>
 			</div>
 			<script>
