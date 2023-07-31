@@ -32,7 +32,7 @@
 	sql_d = " select a.c_festival_type, a.c_no, b.c_no as c_festival_no, a.c_team_name, b.c_member_name, b.c_item_name,b.c_main_type,c_main, b.c_information "
 	sql_d = sql_d & " ,(select sum(CAST(ISNULL(c_fund,0) AS BIGINT)) as c_sum  from tbl_fund where c_team_no = a.c_no and c_festival_no = b.c_no and c_use = 0 ) as c_sum "
  	sql_d = sql_d & "  from tbl_team a inner join tbl_festival_data b on b.c_team_no = a.c_no and b.c_use = 0 and b.c_year = '2023' "
-	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 "  
+	sql_d = sql_d & " where a.c_no = "& c_team_no &" and a.c_use = 0 and a.c_project_no in (10,11,12,13,14) and a.c_festival = 1 " 
 
 	'response.write c_team_no
 	'response.write sql_d
@@ -66,7 +66,7 @@
 				hkk = cdbl(rs("c_sum"))
 				'c_sum_rate = formatnumber(hkk / 50000000 * 100 , 0)
 				'c_sum_rate_bar = fix(hkk / 50000000 * 100)
-				c_sum_rate = formatnumber(hkk / 1000000000 * 100 , 0)
+				c_sum_rate = formatnumber(hkk / 1000000000 * 100 )
 				c_sum_rate_bar = fix(hkk / 1000000000 * 100)
 				if c_sum_rate_bar > 100 then
 					c_sum_rate_bar = 100
@@ -533,13 +533,13 @@
 								<input name="c_team_type" value="<%=rs("c_festival_type")%>" type="hidden">
 							</div>
 
-						<div class="invest_area">
+						<div class="invest_area funding_area">
 								<p class="team_name"><%=rs("c_team_name")%> </p>
 								<div class="my_invest">
 										<div class="my_invest_wrap">
 											<div class="my_invest2">
 												<div class="my_invest1">
-													<img src="/images/icon_my_invest1.png">
+													<img src="/images/icon_money.png">
 												</div>
 												<div class="mi_1">
 													<span>나의 <%=money_info%> 투자 가능 금액</span><br>
@@ -549,7 +549,7 @@
 											</div>
 											<div class="my_invest4">
 												<div class="my_invest3">
-													<img src="/images/icon_my_invest2.png">
+													<img src="/images/icon_team_money.png">
 												</div>
 												<div class="team_investable">
 													<span><b>한팀당</b><br>최대 1회 투자 가능 금액</span><br>
@@ -626,9 +626,9 @@ p2_money = p_money
 							<div class="login_bn">
 									<div class="login_bn_txt" style="">
 			
-										회원님은 이 팀에  <%=past_fund%>원을 이미 투자하였습니다..<br>
+										회원님은 이 팀에  <%=past_fund%>원을 이미 투자하였습니다.<br>
 										<span style="font-size:16px">
-										응원글 "<%=past_exp%>"
+										응원글  "<%=past_exp%>"
 										</span>
 									</div>
 									<div class="login_box">
@@ -1108,16 +1108,13 @@ p2_money = p_money
 				</div>
 
 				<!-----------------랜덤팀 10개 이동S---------------->
-				<br><br><br><br><br>
 
-				<div>
-					<div style="width:100%">
-						<span style="padding-left:12.5%;">다른 인기 아이템들도 살펴보세요!</span>
-					</div>
-					<br>
-					<div style="  display:flex; justify-content:center;"> 
+				<div class="recommend_area">
+					<p>다른 인기 아이템들도 살펴보세요!</p>
+
+					<div class="recommend_list"> 
 						<% 
-							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 order by newid()"
+							strSQL="select top 10 a.* from tbl_team a inner join tbl_festival_data b on a.c_no = b.c_team_no where a.c_project_no in (10,11,12,13,14) and a.c_use = 0 and a.c_festival = 1 and b.c_year=2023 and b.c_item_name is not null and b.c_thumbnail is not null and b.c_main is not null and b.c_information is not null  order by newid()"
 
 							'response.write strSQL
 							Set tbl_board=CreateObject("ADODB.RecordSet")
@@ -1126,24 +1123,22 @@ p2_money = p_money
 							else
 								Do Until tbl_board.EOF
 						%>
-								<div style="  float:left; margin-left :10px;">
-									<div style="text-align:center; border:1px solid #000; width:100px; height:130px;">
+									<div class="recommend_item">
 										<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no=<%=tbl_board("c_no")%>&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">
 											<!--운영에반영후 팀로고가없는애들은 팀명도 같이출력되도록-->
 											<%if tbl_board("c_logo") = "" then%>
-												<span style="font-size:10px;"><%=tbl_board("c_team_name")%></span><br>
-												<img src="/images/logo3.png" style="width:80px;height:80px;">
+												<span><%=tbl_board("c_team_name")%></span>
+												<img src="/images/logo3.png" style="width:100px">
 												<!--<img src="/images/seoul/logo3.png" style="width:80px;height:80px;">-->
 
 											<%else%>
-												<span style="font-size:10px;"><%=tbl_board("c_team_name")%></span><br>
+												<span><%=tbl_board("c_team_name")%></span>
 												<!--<img src="/images/logo3.png" style="width:80px;height:80px;">-->
-												<img src="/upload/<%=tbl_board("c_logo")%>" style="width:80px;height:80px;">
+												<img src="/upload/<%=tbl_board("c_logo")%>" style="width:100px">
 
 											<%end if%>
 										</a>
 									</div>
-								</div>
 						<%		
 								tbl_board.MoveNext
 								Loop
@@ -1153,12 +1148,7 @@ p2_money = p_money
 						%>
 					</div>
 				</div>
-				<br>
-				<br>
 				<!-----------------랜덤팀 10개 이동E---------------->
-
-
-
 				</section>
 				
 	<!--              <section class="tab2"> <div class="a"> </div> </section> -->

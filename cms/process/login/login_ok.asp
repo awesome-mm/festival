@@ -111,6 +111,17 @@
 		else
 		%>
 		<script>
+
+			<%if (isnull(tbl_board("c_kakao")) or tbl_board("c_kakao") = "") and (isnull(tbl_board("c_naver")) or tbl_board("c_naver") = "") then%>
+				location.href="<%=url%>"
+			<%else%>
+				//alert("로그인 되었습니다.")
+				location.href="<%=url%>"
+			<%end if%>
+
+
+
+/*
 			<%if (isnull(tbl_board("c_kakao")) or tbl_board("c_kakao") = "") and (isnull(tbl_board("c_naver")) or tbl_board("c_naver") = "") then%>
 			if(confirm("SNS(카카오/네이버)로 로그인이 가능합니다.\nSNS 로그인 연결을 하시겠습니까?.")){
 				location.href="/cms/process/login/sns/list.asp?c_show_no=76&c_check_no=67&c_relation=734&c_relation2=748"
@@ -121,6 +132,7 @@
 				//alert("로그인 되었습니다.")
 				location.href="<%=url%>"
 			<%end if%>
+*/
 		</script>
 		<%
 		end if
