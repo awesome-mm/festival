@@ -80,6 +80,7 @@
                         <p><%=c_member_id%> </p>
                         <p><%=left(tbl_board("c_date"),10)%></p>
                     </div>
+										<div class="pin_image"></div>	
                 </div>
             <%
             i= i+1

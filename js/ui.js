@@ -8,20 +8,65 @@ $(document).ready(function () {
   });
 });
 
+
+
+
+
 // /---------------------------------------------------------------------- 헤더메뉴
-// 선택시 활성,비활성 기능
-$("header nav .menu-item > a").on("mouseenter", function () {
-  $("header nav .menu-item > a").removeClass("on");
+$("#headerArea").mouseenter(function () {
   $(this).addClass("on");
 });
 
-$("header nav .menu-sub li > a").on("mouseenter", function () {
-  $("header nav .menu-sub li > a").removeClass("on");
-  $(this).addClass("on");
+// gnb mouseleave
+$("#headerArea").mouseleave(function () {
+    $(this).removeClass("on");
 });
+
+$("ul.dropdownmenu").hover(
+  function () {
+    $("ul.dropdownmenu li.menu-item ul").fadeIn("normal", function () {
+      $(this).stop();
+    }); //모든 서브를 다 열어라
+    $("#headerArea").animate({ height: 200 }, "fast").clearQueue();
+  },
+  function () {
+    $("ul.dropdownmenu li.menu-item ul").hide(); //모든 서브를 다 닫아라
+    $("#headerArea").stop().animate({ height: 100 }, "fast").clearQueue();
+  }
+);
+
+// gnb 접근성 tab 처리
+$("ul.dropdownmenu .menu-item a").on("focus", function () {
+  $("#headerArea").addClass("on");
+  $("ul.dropdownmenu .menu-item ul").slideDown("normal");
+  //$(this).parents('.menu').addClass('on');
+  $("#headerArea").animate({ height: 200 }, "fast").clearQueue();
+});
+
+$("ul.dropdownmenu li.menu-item:last-child li:last a").on("blur", function () {
+  $("#headerArea").removeClass("on");
+  $("ul.dropdownmenu li.menu-item ul").slideUp("fast");
+  //$(this).parents('.menu').removeClass('on');
+  $("#headerArea").animate({ height: 100 }, "normal").clearQueue();
+});
+
+
+
+// 선택시 활성,비활성 기능
+// $("header nav .menu-item > a").on("hover", function () {
+//   $("header nav .menu-item > a").removeClass("on");
+//   $('#gnb').addClass("on");
+// });
+
+// $("header nav .menu-sub li > a").on("mouseenter", function () {
+//   $("header nav .menu-sub li > a").removeClass("on");
+//   $(this).addClass("on");
+// });
 
 // $('header nav .menu-item > a').on('mouseleave',function (){ 	$('header nav
 // .menu-item > a').removeClass('on'); 	$(this).addClass('on'); })
+
+
 // /---------------------------------------------------------------------- 모바일
 // 메뉴 열기
 function mobileMenuOpen() {
