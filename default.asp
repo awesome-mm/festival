@@ -82,7 +82,7 @@
                     <span class="vs2">
                         방명록
                     </span>
-                    <a class="more" href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">더보기<i class="fa-solid fa-chevron-right"></i></a>
+                    <a class="more" href="/cms/process/puzzle/list.asp?c_show_no=69&c_check_no=63&c_relation=879&c_relation2=413">작성하기<i class="fa-solid fa-chevron-right"></i></a>
             </div>
  
 
@@ -264,7 +264,11 @@ set rolling_section = nothing
                                 <p class=" guide_sub_title">
                                     2023 학생 창업유망팀 300
                                 </p>
-                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.25</div>
+
+                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.18</div>
+
+                  
+
 
                                 <div class="fes_info_box dib mgt30">
                                     <!--
@@ -305,7 +309,7 @@ set rolling_section = nothing
                                     -->
                                     <div class="dib"><img width="52px" src="/images/icon_fest2.png"></div>
                                         <div class="mgl20 tal mgt5">
-                                            <span class="co666 fs14">투자가능 기업수</span><br>
+                                            <span class="co666 fs14">투자유치중인 기업수</span><br>
                                             <span class="fs50 co9000 fs45">283</span>
                                             <span class="fs20 co9000">기업</span>
                                         </div>
@@ -319,7 +323,7 @@ set rolling_section = nothing
                                     -->
                                     <div class="dib"><img width="70px" src="/images/icon_fest3.png"></div>
                                         <div class="mgl20 tal mgt5">
-                                            <span class="cofff fs14">모의투자금 총 한도</span><br>
+                                            <span class="cofff fs14">1인당 총 모의투자 금액</span><br>
                                             <span class="fs50 cofd3 fs45">20,000,000</span>
                                             <span class="fs20 cofff">원</span>
                                         </div>
@@ -354,27 +358,27 @@ s_text = r_call("s_text")
                             </li>
 
                             <li <%if c_festival_type = "3" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=3">성장1</a>
+                                <a href="default.asp?c_festival_type=3">성장(서울)</a>
                             </li>
 
                             <li <%if c_festival_type = "4" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=4">성장2</a>
+                                <a href="default.asp?c_festival_type=4">성장(인천경기)</a>
                             </li>
 
                             <li <%if c_festival_type = "5" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=5">성장3</a>
+                                <a href="default.asp?c_festival_type=5">성장(충청권)</a>
                             </li>
 
                             <li <%if c_festival_type = "6" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=6">성장4</a>
+                                <a href="default.asp?c_festival_type=6">성장(호남제주권)</a>
                             </li>
 
                             <li <%if c_festival_type = "7" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=7">성장5</a>
+                                <a href="default.asp?c_festival_type=7">성장(대경강원권)</a>
                             </li>
 
 							<li <%if c_festival_type = "8" then%>class="on"<%else%>class="off"<%end if%>>
-                                <a href="default.asp?c_festival_type=8">성장6</a>
+                                <a href="default.asp?c_festival_type=8">성장(동남권)</a>
                             </li>
 
 							<li <%if c_festival_type = "9" then%>class="on"<%else%>class="off"<%end if%>>
@@ -432,13 +436,13 @@ s_text = r_call("s_text")
 
                             <option value="1" <%if c_festival_type = "1" then%>selected<%end if%>>도약(일반)</option>
                             <option value="2" <%if c_festival_type = "2" then%>selected<%end if%>>도약(유학생)</option>
-                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장1</option>
-                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장2</option>
-                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장3</option>
-                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장4</option>
-                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장5</option>
-							<option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장6</option>
-							<option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문)</option>
+                            <option value="3" <%if c_festival_type = "3" then%>selected<%end if%>>성장(서울)</option>
+                            <option value="4" <%if c_festival_type = "4" then%>selected<%end if%>>성장(인천경기)</option>
+                            <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장(충청권)</option>
+                            <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장(호남제주권)</option>
+                            <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장(대경강원권)</option>
+							<option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장(동남권)</option>
+							<option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문대)</option>
                             <option value="10" <%if c_festival_type = "10" then%>selected<%end if%>>교육</option> 
 
                         </select>

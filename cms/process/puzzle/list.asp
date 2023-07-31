@@ -3,58 +3,8 @@
 	s_date = "2023-07-16 00:00"
 	e_date = "2023-08-18 23:59"
 
-	now_p=r_call("now_p")
-	if now_p = "" then
-		sql_p = "select distinct a.c_puzzle_no "
-		sql_p = sql_p & " ,(select count(c_no) as my_no from tbl_puzzle where c_year = 2023 and c_use = 0 and c_puzzle_no = a.c_puzzle_no ) as my_no "
-		sql_p = sql_p & " from tbl_puzzle a where a.c_year = 2023 and a.c_use = 0 order by a.c_puzzle_no"
-		Set rs=CreateObject("ADODB.RecordSet")
-		rs.Open sql_p, dbCon, 1
-		If rs.EOF Then 
-			now_p = 1
-		else
-			now_p = 0
-			Do Until rs.EOF 
-				if rs("my_no") < 625 and now_p = 0 then
-					now_p = rs("c_puzzle_no")
-				end if 	
-			rs.MoveNext
-		        Loop
-		end if
-		rs.Close
-		Set rs=Nothing
-		if now_p = 0 then
-			now_p = 1
-		end if
-	else
-		now_p = cint(now_p)
-	end if
+
 	
-	t_count = 0
-	
-	sql_p = "select max(c_order) as p_count from tbl_puzzle where c_year = 2023 and  c_use = 0 and c_puzzle_no = "& now_p
-	Set rs=CreateObject("ADODB.RecordSet")
-	rs.Open sql_p, dbCon, 1
-
-
-	'Response.write "sql_p:" & sql_p
-
-	If rs.EOF Then 
-	else
-		t_count = rs("p_count")
-	end if
-	rs.Close
-	Set rs=Nothing
-
-
-	If IsNull(t_count) Then
-
-		t_count = 0
-
-	End If
-	
-
-
 
 	' Response.write "t_count:" & t_count
 
@@ -458,7 +408,7 @@ dateChange();
 	  strSQL = strSQL & " ,(select count(c_no) as recom from tbl_member where c_recommend = a.c_id and festival_recommend_date > '2023-07-18' and recommend_year='2023') as recom "
 	  strSQL = strSQL & " FROM tbl_member a WHERE a.c_no= c_no  ) t where t.recom > 0   order by t.recom desc  "
 
-	 'response.write strSQL
+	' response.write strSQL
 
 	  Set tbl_board=CreateObject("ADODB.RecordSet")
 	tbl_board.Open strSQL, dbCon, 1
@@ -487,7 +437,7 @@ dateChange();
 
 											<li class="ranking_item">
 												<span>
-													<span class="rank"><%=ipok%></span>
+													<span class="rank"><%=ipok+1%></span>
 												</span>
 												<span class="ranking_id"><%=c_member_id %></span>
 												<p>
