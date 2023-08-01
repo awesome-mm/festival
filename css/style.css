@@ -401,7 +401,7 @@ header .header__wrap nav.gnb ul.main-menu li.menu-item .menu-sub li > a.on {
 
 #side_bar{
     position: fixed;
-    right: 5%;
+    right: 2%;
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
@@ -2607,10 +2607,12 @@ section.sub_intro {
     background-color: #fff;
 }
 .state_pending {
-   background: #ff9000;
+   /*background: #ff9000;*/
+   border: 1px solid #fff;
 }
 .state_end {
-    background: #A0A0A0;
+    /*background: #A0A0A0;*/
+    border: 1px solid #fff;
 }
 .state_ongoing {
     /* background: #ff9000; */
