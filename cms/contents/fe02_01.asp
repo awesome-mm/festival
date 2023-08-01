@@ -130,11 +130,32 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="step">
+                                    <div class="st_subject mgt50">
+                                        <span class="step_num fs25 bold dib">STEP 6</span>
+                                        <span class="step_title dib co666">나의투자내역 확인하기</span>
+                                    </div>
+    
+                                    <div class="img_box">
+                                        <img class="step2_img" src="/images/step5.png">
+                                        <!-- 
+                                        <img class="mini_arrow2" src="/images/arrow_tip.png">
+                                        <img class="mini_arrow3" src="/images/arrow_tip.png">
+                                        -->
+
+                                        <div class="select_box5"></div>
+                                        <div class="select_box6"></div>
+                                        <div class="help_box nor_box fs25 step5">
+                                            금액을 선택하고 투자하기를 클릭하여 투자해 주세요
+                                        </div>
+                                    </div>
+                                </div>
                                 <!-- </inner> -->
     
                             </div>
     
-                            <div class="pati_etc tac">투자유치 1등 맞추기, 추천인, 로고디자인 투표 이벤트 등<br> 다양한 이벤트가 준비되었으니 많은 관심과 참여 바랍니다.
+                            <div class="pati_etc tac">투자유치 1등 맞추기, 추천인, 이스터에그 찾기 이벤트 등<br> 다양한 이벤트가 준비되었으니 많은 관심과 참여 바랍니다.
                                 <br><span style="color: #2D41BA">자세한 참여방법은 하단 매뉴얼 참조</span>  </div>
                            <table >
                                 <tr>

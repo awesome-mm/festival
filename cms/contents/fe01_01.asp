@@ -24,26 +24,26 @@
 
                                 <div class="fes_list">
                                     <div class="fes_title" style="font-weight:600">주최</div>
-                                    <span class="fes_txt">교육부, 과학기술정보통신부</span>
+                                    <span class="fes_txt">교육부</span>
                                 </div>
 
                                 <div class="fes_list">
                                     <div class="fes_title" style="font-weight:600">주관</div>
-                                    <span class="fes_txt">(재)한국연구재단, 과학기술일자리진흥원, (재)한국청년기업가정신재단</span>
+                                    <span class="fes_txt">(재)한국연구재단, (재)한국청년기업가정신재단</span>
                                 </div>
 
                                 <div class="fes_list">
                                     <div class="fes_title" style="font-weight:600">기간</div>
-                                    <span class="fes_txt">2023년 08월 16일 (화) ~ 08월 25일 (목)</span>
+                                    <span class="fes_txt">2023년 08월 11일(금) 09시 ~ 08월 20일(일) 24시</span>
                                 </div>
                                 
                                 <div class="fes_list">
                                     <div class="fes_title" style="font-weight:600">참여방법</div>
                                         <ul class="fes_txt join_list">
-                                            <li>1.창업유망팀 300 홈페이지 회원가입 </li>
-                                            <li>2.방명록 작성</li>
-                                            <li>3.모의 투자금 확인 </li>
-                                            <li>4.우수하다고 생각되는 팀에게 모의 투자 진행 </li>
+                                            <li>1. 창업유망팀 300 홈페이지 회원가입 </li>
+                                            <li>2. 방명록 작성</li>
+                                            <li>3. 모의 투자금 확인 </li>
+                                            <li>4. 우수하다고 생각되는 팀에게 모의 투자 진행 </li>
                                         </ul>
                                     </div>
                                 </div>
