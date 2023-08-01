@@ -649,13 +649,13 @@ s_text = r_call("s_text")
         postItAnimation()
 
 // 무한루프 다시 뿌려주는 효과
-        // setInterval(() => {
-        //     const movingElements = document.querySelectorAll(".movingElement");
-        //     movingElements.forEach(element => {
-        //         element.style.opacity = "0"
-        //     });
-        //     postItAnimation()
-        // }, 10000);
+         setInterval(() => {
+             const movingElements = document.querySelectorAll(".movingElement");
+             movingElements.forEach(element => {
+                 element.style.opacity = "0"
+             });
+             postItAnimation()
+         }, 10000);
         
         // console.log('함수실행')
 

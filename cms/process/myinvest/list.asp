@@ -139,7 +139,7 @@
 
 		                                            <%=rs_m("c_team_name")%>
 
-													<!--------------------------뱃지-------------------------------->
+													<!--------------------------뱃지S-------------------------------->
 													<%if invest_grade <> "iron" then%>
 														<%if invest_grade ="bronze" then%>
 															<img src="/images/bronze.png" style="width:12px;height:19px;">
@@ -160,11 +160,29 @@
 															<img src="/images/platinum.png" style="width:12px;height:19px;">
 														<%end if%>
 													<%end if%>
-													<!--------------------------뱃지-------------------------------->
-		                                        </div>
-		                                        <div class="content" >
-		                                             <%=rs_m("c_item_name")%>
-		                                        </div>
+													<!--------------------------뱃지E-------------------------------->
+												</div>
+												<div class="content" >
+														<%=rs_m("c_item_name")%>
+												</div>
+																						<div class="list_range_bar_rable">
+																							<div class="label label1">
+																								<span>Seed<span>
+																							</div>
+																							<div class="label label2">
+																								<span>Series A<span>
+																							</div>
+																							<div class="label label3" >
+																								<span>Series B<span>
+																							</div>
+																							<div class="label label4" >
+																								<span>Series C<span>
+																							</div>
+																							<div class="label label5" >
+																								<span>Pre<span><br>
+																								<span>Unicorn<span>
+																							</div>
+																						</div>
 		
 																						<div class="list_range range_bar">
 																							<div class="range_bar_width gauge_bar" style="width:<%=rate_t2%>%;">
