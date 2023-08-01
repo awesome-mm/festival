@@ -96,7 +96,7 @@
                                     </div>
     
                                     <div class="img_box">
-                                        <img class="step2_img" src="/images/step4.png">
+                                            <img class="step2_img" src="/images/step4.jpg" >
                                         <div class="select_box3"></div>
                                         <div class="select_box4"></div>
     <!--

@@ -24,7 +24,7 @@
 	if c_team_no = "" then
 	%>
 	<script>
-		alert("잘못 된 접속입니다")
+		alert("잘못된 접속입니다")
 		location.href= "/"
 	</script>
 	<%	
@@ -64,9 +64,7 @@
 			else			
 				c_sum = formatnumber(rs("c_sum"),0)
 				hkk = cdbl(rs("c_sum"))
-				'c_sum_rate = formatnumber(hkk / 50000000 * 100 , 0)
-				'c_sum_rate_bar = fix(hkk / 50000000 * 100)
-				c_sum_rate = formatnumber(hkk / 1000000000 * 100 )
+				c_sum_rate = formatnumber(hkk / 1000000000 * 100)
 				c_sum_rate_bar = fix(hkk / 1000000000 * 100)
 				if c_sum_rate_bar > 100 then
 					c_sum_rate_bar = 100
@@ -239,7 +237,7 @@
 						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
 
 						<div class="range_bar">
-							<div class="range_bar_width gauge_bar"  style=" width:<%=c_sum_rate_bar%>%;">
+							<div class="range_bar_width gauge_bar"  style="width:<%=c_sum_rate_bar%>%;">
 								<div class="range_bar_ani"></div>
 							</div>
 							<div class="range_line_flex">
@@ -301,7 +299,6 @@
 							console.log(gauge_value)
 							console.log(invest_grade)
 
-							
 							if (gauge_value === "iron"){
 								gauge_bar.children('.range_bar_ani').addClass("gradient-iron");
 							}else if (gauge_value === "bronze"){
@@ -745,13 +742,13 @@ p2_money = p_money
 								<a href="#none">평가의견</a>
 
 							</li>
-						<!--	<li data-id="con3"style="display:none;" >
+							<li data-id="con3" style="display:none;">
 								<a href="#none">상호평가의견</a>
 
 							</li>
 							<li data-id="con4" style="display:none;">
 								<a href="#none">전문가평가의견</a>
-							</li> -->
+							</li> 
 						</ul>
 
 						<div id="con1" class="conBox1 on">
