@@ -96,7 +96,7 @@
                                     </div>
     
                                     <div class="img_box">
-                                            <img class="step2_img" src="/images/step4.jpg" >
+                                            <img class="step2_img" src="/images/step4.png" >
                                         <div class="select_box3"></div>
                                         <div class="select_box4"></div>
     <!--
@@ -126,7 +126,7 @@
                                         <div class="select_box5"></div>
                                         <div class="select_box6"></div>
                                         <div class="help_box nor_box fs25 step5">
-                                            금액을 선택하고 투자하기를 클릭하여 투자해 주세요
+                                            펀딩진행클릭 - 금액을 선택하고 투자하기를 클릭하여 투자해 주세요
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@
                                     </div>
     
                                     <div class="img_box">
-                                        <img class="step2_img" src="/images/step5.png">
+                                        <img class="step2_img" src="/images/step6.png">
                                         <!-- 
                                         <img class="mini_arrow2" src="/images/arrow_tip.png">
                                         <img class="mini_arrow3" src="/images/arrow_tip.png">
