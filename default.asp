@@ -77,7 +77,7 @@
 
             <div class="visual_subject">
                     <span class="vs1">
-                        네트워킹 데이
+                        모의투자
                     </span>
                     <span class="vs2">
                         방명록
