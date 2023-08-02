@@ -225,9 +225,9 @@ set rolling_section = nothing
         // 무한루프 다시 롤링하는 효과
         $(document).ready(function () {
             setInterval(getDataUpdate, 10000 );
-
-            setInterval(getDataUpdate, 10000);
         });
+
+        
 
 </script>
 
@@ -656,7 +656,10 @@ s_text = r_call("s_text")
              });
              postItAnimation()
          }, 10000);
+        
         // console.log('함수실행')
+
+
     });
     
 
