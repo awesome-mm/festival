@@ -21,6 +21,10 @@
   Flds("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "sbasbaA01!" ' 비밀번호
   Flds.Update
 
+
+
+
+
   ' 발송할 내용 세팅
   Set objMessage.Configuration = objConfig
   objMessage.BodyPart.Charset = "utf-8"
@@ -41,7 +45,9 @@
 </head>
 <body>
 <%if alert_text <> "" then%>
+
 		<form name="t1" action="/mail/mail_ok.asp" method="post">
+
 			<input name="alert_text" value="<%=alert_text%>" type="hidden">
 		</form>		
 	<script>
