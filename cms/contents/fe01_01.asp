@@ -6,11 +6,11 @@
                         <div class="poster_wrap">
                             <div class="summary_poster">
 <!--                                 <img src="/images/u300_fes_poster_2.png" style="max-width:700px"> -->
-								 <img src="/images/u300_fes_poster_2022.png" style="max-width:520px">
+								 <img src="/images/u300_fes_poster_2023.png" style="max-width:520px">
                             </div>
                         </div>
                         <div class ="summary_page">
-                            <div class="fes_subject">2023 학생 창업유망팀 300 네트워킹 데이</div>
+                            <div class="fes_subject">2023 학생 창업유망팀 300 <span>네트워킹 데이</span></div>
                             <div class="inner_page">
                                 <div class="fes_list">
                                     <div class="fes_title" style="font-weight:600">행사명</div>
@@ -38,7 +38,7 @@
                                 </div>
                                 
                                 <div class="fes_list">
-                                    <div class="fes_title" style="font-weight:600">참여방법</div>
+                                    <div class="fes_title participate" style="font-weight:600">참여방법</div>
                                         <ul class="fes_txt join_list">
                                             <li>1. 창업유망팀 300 홈페이지 회원가입 </li>
                                             <li>2. 방명록 작성</li>
