@@ -44,11 +44,9 @@
 	'response.write strSQL
 	dbCon.Execute strSQL
 	
-	 
+	
 %>
-	<script>
-	alert(<%num%>)
-	</script>
+
 		<form name="smsform" action="http://biz.xonda.net/biz/biz_newV2/SMSASP_WEBV4_s.asp" method="post" accept-charset="EUC-KR"> 
 			<input type="text" name="send_number" value="0221562295">					
 			<input type="text" name="receive_number" value="<%=c_email%>">

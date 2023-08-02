@@ -6,7 +6,7 @@
                         <div class="poster_wrap">
                             <div class="summary_poster">
 <!--                                 <img src="/images/u300_fes_poster_2.png" style="max-width:700px"> -->
-								 <img src="/images/u300_fes_poster_2022.png" style="max-width:520px">
+								 <img src="/images/v2-포스터(out)-_U300-모의투자대회-230801.png" style="max-width:520px">
                             </div>
                         </div>
                         <div class ="summary_page">

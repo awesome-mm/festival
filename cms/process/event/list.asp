@@ -69,7 +69,7 @@
                             <div class="event_wrap" style="padding-top:0px;height:auto">
                             <%
 			 strSQL="SELECT * FROM tbl_board WHERE c_no=c_no "& search_t &"  ORDER BY c_no desc"             
-		 	'response.write strSQL
+			'response.write strSQL
 		 	 Set tbl_board=CreateObject("ADODB.RecordSet")
 			tbl_board.Open strSQL, dbCon, 1
 			intPage=r_call("page")
