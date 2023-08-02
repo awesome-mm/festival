@@ -77,7 +77,7 @@
 
             <div class="visual_subject">
                     <span class="vs1">
-                        네트워킹 데이
+                        모의투자
                     </span>
                     <span class="vs2">
                         방명록
@@ -224,7 +224,15 @@ set rolling_section = nothing
 
         // 무한루프 다시 롤링하는 효과
         $(document).ready(function () {
+<<<<<<< HEAD
             setInterval(getDataUpdate, 10000 );
+=======
+<<<<<<< HEAD
+            setInterval(getDataUpdate, 10000 );
+=======
+            setInterval(getDataUpdate, 10000);
+>>>>>>> 1bbe781543ad31e2ff1faa55e81910ac98ff9819
+>>>>>>> ccd31a8fcd47fb2db5911dae68aa519d53bb6092
         });
 
 </script>
@@ -647,14 +655,13 @@ s_text = r_call("s_text")
         postItAnimation()
 
 // 무한루프 다시 뿌려주는 효과
-        setInterval(() => {
-            const movingElements = document.querySelectorAll(".movingElement");
-            movingElements.forEach(element => {
-                element.style.opacity = "0"
-            });
-            postItAnimation()
-        }, 10000);
-        
+         setInterval(() => {
+             const movingElements = document.querySelectorAll(".movingElement");
+             movingElements.forEach(element => {
+                 element.style.opacity = "0"
+             });
+             postItAnimation()
+         }, 10000);
         // console.log('함수실행')
     });
     

@@ -12,7 +12,7 @@
 	if c_team_no = "" then
 %>
 	<script>
-		alert("잘못 된 접1속입니다")
+		alert("잘못된 접속입니다")
 		location.href= "/"
 	</script>
 <%	
@@ -36,6 +36,7 @@
 %>
 ﻿<!-- #include virtual="/cms/process/invest/value.asp" -->
 <%
+invest_grade ="iron"
 			if isnull(rs("c_sum")) then
 				c_sum = 0
 				c_sum_rate = 0
@@ -61,13 +62,12 @@
 				elseif c_sum_rate_bar >= 75 AND c_sum_rate_bar < 100 then
 					invest_grade = "gold"
 
-				elseif c_sum_rate_bar = 100 then
+				elseif c_sum_rate_bar >= 100 then
 					invest_grade = "platinum"
 
 				end if
 
 			end if
-
 %>
 <script>
 	var setCookie = function(name, value, exp) {
@@ -118,22 +118,22 @@
 								<!--------------------------뱃지-------------------------------->
 								<%if invest_grade <> "iron" then%>
 									<%if invest_grade ="bronze" then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
 
 									<%elseif invest_grade ="silver" then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
-										<img src="/images/silver.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
+										<img src="/images/silver.png" style="max-width:100%; height:auto;">
 
 									<%elseif invest_grade ="gold"   then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
-										<img src="/images/silver.png" style="width:30px; height:40px;">
-										<img src="/images/gold.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
+										<img src="/images/silver.png" style="max-width:100%; height:auto;">
+										<img src="/images/gold.png" style="max-width:100%; height:auto;">
 
 									<%elseif invest_grade ="platinum" then%>
-										<img src="/images/bronze.png" style="width:30px; height:40px;">
-										<img src="/images/silver.png" style="width:30px; height:40px;">
-										<img src="/images/gold.png" style="width:30px; height:40px;">
-										<img src="/images/platinum.png" style="width:30px; height:40px;">
+										<img src="/images/bronze.png" style="max-width:100%; height:auto;">
+										<img src="/images/silver.png" style="max-width:100%; height:auto;">
+										<img src="/images/gold.png" style="max-width:100%; height:auto;">
+										<img src="/images/platinum.png" style="max-width:100%; height:auto;">
 									<%end if%>
 								<%end if%>
 								<!--------------------------뱃지-------------------------------->
@@ -151,12 +151,11 @@
 							<span class="amt_price"><%=c_sum%></span>
 							<span class="amt_won">원</span>
 						</div >
-
 						<!---------게이지----------->
 						<input id="invest_grade" type="hidden" value="<%=invest_grade%>">
 
 						<div class="range_bar">
-							<div class="range_bar_width gauge_bar"  style=" width:<%=c_sum_rate_bar%>%;">
+							<div class="range_bar_width gauge_bar"  style="width:<%=c_sum_rate_bar%>%;">
 								<div class="range_bar_ani"></div>
 							</div>
 							<div class="range_line_flex">
@@ -182,21 +181,35 @@
 								</div>
 								<div class="label label2">
 									<span>Series A<span>
+									<br>
+									<span>2.5억<span>
 								</div>
 								<div class="label label3" >
 									<span>Series B<span>
+									<br>
+									<span>5억<span>
 								</div>
 								<div class="label label4" >
 									<span>Series C<span>
+									<br>
+									<span>7.5억<span>
 								</div>
 								<div class="label label5" >
 									<span>Pre-Unicorn<span>
+									<br>
+									<span>10억<span>
 								</div>
 						 </div>
 						
 						<script>
-						let invest_grade = document.querySelector("#invest_grade").value;
-						
+						$(document).ready(function(){
+							let gauge_bar = $(".gauge_bar");
+							let invest_grade = $("#invest_grade");
+
+							let gauge_value = invest_grade.val();
+							console.log(gauge_value)
+							console.log(invest_grade)
+
 							if (gauge_value === "iron"){
 								gauge_bar.children('.range_bar_ani').addClass("gradient-iron");
 							}else if (gauge_value === "bronze"){
@@ -208,6 +221,8 @@
 							}else if (gauge_value === "platinum"){
 								gauge_bar.children('.range_bar_ani').addClass("gradient-platinum");
 							}
+
+						})
 						</script>
 
 														<div class="funding_state_box"style="margin-top : 60px;">
@@ -292,8 +307,8 @@
 		document.getElementById("heart").innerHTML = '<a onclick="setCookie(\'like_<%=c_team_no%>\',\'ok\', 30);"><i id="c_heart" class="fa fa-heart"></i></a>'
 	}
 </script>
-<script type="text/javascript">
 
+<script type="text/javascript">
 function clip(){
 	var url = '';
 	var textarea = document.createElement("textarea");
@@ -515,7 +530,7 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                             </li>
 
                             <li data-id="con2">
-                                <a href="#none">국민평가의견</a>
+                                <a href="#none">평가의견</a>
 
                             </li>
                             <li data-id="con3" style="display:none;">
@@ -528,8 +543,8 @@ var url_combine_naver = url_default_naver + encodeURI(url_this_page) + title_def
                         </ul>
 
                         <div id="con1" class="conBox1 on">
-                          
-                            <div   style="text-align:left;width:100%;line-height:130%;padding-top:50px;padding-bottom:50px;">
+                        
+                            <div style="text-align:left;width:100%;line-height:130%;padding-top:50px;padding-bottom:50px;">
                             	 <div style="text-align:center;">
 	                            <div   style="text-align:left;width:90%;max-width:1100px;line-height:130%;padding:30px;background:#ffffff">
 	                                <p>

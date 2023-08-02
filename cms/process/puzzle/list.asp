@@ -12,7 +12,7 @@
 %>
 
 		<div class="sub_title guest_book_title">
-				<h2>네트워킹 데이 방명록</h2>
+				<h2>모의투자 방명록</h2>
 		</div>
 
 

@@ -9,6 +9,16 @@
 <%else%>
 		<%
 		
+		sql_check_bug_event = "SELECT b.c_id FROM tbl_bug_event a inner join tbl_member b on b.c_no = a.c_member_no WHERE a.c_no= a.c_no and a.c_member_no > 0 and a.c_bug1 = 1 AND a.c_bug2 = 1 AND a.c_bug3 = 1 AND a.c_bug4 = 1 AND a.c_bug5 = 1 and b.c_no = "&session("session_no")&" ORDER BY a.c_no desc;"
+		set rs_check = dbCon.execute(sql_check_bug_event)
+		If rs_check.EOF then
+			check_result = "이스터에그 이벤트 : 미완료"
+		else
+			check_result = "이스터에그 이벤트 : 완료"
+		end if
+		rs_check.close
+		set rs_check = Nothing
+
 		sql_m = "select (select c_content from tbl_puzzle where c_member_no = "& session("session_no") &" and c_year=2023)as check_guestbook, sum(c_fund) as c_sum from tbl_fund where c_year = 2023 and c_member_no = "& session("session_no") &" and c_use = 0 "
 		Set rs_m=CreateObject("ADODB.RecordSet")
 		rs_m.Open sql_m, dbCon, 1
@@ -76,7 +86,15 @@
 
                 </section>
 
-                  <section>
+				<!--
+				<div style="text-align:center; width : 200px; height: 25px; background-color:#D1D8FF; border: 1px solid #fff; border-radius:10px;">
+					<span style="vertical-align:middle; color:#2D41BA;">
+						<%=check_result%>
+					</span>
+				</div>
+				-->
+
+                <section>
                     <!-- <div class="inner"> -->
 
                     <div class="my_invest_info">
@@ -139,7 +157,7 @@
 
 		                                            <%=rs_m("c_team_name")%>
 
-													<!--------------------------뱃지-------------------------------->
+													<!--------------------------뱃지S-------------------------------->
 													<%if invest_grade <> "iron" then%>
 														<%if invest_grade ="bronze" then%>
 															<img src="/images/bronze.png" style="width:12px;height:19px;">
@@ -160,11 +178,29 @@
 															<img src="/images/platinum.png" style="width:12px;height:19px;">
 														<%end if%>
 													<%end if%>
-													<!--------------------------뱃지-------------------------------->
-		                                        </div>
-		                                        <div class="content" >
-		                                             <%=rs_m("c_item_name")%>
-		                                        </div>
+													<!--------------------------뱃지E-------------------------------->
+												</div>
+												<div class="content" >
+														<%=rs_m("c_item_name")%>
+												</div>
+																						<div class="list_range_bar_rable">
+																							<div class="label label1">
+																								<span>Seed<span>
+																							</div>
+																							<div class="label label2">
+																								<span>Series A<span>
+																							</div>
+																							<div class="label label3" >
+																								<span>Series B<span>
+																							</div>
+																							<div class="label label4" >
+																								<span>Series C<span>
+																							</div>
+																							<div class="label label5" >
+																								<span>Pre<span><br>
+																								<span>Unicorn<span>
+																							</div>
+																						</div>
 		
 																						<div class="list_range range_bar">
 																							<div class="range_bar_width gauge_bar" style="width:<%=rate_t2%>%;">
