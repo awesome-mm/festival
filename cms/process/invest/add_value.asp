@@ -5,23 +5,23 @@
 %>
 
 <script> 
-	var now_value = 0
-	var c_no = new Array(); 
-	var c_item_name = new Array(); 
-	var c_team_name = new Array(); 
-	var c_thumbnail = new Array(); 
-	var c_sum = new Array(); 
-	var c_sum_rate = new Array(); 
-	var c_sum_rate2 = new Array(); 
+    var now_value = 0;
+    var c_no = [];
+    var c_item_name = [];
+    var c_team_name = [];
+    var c_thumbnail = [];
+    var c_sum = [];
+    var c_sum_rate = [];
+    var c_sum_rate2 = [];
 
 	/*뱃지배열 추가*/
-	var invest_badge = new Array();
+	var invest_badge = [];
 
 	/*팀별등급배열 추가*/
-	var invest_grade = new Array();
+	var invest_grade = [];
 
 	/*그래프바 속성배열*/
-	var color_by_grade = new Array();
+	var color_by_grade = [];
 <%	
 
  	sql_d = "select b.c_item_name, a.c_team_name, b.c_thumbnail, a.c_no "
@@ -136,14 +136,14 @@
 		if(now_value + 1 > <%=ai%>){
 			'alert("자료가 없습니다.")'
 		} else {
-			let_go = parent.document.getElementById("data_insert").innerHTML;
+			var fragment = document.createDocumentFragment(); //가상의 엘리먼트
+			var itemsAdded = 0;
+			var itemsToAdd = 8; //추가할 아이템 개수
 			t1 = 0
-			for (var i = now_value + 1; i < now_value + 9 ; i++) {
-					if(c_team_name[i] != null){
-					t1 = t1 + 1
-					let_go = let_go +'<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
+			for (var i = now_value + 1;  i <= now_value + itemsToAdd; i++) {
+				if(c_team_name[i] != null){
+					var content = '<a href="/cms/process/invest/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] +'&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
 		                      +'       <div class="startup_info">	'
-							  
 		                      +'           <div class="img-box" style="height:290px">	'
 		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" >	 '
 		                      +'           </div>	'
@@ -174,14 +174,10 @@
 													+'						  </div>'
 													+'					  </div>'
 													+'				      <div class="list_range range_bar"> '
-
 													+'								<div class="range_bar_width gauge_bar" style="width: '+ c_sum_rate2[i]+'%;">'
 													+'									<div class="range_bar_ani '+color_by_grade[i]+'"></div>'
 													+'								</div>'
-
-
 													+'								<div class="info_item_line range_line_flex">'
-													+'								'
 													+'									<span class="range_line"></span>'
 													+'									<span class="range_line"></span>'
 													+'									<span class="range_line"></span>'
@@ -208,19 +204,15 @@
 		                      +'             </div>	'
 		                      +'          </div>	'
 		                      +'  </a>	'
-		                        if(t1 == 4){
-		                        	t1 = 0
-		                        }
-				 }
-				s1 = i;
-			} 
-			if(t1 > 0){
-				for (var i = 1; i < 4 - t1 + 1 ; i++) {
-					let_go = let_go  + '<div class="startup_info"></div>'
-				}
-			}   
-			parent.document.getElementById("data_insert").innerHTML = let_go;
-			now_value = s1;
+
+      var div = document.createElement('div');
+      div.innerHTML = content;
+      fragment.appendChild(div);
+      itemsAdded++;
+			}}
+
+			parent.document.getElementById("data_insert").appendChild(fragment);
+			now_value += itemsAdded;
 		}
 	}
 	go_next()

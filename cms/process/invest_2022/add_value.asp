@@ -5,15 +5,14 @@
 %>
 
 <script> 
-	var now_value = 0
-	
-	var c_no = new Array(); 
-	var c_item_name = new Array(); 
-	var c_team_name = new Array(); 
-	var c_thumbnail = new Array(); 
-	var c_sum = new Array(); 
-	var c_sum_rate = new Array(); 
-	var c_sum_rate2 = new Array(); 
+    var now_value = 0;
+    var c_no = [];
+    var c_item_name = [];
+    var c_team_name = [];
+    var c_thumbnail = [];
+    var c_sum = [];
+    var c_sum_rate = [];
+    var c_sum_rate2 = [];
 	 
 <%	
 
@@ -71,18 +70,19 @@
       	End If
 	rs.Close
 	Set rs=Nothing
-%>﻿
+%>
 	function go_next(){
 		if(now_value + 1 > <%=ai%>){
 			'alert("자료가 없습니다.")'
 		}else{
-			let_go = parent.document.getElementById("data_insert").innerHTML;
+			var fragment = document.createDocumentFragment(); //가상의 엘리먼트
+			var itemsAdded = 0;
+			var itemsToAdd = 8; //추가할 아이템 개수
 			t1 = 0
-			for (var i = now_value + 1; i < now_value + 9 ; i++) {
-
+			for (var i = now_value + 1;  i <= now_value + itemsToAdd; i++) {
 				if(c_team_name[i] != null){
-					t1 = t1 + 1
-					let_go = let_go +'<a href="/cms/process/invest_2022/view.asp?c_show_no=170&c_check_no=108&c_relation=1022&c_relation2=1040&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
+      		t1++;
+					var content = '<a href="/cms/process/invest_2022/view.asp?c_show_no=170&c_check_no=108&c_relation=1022&c_relation2=1040&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
 		                      +'       <div class="startup_info">	'
 		                      +'           <div class="img-box" style="height:290px">	'
 		                      +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" style="max-width: 380px;">	'
@@ -94,9 +94,11 @@
 		                      +'               <div class="content" style="height:40px;overflow: hidden;">	'
 		                      +'                   '+ c_item_name[i] +'	'
 		                      +'               </div>	'
-		                      +'               <div class="line">	'
-		                      +'                   <span class="gh_1" style="width:'+ c_sum_rate2[i] +'%"></span>	'
-		                      +'               </div>	'
+													+'				      <div class="list_range range_bar"> '
+													+'								<div class="range_bar_width gauge_bar" style="width: '+ c_sum_rate2[i]+'%;">'
+													+'									<div class="range_bar_ani gradient-iron"></div>'
+													+'								</div>'
+													+'							</div>'
 												  +'						   <div class="funding_price"> '
 													+'                  <div class="dal">	'
 													+'                        <sapn>'+ c_sum_rate[i] +'% 달성</span>'
@@ -116,67 +118,15 @@
 		                      +'             </div>	'
 		                      +'          </div>	'
 		                      +'  </a>	'
-		                        if(t1 == 4){
-		                        	t1 = 0
-		                        }
-				 }
 
-				// if(c_team_name[i] != null){
-				// 	t1 = t1 + 1
-				// 	let_go = let_go  +' <a href="/cms/process/invest_2022/view.asp?c_show_no=71&c_check_no=64&c_relation=809&c_relation2=903&c_team_no='+ c_no[i] + '&c_festival_type=<%=c_festival_type%>&s_text=<%=s_text%>">	'
-		    //                       +'       <div class="startup_info">	'
-		    //                       +'           <div class="img-box" style="height:290px">	'
-		    //                       +'               <img src="/upload/festival/'+ c_thumbnail[i] +'" alt="이미지" style="max-width:340px;max-height:290px">	'
-		    //                       +'           </div>	'
-		    //                       +'           <div class="info-box">	'
-		    //                       +'               <div class="subject">	'
-		    //                       +'                   '+ c_team_name[i] +' '
-		    //                       +'               </div>	'
-		    //                       +'               <div class="content" style="height:64px;overflow: hidden;">	'
-		    //                       +'                   '+ c_item_name[i] +'	'
-		    //                       +'               </div>	'
-		    //                       +'               <div class="line">	'
-		    //                       +'                   <span class="gh_1" style="width:'+ c_sum_rate2[i] +'%"></span>	'
-		    //                       +'               </div>	'
-		    //                       +'               <div class="dal">	'
-		    //                       +'                   <div class="dal1">	'
-		    //                       +'                       달성률	'
-		    //                       +'                   </div>	'
-		    //                       +'                   <div class="dal2">	'
-		    //                       +'                       '+ c_sum_rate[i] +'	'
-		    //                       +'                       <span>	'
-		    //                       +'                           %	'
-		    //                       +'                       </span>	'
-		    //                       +'                   </div>	'
-		    //                       +'              </div>	'
-		    //                       +'               <div class="mogip">	'
-		    //                       +'                   <div class="mogip1">	'
-		    //                       +'                       모집금액	'
-		    //                       +'                  </div>	'
-		    //                       +'                  <div class="mogip2">	'
-		    //                       +'                      '+ c_sum[i] +'	'
-		    //                       +'                      <span>	'
-		    //                       +'                          원	'
-		    //                       +'                      </span>	'
-		    //                       +'                  </div>	'
-		    //                       +'              </div>	'
-		    //                       +'          </div>	'
-		    //                       +'      </div>	'
-		    //                       +'  </a>	'
-		    //                     if(t1 == 4){
-		    //                     	t1 = 0
-		    //                     }
-				//  }
-				 
-				s1 = i;
-			} 
-			if(t1 > 0){
-				for (var i = 1; i < 4 - t1 + 1 ; i++) {
-					let_go = let_go  + '<div class="startup_info"></div>'
-				}
-			}   
-			parent.document.getElementById("data_insert").innerHTML = let_go;
-			now_value = s1;
+      var div = document.createElement('div');
+      div.innerHTML = content;
+      fragment.appendChild(div);
+      itemsAdded++;
+			}}
+
+			parent.document.getElementById("data_insert").appendChild(fragment);
+			now_value += itemsAdded;
 		}
 	}
 	go_next()

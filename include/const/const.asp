@@ -1,5 +1,5 @@
 ﻿<%
-	homepage_name = "2023 학생 창업유망팀 300 페스티벌"
+	homepage_name = "2023 학생 창업유망팀 300 네트워킹 데이"
 	file_path = "D:\site\new_u300\upload\"
 	content_path = "D:\site\new_u300\cms\contents\"
 	

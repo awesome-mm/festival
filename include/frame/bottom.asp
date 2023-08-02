@@ -59,6 +59,7 @@
 
     <script src="/js/ui.js"></script>
     <script src="/js/newsTicker.js"></script>
+    <script src="/js/jquery-ui-mobile.js"></script>
     <script>
         $('.newsticker').newsTicker();
     </script>

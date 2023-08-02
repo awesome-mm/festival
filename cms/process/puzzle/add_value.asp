@@ -1,7 +1,5 @@
 ﻿<!-- #include virtual="/include/db/db_connect.asp" --> 
  				<script>
-
-
  				 parent.document.getElementById("add_value_div").innerHTML = parent.document.getElementById("add_value_div").innerHTML  +  ''<%
                         	first_no = r_call("first_no")
                         	a1=cint(r_call("s_no"))
@@ -55,6 +53,8 @@
 				%>+ '';
 				 parent.document.getElementById("first_no").value=<%=first_no%>;
 				 parent.document.getElementById("s_no").value=<%=a2 - 1%>;
+				  
 		 		</script>
-﻿<!-- #include virtual="/include/db/db_close.asp" --> 
+
+<!-- #include virtual="/include/db/db_close.asp" --> 
 	 

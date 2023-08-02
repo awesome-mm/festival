@@ -567,22 +567,8 @@ max-width: 100%;
  font-size: 28px; 
 
  } 
- .fes_subject { 
- margin: 60px 0 20px; 
- font-size: 25px; 
- text-align: center; 
- color: #303030; 
- } 
 
- .fes_title { 
- padding: 20px 0 5px; 
- color: #e5590c; 
- font-size: 22px; 
- } 
 
- .fes_txt { 
- font-size: 18px; 
- } 
 
  .down_arrow { 
  margin-left: 60px; 
@@ -980,6 +966,12 @@ footer .footer__wrap .footer__menu ul li a {
     margin-left: 0;
   }
 
+  /* 행사개요 */
+  .inner_page{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width:640px) {
@@ -987,12 +979,18 @@ footer .footer__wrap .footer__menu ul li a {
   .gb_subject{
     width: 12rem;
   }
+  .main_visual{
+    margin-top: 0;
+  }
   .visual{
     border-radius: 20px;
     padding-top: 20px;
   }
   
-
+  /* 모바일 닫기버튼 */
+  .deleteButton{
+    display: block;
+  }
   .container .wrapper{
     padding-top: 60px;
   }
@@ -1163,6 +1161,36 @@ footer .footer__wrap .footer__menu ul li a {
     margin-top: 0;
   }
 
+  .fes_subject span{
+    display: block;
+  }
+  .fes_txt{
+    left: 20%;
+  }
+  .join_list{
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+  }
+  .join_list li{
+    width: 280px;
+    font-size: 14px;
+  }
+
+  .summary_page{
+    margin-top: 60px;
+  }
+  .participate{
+    display: block;
+  }
+  
+   .fes_subject { 
+    width: 90%;
+    padding: 20px 5%;
+    font-size: 24px; 
+    text-align: center; 
+    } 
+    
   /* sub title */
   .sub_title{
     margin: 0 10%;
