@@ -225,6 +225,15 @@
 		tbl_board.Close
 		Set tbl_board=Nothing 
  %>
+						<br/>
+						<span>이스터에그 이벤트 현황 : 
+                        <%tot_bug = session("session_c_bug1")+session("session_c_bug2")+session("session_c_bug3")+session("session_c_bug4")+session("session_c_bug5")
+						if tot_bug = 5 then%>
+						5 / 5 (응모완료)
+						<%else%>
+						<%=tot_bug%> / 5
+						<%end if%>
+						</span>
                         </div>
 														<div class="login_btn_group" >
 																	<a class="no_mem2" href="/cms/process/membership2/list.asp?c_show_no=75&c_check_no=67&c_relation=828&c_relation2=677">

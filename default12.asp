@@ -227,6 +227,8 @@ set rolling_section = nothing
             setInterval(getDataUpdate, 10000 );
         });
 
+        
+
 </script>
 
                   <section class="intro_event_wrapper">
@@ -441,8 +443,8 @@ s_text = r_call("s_text")
                             <option value="5" <%if c_festival_type = "5" then%>selected<%end if%>>성장(충청권)</option>
                             <option value="6" <%if c_festival_type = "6" then%>selected<%end if%>>성장(호남제주권)</option>
                             <option value="7" <%if c_festival_type = "7" then%>selected<%end if%>>성장(대경강원권)</option>
-                            <option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장(동남권)</option>
-                            <option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문대)</option>
+							              <option value="8" <%if c_festival_type = "8" then%>selected<%end if%>>성장(동남권)</option>
+							              <option value="9" <%if c_festival_type = "9" then%>selected<%end if%>>성장(전문대)</option>
                             <option value="10" <%if c_festival_type = "10" then%>selected<%end if%>>교육</option> 
 
                         </select>
@@ -461,8 +463,6 @@ s_text = r_call("s_text")
 
 					}
 				}
-
-
 
 
 			</script>
@@ -504,7 +504,7 @@ s_text = r_call("s_text")
                     </div>
                     <div class="more_sch" >
                         <div class="more_sch_txt">
-                            <a href="javascript:void(0)" onclick="exec2.go_next()" >
+                            <a href="#none" onclick="exec2.go_next()" >
                                 프로젝트 더보기
                             </a>
                         </div>
@@ -514,7 +514,7 @@ s_text = r_call("s_text")
 </form>
             </div>
 
-<iframe name="exec2" id="exec2" src="" style="display:none;width:0px;height:0px" onload=""></iframe>   
+<iframe name="exec2" id="exec2" src="" style="display:none;width:0px;height:0px"></iframe>   
 
 <script>
  	document.kdb.action = "/cms/process/invest/add_value.asp"
@@ -585,88 +585,81 @@ s_text = r_call("s_text")
 
 
     $(document).ready(function() {
-        let isLoopRunning  = false; // 무한루프 동작중 true
-        clearInterval(loopPostitAnimation)
-
-        // 최초 로딩 모든 요소 투명도 0
-        const movingElements = document.querySelectorAll(".movingElement");
-        movingElements.forEach(element => {
-            element.style.opacity = "0"
-        });
-
-        var loopPostitAnimation =  setInterval(postItAnimation,10000);
+        // console.log('로딩끝')
 
         function postItAnimation() {
-            if (isLoopRunning === true) return 
-            if (isLoopRunning === false){ 
-                isLoopRunning = true
+            // Get the box containing the moving elements
+            const movingElementBox = document.querySelector(".movingElement_box");
+            const movingElements = movingElementBox.querySelectorAll(".movingElement");
 
-                const movingElementBox = document.querySelector(".movingElement_box");
-                const movingElements = document.querySelectorAll(".movingElement");
-
-                // 함수 실행마다 opacity = 0
-                movingElements.forEach(element => {
-                    element.style.opacity = "0"
-                });
-
-                // css position insert
-                function updatePosition(element, topValue, leftValue) {
-                element.style.top = `${topValue}%`;
-                element.style.left = `${leftValue}%`;
-                }
-
-                // random position
-                function getRandomPosition() {
-                const randomTop = Math.floor(Math.random() * 70) + 1; // Adjust the range based on box height (400px - element height 50px)
-                const randomLeft = Math.floor(Math.random() * 85) + 1; // Adjust the range based on box width (400px - element width 50px)
-                return { topValue: randomTop, leftValue: randomLeft };
-                }
-
-                // 애니메이트 함수 
-                function animateMovement(index) {
-                if (index >= movingElements.length) {
-                    isLoopRunning = false;
-                    return; // 재귀 종료
-                }
-
-                const movingElement = movingElements[index];
-                const deleteButton = movingElement.querySelector(".deleteButton");
-
-                // 삭제버튼
-                deleteButton.addEventListener("click", () => {
-                    movingElement.style.opacity = 0; // 0.2s transition effect
-                    setTimeout(() => {
-                    movingElement.style.display = "none";
-                    }, 500);
-                });
-
-                const { topValue, leftValue } = getRandomPosition();
-                updatePosition(movingElement, topValue, leftValue);
-                movingElement.style.opacity = "1"; // Display the element
-
-                // 100ms 마다 index + 1 해주는 함수
-                setTimeout(() => {
-                    animateMovement(index + 1);
-                }, 100);
-                }
-
-                //index 0 번쨰부터 재귀 시작을 위한 함수
-                animateMovement(0);
-
-                let movingElementLength = movingElements.length;
-                
-                $(function () {
-                for (let i = 0; i < movingElementLength; i++) {
-                    $("#draggable" + i).draggable();
-                }
-                });
+            // Function to update CSS top and left values
+            function updatePosition(element, topValue, leftValue) {
+            element.style.top = `${topValue}%`;
+            element.style.left = `${leftValue}%`;
             }
-           
+
+            // Function to generate random values for top and left
+            function getRandomPosition() {
+            const randomTop = Math.floor(Math.random() * 70) + 1; // Adjust the range based on box height (400px - element height 50px)
+            const randomLeft = Math.floor(Math.random() * 85) + 1; // Adjust the range based on box width (400px - element width 50px)
+            return { topValue: randomTop, leftValue: randomLeft };
+            }
+
+            // Function to animate the movement for each moving element
+            function animateMovement(index) {
+            if (index >= movingElements.length) {
+                return; // All elements are displayed, stop recursion
+            }
+            
+
+            const movingElement = movingElements[index];
+            const deleteButton = movingElement.querySelector(".deleteButton");
+
+            // Attach click event listener to delete button
+            deleteButton.addEventListener("click", () => {
+                // Hide the element by reducing opacity to 0
+                movingElement.style.opacity = 0;
+                // After a delay of 500ms (transition duration), set display to none
+                setTimeout(() => {
+                movingElement.style.display = "none";
+                }, 500);
+            });
+
+            const { topValue, leftValue } = getRandomPosition();
+            updatePosition(movingElement, topValue, leftValue);
+            movingElement.style.opacity = "1"; // Display the element
+
+            // Call the next element after a delay of 100ms
+            setTimeout(() => {
+                animateMovement(index + 1);
+            }, 100);
+            }
+
+            // Call the function to start the animation for each moving element
+            animateMovement(0);
+
+            let movingElementLength = $(".movingElement").length;
+            
+            $(function () {
+            for (let i = 0; i < movingElementLength; i++) {
+                $("#draggable" + i).draggable();
+            }
+            });
         }
         postItAnimation()
 
-        // 무한루프 다시 뿌려주는 효과
-        loopPostitAnimation =  setInterval(postItAnimation, 10000);
+// 무한루프 다시 뿌려주는 효과
+         setInterval(() => {
+             const movingElements = document.querySelectorAll(".movingElement");
+             movingElements.forEach(element => {
+                 element.style.opacity = "0"
+             });
+             postItAnimation()
+         }, 10000);
+        
+        // console.log('함수실행')
+
+
     });
     
 

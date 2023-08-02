@@ -5,8 +5,7 @@
                     <div class="fes_wrap">
                         <div class="poster_wrap">
                             <div class="summary_poster">
-<!--                                 <img src="/images/u300_fes_poster_2.png" style="max-width:700px"> -->
-								 <img src="/images/u300_fes_poster_2023.png" style="max-width:520px">
+								              <img src="/images/u300_fes_poster_2023.png" style="max-width:520px">
                             </div>
                         </div>
                         <div class ="summary_page">

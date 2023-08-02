@@ -22,8 +22,9 @@
 			end if 
 	 
 
-	 strSQL="SELECT * FROM tbl_board WHERE c_no=c_no "& search_t &"  and c_no  = "& c_no &"  "             
- 	 Set tbl_board=CreateObject("ADODB.RecordSet")
+	strSQL="SELECT * FROM tbl_board WHERE c_no=c_no "& search_t &"  and c_no  = "& c_no &"  "  
+	'response.write strSQL
+ 	Set tbl_board=CreateObject("ADODB.RecordSet")
 	tbl_board.Open strSQL, dbCon, 1
 	intPage=r_call("page")
 	If intPage="" Then
