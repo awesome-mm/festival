@@ -23,6 +23,12 @@
 			end if
 		%>
 			<!--벌레1 S-->
+<% 
+			bug_s_date = "2023-08-11 09:00"
+			bug_e_date = "2023-08-20 23:59"
+			if now() > cdate(bug_s_date) and now() < cdate(bug_e_date) then
+%>
+      
 			<%if (session("session_c_bug1") <> "") AND session("session_c_bug1") = 0 then%>
 			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
 				<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
@@ -58,16 +64,19 @@
 							url: "find_bug.asp",
 							data: "c_member_no="+c_member_no+"&bug_column="+bug_column,
 							cache: false,
-							success: function(msg){
-								alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 5 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
-								document.querySelector("#bug_column").style.display="none";
+								success: function(msg){
+									alert("U-300표식 " + total_find_bug +" / 5 개 찾았습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
+									document.querySelector("#bug_column").style.display="none";
 								
 							}
 						});
 						
 					}
 				</script>
-			<%End if%>
+				<%End if%>
+			<%else%>
+			<%end if%>
+
 			<!--벌레1 E-->
 
 	    <div class="event_wrapper" style=";height:auto">

@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
-	s_date = "2023-07-26 00:00"
-	e_date = "2023-08-11 23:59"
+	s_date = "2023-08-11 09:00"
+	e_date = "2023-08-20 23:59"
 
 
 
@@ -102,7 +102,12 @@
 	</script>
 
 			
-	<!----------벌레3,4,5--------->
+		<!----------벌레3,4,5 S--------->
+		<% 
+		bug_s_date = "2023-08-11 09:00"
+		bug_e_date = "2023-08-20 23:59"
+		if now() > cdate(bug_s_date) and now() < cdate(bug_e_date) then
+		%>
 			<%if (session("session_c_bug3") <> "" AND session("session_c_bug4") <> "" AND session("session_c_bug5") <> "") AND (session("session_c_bug3")=0 OR session("session_c_bug4")=0 OR session("session_c_bug5")=0) then%>
 			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
 			<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
@@ -157,7 +162,7 @@
 					data: "c_member_no="+c_member_no+"&bug_column="+bug_column,
 					cache: false,
 					success: function(msg){
-						alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 5 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.!");
+						alert("U-300표식 " + total_find_bug +" / 5 개 찾았습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
 						document.querySelector("#bug_column").style.display="none";
 						
 					}
@@ -166,7 +171,9 @@
 			}
 			</script>
 			<%end if%>
-			<!----------벌레3,4,5----------->
+		<%else%>
+		<%End if%>
+	<!----------벌레3,4,5 E----------->
 	<form name="kdb" >
 		<div class="blue">
 		
@@ -324,7 +331,7 @@
 						<div class="funding_state_box"style="margin-top : 60px;">
 							<p>마감일</p>
 							<span class="date">
-									2023-08-18 24:00 까지
+									2023-08-20 24:00 까지
 							</span>
 
 							<div class="funding_state">

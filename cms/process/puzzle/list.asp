@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
-	s_date = "2023-07-16 00:00"
-	e_date = "2023-08-18 23:59"
+	s_date = "2023-08-11 09:00"
+	e_date = "2023-08-20 23:59"
 
 
 	
@@ -371,7 +371,12 @@ dateChange();
 		<% end if%>
 	}
 </script>
-            <!--벌레2 S-->
+        <!--벌레2 S-->
+		<% 
+		bug_s_date = "2023-08-11 09:00"
+		bug_e_date = "2023-08-20 23:59"
+		if now() > cdate(bug_s_date) and now() < cdate(bug_e_date) then
+		%>
 			<%if (session("session_c_bug2")<>"") AND session("session_c_bug2") = 0 then%>
 			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
 				<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
@@ -408,7 +413,7 @@ dateChange();
 							data: "c_member_no="+c_member_no+"&bug_column="+bug_column,
 							cache: false,
 							success: function(msg){
-								alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 5 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.!");
+								alert("U-300표식 " + total_find_bug +" / 5 개 찾았습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
 								document.querySelector("#bug_column").style.display="none";
 								
 							}
@@ -416,8 +421,10 @@ dateChange();
 						
 					}
 				</script>
-			<%End if%>
-			<!--벌레2 E-->
+			<%end if%>
+		<%else%>
+		<%End if%>
+		<!--벌레2 E-->
 				<section class="guest_book_bottom">
 						<form name="kdb" class="guest_book">
 							  <div>
@@ -440,7 +447,7 @@ dateChange();
 													<textarea id="input-letter" maxlength="500" cols="30" rows="10"  name="c_content" 
 													placeholder="<%=place_t%>" onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%><%end if%>" ></textarea>
 													<!--onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%>gogo()<%end if%>"-->
-													<button type="button" class="btn_guest" onclick="gogo()">등록하기</button>
+													<button type="button" class="btn_guest" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>gogo()<%else%>alert('방명록 작성기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>">등록하기</button>
 											</div>
 								</div>
 						 </form>
