@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
 	s_date = "2023-07-26 00:00"
-	e_date = "2023-08-11 23:59"
+	e_date = "2023-08-20 23:59"
 
 
 
@@ -317,7 +317,7 @@
 						<div class="funding_state_box"style="margin-top : 60px;">
 							<p>마감일</p>
 							<span class="date">
-									2023-08-18 24:00 까지
+									2023-08-20 24:00 까지
 							</span>
 
 							<div class="funding_state">
