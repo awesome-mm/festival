@@ -378,10 +378,20 @@ dateChange();
 				<input id="total_find_bug" type="hidden" value="<%=total_find_bug%>">
 				<div style="width:200px; position : absolute; top:70%; left:40%">
 					<a href="#none" onclick="find_bug();">
-						<img id="bug_column" name = "c_bug2" src="/images/bugIMG2.png" style=" max-width:100%">
+						<img id="bug_column" class="bug_img" name = "c_bug2" src="/images/bugIMG2.png" style=" max-width:100%">
 					</a>
 				</div>
 				<script>
+
+					let bugImgEl =  document.querySelector('.bug_img')
+					let bugImgHeight = document.querySelector('.bug_img').getBoundingClientRect().top
+					window.addEventListener('scroll', function(){
+						console.log(window.scrollY )
+						console.log(bugImgHeight - 200)
+						if( window.scrollY  >= bugImgHeight -200)
+						bugImgEl.classList.add('on')
+					});
+
 					function find_bug(){
 						let c_member_no = document.querySelector("#bug_member_no").value
 						let total_find_bug = document.querySelector("#total_find_bug").value
@@ -389,6 +399,8 @@ dateChange();
 						bug_column = document.getElementById("bug_column").getAttribute('name');
 						
 						//alert("total_find_bug = "+total_find_bug +"\n"+"bug_column = "+ bug_column)
+
+
 						
 						$.ajax({
 							type: "POST",

@@ -27,17 +27,29 @@
 			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
 				<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
 				<input id="total_find_bug" type="hidden" value="<%=total_find_bug%>">
-				<div style="width:200px; position : absolute; top:20%; left:10%">
+				<div style="width:200px; position : absolute; bottom:40%; left:10%">
 					<a href="#none" onclick="find_bug();">
-						<img id="bug_column" name = "c_bug1" src="/images/bugIMG1.png" style=" max-width:100%">
+						<img id="bug_column" class="bug_img" name = "c_bug1" src="/images/bugIMG1.png" style=" max-width:100%">
 					</a>
 				</div>
 				<script>
+
+					let bugImgEl =  document.querySelector('.bug_img')
+					let bugImgHeight = document.querySelector('.bug_img').getBoundingClientRect().top
+					window.addEventListener('scroll', function(){
+						if( window.scrollY  > bugImgHeight -200)
+						bugImgEl.classList.add('on')
+					});
+
+
+
 					function find_bug(){
 						let c_member_no = document.querySelector("#bug_member_no").value
 						let total_find_bug = document.querySelector("#total_find_bug").value
 						total_find_bug = parseInt(total_find_bug)+1
 						bug_column = document.getElementById("bug_column").getAttribute('name');
+
+
 						
 						//alert("total_find_bug = "+total_find_bug +"\n"+"bug_column = "+ bug_column)
 						

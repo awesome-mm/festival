@@ -2210,6 +2210,31 @@ section.sub_intro {
     color: #fff;
 
 }
+.bug_img{
+    width: 200px;
+
+}
+.bug_img.on{
+    animation: bugani 2s ease-out;
+    animation-fill-mode: forwards;
+    transition: all 0.3s ease-out;
+}
+
+@keyframes bugani {
+    0%{
+        transform: scale(0.9);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50%{
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
 .invest_bg{
     position: relative;
     padding-bottom: 70px;
@@ -2504,6 +2529,10 @@ section.sub_intro {
     right: -5.833%;
 }
 
+
+.invest_bg .range_bar_rable .label1{
+    padding: 3px 16px;
+}
 /*-------add_value.asp--------*/
 .list_range_bar_rable{
     display: flex;
@@ -2526,6 +2555,7 @@ section.sub_intro {
     color: #fff;
     background: linear-gradient(270deg, rgba(54,211,154,1) 0%, rgba(222,240,102,1) 100%);
     left: -3.666%;
+    padding: 3px 16px;
 }
 .list_range_bar_rable .label2{
     color: #FFDBBA;
@@ -3189,6 +3219,7 @@ div.con2_reply .reply_date {
     transition:  opacity 0.2s ease-out;
     transition-property:  border-bottom-right-radius, opacity;
     opacity: 0;
+    font-weight: 700;
 }
 
 

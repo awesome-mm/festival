@@ -182,15 +182,15 @@
 
     });
 
-    // 로컬 스토리지를 이용한 height 저장 후 특정 위치로 이동
+    // 로컬 스토리지를 이용한 height 저장 후 
     function saveScrollPosition() {
-    let go_tab= document.querySelector('#go_tab');
+    let go_tab= document.querySelector('#go_tab'); //main tap menu
     let tabHeight = go_tab.offsetTop;
     var scrollPosition = tabHeight;
     localStorage.setItem('scrollPosition', scrollPosition);
     
 }
-
+// 로컬 스토리지 저장 값 특정 위치로 이동
 window.onload = function() {
     var scrollPosition = localStorage.getItem('scrollPosition');
     if (scrollPosition) {

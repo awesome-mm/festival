@@ -174,30 +174,32 @@ invest_grade ="iron"
 							<img src="/images/invest_arrow.png" alt="">
 							<img src="/images/invest_arrow.png" alt="">
 						</div>
-
 						<div class="range_bar_rable">
 								<div class="label label1">
-									<span>Seed<span>
-								</div>
-								<div class="label label2">
-									<span>Series A<span>
+									<span>Seed</span>
 									<br>
-									<span>2.5억<span>
+									<span> &nbsp; </span>
+								</div>
+
+								<div class="label label2">
+									<span>Series A</span>
+									<br>
+									<span>2.5억</span>
 								</div>
 								<div class="label label3" >
-									<span>Series B<span>
+									<span>Series B</span>
 									<br>
-									<span>5억<span>
+									<span>5억</span>
 								</div>
 								<div class="label label4" >
-									<span>Series C<span>
+									<span>Series C</span>
 									<br>
-									<span>7.5억<span>
+									<span>7.5억</span>
 								</div>
 								<div class="label label5" >
-									<span>Pre-Unicorn<span>
+									<span>Pre-Unicorn</span>
 									<br>
-									<span>10억<span>
+									<span>10억</span>
 								</div>
 						 </div>
 						

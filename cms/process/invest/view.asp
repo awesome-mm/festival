@@ -115,7 +115,7 @@
 			-->
 			<div style="width:200px; position : absolute; bottom:40%; right:20%">
 				<a href="#none" onclick="find_bug();" >
-					<img id="bug_column" <%if session("session_c_bug3") = 0 then %> 
+					<img id="bug_column" class="bug_img" <%if session("session_c_bug3") = 0 then %> 
 											name="c_bug3" src="/images/bugIMG3.png" 
 										<%elseif session("session_c_bug3") = 1 AND session("session_c_bug4") = 0 then%> 
 											name="c_bug4" src="/images/bugIMG4.png" 
@@ -133,6 +133,13 @@
 				bug_random_number.value=random_num;
 				if(bug_random_number.value == "1" || bug_random_number.value == "2" ){
 					document.querySelector("#bug_column").style.display="block";
+
+					let bugImgEl =  document.querySelector('.bug_img')
+					let bugImgHeight = document.querySelector('.bug_img').getBoundingClientRect().top
+					window.addEventListener('scroll', function(){
+						if( window.scrollY  > bugImgHeight -200)
+						bugImgEl.classList.add('on')
+					});
 				}
 			})();
 
@@ -260,31 +267,31 @@
 
 						<div class="range_bar_rable">
 								<div class="label label1">
-									<span>Seed<span>
+									<span>Seed</span>
+									<br>
+									<span> &nbsp; </span>
 								</div>
 
 								<div class="label label2">
-									<span>Series A<span>
+									<span>Series A</span>
 									<br>
-									<span>2.5억<span>
+									<span>2.5억</span>
 								</div>
 								<div class="label label3" >
-									<span>Series B<span>
+									<span>Series B</span>
 									<br>
-									<span>5억<span>
+									<span>5억</span>
 								</div>
 								<div class="label label4" >
-									<span>Series C<span>
+									<span>Series C</span>
 									<br>
-									<span>7.5억<span>
+									<span>7.5억</span>
 								</div>
 								<div class="label label5" >
-									<span>Pre-Unicorn<span>
+									<span>Pre-Unicorn</span>
 									<br>
-									<span>10억<span>
+									<span>10억</span>
 								</div>
-
-
 						 </div>
 
 
