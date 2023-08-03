@@ -168,7 +168,7 @@ set rolling_section = nothing
     function rollingEffect(total_investment , total_team){
 
         // console.log(total_investment)
-        $({ val : 100000000 }).animate({ val : total_investment }, {
+        $({ val : 0 }).animate({ val : total_investment }, {
         duration: 3000,
         step: function() {
             var num = numberWithCommas(Math.floor(this.val));
