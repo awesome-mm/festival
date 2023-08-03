@@ -3611,7 +3611,7 @@ div.postit_content > p > a {
 .summary_page {
     display: inline-block;
     /* float: left; */
-    width: 920px;
+    width: 720px;
     height: 735px;
     background: #f7f7f7;
     color: #333333;
@@ -3622,7 +3622,7 @@ div.postit_content > p > a {
 
 .inner_page {
     position: relative;
-    margin-left: 250px;
+    margin-left: 120px;
     margin-top: 55px;
 }
 

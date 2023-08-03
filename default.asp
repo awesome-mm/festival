@@ -300,7 +300,7 @@ set rolling_section = nothing
                                     2023 학생 창업유망팀 300
                                 </p>
 
-                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.18</div>
+                                <div class="mgt30 tac co0d fs20">2023.08.11 ~ 2023.08.20</div>
 
                 
 
