@@ -2548,7 +2548,7 @@ section.sub_intro {
     text-align: center;
     border-radius: 11.5px;
     position: absolute;
-    top: 12px;
+    top: 4px;
 }
 
 .list_range_bar_rable .label1{
@@ -2556,22 +2556,30 @@ section.sub_intro {
     background: linear-gradient(270deg, rgba(54,211,154,1) 0%, rgba(222,240,102,1) 100%);
     left: -3.666%;
     padding: 3px 16px;
+    height:20px;
+    line-height: 20px;
 }
 .list_range_bar_rable .label2{
     color: #FFDBBA;
     background: linear-gradient(270deg, rgba(146,93,77,1) 0%,rgba(202,148,114,1)40%, rgba(158,126,77,1) 100%);
     left: 17.83%;
+    height:20px;
+    line-height: 20px;
 }
 .list_range_bar_rable .label3{
     color: #696969;
     background: linear-gradient(270deg, rgba(193,193,193,1) 0%, rgba(255,255,255,1)40%, rgba(146,146,146,1) 100%);
     left: 50%;
     transform: translateX(-50%);
+    height:20px;
+    line-height: 20px;
 }
 .list_range_bar_rable .label4{
     color: #A06921;
     background: linear-gradient(270deg, rgba(253,191,111,1) ,rgba(255,231,201,1)40%,  rgba(255,184,0,1) 100%);
     right: 17.66%;
+    height:20px;
+    line-height: 20px;
 }
 .list_range_bar_rable .label5{
     color: #086693;
