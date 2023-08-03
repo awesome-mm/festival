@@ -1,7 +1,7 @@
 ﻿<!-- #include virtual="/cms/sub_top.asp" -->
 <%
-	s_date = "2023-07-16 00:00"
-	e_date = "2023-08-18 23:59"
+	s_date = "2023-08-01 00:00"
+	e_date = "2023-08-20 23:59"
 
 
 	
@@ -428,7 +428,7 @@ dateChange();
 													<textarea id="input-letter" maxlength="500" cols="30" rows="10"  name="c_content" 
 													placeholder="<%=place_t%>" onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%><%end if%>" ></textarea>
 													<!--onfocus="<%if kkp = 1 then%>go_login()<%end if%><%if kkp = 3 then%>gogo()<%end if%>"-->
-													<button type="button" class="btn_guest" onclick="gogo()">등록하기</button>
+													<button type="button" class="btn_guest" onclick="<%if now() > cdate(s_date) and now() < cdate(e_date) then%>gogo()<%else%>alert('방명록 작성기간은 <%=s_date%> ~ <%=e_date%>입니다.')<%end if%>">등록하기</button>
 											</div>
 								</div>
 						 </form>
