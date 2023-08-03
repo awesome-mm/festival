@@ -34,7 +34,7 @@
                             <div class="pati_term">
                                 <span>참여기간</span>
 							<!-- <span>2023년 08월 16일 (화) ~ 08월 25일 (목)</span>-->
-                                <span>2023년 8월 예정 </span>
+                                <span>2023년 8월 11일(금) ~ 8월 20일(일) </span>
                             </div>
                         </div>
                         <div class="pati_how">

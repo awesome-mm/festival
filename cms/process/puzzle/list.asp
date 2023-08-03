@@ -371,7 +371,12 @@ dateChange();
 		<% end if%>
 	}
 </script>
-            <!--벌레2 S-->
+        <!--벌레2 S-->
+		<% 
+		bug_s_date = "2023-08-01 00:00"
+		bug_e_date = "2023-08-20 23:59"
+		if now() > cdate(bug_s_date) and now() < cdate(bug_e_date) then
+		%>
 			<%if (session("session_c_bug2")<>"") AND session("session_c_bug2") = 0 then%>
 			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
 				<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
@@ -404,8 +409,10 @@ dateChange();
 						
 					}
 				</script>
-			<%End if%>
-			<!--벌레2 E-->
+			<%end if%>
+		<%else%>
+		<%End if%>
+		<!--벌레2 E-->
 				<section class="guest_book_bottom">
 						<form name="kdb" class="guest_book">
 							  <div>

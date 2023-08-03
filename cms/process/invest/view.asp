@@ -102,7 +102,12 @@
 	</script>
 
 			
-	<!----------벌레3,4,5--------->
+		<!----------벌레3,4,5 S--------->
+		<% 
+		bug_s_date = "2023-08-01 00:00"
+		bug_e_date = "2023-08-20 23:59"
+		if now() > cdate(bug_s_date) and now() < cdate(bug_e_date) then
+		%>
 			<%if (session("session_c_bug3") <> "" AND session("session_c_bug4") <> "" AND session("session_c_bug5") <> "") AND (session("session_c_bug3")=0 OR session("session_c_bug4")=0 OR session("session_c_bug5")=0) then%>
 			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
 			<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
@@ -159,7 +164,9 @@
 			}
 			</script>
 			<%end if%>
-			<!----------벌레3,4,5----------->
+		<%else%>
+		<%End if%>
+	<!----------벌레3,4,5 E----------->
 	<form name="kdb" >
 		<div class="blue">
 		

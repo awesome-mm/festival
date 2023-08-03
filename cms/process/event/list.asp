@@ -23,41 +23,48 @@
 			end if
 		%>
 			<!--벌레1 S-->
-			<%if (session("session_c_bug1") <> "") AND session("session_c_bug1") = 0 then%>
-			<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
-				<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
-				<input id="total_find_bug" type="hidden" value="<%=total_find_bug%>">
-				<div style="width:200px; position : absolute; top:20%; left:10%">
-					<a href="#none" onclick="find_bug();">
-						<img id="bug_column" name = "c_bug1" src="/images/bugIMG1.png" style=" max-width:100%">
-					</a>
-				</div>
-				<script>
-					function find_bug(){
-						let c_member_no = document.querySelector("#bug_member_no").value
-						let total_find_bug = document.querySelector("#total_find_bug").value
-						total_find_bug = parseInt(total_find_bug)+1
-						bug_column = document.getElementById("bug_column").getAttribute('name');
-						
-						//alert("total_find_bug = "+total_find_bug +"\n"+"bug_column = "+ bug_column)
-						
-						$.ajax({
-							type: "POST",
-							url: "find_bug.asp",
-							data: "c_member_no="+c_member_no+"&bug_column="+bug_column,
-							cache: false,
-							success: function(msg){
-								alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 5 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
-								document.querySelector("#bug_column").style.display="none";
-								
-							}
-						});
-						
-					}
-				</script>
-			<%End if%>
+			<% 
+			bug_s_date = "2023-08-01 00:00"
+			bug_e_date = "2023-08-20 23:59"
+			if now() > cdate(bug_s_date) and now() < cdate(bug_e_date) then
+			%>
+				<%if (session("session_c_bug1") <> "") AND session("session_c_bug1") = 0 then%>
+				<%total_find_bug = session("session_c_bug1") + session("session_c_bug2") + session("session_c_bug3") + session("session_c_bug4") + session("session_c_bug5")%>
+					<input id="bug_member_no" type="hidden" value="<%=session("session_no")%>">
+					<input id="total_find_bug" type="hidden" value="<%=total_find_bug%>">
+					<div style="width:200px; position : absolute; top:20%; left:10%">
+						<a href="#none" onclick="find_bug();">
+							<img id="bug_column" name = "c_bug1" src="/images/bugIMG1.png" style=" max-width:100%">
+						</a>
+					</div>
+					<script>
+						function find_bug(){
+							let c_member_no = document.querySelector("#bug_member_no").value
+							let total_find_bug = document.querySelector("#total_find_bug").value
+							total_find_bug = parseInt(total_find_bug)+1
+							bug_column = document.getElementById("bug_column").getAttribute('name');
+							
+							//alert("total_find_bug = "+total_find_bug +"\n"+"bug_column = "+ bug_column)
+							
+							$.ajax({
+								type: "POST",
+								url: "find_bug.asp",
+								data: "c_member_no="+c_member_no+"&bug_column="+bug_column,
+								cache: false,
+								success: function(msg){
+									alert("이스터에그 이벤트 벌레 " + total_find_bug +" / 5 마리 찾으셨습니다.\n전부 찾으신 경우 이벤트에 자동 응모됩니다.");
+									document.querySelector("#bug_column").style.display="none";
+									
+								}
+							});
+							
+						}
+					</script>
+				<%End if%>
+			<%else%>
+			<%end if%>
 			<!--벌레1 E-->
-
+			
 	    <div class="event_wrapper" style=";height:auto">
 												<div class="sub_title">
 														<h2>이벤트</h2>

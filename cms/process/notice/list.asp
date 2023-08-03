@@ -83,7 +83,7 @@
                                 </thead>
                                 <tbody>
                          <%
-			 strSQL="SELECT * FROM tbl_board WHERE c_no=c_no "& search_t &"  ORDER BY c_no desc"             
+			 strSQL="SELECT * FROM tbl_board WHERE c_no=c_no "& search_t &"  ORDER BY c_date desc"             
 		 	'response.write strSQL
 		 	 Set tbl_board=CreateObject("ADODB.RecordSet")
 			tbl_board.Open strSQL, dbCon, 1
